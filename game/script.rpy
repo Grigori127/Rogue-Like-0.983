@@ -164,6 +164,7 @@ init -1:
     default P_Cock = "out"
     default P_Spunk = 0
     default P_Wet = 0
+    call mod_default_Variables
 #Rogue Stats   
     default R_Loc = "bg rogue"
     default R_Love = 500
