@@ -1950,7 +1950,7 @@ label R_Dildo_Pussy:
                                 if Situation:
                                     $ renpy.pop_call()
                                 if renpy.showing("Rogue_Doggy"):
-                                    call Rogue_Doggy_Reset  
+                                    call Rogue_Sex_Reset  
                                 $ R_RecentActions.append("angry")
                                 $ R_DailyActions.append("angry")                          
                             else:
@@ -2565,7 +2565,7 @@ label R_Dildo_Ass:
                             if Situation:
                                 $ renpy.pop_call()
                             if renpy.showing("Rogue_Doggy"):
-                                call Rogue_Doggy_Reset  
+                                call Rogue_Sex_Reset  
                             $ R_RecentActions.append("angry")
                             $ R_DailyActions.append("angry")                         
                         else:
@@ -3481,13 +3481,13 @@ label RFJ_Cycle:
                                                    
                         "Back to Sex Menu" if MultiAction: 
                                     ch_p "Let's try something else."
-                                    call Rogue_Doggy_Reset
+                                    call Rogue_Sex_Reset
                                     $ Situation = "shift"
                                     $ Line = 0
                                     jump RFJ_After
                         "End Scene" if not MultiAction: 
                                     ch_p "Let's stop for now."
-                                    call Rogue_Doggy_Reset
+                                    call Rogue_Sex_Reset
                                     $ Line = 0
                                     jump RFJ_After
         #End menu (if Line)
@@ -3507,7 +3507,7 @@ label RFJ_Cycle:
                             #If you can cum:                                                 
                             call PR_Cumming
                             if "angry" in R_RecentActions:  
-                                call Rogue_Doggy_Reset
+                                call Rogue_Sex_Reset
                                 return    
                             call Statup("Rogue", "Lust", 200, 5) 
                             if 100 > R_Lust >= 70 and R_OCount < 2:             
@@ -3568,7 +3568,7 @@ label RFJ_Cycle:
                                 jump RFJ_Cycle
                         "Let's try something else." if MultiAction: 
                                 $ Line = 0
-                                call Rogue_Doggy_Reset
+                                call Rogue_Sex_Reset
                                 $ Situation = "shift"
                                 jump RFJ_After
                         "No, get back down there.":
@@ -3638,7 +3638,7 @@ label RFJ_After:
     if Situation == "shift":
         ch_r "Mmm, so what else did you have in mind?"
     else:
-        call Rogue_Doggy_Reset    
+        call Rogue_Sex_Reset    
     call Checkout
     return
 

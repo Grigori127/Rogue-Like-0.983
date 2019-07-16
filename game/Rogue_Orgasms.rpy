@@ -69,7 +69,10 @@ label PR_Cumming:
                 jump R_Facial     
         "Cum on her tits":
                 jump R_TitSpunk         
-        "Cum on her ass" if Trigger == "sex" or Trigger == "anal" or Trigger == "hotdog":
+#MOD MARKER cum menu choices
+        "Cum on her belly" if Trigger in ("sex","anal","hotdog","foot") and renpy.showing("Rogue_SexSprite"):
+                jump R_SpunkBelly          
+        "Cum on her ass" if (Trigger == "sex" or Trigger == "anal" or Trigger == "hotdog") and renpy.showing("Rogue_Doggy"):
                 jump R_SpunkBack
             
         "Pull back":
@@ -94,7 +97,7 @@ label PR_Cumming:
             elif renpy.showing("Rogue_HJ_Animation"):
                     call Rogue_HJ_Reset                
             elif renpy.showing("Rogue_Doggy"):
-                    call Rogue_Doggy_Reset                    
+                    call Rogue_Sex_Reset                    
             if ApprovalCheck("Rogue", 500, "I", Bonus = ((R_Addict*10)- R_Obed)) and R_Addict > 50 and R_Swallow: #If addict + Inbt is > obedience + 50. . .
                     $ R_Eyes = "manic"
                     $ R_Mouth = "kiss"
@@ -304,7 +307,7 @@ label R_Warn_Her:                                                               
                 $ Situation = "auto"
                 jump R_In_Mouth
         elif Trigger == "sex" or Trigger == "anal":
-                call Rogue_Doggy_Reset
+                call Rogue_Sex_Reset
                 "She pulls off of you and grabs your cock in her hand."
                 jump R_Handy_Finish
         elif renpy.showing("Rogue_Doggy"):#hotdogging
@@ -831,6 +834,62 @@ label R_TitSpunk:
         jump R_Orgasm_After
 
 # Start Spunk back  / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / /
+###ANON MOD CODE BLOCK START #####
+#placeholderline1 
+label R_SpunkBelly: 
+        if P_Cock != "foot":
+                call Rogue_Sex_Launch("hotdog")
+        $ Speed = 0
+        if R_Addict >= 60 and ApprovalCheck("Rogue", 1000, "I", Bonus = ((R_Addict*10)- R_Obed))  and R_Swallow:
+                $ R_Eyes = "manic"
+                $ R_Blush = 1
+                call Rogue_BJ_Launch("cum")
+                if Trigger == "sex":
+                    "You pull out of her pussy with a pop, and her eyes widen in surprise. She leaps at your cock and sucks it deep, draining your fluids hungrily."
+                elif Trigger == "anal":                
+                    "You pull out of her ass with a pop, and her eyes widen in surprise. She leaps at your cock and sucks it deep, draining your fluids hungrily."
+                $ R_Mouth = "lipbite"
+                $ R_Spunk.append("mouth")
+                "When she finishes, she licks her lips."
+                call RogueFace("bemused")
+                $ R_Spunk.remove("mouth")
+                ch_k "Sorry, that's just[R_like]sooooo good."
+                call Statup("Rogue", "Obed", 80, -5)
+                call Statup("Rogue", "Inbt", 200, 10)
+                jump R_Swallowed
+        if P_Cock != "foot":
+            $ P_Cock = "out"
+        $ P_Spunk = "out"
+        $ R_Spunk.append("belly")
+        if Trigger == "sex":
+                "You pull out of her pussy with a pop and spray all over her belly."
+        elif Trigger == "anal":
+                "You pull out of her ass with a pop and spray all over her belly."
+        else:
+                "You pick up the pace and with a grunt you spray all over her belly."
+            
+                      
+        if R_Addict >= 60 and ApprovalCheck("Rogue", 800, "I", Bonus = ((R_Addict*10)- R_Obed)) and R_Swallow: 
+                #if she's manic and has swallowed
+                $ R_Eyes = "manic"
+                $ R_Blush = 1        
+                "Rogue's eyes widen with desire, and she quickly wipes a bit off with her hand, then licks her fingers clean."
+                call RogueFace("manic", 1)
+                $ R_Spunk.append("mouth")
+                $ R_Mouth = "smile"
+                ch_k "Sorry, that's just[R_like]sooooo good."
+                $ R_Spunk.remove("mouth")
+                call Statup("Rogue", "Inbt", 50, 3)
+                jump R_Swallowed
+              
+            
+        #else . . .
+        call RogueFace("sexy", 1)
+        ch_k "Mmmm, all over the place. . ."
+#        call Rogue_Sex_Reset
+        jump R_Orgasm_After
+###ANON MOD CODE BLOCK STOP ######
+###ANON MOD CODE BLOCK STOP ######
 label R_SpunkBack: 
         if Trigger != "foot":
             call Rogue_Doggy_Launch("hotdog")
@@ -880,14 +939,14 @@ label R_SpunkBack:
         #else . . .
         call RogueFace("sexy", 1)
         ch_r "Thanks for the courtesy, [R_Petname]. Such a mess though. . ." 
-#        call Rogue_Doggy_Reset
+#        call Rogue_Sex_Reset
         jump R_Orgasm_After
     
    
 #Start Handy finish  / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / /
 label R_Handy_Finish:
         if renpy.showing("Rogue_Doggy"):
-                call Rogue_Doggy_Reset
+                call Rogue_Sex_Reset
                 if Trigger == "hotdog":
                     "She bends down and begins to stroke you off."
                 else:
@@ -966,7 +1025,7 @@ label R_Creampied:
         if R_CreamP == 1:
                 $R_SEXP += 10
                 call Statup("Rogue", "Inbt", 70, 5)
-#        call Rogue_Doggy_Reset
+#        call Rogue_Sex_Reset
 
 # Clean-up / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / /
 

@@ -144,7 +144,7 @@ label R_Doggy_P:
                         $ renpy.pop_call()
                         if Situation:
                             $ renpy.pop_call()
-                        call Rogue_Doggy_Reset
+                        call Rogue_Sex_Reset
                         $ R_RecentActions.append("angry")
                         $ R_DailyActions.append("angry")                    
                     else:
@@ -528,13 +528,13 @@ label R_Sex_Cycle: #Repeating strokes
                                                         
                         "Back to Sex Menu" if MultiAction: 
                                     ch_p "Let's try something else."
-                                    call Rogue_Doggy_Reset
+                                    call Rogue_Sex_Reset
                                     $ Situation = "shift"
                                     $ Line = 0
                                     jump R_SexAfter
                         "End Scene" if not MultiAction: 
                                     ch_p "Let's stop for now."
-                                    call Rogue_Doggy_Reset
+                                    call Rogue_Sex_Reset
                                     $ Line = 0
                                     jump R_SexAfter
         #End menu (if Line)              
@@ -554,7 +554,7 @@ label R_Sex_Cycle: #Repeating strokes
                             #If you can cum:                                                
                             call PR_Cumming
                             if "angry" in R_RecentActions:  
-                                call Rogue_Doggy_Reset
+                                call Rogue_Sex_Reset
                                 return    
                             call Statup("Rogue", "Lust", 200, 5) 
                             if 100 > R_Lust >= 70 and R_OCount < 2:             
@@ -623,7 +623,7 @@ label R_Sex_Cycle: #Repeating strokes
                                 jump R_Sex_Cycle
                         "Let's try something else." if MultiAction: 
                                 $ Line = 0
-                                call Rogue_Doggy_Reset
+                                call Rogue_Sex_Reset
                                 $ Situation = "shift"
                                 jump R_SexAfter
                         "No, get back down there.":                                
@@ -634,7 +634,7 @@ label R_Sex_Cycle: #Repeating strokes
                                     "She grumbles but keeps moving."
                                 else:
                                     call RogueFace("angry", 1)   
-                                    call Rogue_Doggy_Reset
+                                    call Rogue_Sex_Reset
                                     "She scowls at you and pulls out."
                                     ch_r "Well if that's your attitude you can handle your own business."                         
                                     call Statup("Rogue", "Love", 50, -3, 1)
@@ -660,7 +660,7 @@ label R_SexAfter:
     if not Situation: #fix  Situation != "shift" and Situation != "auto" and Situation != "pullback": 
         $ P_Sprite = 0
         $ P_Cock = "out"
-        call Rogue_Doggy_Reset
+        call Rogue_Sex_Reset
         
     call RogueFace("sexy") 
     
@@ -857,7 +857,7 @@ label R_Doggy_A:
                         $ renpy.pop_call()
                         if Situation:
                             $ renpy.pop_call()
-                        call Rogue_Doggy_Reset
+                        call Rogue_Sex_Reset
                         $ R_RecentActions.append("angry")
                         $ R_DailyActions.append("angry")                        
                     else:
@@ -1274,13 +1274,13 @@ label R_Anal_Cycle: #Repeating strokes
                                                         
                         "Back to Sex Menu" if MultiAction: 
                                     ch_p "Let's try something else."
-                                    call Rogue_Doggy_Reset
+                                    call Rogue_Sex_Reset
                                     $ Situation = "shift"
                                     $ Line = 0
                                     jump R_AnalAfter
                         "End Scene" if not MultiAction: 
                                     ch_p "Let's stop for now."
-                                    call Rogue_Doggy_Reset
+                                    call Rogue_Sex_Reset
                                     $ Line = 0
                                     jump R_AnalAfter
         #End menu (if Line)              
@@ -1298,7 +1298,7 @@ label R_Anal_Cycle: #Repeating strokes
                             #If you can cum:                                                
                             call PR_Cumming
                             if "angry" in R_RecentActions:  
-                                call Rogue_Doggy_Reset
+                                call Rogue_Sex_Reset
                                 return    
                             call Statup("Rogue", "Lust", 200, 5) 
                             if 100 > R_Lust >= 70 and R_OCount < 2:             
@@ -1377,7 +1377,7 @@ label R_Anal_Cycle: #Repeating strokes
                                 jump R_Anal_Cycle
                         "Let's try something else." if MultiAction: 
                                 $ Line = 0
-                                call Rogue_Doggy_Reset
+                                call Rogue_Sex_Reset
                                 $ Situation = "shift"
                                 jump R_AnalAfter
                         "No, get back down there.":                                
@@ -1388,7 +1388,7 @@ label R_Anal_Cycle: #Repeating strokes
                                     "She grumbles but keeps moving."
                                 else:
                                     call RogueFace("angry", 1)   
-                                    call Rogue_Doggy_Reset
+                                    call Rogue_Sex_Reset
                                     "She scowls at you and pulls out."
                                     ch_r "Well if that's your attitude you can handle your own business."                         
                                     call Statup("Rogue", "Love", 50, -3, 1)
@@ -1414,7 +1414,7 @@ label R_AnalAfter:
     if not Situation: #fix  Situation != "shift" and Situation != "auto" and Situation != "pullback": 
         $ P_Sprite = 0
         $ P_Cock = "out"
-        call Rogue_Doggy_Reset
+        call Rogue_Sex_Reset
         
     call RogueFace("sexy") 
     
@@ -1581,7 +1581,7 @@ label R_Doggy_H:
                         $ renpy.pop_call()
                         if Situation:
                             $ renpy.pop_call()
-                        call Rogue_Doggy_Reset
+                        call Rogue_Sex_Reset
                         $ R_RecentActions.append("angry")
                         $ R_DailyActions.append("angry")                       
                     else:
@@ -1941,13 +1941,13 @@ label R_Hotdog_Cycle: #Repeating strokes
                                                         
                         "Back to Sex Menu" if MultiAction: 
                                     ch_p "Let's try something else."
-                                    call Rogue_Doggy_Reset
+                                    call Rogue_Sex_Reset
                                     $ Situation = "shift"
                                     $ Line = 0
                                     jump R_HotdogAfter
                         "End Scene" if not MultiAction: 
                                     ch_p "Let's stop for now."
-                                    call Rogue_Doggy_Reset
+                                    call Rogue_Sex_Reset
                                     $ Line = 0
                                     jump R_HotdogAfter
         #End menu (if Line)              
@@ -1965,7 +1965,7 @@ label R_Hotdog_Cycle: #Repeating strokes
                             #If you can cum:                                                
                             call PR_Cumming
                             if "angry" in R_RecentActions:  
-                                call Rogue_Doggy_Reset
+                                call Rogue_Sex_Reset
                                 return    
                             call Statup("Rogue", "Lust", 200, 5) 
                             if 100 > R_Lust >= 70 and R_OCount < 2:             
@@ -2033,7 +2033,7 @@ label R_Hotdog_Cycle: #Repeating strokes
                                 jump R_Hotdog_Cycle
                         "Let's try something else." if MultiAction: 
                                 $ Line = 0
-                                call Rogue_Doggy_Reset
+                                call Rogue_Sex_Reset
                                 $ Situation = "shift"
                                 jump R_HotdogAfter
                         "No, get back down there.":                                
@@ -2044,7 +2044,7 @@ label R_Hotdog_Cycle: #Repeating strokes
                                     "She grumbles but keeps moving."
                                 else:
                                     call RogueFace("angry", 1)   
-                                    call Rogue_Doggy_Reset
+                                    call Rogue_Sex_Reset
                                     "She scowls at you and pulls away."
                                     ch_r "Well if that's your attitude you can handle your own business."                         
                                     call Statup("Rogue", "Love", 50, -3, 1)
@@ -2070,7 +2070,7 @@ label R_HotdogAfter:
     if not Situation: #fix  Situation != "shift" and Situation != "auto" and Situation != "pullback": 
         $ P_Sprite = 0
         $ P_Cock = "out"
-        call Rogue_Doggy_Reset
+        call Rogue_Sex_Reset
         
     call RogueFace("sexy") 
     

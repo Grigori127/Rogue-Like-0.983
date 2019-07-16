@@ -1994,13 +1994,14 @@ label Rogue_Doggy_Launch(Line = "massage"):
     with dissolve
     return
     
-label Rogue_Doggy_Reset:
-    if not renpy.showing("Rogue_Doggy"):
+#MOD MARKER RESET
+label Rogue_Sex_Reset:
+    if not renpy.showing("Rogue_Doggy") and not renpy.showing("Rogue_SexSprite"):
         return
 #    $ Trigger = 0               #fix, not sure this is a good idea
     $ Rogue_Arms = 2      
     $ R_SpriteVer = 0
-    hide Rogue_Doggy
+    call mod_hide_Rogue_SexSprite
     call Rogue_Hide 
     show Rogue at SpriteLoc(R_SpriteLoc) zorder RogueLayer:
                     alpha 1
@@ -2988,7 +2989,7 @@ label AllReset(chr = "Rogue"):
     #call AllReset("all")
     if chr == "Rogue" or chr == "all":
         if renpy.showing("Rogue_Doggy"): 
-            call Rogue_Doggy_Reset
+            call Rogue_Sex_Reset
         if renpy.showing("Rogue_HJ_Animation"): 
             call Rogue_HJ_Reset
         if renpy.showing("Rogue_BJ_Animation"):   
@@ -3882,10 +3883,11 @@ label R_Pos_Reset(Pose = 0):
     $ Trigger = Pose
     return
     
+#MOD MARKER HIDE
 label Rogue_Hide:
-    if renpy.showing("Rogue_Doggy"):
-        call Rogue_Doggy_Reset
-    hide Rogue_Doggy       
+    if renpy.showing("Rogue_Doggy") or renpy.showing("Rogue_SexSprite"):
+        call Rogue_Sex_Reset
+    call mod_hide_Rogue_SexSprite       
     hide Rogue_HJ_Animation
     hide Rogue_BJ_Animation
     hide Rogue_TJ_Animation 

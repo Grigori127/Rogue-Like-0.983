@@ -1492,7 +1492,7 @@ label Rogue_Chitchat(O=0, Options = ["default","default","default"]):
             $ R_Upskirt = 0      
         ch_r "Y'know what I'm sayin', [R_Petname]?"        
         $ R_Upskirt = 0      
-        call Rogue_Doggy_Reset
+        call Rogue_Sex_Reset
 
         
     elif Options[0] == "luv": # love maxed out

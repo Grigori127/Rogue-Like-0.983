@@ -178,6 +178,20 @@ label Rogue_SexMenu:
                                         call R_Doggy_A      
                                     else:
                                         "The spirit is apparently willing, but the flesh is spongy and bruised."   
+#MOD MARKER missionary position menu choices
+                            "Lean back, I've got something in mind. . . \[Missionary\]":
+                                    if P_Semen:
+                                        call R_Sex_H
+                                    else:
+                                        "The spirit is apparently willing, but the flesh is spongy and bruised."
+                            "Fuck your pussy. \[Missionary\].":
+                                    if P_Semen:
+                                        call R_Sex_P
+                                    else:
+                                        "The spirit is apparently willing, but the flesh is spongy and bruised."         
+                            "Fuck your ass. \[Missionary\]":
+                                    if P_Semen:
+                                        call R_Sex_A
                             "How about some toys? [[Pussy]":        
                                     call R_Dildo_Pussy     
                             "How about some toys? [[Anal]":                        
@@ -713,11 +727,16 @@ label R_TouchCheek:
 
 # Slap Ass
 
+#MOD MARKER SLAP
 label R_Slap_Ass:
     call Shift_Focus("Rogue")
     # fix add sound here?
     if renpy.showing("Rogue_Doggy"):
             show Rogue_Doggy #fix, test this
+            with vpunch
+#MOD Rogue Missionary Slap
+    elif renpy.showing("Rogue_SexSprite"):
+            show Rogue_SexSprite #fix, test this
             with vpunch
     elif renpy.showing("Rogue_BJ_Animation"):           #fix, make this animation work better when paused for this effect.
             show Rogue_BJ_Animation

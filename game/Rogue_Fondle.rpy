@@ -96,7 +96,7 @@ label R_Massage_Cycle:
     $ D20 = renpy.random.randint(10, 20)
     $ Round -= D20 if Round > D20 else (Round-1)
         
-    call Rogue_Doggy_Reset
+    call Rogue_Sex_Reset
     
     ch_r "That was very relaxing, [R_Petname]"
     if "massage" not in R_RecentActions:        
