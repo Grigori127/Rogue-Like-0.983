@@ -1747,11 +1747,12 @@ label Kitty_Sex_Launch(Line = "solo"):
     with dissolve
     return
     
+#MOD MARKER RESET
 label Kitty_Sex_Reset:
-    if not renpy.showing("Kitty_SexSprite"):
+    if not renpy.showing("Kitty_SexSprite") and not renpy.showing("Kitty_Doggy"):
         return
     $ Kitty_Arms = 2     
-    hide Kitty_SexSprite
+    call mod_hide_Kitty_SexSprite
     call Kitty_Hide 
 #    call Set_The_Scene(Dress = 0)    
     show Kitty_Sprite at SpriteLoc(K_SpriteLoc) zorder KittyLayer:
@@ -3369,10 +3370,11 @@ label K_Pos_Reset(Pose = 0):
     $ Trigger = Pose
     return
     
+#MOD MARKER HIDE
 label Kitty_Hide:
-        if renpy.showing("Kitty_SexSprite"):
+        if renpy.showing("Kitty_SexSprite") or renpy.showing("Kitty_Doggy"):
             call Kitty_Sex_Reset
-        hide Kitty_SexSprite
+        call mod_hide_Kitty_SexSprite
         hide Kitty_HJ_Animation
         hide Kitty_BJ_Animation
         hide Kitty_TJ_Animation 

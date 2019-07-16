@@ -71,7 +71,10 @@ label PK_Cumming:
         "Cum on her tits":
                 jump K_TitSpunk  
                 
-        "Cum on her belly" if Trigger == "sex" or Trigger == "anal" or Trigger == "hotdog" or Trigger == "foot":
+#MOD MARKER cum menu choices
+        "Cum on her ass" if Trigger in ("sex","anal","hotdog") and renpy.showing("Kitty_Doggy"):
+                jump K_SpunkBack
+        "Cum on her belly" if Trigger in ("sex","anal","hotdog","foot") and renpy.showing("Kitty_SexSprite"):
                 jump K_SpunkBelly
             
         "Pull back":
@@ -844,6 +847,61 @@ label K_TitSpunk:
         jump K_Orgasm_After
         
 # Start Spunk belly  / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / /
+###ANON MOD CODE BLOCK START #####
+#placeholderline1 
+label K_SpunkBack: 
+        if Trigger != "foot":
+            call Kitty_Doggy_Launch("hotdog")
+        $ Speed = 0
+        if K_Addict >= 60 and ApprovalCheck("Kitty", 1000, "I", Bonus = ((K_Addict*10)- K_Obed))  and K_Swallow:
+                $ K_Eyes = "manic"
+                $ K_Blush = 1
+                call Kitty_BJ_Launch("cum")
+                if Trigger == "sex":
+                    "You pull out of her pussy with a pop, and her eyes widen in surprise. She leaps at your cock and sucks it deep, draining your fluids hungrily."
+                elif Trigger == "anal":                
+                    "You pull out of her ass with a pop, and her eyes widen in surprise. She leaps at your cock and sucks it deep, draining your fluids hungrily."
+                $ K_Mouth = "lipbite"
+                $ K_Spunk.append("mouth")
+                "When she finishes, she licks her lips."
+                call KittyFace("bemused")
+                $ K_Spunk.remove("mouth")
+                ch_r "Sorry, [K_Petname], I just couldn't let that go to waste."
+                call Statup("Kitty", "Obed", 80, -5)
+                call Statup("Kitty", "Inbt", 200, 10)
+                jump K_Swallowed
+        if Trigger != "foot":
+            $ P_Cock = "out"
+        $ K_Spunk.append("back")
+        if Trigger == "sex":
+                "You pull out of her pussy with a pop and spray all over her backside."
+        elif Trigger == "anal":
+                "You pull out of her ass with a pop and spray all over her backside."
+        else:
+                "You pick up the pace and with a grunt you spray all over her backside."
+            
+                      
+        if K_Addict >= 60 and ApprovalCheck("Kitty", 800, "I", Bonus = ((K_Addict*10)- K_Obed)) and K_Swallow: 
+                #if she's manic and has swallowed
+                $ K_Eyes = "manic"
+                $ K_Blush = 1        
+                "Kitty's eyes widen with desire, and she quickly wipes a bit off with her hand, then licks her fingers clean."
+                call KittyFace("manic", 1)
+                $ K_Spunk.append("mouth")
+                $ K_Mouth = "smile"
+                ch_r "Well, [K_Petname], I just couldn't let that go to waste."
+                $ K_Spunk.remove("mouth")
+                call Statup("Kitty", "Inbt", 50, 3)
+                jump K_Swallowed
+              
+            
+        #else . . .
+        call KittyFace("sexy", 1)
+        ch_r "Thanks for the courtesy, [K_Petname]. Such a mess though. . ." 
+#        call Kitty_Doggy_Reset
+        jump K_Orgasm_After
+###ANON MOD CODE BLOCK STOP ######
+###ANON MOD CODE BLOCK STOP ######
 label K_SpunkBelly: 
         if P_Cock != "foot":
                 call Kitty_Sex_Launch("hotdog")

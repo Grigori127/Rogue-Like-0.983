@@ -178,6 +178,23 @@ label Kitty_SexMenu:
                                     call K_Sex_A    
                                 else:
                                     "The spirit is apparently willing, but the flesh is spongy and bruised." 
+#MOD MARKER doggy position menu choices
+                        "Turn around, I've got something in mind. . . \[DoggyStyle\]":
+                                if P_Semen:
+                                    call K_Doggy_H   
+                                else:
+                                    "The spirit is apparently willing, but the flesh is spongy and bruised."
+                        "Fuck your pussy. \[DoggyStyle\]":    
+                                if P_Semen:                    
+                                    call K_Doggy_P  
+                                else:
+                                    "The spirit is apparently willing, but the flesh is spongy and bruised."          
+                        "Fuck your ass. \[DoggyStyle\]":     
+                                if P_Semen:                   
+                                    call K_Doggy_A    
+                                else:
+                                    "The spirit is apparently willing, but the flesh is spongy and bruised."
+
                         "How about some toys? [[Pussy]":                        
                                 call K_Dildo_Pussy     
                         "How about some toys? [[Anal]":                        
@@ -842,11 +859,16 @@ label K_Headpat:
 
 # Slap Ass
 
+#MOD MARKER SLAP
 label K_Slap_Ass:
     call Shift_Focus("Kitty")
     # fix add sound here?
     if renpy.showing("Kitty_SexSprite"):
             show Kitty_SexSprite #fix, test this
+            with vpunch
+#MOD Kitty Doggy Slap
+    elif renpy.showing("Kitty_Doggy"):
+            show Kitty_Doggy #fix, test this
             with vpunch
     elif renpy.showing("Kitty_BJ_Animation"):           #fix, make this animation work better when paused for this effect.
             show Kitty_BJ_Animation
