@@ -169,36 +169,49 @@ screen choice(items):
 
     window:
         style "menu_window"
-        xpos 20
-        ypos 0.3
-        yanchor 0.0
-
-        vbox:
-            style "menu"
-            spacing 2
-
-            for caption, action, chosen in items:
-
-                if action:
-                    if " (locked)" in caption:
-                        $ caption = caption.replace(" (locked)", "")
-                        button:
-                            action None
-                            style "menu_choice_button"
-                            background "#424242"                           
-                            text caption style "menu_choice" color "#6E6E6E"
-                                
-
-                           
-                    else:               #to fix, just make this the default of "if action"
-                        button:
-                            action action
-                            style "menu_choice_button"
-
-                            text caption style "menu_choice" 
-
-                else:
-                    text caption style "menu_caption"
+        # mod_scrolling_menu
+        #xpos 20
+        #ypos 0.3
+        #yanchor 0.0
+        fixed pos (20,0.43) xysize (310,530):
+            viewport:
+                yinitial 0
+                #scrollbars "vertical"
+                #if not ("RENPY_IOS" in os.environ or "ANDROID_PRIVATE" in os.environ):
+                if renpy.mobile:
+                    scrollbars "vertical"
+                arrowkeys True
+                mousewheel True
+                draggable True
+        
+                side_yfill True
+    
+                vbox:
+                    style "menu"
+                    spacing 2
+        
+                    for caption, action, chosen in items:
+        
+                        if action:
+                            if " (locked)" in caption:
+                                $ caption = caption.replace(" (locked)", "")
+                                button:
+                                    action None
+                                    style "menu_choice_button"
+                                    background "#424242"                           
+                                    text caption style "menu_choice" color "#6E6E6E"
+                                        
+        
+                                   
+                            else:               #to fix, just make this the default of "if action"
+                                button:
+                                    action action
+                                    style "menu_choice_button"
+        
+                                    text caption style "menu_choice" 
+        
+                        else:
+                            text caption style "menu_caption"
 
 init -2:
     $ config.narrator_menu = True
