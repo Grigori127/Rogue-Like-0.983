@@ -1,0 +1,13 @@
+
+*.rpyb
+*.rpyb
+*.save
+*.rpyc
+*.pyo
+*.pyo
+*.rpyc
+log.txt
+*.rpyb
+game/cache/bytecode.rpyb
+game/cache/pyanalysis.rpyb
+game/cache/screens.rpyb

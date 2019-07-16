@@ -1458,6 +1458,12 @@ label Kitty_Doggy_Launch(Line = "massage"):
     $ P_Sprite = 1
     $ Speed = 0
     hide Kitty_Sprite  
+    if renpy.showing("Kitty_BJ_Animation"):
+        hide Kitty_BJ_Animation
+    if renpy.showing("Kitty_HJ_Animation"):
+        hide Kitty_HJ_Animation
+    if renpy.showing("Kitty_TJ_Animation"):
+        hide Kitty_TJ_Animation
     show Kitty_Doggy at SpriteLoc(StageCenter+50) zorder 150
     with dissolve
     return
