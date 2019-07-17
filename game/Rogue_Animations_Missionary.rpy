@@ -2,11 +2,6 @@
 image Rogue_Head:               
     LiveComposite(
         (416,610),    
-#        (0,0), ConditionSwitch(
-#            "R_Water", "images/RogueSprite/Rogue_Hair_Wet_Back.png",
-#            "R_Hair == 'long'", "images/RogueSprite/Rogue_Hair_Long_Back.png",
-#            "True", Null(),
-#            ),    
         (0,0), ConditionSwitch(
             "R_Water and R_Blush == 1", "images/RogueSprite/Rogue_head_evowet.png",
             "R_Water and R_Blush == 2", "images/RogueSprite/Rogue_head_evowet.png",
@@ -65,12 +60,9 @@ image Rogue_Head:
         (0,0), ConditionSwitch(
             "R_Hair == 'evo' and 'hair' in R_Spunk", "images/RogueSprite/Rogue_Spunk_Evohair.png",
             "R_Hair == 'long' and 'hair' in R_Spunk", "images/RogueSprite/Rogue_Spunk_Evohair.png",
-#            "R_Hair == 'evo' and 'hair' in R_Spunk", "images/RogueSprite/Rogue_Spunk_Evohair.png",
             "True", Null(),
             ),     
         )
-#    anchor (0.6, 0.0)
-#    zoom .5
 image Rogue_HairBack:
     LiveComposite(
         (416,610),    
@@ -159,11 +151,6 @@ image Rogue_Sex_Legs_Static:
 image Rogue_Sex_Body = LiveComposite(                                                                                
         #the torso/head used in the sex pose, referenced by Rogue_SexSprite
         (1120,840),
-#        (0,0), ConditionSwitch(                                                                                 #Hair underlayer, delete once this is working
-#            "R_Water", Null(), 
-#            "R_Hair == 'evo'", "images/RogueSex/Rogue_Sex_HairB.png",   
-#            "True", Null(),                   
-#            ),   
         (140,-240), "Rogue_HairBack_Sex",                                                                                      #Hair underlayer
         (0,0), ConditionSwitch(                                                                                 #Body Base
             "R_Pierce == 'barbell'", "images/RogueSex/Rogue_Sex_Body_Barbell.png",   
@@ -177,14 +164,6 @@ image Rogue_Sex_Body = LiveComposite(
             "R_Neck == 'star necklace'", "images/RogueSex/Rogue_Sex_Neck_Star.png",
             "True", Null(),
             ),  
-#        (0,0), ConditionSwitch(                                                                                 #tanktop
-#            "not R_Chest", Null(),        
-#            "R_Chest == 'cami'", "images/RogueSex/Rogue_Sex_Under_Cami.png",
-#            "R_Chest == 'sports bra'", "images/RogueSex/Rogue_Sex_Under_SportsBra.png",
-#            "R_Chest == 'bra'", "images/RogueSex/Rogue_Sex_Under_Bra.png",
-#            "R_Chest == 'lace bra'", "images/RogueSex/Rogue_Sex_Under_LaceBra.png",
-#            "True", Null(),            
-#            ), 
         
         (0,0), ConditionSwitch(                                                                         
             #bra layer           
@@ -220,19 +199,6 @@ image Rogue_Sex_Body = LiveComposite(
             "R_Water", "images/RogueSex/Rogue_Sex_Water_Body.png",   
             "True", Null(),              
             ), 
-#        (0,0), ConditionSwitch(                                                                                 #Wet look
-#            "R_Pierce == 'barbell'", "images/RogueSex/Rogue_Sex_Body_Barbell.png",   
-#            "R_Pierce == 'ring'", "images/RogueSex/Rogue_Sex_Body_Ring.png",   
-#            "True", Null(),              
-#            ), 
-        
-#        (0,0), ConditionSwitch(                                                                                 #Overshirt
-#            "not R_Over", Null(),
-#            "R_Over == 'pink top'", "images/RogueSex/Rogue_Sex_Over_PinkShirt.png",           
-#            "R_Over == 'red shirt'", "images/RogueSex/Rogue_Sex_Over_RedShirt.png",   
-#            "R_Over == 'towel'", "images/RogueSex/Rogue_Sex_Over_Towel.png",       
-#            "True", Null(), 
-#            ), 
         
         (0,0), ConditionSwitch(                                                                         
             #shirt layer           
@@ -249,7 +215,6 @@ image Rogue_Sex_Body = LiveComposite(
                     "R_Over == 'pink top' and R_Chest == 'sports bra'", "images/RogueSex/Rogue_Sex_Over_PinkShirt_UpS.png", 
                     "R_Over == 'pink top'", "images/RogueSex/Rogue_Sex_Over_PinkShirt_Up.png",           
                     "R_Over == 'red shirt'", "images/RogueSex/Rogue_Sex_Over_RedShirt_Up.png",   
-#                    "R_Over == 'towel'", "images/RogueSex/Rogue_Sex_Over_Towel.png",   
                     "True", Null(),     
                     ),
             ),
@@ -346,17 +311,6 @@ image Rogue_Sex_Legs:
             "Speed", "Rogue_Footcock_Zero_Anim1",
             "True", "Rogue_Footcock_Static",   
             ),
-#        (0,0), ConditionSwitch(                                                                                 #footjob cock Layer  
-#            "not P_Sprite or P_Cock != 'foot'", Null(),                    
-#            "Speed >= 2", At("Rogue_Footcock", Rogue_Footcock_Zero_Anim2A()),
-#            "Speed", At("Rogue_Footcock", Rogue_Footcock_Zero_Anim1A()),
-#            "True", At("Rogue_Footcock", Rogue_Footcock_StaticA()), 
-#            ),   
-#        (0,0), ConditionSwitch(                                                                                 #UI tool layer
-#            "not UI_Tool", Null(),   
-#            "UI_Tool", "Slap_Ass",  
-#            "True", Null(),   
-#            ),   
         (0,0), ConditionSwitch(                                                         #Shows different lower body motion depending on events
             "not Speed", "Rogue_Sex_Feet",  
             "P_Cock == 'anal' or P_Cock == 'in' or P_Cock == 'out'", AlphaMask("Rogue_Sex_Feet", "images/RogueSex/Rogue_Sex_FeetMask.png"), 
@@ -388,7 +342,7 @@ image TestingSolid:
             alpha 0.2
             
 #Start Animations for Rogue's Pussy during Sex / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / /
-image Rogue_Pussy_Fucking0:
+image Rogue_Missionary_Pussy_Fucking0:
     # This is the visual for her pussy during the Speed 0 mode (static). 
     contains:
             # The background plate of her pussy
@@ -403,7 +357,7 @@ image Rogue_Pussy_Fucking0:
             # The animation of Zero's moving penis, masked by her pussy shape
             AlphaMask("Rogue_Sex_Zero_Anim0", "Rogue_Pussy_Open_Mask") 
             
-image Rogue_Pussy_Fucking1:
+image Rogue_Missionary_Pussy_Fucking1:
     # This is the visual for her pussy during the Speed 1 mode (heading). 
     contains:
             # The background plate of her pussy
@@ -418,7 +372,7 @@ image Rogue_Pussy_Fucking1:
             # The animation of Zero's moving penis, masked by her pussy shape
             AlphaMask("Rogue_Sex_Zero_Anim1", "Rogue_Pussy_Open_Mask") 
 
-image Rogue_Pussy_Fucking2:
+image Rogue_Missionary_Pussy_Fucking2:
     # This is the visual for her pussy during the Speed 2 mode (slow). 
     contains:
             # The background plate of her pussy
@@ -431,8 +385,8 @@ image Rogue_Pussy_Fucking2:
                 ),  
     contains:
             # The animation of Zero's moving penis, masked by her pussy shape
-            AlphaMask("Rogue_Sex_Zero_Anim2", "Rogue_Pussy_Fucking_Mask") 
-image Rogue_Pussy_Fucking3:  #rename this to 3
+            AlphaMask("Rogue_Sex_Zero_Anim2", "Rogue_Missionary_Pussy_Fucking_Mask") 
+image Rogue_Missionary_Pussy_Fucking3:  #rename this to 3
     # This is the visual for her pussy during the Speed 3 mode (fast). 
     contains:
             # The background plate of her pussy
@@ -445,9 +399,9 @@ image Rogue_Pussy_Fucking3:  #rename this to 3
                 ),  
     contains:
             # The animation of Zero's moving penis, masked by her pussy shape
-            AlphaMask("Rogue_Sex_Zero_Anim3", "Rogue_Pussy_Fucking_Mask") 
+            AlphaMask("Rogue_Sex_Zero_Anim3", "Rogue_Missionary_Pussy_Fucking_Mask") 
             
-image Rogue_Pussy_Fucking_Mask:
+image Rogue_Missionary_Pussy_Fucking_Mask:
         #This is the mask image for Rogue's wide open pussy
         contains:
             "images/RogueSex/Rogue_Sex_Pussy_Mask.png"   
@@ -458,19 +412,6 @@ image Rogue_Pussy_Open_Mask:
             "images/RogueSex/Rogue_Sex_Pussy_Mask.png"  
             yoffset 3            
             
-#image TestMask:
-#        #This involves a working, shrinking and growing mask for the pussy
-#        contains:
-#            "images/RogueSex/Rogue_Sex_Pussy_Mask.png"
-#            subpixel True
-#            anchor (0.5,0.63)
-#            pos (0.5,0.63)
-#            zoom 1
-#            block:
-#                ease 1 zoom .5
-#                pause 1
-#                ease 3 zoom 1
-#                repeat 
 
 image Rogue_Pussy_Spunk_Heading:                
     "images/RogueSex/Rogue_Sex_Spunk_Puss_Over.png"
@@ -751,10 +692,10 @@ image Rogue_Sex_Anus:
             # The animation of Zero's moving penis, masked by her anus shape
             ConditionSwitch(               
             "not P_Sprite or P_Cock != 'anal'", Null(),                                                                                    
-            "Speed >= 3",  AlphaMask("Rogue_Anal_Zero_Anim3", "Rogue_Anal_Fucking_Mask"),        
-            "Speed >= 2", AlphaMask("Rogue_Anal_Zero_Anim2", "Rogue_Anal_Fucking_Mask"),
-            "Speed", AlphaMask("Rogue_Anal_Zero_Anim1", "Rogue_Anal_Fucking_Mask"),
-            "True", AlphaMask("Rogue_Anal_Zero_Anim0", "Rogue_Anal_Fucking_Mask"), 
+            "Speed >= 3",  AlphaMask("Rogue_Anal_Zero_Anim3", "Rogue_Missionary_Anal_Fucking_Mask"),        
+            "Speed >= 2", AlphaMask("Rogue_Anal_Zero_Anim2", "Rogue_Missionary_Anal_Fucking_Mask"),
+            "Speed", AlphaMask("Rogue_Anal_Zero_Anim1", "Rogue_Missionary_Anal_Fucking_Mask"),
+            "True", AlphaMask("Rogue_Anal_Zero_Anim0", "Rogue_Missionary_Anal_Fucking_Mask"), 
             )    
     contains:
             #Spunk over penis
@@ -765,16 +706,16 @@ image Rogue_Sex_Anus:
                 )  
             
                 
-image Rogue_Anal_Fucking0:
+image Rogue_Missionary_Anal_Fucking0:
     # This is the visual for her pussy during the Speed 0 mode (static). 
     contains:
             # The background plate of her pussy
             "Rogue_Anal_Tip"
     contains:
             # The animation of Zero's moving penis, masked by her pussy shape
-            AlphaMask("Rogue_Anal_Zero_Anim0", "Rogue_Anal_Fucking_Mask") 
+            AlphaMask("Rogue_Anal_Zero_Anim0", "Rogue_Missionary_Anal_Fucking_Mask") 
             
-image Rogue_Anal_Fucking1:
+image Rogue_Missionary_Anal_Fucking1:
     # This is the visual for her pussy during the Speed 1 mode (heading). 
     contains:
             # The background plate of her pussy
@@ -782,27 +723,27 @@ image Rogue_Anal_Fucking1:
 #            "images/RogueSex/Rogue_Sex_Hole_Open.png"
     contains:
             # The animation of Zero's moving penis, masked by her pussy shape
-            AlphaMask("Rogue_Anal_Zero_Anim1", "Rogue_Anal_Fucking_Mask") 
+            AlphaMask("Rogue_Anal_Zero_Anim1", "Rogue_Missionary_Anal_Fucking_Mask") 
 
-image Rogue_Anal_Fucking2:
+image Rogue_Missionary_Anal_Fucking2:
     # This is the visual for her pussy during the Speed 2 mode (slow). 
     contains:
             # The background plate of her pussy
             "images/RogueSex/Rogue_Sex_Hole_Open.png"
     contains:
             # The animation of Zero's moving penis, masked by her pussy shape
-            AlphaMask("Rogue_Anal_Zero_Anim2", "Rogue_Anal_Fucking_Mask") 
+            AlphaMask("Rogue_Anal_Zero_Anim2", "Rogue_Missionary_Anal_Fucking_Mask") 
             
-image Rogue_Anal_Fucking3:  
+image Rogue_Missionary_Anal_Fucking3:  
     # This is the visual for her pussy during the Speed 3 mode (fast). 
     contains:
             # The background plate of her pussy
             "images/RogueSex/Rogue_Sex_Hole_Open.png"
     contains:
             # The animation of Zero's moving penis, masked by her pussy shape
-            AlphaMask("Rogue_Anal_Zero_Anim3", "Rogue_Anal_Fucking_Mask") 
+            AlphaMask("Rogue_Anal_Zero_Anim3", "Rogue_Missionary_Anal_Fucking_Mask") 
             
-image Rogue_Anal_Fucking_Mask:
+image Rogue_Missionary_Anal_Fucking_Mask:
         #This is the mask image for Rogue's wide open pussy
         contains:
             "images/RogueSex/Rogue_Sex_Hole_Mask.png"               

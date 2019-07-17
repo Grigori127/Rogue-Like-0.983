@@ -851,7 +851,8 @@ image Rogue_Doggy:
     align (0.6,0.0)
     
             
-image Rogue_Doggy_Body = LiveComposite(                                                                                         #Upper body
+image Rogue_Doggy_Body:
+    LiveComposite(                                                                                         #Upper body
         (420,750),
         (0,0), ConditionSwitch(
             #Hair underlayer
@@ -904,7 +905,8 @@ image Rogue_Doggy_Body = LiveComposite(                                         
             ),  
         (0,0), ConditionSwitch(   
             #tanktop
-            "not R_Chest", Null(),        
+            "not R_Chest", Null(),  
+            "'modded' in R_Chest", "images/RogueDoggy/Rogue_Doggy_chest_" + str(R_Chest) + ".png",
             "R_Chest == 'tank'", "images/RogueDoggy/Rogue_Doggy_Chest_Tank.png",
             "R_Chest == 'buttoned tank'", "images/RogueDoggy/Rogue_Doggy_Chest_ButtonTank.png",
             "R_Chest == 'sports bra'", "images/RogueDoggy/Rogue_Doggy_Chest_SportsBra.png",
@@ -920,6 +922,7 @@ image Rogue_Doggy_Body = LiveComposite(                                         
         (0,0), ConditionSwitch(                     
             #Overshirt
             "not R_Over", Null(),
+            "'modded' in R_Over", "images/RogueDoggy/Rogue_Doggy_over_" + str(R_Over) + ".png",
             "R_Over == 'mesh top'", "images/RogueDoggy/Rogue_Doggy_Over_Mesh.png",           
             "R_Over == 'pink top'", "images/RogueDoggy/Rogue_Doggy_Over_Pink.png",            
             "R_Over == 'hoodie'", "images/RogueDoggy/Rogue_Doggy_Over_Hoodie.png",           
@@ -940,17 +943,25 @@ image Rogue_Doggy_Body = LiveComposite(                                         
             "True", Null(), 
             ),
         (0,0), ConditionSwitch(                                                                             
-            #Hair            
+            #Hair       
+            "not R_Over", Null(),     
+            "'modded' in R_Over and 'hoodie' in R_Over", "images/RogueDoggy/Rogue_Doggy_over_" + str(R_Over) + "_Hood.png",
             "R_Over == 'hoodie'", "images/RogueDoggy/Rogue_Doggy_Over_Hood.png", 
             "True", Null(),    
             ),  
-        )
+    )
 
-image Rogue_Doggy_Ass = LiveComposite(                                                                                          #Lower body
+image Rogue_Doggy_Ass:
+    LiveComposite(                                                                                          #Lower body
         (420,750), #(210,375), #(419,750), 
         (0,0), ConditionSwitch(                                                                               
             #Panties back
             "not R_PantiesDown or (R_Legs == 'pants' and not R_Upskirt)", Null(),  
+            "not R_Panties", Null(),
+            "R_Panties", ConditionSwitch( 
+                "'modded' in R_Panties", "images/RogueDoggy/Rogue_Doggy_panties_" + str(R_Panties) + "_Back.png",
+                "True", Null(),
+                ),
             "R_Panties == 'shorts'", "images/RogueDoggy/Rogue_Doggy_Shorts_Back.png",    
             "R_Panties == 'green panties'", "images/RogueDoggy/Rogue_Doggy_Undies_Back.png",  
             "R_Panties == 'bikini bottoms'", "images/RogueDoggy/Rogue_Doggy_Panties_Bikini_Back.png",   
@@ -965,12 +976,21 @@ image Rogue_Doggy_Ass = LiveComposite(                                          
             ),  
         (0,0), ConditionSwitch(        
             #Hose
+            "R_Hose", ConditionSwitch( 
+                "'modded' in R_Hose", "images/RogueDoggy/Rogue_Doggy_hose_" + str(R_Hose) + ".png",
+                "True", Null(),
+                ),
             "R_Hose == 'stockings'", "images/RogueDoggy/Rogue_Doggy_Hose.png",
             "True", Null(),
             ),             
         (0,0), ConditionSwitch(          
             #Panties if Down
             "not R_PantiesDown or (R_Legs == 'pants' and not R_Upskirt)", Null(),
+            "R_Panties", ConditionSwitch( 
+                "'modded' in R_Panties and R_Wet > 1", "images/RogueDoggy/Rogue_Doggy_panties_" + str(R_Panties) + "_Down_Wet.png",
+                "'modded' in R_Panties", "images/RogueDoggy/Rogue_Doggy_panties_" + str(R_Panties) + "_Down.png",
+                "True", Null(),
+                ),
             "R_Panties == 'shorts' and R_Wet > 1", "images/RogueDoggy/Rogue_Doggy_Shorts_Down_Wet.png", #fix turn this on when graphics fixed
             "R_Panties == 'shorts'", "images/RogueDoggy/Rogue_Doggy_Shorts_Down.png", 
             "R_Panties == 'green panties' and R_Wet > 1", "images/RogueDoggy/Rogue_Doggy_Undies_Down_Wet.png",
@@ -1046,6 +1066,11 @@ image Rogue_Doggy_Ass = LiveComposite(                                          
             #Panties if up
             "R_PantiesDown or not R_Panties", Null(),     
             "P_Sprite and (P_Cock == 'in' or P_Cock == 'anal')", Null(),
+            "R_Panties", ConditionSwitch( 
+                "'modded' in R_Panties and R_Wet > 1", "images/RogueDoggy/Rogue_Doggy_panties_" + str(R_Panties) + "_Wet.png",
+                "'modded' in R_Panties", "images/RogueDoggy/Rogue_Doggy_panties_" + str(R_Panties) + ".png",
+                "True", Null(),
+                ),
             "R_Panties == 'shorts' and R_Wet", "images/RogueDoggy/Rogue_Doggy_Shorts_Wet.png",          
             "R_Panties == 'shorts'", "images/RogueDoggy/Rogue_Doggy_Shorts.png",
             "R_Panties == 'green panties' and R_Wet", "images/RogueDoggy/Rogue_Doggy_Undies_Wet.png",          
@@ -1061,6 +1086,10 @@ image Rogue_Doggy_Ass = LiveComposite(                                          
             "R_Hose == 'garterbelt'", "images/RogueDoggy/Rogue_Doggy_Stockings_Loose.png", 
             "R_Hose == 'stockings and garterbelt'", "images/RogueDoggy/Rogue_Doggy_Stockings.png",  
             "R_Panties and R_PantiesDown", Null(),    
+            "R_Hose", ConditionSwitch( 
+                "'modded' in R_Hose", "images/RogueDoggy/Rogue_Doggy_hose_" + str(R_Hose) + ".png",
+                "True", Null(),
+                ),
             "R_Hose == 'tights' and R_Wet", "images/RogueDoggy/Rogue_Doggy_Tights_Wet.png",
             "R_Hose == 'tights'", "images/RogueDoggy/Rogue_Doggy_Tights.png",
             "R_Hose == 'pantyhose'", "images/RogueDoggy/Rogue_Doggy_FullHose.png",   
@@ -1070,6 +1099,14 @@ image Rogue_Doggy_Ass = LiveComposite(                                          
             ),
         (0,0), ConditionSwitch( 
             #Legs Layer 
+            "R_Legs", ConditionSwitch( 
+                "'modded' in R_Legs and ModPantsNum('Rogue') == 5 and R_Upskirt and P_Sprite and P_Cock == 'anal' and Speed", "images/RogueDoggy/Rogue_Doggy_legs_" + str(R_Legs) + "_upanal.png",
+                "'modded' in R_Legs and ModPantsNum('Rogue') == 5 and R_Upskirt", "images/RogueDoggy/Rogue_Doggy_legs_" + str(R_Legs) + "_up.png",
+                "'modded' in R_Legs and R_Upskirt", "images/RogueDoggy/Rogue_Doggy_legs_" + str(R_Legs) + "_down.png",
+                "'modded' in R_Legs and R_Wet > 1", "images/RogueDoggy/Rogue_Doggy_legs_" + str(R_Legs) + "_wet.png",
+                "'modded' in R_Legs", "images/RogueDoggy/Rogue_Doggy_legs_" + str(R_Legs) + ".png",
+                "True", Null(),
+                ),
             "R_Legs == 'pants'", ConditionSwitch(    
                     "R_Upskirt", "images/RogueDoggy/Rogue_Doggy_Legs_Pants_Down.png",            
                     "R_Wet > 1", "images/RogueDoggy/Rogue_Doggy_Legs_Pants_Wet.png",
@@ -1115,7 +1152,7 @@ image Rogue_Doggy_Ass = LiveComposite(                                          
 #            "UI_Tool", "Slap_Ass",  
 #            "True", Null(),   
 #            ),   
-        )
+    )
         
 image Rogue Doggy Blink:                                                                                        #Eyes
     ConditionSwitch(          
@@ -1396,10 +1433,14 @@ image Rogue_Pussy_Static:
             repeat 
     contains:
         ConditionSwitch( 
-            #full hose/tights              
+            #full hose/tights    
             "R_Hose == 'garterbelt'", "images/RogueDoggy/Rogue_Doggy_Stockings_Loose.png",    
             "R_Hose == 'stockings and garterbelt'", "images/RogueDoggy/Rogue_Doggy_Stockings.png",  
             "R_Panties and R_PantiesDown", Null(), 
+            "R_Hose", ConditionSwitch( 
+                "'modded' in R_Hose", "images/RogueDoggy/Rogue_Doggy_hose_" + str(R_Hose) + ".png",
+                "True", Null(),
+                ),
             "R_Hose == 'ripped pantyhose'", "images/RogueDoggy/Rogue_Doggy_FullHose_Holed.png", 
             "R_Hose == 'ripped tights'", "images/RogueDoggy/Rogue_Doggy_Tights_Holed.png",            
             "True", Null(), 
@@ -1470,6 +1511,10 @@ image Rogue_Pussy_Heading:
             "R_Hose == 'garterbelt'", "images/RogueDoggy/Rogue_Doggy_Stockings_Loose.png",    
             "R_Hose == 'stockings and garterbelt'", "images/RogueDoggy/Rogue_Doggy_Stockings.png",  
             "R_Panties and R_PantiesDown", Null(), 
+            "R_Hose", ConditionSwitch( 
+                "'modded' in R_Hose", "images/RogueDoggy/Rogue_Doggy_hose_" + str(R_Hose) + ".png",
+                "True", Null(),
+                ),
             "R_Hose == 'ripped pantyhose'", "images/RogueDoggy/Rogue_Doggy_FullHose_Holed.png", 
             "R_Hose == 'ripped tights'", "images/RogueDoggy/Rogue_Doggy_Tights_Holed.png",            
             "True", Null(), 
@@ -1529,6 +1574,10 @@ image Rogue_Pussy_Fucking2:
             "R_Hose == 'garterbelt'", "images/RogueDoggy/Rogue_Doggy_Stockings_Loose.png",    
             "R_Hose == 'stockings and garterbelt'", "images/RogueDoggy/Rogue_Doggy_Stockings.png",  
             "R_Panties and R_PantiesDown", Null(), 
+            "R_Hose", ConditionSwitch( 
+                "'modded' in R_Hose", "images/RogueDoggy/Rogue_Doggy_hose_" + str(R_Hose) + ".png",
+                "True", Null(),
+                ),
             "R_Hose == 'ripped pantyhose'", "images/RogueDoggy/Rogue_Doggy_FullHose_Holed.png", 
             "R_Hose == 'ripped tights'", "images/RogueDoggy/Rogue_Doggy_Tights_Holed.png",            
             "True", Null(), 
@@ -1552,6 +1601,10 @@ image Rogue_Pussy_Fucking3:
             "R_Hose == 'garterbelt'", "images/RogueDoggy/Rogue_Doggy_Stockings_Loose.png",    
             "R_Hose == 'stockings and garterbelt'", "images/RogueDoggy/Rogue_Doggy_Stockings.png",  
             "R_Panties and R_PantiesDown", Null(),   
+            "R_Hose", ConditionSwitch( 
+                "'modded' in R_Hose", "images/RogueDoggy/Rogue_Doggy_hose_" + str(R_Hose) + ".png",
+                "True", Null(),
+                ),
             "R_Hose == 'ripped pantyhose'", "images/RogueDoggy/Rogue_Doggy_FullHose_Holed.png", 
             "R_Hose == 'ripped tights'", "images/RogueDoggy/Rogue_Doggy_Tights_Holed.png",            
             "True", Null(), 
@@ -1578,6 +1631,10 @@ image Rogue_Anal:
             "R_Hose == 'garterbelt'", "images/RogueDoggy/Rogue_Doggy_Stockings_Loose.png",    
             "R_Hose == 'stockings and garterbelt'", "images/RogueDoggy/Rogue_Doggy_Stockings.png",   
             "R_Panties and R_PantiesDown", Null(),  
+            "R_Hose", ConditionSwitch( 
+                "'modded' in R_Hose", "images/RogueDoggy/Rogue_Doggy_hose_" + str(R_Hose) + ".png",
+                "True", Null(),
+                ),
             "R_Hose == 'ripped pantyhose'", "images/RogueDoggy/Rogue_Doggy_FullHose_Holed.png", 
             "R_Hose == 'ripped tights'", "images/RogueDoggy/Rogue_Doggy_Tights_Holed.png",            
             "True", Null(), 
@@ -1611,6 +1668,10 @@ image Rogue_Anal_Heading:
             "R_Hose == 'garterbelt'", "images/RogueDoggy/Rogue_Doggy_Stockings_Loose.png",    
             "R_Hose == 'stockings and garterbelt'", "images/RogueDoggy/Rogue_Doggy_Stockings.png",  
             "R_Panties and R_PantiesDown", Null(),   
+            "R_Hose", ConditionSwitch( 
+                "'modded' in R_Hose", "images/RogueDoggy/Rogue_Doggy_hose_" + str(R_Hose) + ".png",
+                "True", Null(),
+                ),
             "R_Hose == 'ripped pantyhose'", "images/RogueDoggy/Rogue_Doggy_FullHose_Holed.png", 
             "R_Hose == 'ripped tights'", "images/RogueDoggy/Rogue_Doggy_Tights_Holed.png",            
             "True", Null(), 
@@ -1713,6 +1774,10 @@ image Rogue_Anal_Fucking:
             "R_Hose == 'garterbelt'", "images/RogueDoggy/Rogue_Doggy_Stockings_Loose.png",    
             "R_Hose == 'stockings and garterbelt'", "images/RogueDoggy/Rogue_Doggy_Stockings.png",  
             "R_Panties and R_PantiesDown", Null(),  
+            "R_Hose", ConditionSwitch( 
+                "'modded' in R_Hose", "images/RogueDoggy/Rogue_Doggy_hose_" + str(R_Hose) + ".png",
+                "True", Null(),
+                ),
             "R_Hose == 'ripped pantyhose'", "images/RogueDoggy/Rogue_Doggy_FullHose_Holed.png", 
             "R_Hose == 'ripped tights'", "images/RogueDoggy/Rogue_Doggy_Tights_Holed.png",            
             "True", Null(), 
@@ -1734,6 +1799,10 @@ image Rogue_Doggy_Anal_FullMask:
             "R_Hose == 'garterbelt'", "images/RogueDoggy/Rogue_Doggy_Stockings_Loose.png",    
             "R_Hose == 'stockings and garterbelt'", "images/RogueDoggy/Rogue_Doggy_Stockings.png",  
             "R_Panties and R_PantiesDown", Null(), 
+            "R_Hose", ConditionSwitch( 
+                "'modded' in R_Hose", "images/RogueDoggy/Rogue_Doggy_hose_" + str(R_Hose) + ".png",
+                "True", Null(),
+                ),
             "R_Hose == 'ripped pantyhose'", "images/RogueDoggy/Rogue_Doggy_FullHose_Holed.png", 
             "R_Hose == 'ripped tights'", "images/RogueDoggy/Rogue_Doggy_Tights_Holed.png",            
             "True", Null(), 
@@ -1799,6 +1868,10 @@ image Rogue_Anal_Fucking2:
             "R_Hose == 'garterbelt'", "images/RogueDoggy/Rogue_Doggy_Stockings_Loose.png",    
             "R_Hose == 'stockings and garterbelt'", "images/RogueDoggy/Rogue_Doggy_Stockings.png",  
             "R_Panties and R_PantiesDown", Null(), 
+            "R_Hose", ConditionSwitch( 
+                "'modded' in R_Hose", "images/RogueDoggy/Rogue_Doggy_hose_" + str(R_Hose) + ".png",
+                "True", Null(),
+                ),
             "R_Hose == 'ripped pantyhose'", "images/RogueDoggy/Rogue_Doggy_FullHose_Holed.png", 
             "R_Hose == 'ripped tights'", "images/RogueDoggy/Rogue_Doggy_Tights_Holed.png",            
             "True", Null(), 

@@ -1092,27 +1092,100 @@ label Rogue_Modded_Clothes_Menu:
 
 label SetChest(Girl = "Rogue", Outfit = "modded tape"):
     $ R_Chest = Outfit
-    show Rogue
+    call Mod_Update_Rogue_Image
     return
 
 label SetOver(Girl = "Rogue", Outfit = "modded white mesh top"):
     $ R_Over = Outfit
-    show Rogue
+    call Mod_Update_Rogue_Image
     return
 
 label SetLegs(Girl = "Rogue", Outfit = "modded black large panties"):
     $ R_Legs = Outfit
-    show Rogue
+    call Mod_Update_Rogue_Image
     return
 
 label SetPanties(Girl = "Rogue", Outfit = "modded black large panties"):
     $ R_Panties = Outfit
-    show Rogue
+    call Mod_Update_Rogue_Image
     return
 
 label SetHose(Girl = "Rogue", Outfit = "modded fishnet"):
     $ R_Hose = Outfit
-    show Rogue
+    call Mod_Update_Rogue_Image
     return
 
+label Mod_Update_Rogue_Image:
+    if renpy.showing("Rogue"):
+        show Rogue 
+    elif renpy.showing("Rogue_Doggy"):
+        show Rogue_Doggy 
+    elif renpy.showing("Rogue_SexSprite"):
+        show Rogue_SexSprite   
+    elif renpy.showing("Rogue_BJ_Animation"):
+        show Rogue_BJ_Animation   
+    elif renpy.showing("Rogue_HJ_Animation"):
+        show Rogue_HJ_Animation   
+    elif renpy.showing("Rogue_TJ_Animation"):
+        show Rogue_TJ_Animation   
+    return
+    
+init python:
+    def ModPantsNum(Chr = "Rogue"): 
+                #This function determines how much pants are on, 10 for pants, 5 for skirt, <5 for less.
+                if Chr == "Rogue":
+                        # if R_Upskirt and R_Legs:
+                        #     return 1"modded SR7 skirtshort" or R_Legs == "modded cheerleader skirtshort"
+                        if R_Legs == "modded skirtshort":
+                            return 5
+                        elif R_Legs == "modded SR7 skirtshort":
+                            return 5
+                        elif R_Legs == "modded cheerleader skirtshort":
+                            return 5
+                        elif R_Legs == "modded cheerleader skirt":
+                            return 5
+                        elif R_Panties == "shorts":
+                            return 6
+                        else:
+                            return 0
+                elif Chr == "Kitty":
+                        # if K_Upskirt and K_Legs:
+                        #     return 1
+                        if K_Legs == "black jeans":
+                            return 10            
+                        elif K_Legs == "capris":
+                            return 10    
+                        elif K_Legs == "yoga pants":
+                            return 8                    
+                        elif K_Legs == "shorts":
+                            return 6       
+                        elif K_Legs == "blue skirt":
+                            return 5
+                        else:
+                            return 0
+                elif Chr == "Emma":
+                        # if E_Upskirt and E_Legs:
+                        #     return 1
+                        if E_Legs == "pants":
+                            return 10                           
+                        elif E_Legs == "yoga pants":
+                            return 10 
+                        elif E_Legs == "skirt":
+                            return 5   
+                        else:
+                            return 0
+                elif Chr == "Laura":
+                        # if L_Upskirt and L_Legs:
+                        #     return 1
+                        if L_Legs == "leather pants":
+                            return 10        
+                        elif L_Legs == "skirt":
+                            return 5   
+                        elif L_Legs == "mesh pants":
+                            return 2        
+                        else:
+                            return 0
+                            
+                #if it falls though. . .
+                return 0 
 #End Rogue Wardrobe
