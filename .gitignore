@@ -11,3 +11,4 @@ log.txt
 game/cache/bytecode.rpyb
 game/cache/pyanalysis.rpyb
 game/cache/screens.rpyb
+*.bat

@@ -4090,6 +4090,8 @@ label Rogue_Clothes:
     call RogueFace
     menu:
         ch_r "So what did you want to tell me about my clothes again?"
+        "Let's talk about your modded clothes.":
+                    jump Rogue_Modded_Clothes_Menu
         "Let's talk about your outfits.":
                 jump Rogue_Clothes_Outfits        
         "Let's talk about your over shirts.":
