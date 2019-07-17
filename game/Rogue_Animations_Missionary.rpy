@@ -1271,21 +1271,5 @@ label Rogue_Sex_Launch(Line = "solo"):
     with dissolve
     return
     
-#MOD MARKER RESET
-label Rogue_Sex_Reset:
-    if not renpy.showing("Rogue_SexSprite") and not renpy.showing("Rogue_Doggy"):
-        return
-    $ Rogue_Arms = 2     
-    call mod_hide_Rogue_SexSprite
-    call Rogue_Hide 
-#    call Set_The_Scene(Dress = 0)    
-    show Rogue at SpriteLoc(R_SpriteLoc) zorder RogueLayer:
-        alpha 1
-        zoom 1 offset (0,0) 
-        anchor (0.5, 0.0)
-    with dissolve
-    $ Speed = 0
-    return
-    
 # End Rogue Sex pose Animations / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / /    
 ###ANON MOD CODE BLOCK STOP ######

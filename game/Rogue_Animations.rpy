@@ -21,6 +21,7 @@ image Rogue:
         (0,0), ConditionSwitch(                                                                         
             #shirt layer           
             "not R_Over", Null(),    
+            "'modded' in R_Over and 'hoodie' in R_Over", "images/RogueSprite/Rogue_over_" + str(R_Over) + "B.png",
             "R_Over == 'hoodie'", "images/RogueSprite/Rogue_over_hoodieB.png",         
             "R_Uptop", ConditionSwitch( 
                     #if the top's down. . .
@@ -47,6 +48,7 @@ image Rogue:
                     #if the top's up. . .
                     "Rogue_Arms == 1", ConditionSwitch( 
                             #if the arms are down. . .
+                            "'modded' in R_Over and 'mesh top' in R_Over", "images/RogueSprite/Rogue_over_" + str(R_Over) + "1.png",
                             "R_Over == 'mesh top'", "images/RogueSprite/Rogue_over_mesh1.png",           
 #                            "R_Over == 'pink top'", "images/RogueSprite/Rogue_over_pink1.png",
 #                            "R_Over == 'towel'", "images/RogueSprite/Rogue_over_towel1.png",
@@ -56,6 +58,7 @@ image Rogue:
                             ),  
                     "True", ConditionSwitch( 
                             #if the arms are up. . .
+                            "'modded' in R_Over and 'mesh top' in R_Over", "images/RogueSprite/Rogue_over_" + str(R_Over) + "2.png",
                             "R_Over == 'mesh top'", "images/RogueSprite/Rogue_over_mesh2.png", 
 #                            "R_Over == 'pink top'", "images/RogueSprite/Rogue_over_pink2.png",
 #                            "R_Over == 'hoodie'", "images/RogueSprite/Rogue_over_hoodie2.png",
@@ -113,6 +116,7 @@ image Rogue:
                     #if the panties's down. . .
                     "R_Wet > 1", ConditionSwitch( 
                             #if the panties's are wet. . .
+                            "'modded' in R_Panties", "images/RogueSprite/Rogue_panties_" + str(R_Panties) + "_down_wet.png",
                             "R_Panties == 'shorts'", "images/RogueSprite/Rogue_shorts_down_wet.png",
                             "R_Panties == 'green panties'", "images/RogueSprite/Rogue_undies_down_wet.png",
                             "R_Panties == 'bikini bottoms'", "images/RogueSprite/Rogue_panties_bikini_down.png",  
@@ -120,6 +124,7 @@ image Rogue:
                             ),    
                     "True", ConditionSwitch( 
                             #if the panties's are not wet. . .
+                            "'modded' in R_Panties", "images/RogueSprite/Rogue_panties_" + str(R_Panties) + "_down.png",
                             "R_Panties == 'shorts'", "images/RogueSprite/Rogue_shorts_down.png",  
                             "R_Panties == 'green panties'", "images/RogueSprite/Rogue_undies_down.png",  
                             "R_Panties == 'bikini bottoms'", "images/RogueSprite/Rogue_panties_bikini_down.png",  
@@ -130,6 +135,7 @@ image Rogue:
                     #if the panties's up. . .
                     "R_Wet > 1", ConditionSwitch( 
                             #if the panties's are wet. . .
+                            "'modded' in R_Panties", "images/RogueSprite/Rogue_panties_" + str(R_Panties) + "_wet.png",
                             "R_Panties == 'shorts' and R_Wet > 1", "images/RogueSprite/Rogue_shorts_wet.png",     
                             "R_Panties == 'green panties' and R_Wet > 1", "images/RogueSprite/Rogue_undies_wet.png",     
                             "R_Panties == 'lace panties'", "images/RogueSprite/Rogue_lacepanties.png",    
@@ -138,6 +144,7 @@ image Rogue:
                             ),    
                     "True", ConditionSwitch( 
                             #if the panties's are not wet. . .     
+                            "'modded' in R_Panties", "images/RogueSprite/Rogue_panties_" + str(R_Panties) + ".png",
                             "R_Panties == 'shorts'", "images/RogueSprite/Rogue_shorts.png",       
                             "R_Panties == 'green panties'", "images/RogueSprite/Rogue_undies.png",   
                             "R_Panties == 'lace panties'", "images/RogueSprite/Rogue_lacepanties.png",   
@@ -148,6 +155,10 @@ image Rogue:
             ),
         (0,0), ConditionSwitch(                                                                         
             #full hose/tights              
+            "R_Hose", ConditionSwitch( 
+                "'modded' in R_Hose", "images/RogueSprite/Rogue_hose_" + str(R_Hose) + ".png",
+                "True", Null(),
+                ),
             "R_Panties and R_PantiesDown", Null(), 
             "R_Hose == 'stockings and garterbelt'", "images/RogueSprite/Rogue_hose_garter.png",  
             "R_Hose == 'garterbelt'", "images/RogueSprite/Rogue_garters.png",                 
@@ -246,6 +257,9 @@ image Rogue:
             
         (0,0), ConditionSwitch(                                                                         
             #Pants and Skirts
+            "not R_Legs", Null(),
+            "'modded' in R_Legs and R_Upskirt", "images/RogueSprite/Rogue_legs_" + str(R_Legs) + "_up.png",
+            "'modded' in R_Legs", "images/RogueSprite/Rogue_legs_" + str(R_Legs) + ".png",
             "R_Legs == 'pants' and R_Upskirt", "images/RogueSprite/Rogue_legs_pants_down.png", 
             "R_Legs == 'pants'", "images/RogueSprite/Rogue_legs_pants.png",          
             "R_Legs == 'skirt' and R_Upskirt", "images/RogueSprite/Rogue_legs_skirt_up.png",
@@ -289,9 +303,15 @@ image Rogue:
                     "R_Chest == 'sports bra'", "images/RogueSprite/Rogue_chest_sportsbra_Up.png",
                     "R_Chest == 'lace bra'", "images/RogueSprite/Rogue_chest_lacebra_Up.png",            
                     "R_Chest == 'bikini top'", "images/RogueSprite/Rogue_chest_bikini_Up.png",     
+                    "True", Null(),    
                     ),            
             "True", ConditionSwitch(
                     #if the top's up. . .
+                    "'modded' in R_Chest and 'crop top' in R_Chest", ConditionSwitch(
+                        "Rogue_Arms == 1", "images/RogueSprite/Rogue_chest_" + str(R_Chest) + "1.png",
+                        "True", "images/RogueSprite/Rogue_chest_" + str(R_Chest) + "2.png",
+                        ),
+                    "'modded' in R_Chest", "images/RogueSprite/Rogue_chest_" + str(R_Chest) + ".png",
                     "R_Chest == 'tank'", "images/RogueSprite/Rogue_chest_tank.png",
                     "R_Chest == 'buttoned tank'", "images/RogueSprite/Rogue_chest_tank2.png",            
                     "R_Chest == 'bra'", "images/RogueSprite/Rogue_chest_bra.png",                         
@@ -355,6 +375,7 @@ image Rogue:
                     #if the top's up. . .
                     "Rogue_Arms == 1", ConditionSwitch( 
                             #if the arms are down. . .
+                            "'modded' in R_Over", "images/RogueSprite/Rogue_over_" + str(R_Over) + "1.png",
                             "R_Over == 'mesh top'", "images/RogueSprite/Rogue_over_mesh1.png",           
                             "R_Over == 'pink top'", "images/RogueSprite/Rogue_over_pink1.png",
                             "R_Over == 'towel'", "images/RogueSprite/Rogue_over_towel1.png",
@@ -364,6 +385,7 @@ image Rogue:
                             ),  
                     "True", ConditionSwitch( 
                             #if the arms are up. . .
+                            "'modded' in R_Over", "images/RogueSprite/Rogue_over_" + str(R_Over) + "2.png",
                             "R_Over == 'mesh top'", "images/RogueSprite/Rogue_over_mesh2.png", 
                             "R_Over == 'pink top'", "images/RogueSprite/Rogue_over_pink2.png",
                             "R_Over == 'hoodie'", "images/RogueSprite/Rogue_over_hoodie2.png",
