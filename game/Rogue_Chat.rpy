@@ -5157,6 +5157,8 @@ label Rogue_OutfitShame(Custom = 3, Check = 0, Count = 0, Tempshame = 50, Agree 
             #If she's wearing a bra of some kind
             if Custom == 20 and R_Uptop: 
                 $ Count = 0
+            elif IsOutfitModdedRogue("Chest"):
+                $ Count = Mod_Rogue_OutfitShame("Chest")
             elif R_Chest == "tank":                                              
                 $ Count = 20
             elif R_Chest == "buttoned tank":
@@ -5178,6 +5180,8 @@ label Rogue_OutfitShame(Custom = 3, Check = 0, Count = 0, Tempshame = 50, Agree 
             #If she's wearing an overshirt
             if Custom == 20 and R_Uptop: 
                 $ Count = 0
+            elif IsOutfitModdedRogue("Over"):
+                $ Count += Mod_Rogue_OutfitShame("Over")
             elif R_Over == "pink top":                                             
                 $ Count += 15
             elif R_Over == "hoodie":      
@@ -5220,8 +5224,12 @@ label Rogue_OutfitShame(Custom = 3, Check = 0, Count = 0, Tempshame = 50, Agree 
             else: #If she's missing something on her legs   
                         if R_Legs == "pants":                   #If wearing pants commando
                             $ Count = 25
+                        elif IsOutfitModdedRogue("Legs"):
+                            $ Count = Mod_Rogue_OutfitShame("Legs")
                         elif R_Legs:                            #If wearing a skirt commando
                             $ Count = 20
+                        elif IsOutfitModdedRogue("Panties"):
+                            $ Count = Mod_Rogue_OutfitShame("Panties")
                         elif R_Panties == "shorts":             #If wearing shorts
                             $ Count = 25  
                         elif R_Panties == "bikini bottoms":      #If wearing only bikini bottoms

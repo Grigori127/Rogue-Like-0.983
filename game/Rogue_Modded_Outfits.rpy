@@ -15,7 +15,7 @@ label Rogue_Modded_Clothes_Menu:
         #         jump Rogue_Modded_Clothes_Misc
                                 
         "Never mind, you look good like that. [[return]":            
-                return
+                jump Rogue_Clothes
             
     jump Rogue_Clothes
     #End of Rogue Wardrobe Main Menu
@@ -1188,4 +1188,129 @@ init python:
                             
                 #if it falls though. . .
                 return 0 
+
+    def IsOutfitModdedRogue(Type = "Over"):
+        if Type == "Over":
+            if R_Over:
+                if "modded" in R_Over:
+                    return 1
+            else:
+                return 0
+        if Type == "Chest":
+            if R_Chest:
+                if "modded" in R_Chest:
+                    return 1
+            else:
+                return 0
+        if Type == "Legs":
+            if R_Legs:
+                if "modded" in R_Legs:
+                    return 1
+            else:
+                return 0
+        if Type == "Panties":
+            if R_Panties:
+                if "modded" in R_Panties:
+                    return 1
+            else:
+                return 0
+        return 0
+
+    def Mod_Rogue_OutfitShame(Type = "Chest"):                                                                             #sets custom outfit    
+  
+        if Type == "Chest":
+            # if R_Chest == "tank":                                              
+            #     $ Count = 20
+            # elif R_BodySuit == "classic uniform":
+            #     $ Count = 20 
+            # elif R_BodySuit == "swimsuit1":
+            #     $ Count = 20
+            # elif R_BodySuit == "swimsuit2":
+            #     $ Count = 10
+            if R_Chest == "modded cheerleader":
+                return 20
+            elif R_Chest == "modded slut tank short":                                              
+                return -5
+            elif R_Chest == "modded SR7 tank short":                                              
+                return 5
+            elif R_Chest == "modded green crop top":                                              
+                return 20
+            elif R_Chest == "modded black crop top":                                              
+                return 20
+            elif R_Chest == "modded tape":                                              
+                return 5
+            elif R_Chest == "modded red sports bra":
+                return 15
+            elif R_Chest == "modded blue sports bra":
+                return 15
+
+        if Type == "Over":
+            if R_Over == "modded red top":                                             
+                return 15
+            elif R_Over == "modded classic jacket":      
+                return 5
+            elif R_Over == "modded blue hoodie":      
+                return 15
+            elif R_Over == "modded red hoodie":      
+                return 15
+            elif R_Over == "modded yellow hoodie":      
+                return 15
+            elif R_Over == "modded black hoodie":      
+                return 15
+            elif R_Over == "modded white hoodie":      
+                return 15 
+            elif R_Over == "modded SR7 mesh top":      
+                return 5
+            elif R_Over == "modded white mesh top":      
+                return 5
+            elif R_Over == "modded blue mesh top":      
+                return 5
+            elif R_Over == "modded red mesh top":      
+                return 5
+            elif R_Over == "modded yellow mesh top":      
+                return 5
+            elif R_Over == "modded black mesh top":      
+                return 5      
+            elif R_Over == "modded red dress":      
+                return 40  
+            elif R_Over == "modded blue dress":      
+                return 40  
+
+        if Type == "Legs":
+            # if R_BodySuit == "classic uniform":
+            #     $ Count = 25
+            # if R_Over == "blue dress":      
+            #     $ Count = 20  
+            # elif R_Over == "red dress":      
+            #     $ Count = 20  
+            if R_Legs == "skirtshort":            #If wearing a short skirt commando
+                return 0
+            elif R_Legs == "SR7 skirtshort":            #If wearing a short skirt commando
+                return 0
+            elif R_Legs == "cheerleader skirt":                 #If wearing a cheerleader skirt commando
+                return 20
+            elif R_Legs == "cheerleader skirtshort":            #If wearing a short cheerleader skirt commando
+                return 0   
+        
+
+        if Type == "Panties":
+                       
+            if R_Panties == "red shorts":             #If wearing shorts
+                return 25
+            elif R_Panties == "blue shorts":             #If wearing shorts
+                return 25  
+            elif R_Panties == "black large panties":      #If wearing only green panties
+                return 10
+            # elif R_Panties == "swimsuit1":
+            #     return 40
+            # elif R_Panties == "swimsuit2":
+            #     $ Count = 30
+            # elif R_Panties:                         #If wearing only any other panties
+            #     $ Count = 7
+            # if R_BodySuit == "swimsuit1":
+            #     $ Count += 10
+            # elif R_BodySuit == "swimsuit2":
+            #     $ Count += 5
+
+        return 0          
 #End Rogue Wardrobe
