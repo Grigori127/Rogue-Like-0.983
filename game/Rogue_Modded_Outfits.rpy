@@ -46,19 +46,19 @@ label Rogue_Modded_Clothes_Menu:
                         menu:
                             ch_r "Which do you prefer?"
                             "The green one looks good on you." if R_Over != "mesh top":
-                                call SetOver("Rogue", "mesh top")
+                                call SetOverRogue("mesh top")
                             "The white one gives off a good vibe." if R_Over != "modded white mesh top":
-                                call SetOver("Rogue", "modded white mesh top")
+                                call SetOverRogue("modded white mesh top")
                             "The blue one looks nice on you." if R_Over != "modded blue mesh top":
-                                call SetOver("Rogue", "modded blue mesh top")
+                                call SetOverRogue("modded blue mesh top")
                             "{i}Love{/i} the red one." if R_Over != "modded red mesh top":
-                                call SetOver("Rogue", "modded red mesh top")
+                                call SetOverRogue("modded red mesh top")
                             "The yellow one makes me nostalgic." if R_Over != "modded yellow mesh top":
-                                call SetOver("Rogue", "modded yellow mesh top")
+                                call SetOverRogue("modded yellow mesh top")
                             "I like the black one." if R_Over != "modded black mesh top":
-                                call SetOver("Rogue", "modded black mesh top")
+                                call SetOverRogue("modded black mesh top")
                             "I like the SR7 one." if R_Over != "modded SR7 mesh top":
-                                call SetOver("Rogue", "modded SR7 mesh top")
+                                call SetOverRogue("modded SR7 mesh top")
                         menu:
                             ch_r "With the collar?"
                             "Yes":
@@ -66,36 +66,36 @@ label Rogue_Modded_Clothes_Menu:
                             "No":
                                 $ R_Neck = 0
                         if R_Chest == "buttoned tank":
-                            call SetChest("Rogue","tank")
+                            $ R_Chest = "tank"
                             
         "How about your top?":
                         menu:
                             ch_r "Which one do you like?"
                             "The pink one looks good on you." if R_Over != "pink top":
-                                call SetOver("Rogue", "pink top")
+                                call SetOverRogue("pink top")
                                 $ R_Neck = 0
                             "I like the red one." if R_Over != "modded red top":
-                                call SetOver("Rogue", "modded red top")
+                                call SetOverRogue("modded red top")
                                 $ R_Neck = 0   
                         
         "How about your hoodie?":
                         menu:
                             ch_r "Which one do you like?"
                             "The green one suits you well." if R_Over != "hoodie":
-                                call SetOver("Rogue", "hoodie")
+                                call SetOverRogue("hoodie")
                             "The blue one looks nice on you." if R_Over != "modded blue hoodie":
-                                call SetOver("Rogue", "modded blue hoodie")
+                                call SetOverRogue("modded blue hoodie")
                             "The red one looks hot." if R_Over != "modded red hoodie":
-                                call SetOver("Rogue", "modded red hoodie")
+                                call SetOverRogue("modded red hoodie")
                             "The yellow one is pretty good." if R_Over != "modded yellow hoodie":
-                                call SetOver("Rogue", "modded yellow hoodie")
+                                call SetOverRogue("modded yellow hoodie")
                             "The black one is nice." if R_Over != "modded black hoodie":
-                                call SetOver("Rogue", "modded black hoodie")
+                                call SetOverRogue("modded black hoodie")
                             "I like the white one" if R_Over != "modded white hoodie":
-                                call SetOver("Rogue", "modded white hoodie")
+                                call SetOverRogue("modded white hoodie")
 
         "How about you jacket?" if R_Over != "modded classic jacket":
-                call SetOver("Rogue", "modded classic jacket")
+                call SetOverRogue("modded classic jacket")
 
                         
         "Maybe just throw on a towel?" if R_Over != "towel":
@@ -108,14 +108,14 @@ label Rogue_Modded_Clothes_Menu:
             else:
                 ch_r "That don't leave much to the imagination. . ."
                 jump Rogue_Modded_Clothes_Menu  
-            call SetOver("Rogue", "towel")
+            call SetOverRogue("towel")
 
         "How about that red dress?" if R_Over != "modded red dress":
             if R_Legs:
                 ch_r "I can't really wear that with my [R_Legs] on."
             elif ApprovalCheck("Rogue", 1000) or R_BodySuit:
                 ch_r "Sure. . ."
-                call SetOver("Rogue", "modded red dress")
+                call SetOverRogue("modded red dress")
 
             else:
                 ch_r "That's a bit . . . revealing."   
@@ -125,7 +125,7 @@ label Rogue_Modded_Clothes_Menu:
                 ch_r "I can't really wear that with my [R_Legs] on."
             elif ApprovalCheck("Rogue", 1000) or R_BodySuit :
                 ch_r "Sure. . ."
-                call SetOver("Rogue", "modded blue dress")
+                call SetOverRogue("modded blue dress")
 
             else:
                 ch_r "That's a bit . . . revealing."    
@@ -135,15 +135,15 @@ label Rogue_Modded_Clothes_Menu:
                             ch_r "I can't really wear that with my [R_Legs] on."
                         elif ApprovalCheck("Rogue", 1100, TabM=3):
                             ch_r "Sure. . ."
-                            call SetOver("Rogue", "nighty")
+                            call SetOverRogue("nighty")
                             if "lace bra" in R_Inventory:
-                                call SetChest("Rogue","lace bra")
+                                call SetChestRogue("lace bra")
                             else:
-                                call SetChest("Rogue","bra")
+                                call SetChestRogue("bra")
                             if "lace panties" in R_Inventory:
-                                call SetPanties("Rogue", "lace panties")
+                                call SetPantiesRogue("lace panties")
                             else:
-                                call SetPanties("Rogue", "black panties")
+                                call SetPantiesRogue("black panties")
                             menu:
                                 extend ""
                                 "Nice.":
@@ -152,11 +152,11 @@ label Rogue_Modded_Clothes_Menu:
                                     if ApprovalCheck("Rogue", 1400, TabM=3):
                                         "She shrugs off her bra and then pulls the nighty back up."
                                         $ R_Panties = 0
-                                        call SetChest("Rogue0,")
+                                        $ R_Chest = 0
                                         $ R_BodySuit = 0
                                         ch_r "Hmmm, alright. . ."
                                     elif ApprovalCheck("Rogue", 1200, TabM=3):
-                                        call SetChest("Rogue0,")
+                                        $ R_Chest = 0
                                         $ R_BodySuit = 0
                                         ch_r "I'll keep my panties on, thanks."
                                     else:
@@ -231,7 +231,7 @@ label Rogue_Modded_Clothes_Menu:
                               $ R_Legs = "skirt"
                               $ R_Upskirt = 0
                             "The cheerleader one" if R_Legs != "modded cheerleader skirt":  
-                              call SetLegs("Rogue", "modded cheerleader skirt")
+                              call SetLegsRogue("modded cheerleader skirt")
                               $ R_Upskirt = 0
 
         "How about that short skirt?":
@@ -241,24 +241,24 @@ label Rogue_Modded_Clothes_Menu:
                                  call RogueFace("sexy", 1)
                                  if R_BodySuit:
                                       ch_r "Sure."
-                                      call SetLegs("Rogue", "modded SR7 skirtshort")
+                                      call SetLegsRogue("modded SR7 skirtshort")
                                       $ R_Upskirt = 0
                                  elif R_SeenPanties and R_Panties and ApprovalCheck("Rogue", 400, TabM=5):
                                       ch_r "Sure."             
-                                      call SetLegs("Rogue", "modded SR7 skirtshort")
+                                      call SetLegsRogue("modded SR7 skirtshort")
                                       $ R_Upskirt = 0
                                  elif R_SeenPussy and ApprovalCheck("Rogue", 700, TabM=4):
                                       ch_r "Sure, why not?"             
-                                      call SetLegs("Rogue", "modded SR7 skirtshort")
+                                      call SetLegsRogue("modded SR7 skirtshort")
                                       $ R_Upskirt = 0
                                  elif ApprovalCheck("Rogue", 1000, TabM=2) and R_Panties: 
                                       ch_r "Well, I suppose if it's for you. . ."
                                       $ R_SeenPanties = 1             
-                                      call SetLegs("Rogue", "modded SR7 skirtshort")
+                                      call SetLegsRogue("modded SR7 skirtshort")
                                       $ R_Upskirt = 0
                                  elif ApprovalCheck("Rogue", 1300, TabM=3): #No panties
                                       ch_r "Well, I suppose if it's for you. . ."                
-                                      call SetLegs("Rogue", "modded SR7 skirtshort")
+                                      call SetLegsRogue("modded SR7 skirtshort")
                                       $ R_Upskirt = 0
                                       call Rogue_First_Bottomless
                                  elif Taboo:
@@ -269,24 +269,24 @@ label Rogue_Modded_Clothes_Menu:
                                  call RogueFace("sexy", 1)
                                  if R_BodySuit:
                                       ch_r "Sure."
-                                      call SetLegs("Rogue", "modded skirtshort")
+                                      call SetLegsRogue("modded skirtshort")
                                       $ R_Upskirt = 0
                                  elif R_SeenPanties and R_Panties and ApprovalCheck("Rogue", 400, TabM=5):
                                       ch_r "Sure."             
-                                      call SetLegs("Rogue", "modded skirtshort")
+                                      call SetLegsRogue("modded skirtshort")
                                       $ R_Upskirt = 0
                                  elif R_SeenPussy and ApprovalCheck("Rogue", 700, TabM=4):
                                       ch_r "Sure, why not?"             
-                                      call SetLegs("Rogue", "modded skirtshort")
+                                      call SetLegsRogue("modded skirtshort")
                                       $ R_Upskirt = 0
                                  elif ApprovalCheck("Rogue", 1000, TabM=2) and R_Panties: 
                                       ch_r "Well, I suppose if it's for you. . ."
                                       $ R_SeenPanties = 1             
-                                      call SetLegs("Rogue", "modded skirtshort")
+                                      call SetLegsRogue("modded skirtshort")
                                       $ R_Upskirt = 0
                                  elif ApprovalCheck("Rogue", 1300, TabM=3): #No panties
                                       ch_r "Well, I suppose if it's for you. . ."                
-                                      call SetLegs("Rogue", "modded skirtshort")
+                                      call SetLegsRogue("modded skirtshort")
                                       $ R_Upskirt = 0
                                       call Rogue_First_Bottomless
                                  elif Taboo:
@@ -297,24 +297,24 @@ label Rogue_Modded_Clothes_Menu:
                                 call RogueFace("sexy", 1)
                                 if R_BodySuit:
                                       ch_r "Sure."
-                                      call SetLegs("Rogue", "modded cheerleader skirtshort")
+                                      call SetLegsRogue("modded cheerleader skirtshort")
                                       $ R_Upskirt = 0
                                 elif R_SeenPanties and R_Panties and ApprovalCheck("Rogue", 400, TabM=5):
                                       ch_r "Sure."             
-                                      call SetLegs("Rogue", "modded cheerleader skirtshort")
+                                      call SetLegsRogue("modded cheerleader skirtshort")
                                       $ R_Upskirt = 0
                                 elif R_SeenPussy and ApprovalCheck("Rogue", 700, TabM=4):
                                       ch_r "Sure, why not?"             
-                                      call SetLegs("Rogue", "modded cheerleader skirtshort")
+                                      call SetLegsRogue("modded cheerleader skirtshort")
                                       $ R_Upskirt = 0
                                 elif ApprovalCheck("Rogue", 1000, TabM=2) and R_Panties: 
                                       ch_r "Well, I suppose if it's for you. . ."
                                       $ R_SeenPanties = 1             
-                                      call SetLegs("Rogue", "modded cheerleader skirtshort")
+                                      call SetLegsRogue("modded cheerleader skirtshort")
                                       $ R_Upskirt = 0
                                 elif ApprovalCheck("Rogue", 1300, TabM=3): #No panties
                                       ch_r "Well, I suppose if it's for you. . ."                
-                                      call SetLegs("Rogue", "modded cheerleader skirtshort")
+                                      call SetLegsRogue("modded cheerleader skirtshort")
                                       $ R_Upskirt = 0
                                       call Rogue_First_Bottomless
                                 elif Taboo:
@@ -362,13 +362,13 @@ label Rogue_Modded_Clothes_Menu:
                           ch_r "Which color would suit me best?"
                           "The green one suits you well." if R_Panties != "shorts":
                                 ch_r "Alright."
-                                call SetPanties("Rogue", "shorts")
+                                call SetPantiesRogue("shorts")
                           "The blue one looks nice on you." if R_Panties != "modded blue shorts":
                                 ch_r "Alright."
-                                call SetPanties("Rogue", "modded blue shorts")
+                                call SetPantiesRogue("modded blue shorts")
                           "The red one looks hot." if R_Panties != "modded red shorts":
                                 ch_r "Alright."
-                                call SetPanties("Rogue", "modded red shorts")
+                                call SetPantiesRogue("modded red shorts")
                                 
                                             
         "Why don't you lose the shorts?" if R_Panties == "shorts" or R_Panties == "modded red shorts" or R_Panties == "modded blue shorts":
@@ -392,7 +392,7 @@ label Rogue_Modded_Clothes_Menu:
                                             if ApprovalCheck("Rogue", 1100, TabM=3):
                                                 $ R_SeenPanties = 1
                                                 ch_r "Sure, ok."
-                                                call SetPanties("Rogue", "green panties")
+                                                call SetPantiesRogue("green panties")
                                             else:
                                                 ch_r "You'll have to wait, [R_Petname]."
                                                 jump Rogue_Modded_Clothes_Legs
@@ -401,7 +401,7 @@ label Rogue_Modded_Clothes_Menu:
                                             if ApprovalCheck("Rogue", 1100, TabM=3):
                                                 $ R_SeenPanties = 1
                                                 ch_r "Sure, ok."
-                                                call SetPanties("Rogue", "modded black large panties")
+                                                call SetPantiesRogue("modded black large panties")
                                             else:
                                                 ch_r "You'll have to wait, [R_Petname]."
                                                 jump Rogue_Modded_Clothes_Legs
@@ -410,7 +410,7 @@ label Rogue_Modded_Clothes_Menu:
                                             if ApprovalCheck("Rogue", 1200, TabM=3):
                                                 $ R_SeenPanties = 1
                                                 ch_r "Alright."                
-                                                call SetPanties("Rogue", "black panties")
+                                                call SetPantiesRogue("black panties")
                                             else:
                                                 ch_r "Maybe some other time, [R_Petname]."  
                                                 jump Rogue_Modded_Clothes_Legs                                      
@@ -419,7 +419,7 @@ label Rogue_Modded_Clothes_Menu:
                                             if ApprovalCheck("Rogue", 1200, TabM=3):
                                                 $ R_SeenPanties = 1
                                                 ch_r "Alright."                
-                                                call SetPanties("Rogue", "lace panties")
+                                                call SetPantiesRogue("lace panties")
                                             else:
                                                 ch_r "Maybe some other time, [R_Petname]."
                                                 jump Rogue_Modded_Clothes_Legs
@@ -534,47 +534,47 @@ label Rogue_Modded_Clothes_Menu:
                         else:
                             ch_r "I don't think so, [R_Petname]."
                             jump Rogue_Modded_Clothes_Under_Top 
-                        call SetChest("Rogue0,")
+                        $ R_Chest = 0
                         jump Rogue_Modded_Clothes_Under_Top 
 
                 "Try on that cheerleader top." if R_Chest != "modded cheerleader":
                                 # call Rogue_Swimsuit_Change_Top
-                                call SetChest("Rogue","modded cheerleader")
+                                call SetChestRogue("modded cheerleader")
                                 jump Rogue_Modded_Clothes_Under_Top
                     
                 "Try on that black tank top." if R_Chest != "tank":
                                 # call Rogue_Swimsuit_Change_Top
-                                call SetChest("Rogue","tank")
+                                $ R_Chest = "tank"
                                 jump Rogue_Modded_Clothes_Under_Top
         
                 "Try on that short black tank top." if R_Chest != "modded tank short":
                                 # call Rogue_Swimsuit_Change_Top
-                                call SetChest("Rogue","modded tank short")
+                                call SetChestRogue("modded tank short")
                                 jump Rogue_Modded_Clothes_Under_Top
 
                 "Try on that SR7 black tank top." if R_Chest != "modded SR7 tank short":
                                 # call Rogue_Swimsuit_Change_Top
-                                call SetChest("Rogue","modded SR7 tank short")
+                                call SetChestRogue("modded SR7 tank short")
                                 jump Rogue_Modded_Clothes_Under_Top
 
                 "Try on that short black slut tank top." if R_Chest != "modded slut tank short":
                                 # call Rogue_Swimsuit_Change_Top
-                                call SetChest("Rogue","modded slut tank short")
+                                call SetChestRogue("modded slut tank short")
                                 jump Rogue_Modded_Clothes_Under_Top
 
                 "Try on that green crop top." if R_Chest != "modded green crop top":
                                 # call Rogue_Swimsuit_Change_Top
-                                call SetChest("Rogue","modded green crop top")
+                                call SetChestRogue("modded green crop top")
                                 jump Rogue_Modded_Clothes_Under_Top
 
                 "Try on that black crop top." if R_Chest != "modded black crop top":
                                 # call Rogue_Swimsuit_Change_Top
-                                call SetChest("Rogue","modded black crop top")
+                                call SetChestRogue("modded black crop top")
                                 jump Rogue_Modded_Clothes_Under_Top
 
                 "I like that buttoned tank top." if (R_Chest != "buttoned tank" and R_Over != "mesh top") or (R_Chest != "buttoned tank" and R_Over != "modded white mesh top") or (R_Chest != "buttoned tank" and R_Over != "modded blue mesh top") or (R_Chest != "buttoned tank" and R_Over != "modded yellow mesh top") or (R_Chest != "buttoned tank" and R_Over != "modded red mesh top") or (R_Chest != "buttoned tank" and R_Over != "modded black mesh top") or (R_Chest != "buttoned tank" and R_Over != "modded SR7 mesh top"):
                                 # call Rogue_Swimsuit_Change_Top
-                                call SetChest("Rogue","buttoned tank")
+                                call SetChestRogue("buttoned tank")
                                 jump Rogue_Modded_Clothes_Under_Top
                     
                 "I like your sport bras.":
@@ -584,13 +584,13 @@ label Rogue_Modded_Clothes_Menu:
                                 ch_r "Oh? Which color suits your fancy then?"
                                 "Green looks nice on you." if R_Chest != "sports bra":
                                     ch_r "Sure."
-                                    call SetChest("Rogue","sports bra")
+                                    call SetChestRogue("sports bra")
                                 "I like the red one." if R_Chest != "modded red sports bra":
                                     ch_r "Sure."
-                                    call SetChest("Rogue","modded red sports bra")
+                                    call SetChestRogue("modded red sports bra")
                                 "The blue one suits you." if R_Chest != "modded blue sports bra":
                                     ch_r "Sure."   
-                                    call SetChest("Rogue","modded blue sports bra")
+                                    call SetChestRogue("modded blue sports bra")
                         else:
                             ch_r "I don't know about wearing it with this. . ." 
                         jump Rogue_Modded_Clothes_Under_Top
@@ -599,7 +599,7 @@ label Rogue_Modded_Clothes_Menu:
                         if (R_SeenChest and ApprovalCheck("Rogue", 600)) or ApprovalCheck("Rogue", 1100, TabM=2) or R_BodySuit:
                             # call Rogue_Swimsuit_Change_Top
                             ch_r "Sure."   
-                            call SetChest("Rogue","bra")
+                            call SetChestRogue("bra")
                         else:                
                             ch_r "That's a bit too revealing. . ."  
                         jump Rogue_Modded_Clothes_Under_Top
@@ -608,7 +608,7 @@ label Rogue_Modded_Clothes_Menu:
                         if (R_SeenChest and ApprovalCheck("Rogue", 800)) or ApprovalCheck("Rogue", 1100, TabM=2):
                             # call Rogue_Swimsuit_Change_Top
                             ch_r "Sure."   
-                            call SetChest("Rogue","lace bra")
+                            call SetChestRogue("lace bra")
                         else:                
                             ch_r "That's a bit too revealing. . ." 
                         jump Rogue_Modded_Clothes_Under_Top
@@ -617,7 +617,7 @@ label Rogue_Modded_Clothes_Menu:
                         if (R_SeenChest and ApprovalCheck("Rogue", 1000)) or ApprovalCheck("Rogue", 1200, TabM=2):
                             # call Rogue_Swimsuit_Change_Top
                             ch_r "Sure."   
-                            call SetChest("Rogue","modded tape")
+                            call SetChestRogue("modded tape")
                         else:                
                             ch_r "That's too revealing. . ." 
                         jump Rogue_Modded_Clothes_Under_Top
@@ -664,7 +664,7 @@ label Rogue_Modded_Clothes_Menu:
                                 if ApprovalCheck("Rogue", 1000, TabM=3):
                                     # call Rogue_Swimsuit_Change_Bottom
                                     ch_r "Sure, ok."
-                                    call SetPanties("Rogue", "green panties")
+                                    call SetPantiesRogue("green panties")
                                 elif (R_Panties == "shorts" or R_Panties == "modded red shorts" or R_Panties == "modded blue shorts"):
                                     ch_r "Heh, no, I think I'll stick with these, thanks."
                                 else:
@@ -674,7 +674,7 @@ label Rogue_Modded_Clothes_Menu:
                                 if ApprovalCheck("Rogue", 1000, TabM=3):
                                     # call Rogue_Swimsuit_Change_Bottom
                                     ch_r "Sure, ok."
-                                    call SetPanties("Rogue", "modded black large panties")
+                                    call SetPantiesRogue("modded black large panties")
                                 elif (R_Panties == "shorts" or R_Panties == "modded red shorts" or R_Panties == "modded blue shorts"):
                                     ch_r "Heh, no, I think I'll stick with these, thanks."
                                 else:
@@ -686,7 +686,7 @@ label Rogue_Modded_Clothes_Menu:
                                 if ApprovalCheck("Rogue", 1100, TabM=3):
                                     # call Rogue_Swimsuit_Change_Bottom
                                     ch_r "Sure."
-                                    call SetPanties("Rogue", "black panties")
+                                    call SetPantiesRogue("black panties")
                                 elif (R_Panties == "shorts" or R_Panties == "modded red shorts" or R_Panties == "modded blue shorts"):
                                     ch_r "Heh, no, I think I'll stick with these, thanks."
                                 else:
@@ -698,7 +698,7 @@ label Rogue_Modded_Clothes_Menu:
                                 if ApprovalCheck("Rogue", 1200, TabM=3):
                                     # call Rogue_Swimsuit_Change_Bottom
                                     ch_r "Sure."
-                                    call SetPanties("Rogue", "lace panties")
+                                    call SetPantiesRogue("lace panties")
                                 elif (R_Panties == "shorts" or R_Panties == "modded red shorts" or R_Panties == "modded blue shorts"):
                                     ch_r "Heh, no, I think I'll stick with these, thanks."
                                 else:
@@ -722,16 +722,16 @@ label Rogue_Modded_Clothes_Menu:
                                     extend ""
                                     "How about the green ones?":
                                         ch_r "Sure, ok."
-                                        call SetPanties("Rogue", "green panties")
+                                        call SetPantiesRogue("green panties")
                                     "How about the black large ones?":
                                         ch_r "Sure, ok."
-                                        call SetPanties("Rogue", "modded black large panties")
+                                        call SetPantiesRogue("modded black large panties")
                                     "How about the black ones?":
                                         ch_r "Alright."                
-                                        call SetPanties("Rogue", "black panties")
+                                        call SetPantiesRogue("black panties")
                                     "How about the lace ones?" if "lace panties" in R_Inventory:
                                         ch_r "Alright."                
-                                        call SetPanties("Rogue", "lace panties")
+                                        call SetPantiesRogue("lace panties")
                                 jump Rogue_Modded_Clothes_Under_Panties
 
                 "Nevermind.":
@@ -775,7 +775,7 @@ label Rogue_Modded_Clothes_Menu:
         #                         if ApprovalCheck("Rogue", 800, TabM=3):
         #                             ch_r "Sure."
         #                             $ R_BodySuit = "swimsuit1"
-        #                             # call SetChest("Rogue","swimsuit1")
+        #                             # call SetChestRogue("swimsuit1")
         #                         # elif (R_Panties == "shorts" or R_Panties == "modded red shorts" or R_Panties == "modded blue shorts"):
         #                         #     ch_r "Heh, no, I think I'll stick with these, thanks."
         #                         else:
@@ -786,7 +786,7 @@ label Rogue_Modded_Clothes_Menu:
         #                         if ApprovalCheck("Rogue", 1200, TabM=3):
         #                             ch_r "Sure."
         #                             $ R_BodySuit = "swimsuit2"
-        #                             # call SetChest("Rogue","swimsuit2")
+        #                             # call SetChestRogue("swimsuit2")
         #                         # elif (R_Panties == "shorts" or R_Panties == "modded red shorts" or R_Panties == "modded blue shorts"):
         #                         #     ch_r "Heh, no, I think I'll stick with these, thanks."
         #                         else:
@@ -854,8 +854,8 @@ label Rogue_Modded_Clothes_Menu:
                                     
                 "Wear your classic uniform?" if R_BodySuit != "classic uniform":
                                 ch_r "Sure, ok."
-                                # call SetPanties("Rogue", "bodysuit")
-                                # call SetChest("Rogue","bodysuit")
+                                # call SetPantiesRogue("bodysuit")
+                                # call SetChestRogue("bodysuit")
                                 $ R_BodySuit = "classic uniform"  
         
                         
@@ -876,16 +876,16 @@ label Rogue_Modded_Clothes_Menu:
                                     extend ""
                                     "How about the green ones?":
                                         ch_r "Sure, ok."
-                                        call SetPanties("Rogue", "green panties")
+                                        call SetPantiesRogue("green panties")
                                     "How about the black large ones?":
                                         ch_r "Sure, ok."
-                                        call SetPanties("Rogue", "modded black large panties")
+                                        call SetPantiesRogue("modded black large panties")
                                     "How about the black ones?":
                                         ch_r "Alright."                
-                                        call SetPanties("Rogue", "black panties")
+                                        call SetPantiesRogue("black panties")
                                     "How about the lace ones?" if "lace panties" in R_Inventory:
                                         ch_r "Alright."                
-                                        call SetPanties("Rogue", "lace panties")
+                                        call SetPantiesRogue("lace panties")
                                 jump Rogue_Modded_Clothes_BodySuits_Body
 
                 "Nevermind.":
@@ -1090,27 +1090,27 @@ label Rogue_Modded_Clothes_Menu:
     
     return
 
-label SetChest(Girl = "Rogue", Outfit = "modded tape"):
+label SetChestRogue(Outfit = "modded tape"):
     $ R_Chest = Outfit
     call Mod_Update_Rogue_Image
     return
 
-label SetOver(Girl = "Rogue", Outfit = "modded white mesh top"):
+label SetOverRogue(Outfit = "modded white mesh top"):
     $ R_Over = Outfit
     call Mod_Update_Rogue_Image
     return
 
-label SetLegs(Girl = "Rogue", Outfit = "modded black large panties"):
+label SetLegsRogue(Outfit = "modded black large panties"):
     $ R_Legs = Outfit
     call Mod_Update_Rogue_Image
     return
 
-label SetPanties(Girl = "Rogue", Outfit = "modded black large panties"):
+label SetPantiesRogue(Outfit = "modded black large panties"):
     $ R_Panties = Outfit
     call Mod_Update_Rogue_Image
     return
 
-label SetHose(Girl = "Rogue", Outfit = "modded fishnet"):
+label SetHoseRogue(Outfit = "modded fishnet"):
     $ R_Hose = Outfit
     call Mod_Update_Rogue_Image
     return
