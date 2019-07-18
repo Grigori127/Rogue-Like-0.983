@@ -3617,6 +3617,8 @@ label Wait (Outfit = 1, Lights = 1):
                         $ R_Inbt += 10   
                     
         # Things about Kitty when you sleep:
+                if K_DynamicTan[0]:
+                    $ K_DynamicTan[0] -= 1
                 if K_Loc == "hold":
                         $ K_Loc = "bg kitty"  
                 if K_Todo:
