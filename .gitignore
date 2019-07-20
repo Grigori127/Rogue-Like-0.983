@@ -1,4 +1,3 @@
-
 *.rpyb
 *.rpyb
 *.save
@@ -13,16 +12,7 @@ game/cache/pyanalysis.rpyb
 game/cache/screens.rpyb
 *.bat
 *.rpyc
-game/Kitty_Animations.rpyc
-game/Kitty_Orgasms.rpyc
-game/Kitty_Sex.rpyc
-game/options.rpyc
-game/Rogue_Animations.rpyc
-game/Rogue_Chat.rpyc
-game/Rogue_Doggy.rpyc
-game/Rogue_Fondle.rpyc
-game/Rogue_HJ.rpyc
-game/Rogue_Orgasms.rpyc
-game/Rogue_Sex.rpyc
-*.rpyc
 traceback.txt
+*.rpyb
+*.rpyc
+game/Kitty_Animations.rpyc

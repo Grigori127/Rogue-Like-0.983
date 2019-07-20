@@ -94,7 +94,7 @@ label Rogue_Modded_Clothes_Menu:
                             "I like the white one" if R_Over != "modded white hoodie":
                                 call SetOverRogue("modded white hoodie")
 
-        "How about you jacket?" if R_Over != "modded classic jacket":
+        "How about your jacket?" if R_Over != "modded classic jacket":
                 call SetOverRogue("modded classic jacket")
 
                         
@@ -753,11 +753,11 @@ label Rogue_Modded_Clothes_Menu:
                                 $ R_Hose = "ripped pantyhose"                
                                 jump Rogue_Modded_Clothes_Under_Hoses
                 "You could use that fishnet" if R_Hose != "modded fishnet" and R_Legs != "pants":
-                                call SetHose("Rogue", "modded fishnet")
+                                call SetHoseRogue("modded fishnet")
                                 jump Rogue_Modded_Clothes_Under_Hoses
 
                 "You could use that SR7 hose" if R_Hose != "modded SR7 hose" and R_Legs != "pants":
-                                call SetHose("Rogue", "modded SR7 hose")
+                                call SetHoseRogue("modded SR7 hose")
                                 jump Rogue_Modded_Clothes_Under_Hoses
         
                 "You could lose the hose." if R_Hose and R_Hose != 'ripped tights' and R_Hose != 'tights':     
@@ -1312,5 +1312,29 @@ init python:
             # elif R_BodySuit == "swimsuit2":
             #     $ Count += 5
 
-        return 0          
+        return 0    
+    def GetModdedString(first = "images/RogueSprite/Rogue_panties_", second = "test", third = ".png"):
+        if second:
+            if "modded" in second:
+                string = first + second + third
+                # if renpy.showing("Rogue"):
+                #     renpy.hide("Rogue")
+                #     renpy.show("Rogue")
+                # elif renpy.showing("Rogue_Doggy"):
+                #     renpy.show("Rogue_Doggy")
+                # elif renpy.showing("Rogue_SexSprite"):
+                #     renpy.show("Rogue_SexSprite")
+                # elif renpy.showing("Rogue_BJ_Animation"):
+                #     renpy.show("Rogue_BJ_Animation")
+                # elif renpy.showing("Rogue_HJ_Animation"):
+                #     renpy.show("Rogue_HJ_Animation")
+                # elif renpy.showing("Rogue_TJ_Animation"):
+                #     renpy.show("Rogue_TJ_Animation")
+            else:
+                string = Null()
+        else:
+            string = Null()
+        return string
+
+
 #End Rogue Wardrobe

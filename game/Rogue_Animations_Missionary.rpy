@@ -3,48 +3,54 @@ image Rogue_Head:
     LiveComposite(
         (416,610),    
         (0,0), ConditionSwitch(
-            "R_Water and R_Blush == 1", "images/RogueSprite/Rogue_head_evowet.png",
-            "R_Water and R_Blush == 2", "images/RogueSprite/Rogue_head_evowet.png",
-            "R_Water", "images/RogueSprite/Rogue_Head_Wet_Base.png",
-            "R_Blush == 1", "images/RogueSprite/Rogue_Head_Evo_Blush.png",
-            "R_Blush == 2", "images/RogueSprite/Rogue_Head_Evo_Blush2.png",
-            "True", "images/RogueSprite/Rogue_Head_Evo_Base.png",
+            "R_DynamicTan[0] and R_Hair == 'evo' and R_Water", "images/RogueSprite/Rogue_thead_evowet.png",
+            "R_Hair == 'evo' and R_Water", "images/RogueSprite/Rogue_head_evowet.png",
+            "R_DynamicTan[0] and R_Hair == 'evo' and R_Blush == 2", "images/RogueSprite/Rogue_thead_evo_blush2.png",
+            "R_Hair == 'evo' and R_Blush == 2", "images/RogueSprite/Rogue_head_evo_blush2.png",
+            "R_DynamicTan[0] and R_Hair == 'evo' and R_Blush", "images/RogueSprite/Rogue_thead_evo_blush.png",
+            "R_Hair == 'evo' and R_Blush", "images/RogueSprite/Rogue_head_evo_blush.png",
+            "R_DynamicTan[0] and R_Hair == 'evo'", "images/RogueSprite/Rogue_thead_evo.png",
+            "R_Hair == 'evo'", "images/RogueSprite/Rogue_head_evo.png",
+            "R_DynamicTan[0]", "images/RogueSprite/Rogue_thead_evo.png",
+            "True", "images/RogueSprite/Rogue_head_evo.png",
             ),     
         (0,0), ConditionSwitch(
-            "R_Brows == 'normal'", "images/RogueSprite/Rogue_Brows_Normal.png",
-            "R_Brows == 'angry'", "images/RogueSprite/Rogue_Brows_Angry.png",
-            "R_Brows == 'sad'", "images/RogueSprite/Rogue_Brows_Sad.png",
-            "R_Brows == 'surprised'", "images/RogueSprite/Rogue_Brows_Surprised.png",
-            "R_Brows == 'confused'", "images/RogueSprite/Rogue_Brows_Confused.png",
-            "True", "images/RogueSprite/Rogue_Brows_Normal.png",
+            "R_Brows == 'normal' and R_Blush == 2", "images/RogueSprite/Rogue_brows_normal_b.png",
+            "R_Brows == 'angry' and R_Blush == 2", "images/RogueSprite/Rogue_brows_angry_b.png",
+            "R_Brows == 'sad' and R_Blush == 2", "images/RogueSprite/Rogue_brows_sad_b.png",
+            "R_Brows == 'surprised' and R_Blush == 2", "images/RogueSprite/Rogue_brows_surprised_b.png",        
+            "R_Brows == 'confused' and R_Blush == 2", "images/RogueSprite/Rogue_brows_confused_b.png",
+            "R_Brows == 'normal'", "images/RogueSprite/Rogue_brows_normal.png",
+            "R_Brows == 'angry'", "images/RogueSprite/Rogue_brows_angry.png",
+            "R_Brows == 'sad'", "images/RogueSprite/Rogue_brows_sad.png",
+            "R_Brows == 'surprised'", "images/RogueSprite/Rogue_brows_surprised.png",        
+            "R_Brows == 'confused'", "images/RogueSprite/Rogue_brows_confused.png",
+            "True", "images/RogueSprite/Rogue_brows_normal.png",
             ),
-        (0,0), ConditionSwitch(
-            "R_Mouth == 'normal'", "images/RogueSprite/Rogue_Mouth_Normal.png",
-            "R_Mouth == 'lipbite'", "images/RogueSprite/Rogue_Mouth_Lipbite.png",
-            "R_Mouth == 'kiss'", "images/RogueSprite/Rogue_Mouth_Kiss.png",
-            "R_Mouth == 'sad'", "images/RogueSprite/Rogue_Mouth_Sad.png",
-            "R_Mouth == 'smile'", "images/RogueSprite/Rogue_Mouth_Smile.png",
-            "R_Mouth == 'surprised'", "images/RogueSprite/Rogue_Mouth_Surprised.png",
-            "R_Mouth == 'tongue'", "images/RogueSprite/Rogue_Mouth_Tongue.png",
-            "R_Mouth == 'sucking'", "images/RogueSprite/Rogue_Mouth_Tongue.png", #fix add
-            "True", "images/RogueSprite/Rogue_Mouth_Normal.png",
+        (0,0), ConditionSwitch(  
+            # "'mouth' in R_Spunk and R_Gag == 'ringgag'", "images/RogueSprite/Rogue_mouth_ringgag_w.png",                                                                       #Mouths        
+            # "R_Gag == 'ringgag'", "images/RogueSprite/Rogue_mouth_ringgag.png",                                                                       #Mouths        
+            # "R_Gag == 'ballgag'", "images/RogueSprite/Rogue_mouth_Ballgag.png",                                                                       #Mouths        
+            "'mouth' in R_Spunk and R_Mouth == 'sucking'", "images/RogueSprite/Rogue_mouth_sucking_w.png",
+            "'mouth' in R_Spunk and R_Mouth == 'surprised'", "images/RogueSprite/Rogue_mouth_sucking_w.png",
+            "'mouth' in R_Spunk and R_Mouth == 'sad'", "images/RogueSprite/Rogue_mouth_sad_w.png",
+            "'mouth' in R_Spunk and R_Mouth == 'kiss'", "images/RogueSprite/Rogue_mouth_sad_w.png",
+            "'mouth' in R_Spunk and R_Mouth == 'smile'", "images/RogueSprite/Rogue_mouth_smile_w.png",
+            "'mouth' in R_Spunk and R_Mouth == 'tongue'", "images/RogueSprite/Rogue_mouth_tongue_w.png",
+            "R_DynamicTan[0] and 'mouth' in R_Spunk", "images/RogueSprite/Rogue_tmouth_lipbite_w.png",
+            "'mouth' in R_Spunk", "images/RogueSprite/Rogue_mouth_lipbite_w.png",
+            "R_Mouth == 'normal'", "images/RogueSprite/Rogue_mouth_normal.png",
+            "R_DynamicTan[0] and R_Mouth == 'lipbite'", "images/RogueSprite/Rogue_tmouth_lipbite.png",
+            "R_Mouth == 'lipbite'", "images/RogueSprite/Rogue_mouth_lipbite.png",
+            "R_Mouth == 'sucking'", "images/RogueSprite/Rogue_mouth_sucking.png",            
+            "R_Mouth == 'kiss'", "images/RogueSprite/Rogue_mouth_kiss.png",
+            "R_Mouth == 'sad'", "images/RogueSprite/Rogue_mouth_sad.png",
+            "R_Mouth == 'smile'", "images/RogueSprite/Rogue_mouth_smile.png",
+            "R_Mouth == 'surprised'", "images/RogueSprite/Rogue_mouth_surprised.png",            
+            "R_Mouth == 'tongue'", "images/RogueSprite/Rogue_mouth_tongue.png",                
+            "R_Mouth == 'grimace'", "images/RogueSprite/Rogue_mouth_grimace.png",           
+            "True", "images/RogueSprite/Rogue_mouth_normal.png",
             ),      
-        (0,0), ConditionSwitch(
-            "'mouth' not in R_Spunk", Null(),            
-            "R_Mouth == 'normal'", "images/RogueSprite/Rogue_Spunk_Normal.png",
-            "R_Mouth == 'lipbite'", "images/RogueSprite/Rogue_Spunk_Normal.png",
-            "R_Mouth == 'kiss'", "images/RogueSprite/Rogue_Spunk_Kiss.png",
-            "R_Mouth == 'sad'", "images/RogueSprite/Rogue_Spunk_Sad.png",
-            "R_Mouth == 'smile'", "images/RogueSprite/Rogue_Spunk_Smile.png",
-            "R_Mouth == 'surprised'", "images/RogueSprite/Rogue_Spunk_Surprised.png",
-            "R_Mouth == 'tongue'", "images/RogueSprite/Rogue_Spunk_Tongue.png",
-            "R_Mouth == 'sucking'", "images/RogueSprite/Rogue_Spunk_Sucking.png", #fix add
-            "True", Null(),
-            ),       
-        (0,0), ConditionSwitch(
-            "'facial' in R_Spunk", "images/RogueSprite/Rogue_Spunk_Facial.png",
-            "True", Null(),
-            ),     
         (0,0), "Rogue Blink",
         (0,0), ConditionSwitch(
             "R_Water", "images/RogueSprite/Rogue_Hair_Wet.png",
@@ -54,12 +60,7 @@ image Rogue_Head:
             "True", "images/RogueSprite/Rogue_Hair_Evo.png",
             ),     
         (0,0), ConditionSwitch(
-            #"R_Water", "images/RogueSprite/Rogue_Wet_Head.png",
-            "True", Null(),
-            ),     
-        (0,0), ConditionSwitch(
-            "R_Hair == 'evo' and 'hair' in R_Spunk", "images/RogueSprite/Rogue_Spunk_Evohair.png",
-            "R_Hair == 'long' and 'hair' in R_Spunk", "images/RogueSprite/Rogue_Spunk_Evohair.png",
+            "'facial' in R_Spunk", "images/RogueSprite/Rogue_Spunk_Facial.png",
             "True", Null(),
             ),     
         )
@@ -148,84 +149,65 @@ image Rogue_Sex_Legs_Static:
             "Rogue_Sex_Legs"
     pos (650,230)
 
-image Rogue_Sex_Body = LiveComposite(                                                                                
+image Rogue_Sex_Body:
+    LiveComposite(                                                                                
         #the torso/head used in the sex pose, referenced by Rogue_SexSprite
         (1120,840),
         (140,-240), "Rogue_HairBack_Sex",                                                                                      #Hair underlayer
         (0,0), ConditionSwitch(                                                                                 #Body Base
-            "R_Pierce == 'barbell'", "images/RogueSex/Rogue_Sex_Body_Barbell.png",   
-            "R_Pierce == 'ring'", "images/RogueSex/Rogue_Sex_Body_Ring.png",   
+            "R_DynamicTan[0]", "images/RogueSex/Rogue_tSex_Body.png",  
             "True", "images/RogueSex/Rogue_Sex_Body.png",             
-            ),            
+            ),             
         (140,-240), "Rogue_Head_Sex",  #check positioning (400,-300)
         #Eyes
-        (0,0), ConditionSwitch(                                                                                 #necklace
-            "R_Neck == 'gold necklace'", "images/RogueSex/Rogue_Sex_Neck_Gold.png",
-            "R_Neck == 'star necklace'", "images/RogueSex/Rogue_Sex_Neck_Star.png",
-            "True", Null(),
-            ),  
+        # (0,0), ConditionSwitch(                                                                                 #necklace
+        #     "R_Neck == 'gold necklace'", "images/RogueSex/Rogue_Sex_Neck_Gold.png",
+        #     "R_Neck == 'star necklace'", "images/RogueSex/Rogue_Sex_Neck_Star.png",
+        #     "True", Null(),
+        #     ),  
+        (0,0), ConditionSwitch(                                                                                 #Body Base
+            "not R_Pierce", Null(),
+            #"R_Pierce", "images/RogueSex/Rogue_Sex_Body_Tits_" + str(R_Pierce) + ".png",
+            "R_Pierce == 'barbell'", "images/RogueSex/Rogue_Sex_Body_Tits_Barbell.png",   
+            "R_Pierce == 'ring'", "images/RogueSex/Rogue_Sex_Body_Tits_Ring.png",   
+            "True", Null(),             
+            ), 
         
-        (0,0), ConditionSwitch(                                                                         
-            #bra layer           
-            "not R_Chest", Null(),                  
-            "not R_Uptop", ConditionSwitch( 
-                    #if the top's down. . .
-                    "R_Chest == 'cami'", "images/RogueSex/Rogue_Sex_Under_Cami.png",
-                    "R_Chest == 'sports bra'", "images/RogueSex/Rogue_Sex_Under_SportsBra.png",
-                    "R_Chest == 'bra'", "images/RogueSex/Rogue_Sex_Under_Bra.png",
-                    "R_Chest == 'bikini top'", "images/RogueSex/Rogue_Sex_Under_Bikini.png",
-                    "R_Chest == 'lace bra'", "images/RogueSex/Rogue_Sex_Under_LaceBra.png",
-                    "True", Null(),     
-                    ),
-            "R_Over", ConditionSwitch(
-                    # If she's wearing a shirt over the bra
-                    "R_Chest == 'cami'", "images/RogueSex/Rogue_Sex_Under_Cami_UpS.png",
-                    "R_Chest == 'bikini top'", "images/RogueSex/Rogue_Sex_Under_Bikini_Up.png",
-                    "R_Chest == 'sports bra' and R_Over == 'red shirt'", "images/RogueSex/Rogue_Sex_Under_SportsBra_UpS.png",
-                    "R_Chest == 'sports bra'", "images/RogueSex/Rogue_Sex_Under_SportsBra_Up.png",
-                    "True", Null(),     
-                    ),
-            "True", ConditionSwitch(
-                    # if she's not wearing a shirt
-                    "R_Chest == 'cami'", "images/RogueSex/Rogue_Sex_Under_Cami_Up.png",
-                    "R_Chest == 'sports bra'", "images/RogueSex/Rogue_Sex_Under_SportsBra_Up.png",
-                    "R_Chest == 'bra'", "images/RogueSex/Rogue_Sex_Under_Bra_Up.png",
-                    "R_Chest == 'bikini top'", "images/RogueSex/Rogue_Sex_Under_Bikini_Up.png",
-                    "R_Chest == 'lace bra'", "images/RogueSex/Rogue_Sex_Under_LaceBra_Up.png",
-                    "True", Null(),     
-                    ),
-            ),
+        (0,0), ConditionSwitch(                                                                                 #tanktop
+            "not R_Chest", Null(),        
+            "R_Chest == 'modded SR7 tank short'", "images/RogueSex/Rogue_Sex_SR7_Tank_Short.png",
+            "R_Chest == 'bra'", "images/RogueSex/Rogue_Sex_Under_Bra.png",
+            "True", Null(),            
+            ), 
+        # (0,0), ConditionSwitch(
+        #     "R_BodySuitOff and R_BodySuit != 'classic uniform damaged'", Null(),  
+        #     "R_BodySuit == 'classic uniform'", "images/RogueSex/Rogue_Sex_XCatsuit_Top.png",
+        #     "R_BodySuit == 'classic uniform damaged'", "images/RogueSex/Rogue_Sex_XCatsuit_Top_Dmg.png",
+        #     "True", Null(),                     
+        #     ),
         (0,0), ConditionSwitch(                                                                                 #Wet look
             "R_Water", "images/RogueSex/Rogue_Sex_Water_Body.png",   
             "True", Null(),              
             ), 
-        
-        (0,0), ConditionSwitch(                                                                         
-            #shirt layer           
-            "not R_Over", Null(),                  
-            "not R_Uptop", ConditionSwitch( 
-                    #if the top's down. . .
-                    "R_Over == 'pink top'", "images/RogueSex/Rogue_Sex_Over_PinkShirt.png",           
-                    "R_Over == 'red shirt'", "images/RogueSex/Rogue_Sex_Over_RedShirt.png",   
-                    "R_Over == 'towel'", "images/RogueSex/Rogue_Sex_Over_Towel.png",   
-                    "True", Null(),     
-                    ),            
-            "True", ConditionSwitch(
-                    # if she's not wearing a shirt
-                    "R_Over == 'pink top' and R_Chest == 'sports bra'", "images/RogueSex/Rogue_Sex_Over_PinkShirt_UpS.png", 
-                    "R_Over == 'pink top'", "images/RogueSex/Rogue_Sex_Over_PinkShirt_Up.png",           
-                    "R_Over == 'red shirt'", "images/RogueSex/Rogue_Sex_Over_RedShirt_Up.png",   
-                    "True", Null(),     
-                    ),
-            ),
-        (0,0), ConditionSwitch(                                                                         
-            #bra layer over the shirt          
-            "not R_Chest or not R_Over or not R_Uptop", Null(),    
-            # if she's not wearing a shirt
-            "R_Chest == 'bra'", "images/RogueSex/Rogue_Sex_Under_Bra_Up.png",
-            "R_Chest == 'lace bra'", "images/RogueSex/Rogue_Sex_Under_LaceBra_UpS.png",
-            "True", Null(),    
-            ),
+        (0,0), ConditionSwitch(                                                                         #accessories
+            "R_Accessory == 'modded classic belt'", "images/RogueSex/Rogue_Sex_Over_XBelt.png",
+            "True", Null(),
+            ), 
+        (0,0), ConditionSwitch(                                                                                 #Overshirt
+            "not R_Over", Null(),
+            # "R_Over == 'armbinder'", "images/RogueSex/RogueSexArmbinderOvershirt.png",
+            "R_Over == 'modded classic jacket'", "images/RogueSex/Rogue_Sex_Over_XJacket.png",           
+            "R_Over == 'modded SR7 mesh top'", "images/RogueSex/Rogue_Sex_Over_SR7_Mesh_Top.png",           
+            "R_Over == 'modded blue dress'", "images/RogueSex/Rogue_Sex_Bluedress.png",           
+            "R_Over == 'modded red dress'", "images/RogueSex/Rogue_Sex_Reddress.png",           
+            "True", Null(), 
+            ),  
+        (140,-240), "Rogue_Head_Sex",  #check positioning (400,-300)
+        #Eyes
+        (0,0),ConditionSwitch(                                                                                  #Outside Spunk
+            "'belly' in R_Spunk", "images/RogueSex/Rogue_Sex_Spunk_Body.png",   
+            "True", Null(),  
+            ),  
         (0,0),ConditionSwitch(                                                                                  #Outside Spunk
             "'belly' in R_Spunk", "images/RogueSex/Rogue_Sex_Spunk_Body.png",   
             "True", Null(),  
@@ -255,11 +237,14 @@ image Rogue_Sex_Legs:
     LiveComposite(  
         #the legs used in the sex pose, referenced by Rogue_SexSprite
         (1120,840), 
-        (0,0), ConditionSwitch(                                                                                 #Legs Layer
-            "R_Legs == 'blue skirt'", "images/RogueSex/Rogue_Sex_Skirt_Back.png",   
-            "True", Null(),                      
-            ),  
-        (0,0), "images/RogueSex/Rogue_Sex_Legs.png",                                                         #Legs Base
+        # (0,0), ConditionSwitch(                                                                                 #Legs Layer
+        #     "R_Legs == 'blue skirt'", "images/RogueSex/Rogue_Sex_Skirt_Back.png",   
+        #     "True", Null(),                      
+        #     ),  
+        (0,0), ConditionSwitch(                                                                                 #Wet look
+            "R_DynamicTan[0]", "images/RogueSex/Rogue_tSex_Legs.png",   
+            "True", "images/RogueSex/Rogue_Sex_Legs.png",              
+            ),                                                         #Legs Base
         (0,0), ConditionSwitch(                                                                                 #Wet look
             "R_Water", "images/RogueSex/Rogue_Sex_Water_Legs.png",   
             "True", Null(),              
@@ -270,25 +255,17 @@ image Rogue_Sex_Legs:
 
         (0,0), ConditionSwitch(                                                                                 #Panties if up
             "R_PantiesDown", Null(),     
-            "R_Panties == 'green panties' and R_Wet", "images/RogueSex/Rogue_Sex_Panties_Green_Wet.png",          
-            "R_Panties == 'green panties'", "images/RogueSex/Rogue_Sex_Panties_Green.png",    
-            "R_Panties == 'lace panties' and R_Wet", "images/RogueSex/Rogue_Sex_Panties_Lace_Wet.png",       
-            "R_Panties == 'lace panties'", "images/RogueSex/Rogue_Sex_Panties_Lace.png",    
-            "R_Panties == 'bikini bottoms' and R_Wet", "images/RogueSex/Rogue_Sex_Panties_Bikini_Wet.png",       
-            "R_Panties == 'bikini bottoms'", "images/RogueSex/Rogue_Sex_Panties_Bikini.png",    
+            "R_Panties == 'black panties' and R_Wet", "images/RogueSex/Rogue_Sex_Panties_Wet.png",
+            "R_Panties == 'black panties'", "images/RogueSex/Rogue_Sex_Panties.png",
             "True", Null(),                     
             ),  
+        (0,0), ConditionSwitch(        
+            "R_Hose == 'modded SR7 hose'", "images/RogueSex/Rogue_Sex_SR7_Hose_Legs.png",
+            "True", Null(),                      
+            ), 
         (0,0), ConditionSwitch(                                                                                 #Legs Layer
-            "R_Legs == 'blue skirt'", "images/RogueSex/Rogue_Sex_Skirt.png",   
-            "R_Upskirt", Null(),                            
-            "R_Legs == 'capris' and R_Wet > 1", "images/RogueSex/Rogue_Sex_Pants_Blue_Wet.png",
-            "R_Legs == 'capris'", "images/RogueSex/Rogue_Sex_Pants_Blue.png",
-            "R_Legs == 'black jeans' and R_Wet > 1", "images/RogueSex/Rogue_Sex_Pants_Black_Wet.png",
-            "R_Legs == 'black jeans'", "images/RogueSex/Rogue_Sex_Pants_Black.png",
-            "R_Legs == 'shorts' and R_Wet > 1", "images/RogueSex/Rogue_Sex_Shorts_Wet.png",
-            "R_Legs == 'shorts'", "images/RogueSex/Rogue_Sex_Shorts.png",
-            "R_Legs == 'yoga pants' and R_Wet > 1", "images/RogueSex/Rogue_Sex_Pants_Yoga_Wet.png",
-            "R_Legs == 'yoga pants'", "images/RogueSex/Rogue_Sex_Pants_Yoga.png",
+            #"R_Legs == 'blue skirt'", "images/RogueSex/Rogue_Sex_Skirt.png",   
+            "R_Legs == 'modded SR7 skirtshort'", "images/RogueSex/Rogue_Sex_SR7_Skirt_Short.png",
             "True", Null(),                      
             ),   
         (0,0), ConditionSwitch(                                                                                 #Over Layer
@@ -321,16 +298,23 @@ image Rogue_Sex_Legs:
 image Rogue_Sex_Feet = LiveComposite(                                                                                          
         #the lower legs used in the sex pose, referenced by Rogue_Sex_Legs
         (1120,840), 
-        (0,0), "images/RogueSex/Rogue_Sex_Feet.png",                                                         #Legs Base
+        (0,0), ConditionSwitch(
+            "R_DynamicTan[0]", "images/RogueSex/Rogue_tSex_Feet.png",                                                         #Legs Base
+            "True", "images/RogueSex/Rogue_Sex_Feet.png",
+            ),                                                         #Legs Base
+        (0,0), ConditionSwitch(
+            "R_Hose == 'modded SR7 hose'", "images/RogueSex/Rogue_Sex_SR7_Hose_Feet.png",  
+            "True", Null(),
+            ),
         (0,0), ConditionSwitch(                                                                                 #Wet look
             "R_Water", "images/RogueSex/Rogue_Sex_Water_Feet.png",   
             "True", Null(),              
             ),  
         (0,0), ConditionSwitch(                                                                                 #Legs Layer
             "R_Upskirt", Null(),                               
-            "R_Legs == 'capris'", "images/RogueSex/Rogue_Sex_Feet_Blue.png",
-            "R_Legs == 'black jeans'", "images/RogueSex/Rogue_Sex_Feet_Black.png",
-            "R_Legs == 'yoga pants'", "images/RogueSex/Rogue_Sex_Feet_Yoga.png",
+            # "R_Legs == 'capris'", "images/RogueSex/Rogue_Sex_Feet_Blue.png",
+            # "R_Legs == 'black jeans'", "images/RogueSex/Rogue_Sex_Feet_Black.png",
+            # "R_Legs == 'yoga pants'", "images/RogueSex/Rogue_Sex_Feet_Yoga.png",
             "True", Null(),                      
             ),   
         )
@@ -346,7 +330,10 @@ image Rogue_Missionary_Pussy_Fucking0:
     # This is the visual for her pussy during the Speed 0 mode (static). 
     contains:
             # The background plate of her pussy
-            "images/RogueSex/Rogue_Sex_Pussy_Open.png"
+            ConditionSwitch(
+                "R_DynamicTan[0]", "images/RogueSex/Rogue_tSex_Pussy_Open.png",
+                "True", "images/RogueSex/Rogue_Sex_Pussy_Open.png",
+                ),
     contains:
             # pubes
             ConditionSwitch(             
@@ -361,7 +348,10 @@ image Rogue_Missionary_Pussy_Fucking1:
     # This is the visual for her pussy during the Speed 1 mode (heading). 
     contains:
             # The background plate of her pussy
-            "images/RogueSex/Rogue_Sex_Pussy_Open.png"
+            ConditionSwitch(
+                "R_DynamicTan[0]", "images/RogueSex/Rogue_tSex_Pussy_Open.png",
+                "True", "images/RogueSex/Rogue_Sex_Pussy_Open.png",
+                ),
     contains:
             # pubes
             ConditionSwitch(             
@@ -376,7 +366,10 @@ image Rogue_Missionary_Pussy_Fucking2:
     # This is the visual for her pussy during the Speed 2 mode (slow). 
     contains:
             # The background plate of her pussy
-            "images/RogueSex/Rogue_Sex_Pussy_Fucking.png"
+            ConditionSwitch(
+                "R_DynamicTan[0]", "images/RogueSex/Rogue_tSex_Pussy_Fucking.png",
+                "True", "images/RogueSex/Rogue_Sex_Pussy_Fucking.png",
+                ),
     contains:
             # pubes
             ConditionSwitch(             
@@ -390,7 +383,10 @@ image Rogue_Missionary_Pussy_Fucking3:  #rename this to 3
     # This is the visual for her pussy during the Speed 3 mode (fast). 
     contains:
             # The background plate of her pussy
-            "images/RogueSex/Rogue_Sex_Pussy_Fucking.png"
+            ConditionSwitch(
+                "R_DynamicTan[0]", "images/RogueSex/Rogue_tSex_Pussy_Fucking.png",
+                "True", "images/RogueSex/Rogue_Sex_Pussy_Fucking.png",
+                ),
     contains:
             # pubes
             ConditionSwitch(             
@@ -424,20 +420,15 @@ image Rogue_Sex_Pussy:
     contains:
             # The background plate of her pussy            
             ConditionSwitch(
-                "P_Sprite and P_Cock == 'in' and Speed >= 2 and R_Tan == 'tan1'", "images/RogueSex/Rogue_t1Sex_Pussy_Fucking.png",
-                "P_Sprite and P_Cock == 'in' and Speed >= 2 and R_Tan == 'tan'", "images/RogueSex/Rogue_tSex_Pussy_Fucking.png",
+                "P_Sprite and P_Cock == 'in' and Speed >= 2 and R_DynamicTan[0]", "images/RogueSex/Rogue_tSex_Pussy_Fucking.png",
                 "P_Sprite and P_Cock == 'in' and Speed >= 2", "images/RogueSex/Rogue_Sex_Pussy_Fucking.png",
-                "P_Sprite and P_Cock == 'in' and Speed and R_Tan == 'tan1'", "images/RogueSex/Rogue_t1Sex_Pussy_Open.png",
-                "P_Sprite and P_Cock == 'in' and Speed and R_Tan == 'tan'", "images/RogueSex/Rogue_tSex_Pussy_Open.png",
+                "P_Sprite and P_Cock == 'in' and Speed and R_DynamicTan[0]", "images/RogueSex/Rogue_tSex_Pussy_Open.png",
                 "P_Sprite and P_Cock == 'in' and Speed", "images/RogueSex/Rogue_Sex_Pussy_Open.png",
-                "P_Sprite and P_Cock == 'in' and R_Tan == 'tan1'", "images/RogueSex/Rogue_t1Sex_Pussy_Closed.png",
-                "P_Sprite and P_Cock == 'in' and R_Tan == 'tan'", "images/RogueSex/Rogue_tSex_Pussy_Closed.png",
+                "P_Sprite and P_Cock == 'in' and R_DynamicTan[0]", "images/RogueSex/Rogue_tSex_Pussy_Closed.png",
                 "P_Sprite and P_Cock == 'in'", "images/RogueSex/Rogue_Sex_Pussy_Closed.png",
-                "Trigger == 'lick pussy' and R_Tan == 'tan1'", "images/RogueSex/Rogue_t1Sex_Pussy_Open.png",
-                "Trigger == 'lick pussy' and R_Tan == 'tan'", "images/RogueSex/Rogue_tSex_Pussy_Open.png",
+                "Trigger == 'lick pussy' and R_DynamicTan[0]", "images/RogueSex/Rogue_tSex_Pussy_Open.png",
                 "Trigger == 'lick pussy'", "images/RogueSex/Rogue_Sex_Pussy_Open.png",
-                "True and R_Tan == 'tan1'", "images/RogueSex/Rogue_t1Sex_Pussy_Closed.png",
-                "True and R_Tan == 'tan'", "images/RogueSex/Rogue_tSex_Pussy_Closed.png",
+                "True and R_DynamicTan[0]", "images/RogueSex/Rogue_tSex_Pussy_Closed.png",
                 "True", "images/RogueSex/Rogue_Sex_Pussy_Closed.png",
                 )    
     contains:

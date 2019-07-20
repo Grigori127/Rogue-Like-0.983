@@ -2226,7 +2226,7 @@ label RogueOutfit(R_OutfitTemp = R_Outfit, Spunk = 0, Undressed = 0, Changed = 1
                         "Rogue throws on a towel."
                 elif Undressed:
                         "Rogue throws her clothes back on."        
-        
+        call Mod_Update_Rogue_Image
         return
 #End Rogue Outfits
 
