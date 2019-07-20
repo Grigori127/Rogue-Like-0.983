@@ -1330,6 +1330,17 @@ init python:
                 #     renpy.show("Rogue_HJ_Animation")
                 # elif renpy.showing("Rogue_TJ_Animation"):
                 #     renpy.show("Rogue_TJ_Animation")
+                if not renpy.loadable(string):
+                    # if not string in SomethingWrongDesu:
+                    #     SomethingWrongDesu.append(string)
+                    #     f = open("SomethingWrongDesu.txt")
+                    #     f.write(string + "\n")
+                    #     f.close()
+                    #string2 = "something wrong loading " + string + ", warn the modders"
+                    #renpy.call_in_new_context(narrator(string2))
+                    #renpy.say(Character('???', color="#85bb65", image = "arrow", show_two_window=True), string2)
+                    #renpy.say(ch_u,"something wrong loading [string], warn the modders")
+                    string = Null()
             else:
                 string = Null()
         else:

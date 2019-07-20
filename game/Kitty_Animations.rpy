@@ -14,6 +14,7 @@ image Kitty_Sprite:
             "True", Null(),               
             ), 
         (0,0), ConditionSwitch(                                                                        
+            "not Kitty_Arms and K_DynamicTan[0] and K_DynamicTan[3] == 'bikini top'", AlphaMask("images/KittySprite/Kitty_Sprite_Arms1.png", "images/KittySprite/Kitty_Sprite_Bikini1.png"),
             "not Kitty_Arms and K_DynamicTan[0] and K_DynamicTan[3] == 'lace bra'", AlphaMask("images/KittySprite/Kitty_Sprite_Arms1.png", "images/KittySprite/Kitty_Sprite_Bra_Lace.png"),
             "not Kitty_Arms and K_DynamicTan[0] and K_DynamicTan[3] == 'darker lace bra'", AlphaMask("images/KittySprite/Kitty_Sprite_Arms1.png", "images/KittySprite/Kitty_Sprite_Bra_DarkerLace.png"),
             "not Kitty_Arms and K_DynamicTan[0] and K_DynamicTan[3] == 'sports bra'", AlphaMask("images/KittySprite/Kitty_Sprite_Arms1.png", "images/KittySprite/Kitty_Sprite_Bra_Sport.png"),
@@ -57,6 +58,7 @@ image Kitty_Sprite:
             "True", "images/KittySprite/Kitty_Sprite_Body_Bare1.png",    
             ),
         (0,0), ConditionSwitch(                                                                     #body
+            "K_DynamicTan[0] and Kitty_Arms and K_DynamicTan[3] == 'bikini top'", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare2.png", "images/KittySprite/Kitty_Sprite_Bikini2.png"),
             "K_DynamicTan[0] and Kitty_Arms and K_DynamicTan[3] == 'cami'", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare2.png", "images/KittySprite/Kitty_Sprite_Cami2.png"),
             "K_DynamicTan[0] and Kitty_Arms and K_DynamicTan[3] == 'white cami'", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare2.png", "images/KittySprite/Kitty_Sprite_WhiteCami2.png"),
             "K_DynamicTan[0] and Kitty_Arms and K_DynamicTan[3] == 'orange top'", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare2.png", "images/KittySprite/Kitty_Sprite_Orange2.png"),
@@ -84,6 +86,7 @@ image Kitty_Sprite:
             ),
 
         (0,0), ConditionSwitch(                                                                     #body
+            "K_DynamicTan[0] and K_DynamicTan[4] == 'bikini bottoms'", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare1.png", "images/KittySprite/Kitty_Sprite_Panties_Bikini.png"),
             "K_DynamicTan[0] and K_DynamicTan[4] == 'green panties'", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare1.png", "images/KittySprite/Kitty_Sprite_Panties_Green.png"),
             "K_DynamicTan[0] and K_DynamicTan[4] == 'white panties'", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare1.png", "images/KittySprite/Kitty_Sprite_Panties_White.png"),
             "K_DynamicTan[0] and K_DynamicTan[4] == 'lace panties'", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare1.png", "images/KittySprite/Kitty_Sprite_Panties_Lace.png"),
@@ -96,6 +99,7 @@ image Kitty_Sprite:
             ),
 
         (0,0), ConditionSwitch(                                                                     #body
+            "K_DynamicTan[0] and K_DynamicTan[2] == 'blue skirt'", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare1.png", "images/KittySprite/Kitty_Sprite_Skirt.png"),
             "K_DynamicTan[0] and K_DynamicTan[2] == 'capris'", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare1.png", "images/KittySprite/Kitty_Sprite_Pants_Blue.png"),
             "K_DynamicTan[0] and K_DynamicTan[2] == 'black jeans'", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare1.png", "images/KittySprite/Kitty_Sprite_Pants_Black.png"),
             "K_DynamicTan[0] and K_DynamicTan[2] == 'black blue pants'", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare1.png", "images/KittySprite/Kitty_Sprite_BlackBluePants.png"),
@@ -270,6 +274,7 @@ image Kitty_Sprite:
             ), 
 
         (0,0), ConditionSwitch(                                                                         #Arms2               
+            "Kitty_Arms and K_DynamicTan[0] and K_DynamicTan[3] == 'bikini top'", AlphaMask("images/KittySprite/Kitty_Sprite_Arms2.png", "images/KittySprite/Kitty_Sprite_Bikini2.png"),
             "Kitty_Arms and K_DynamicTan[0] and K_DynamicTan[3] == 'cami'", AlphaMask("images/KittySprite/Kitty_Sprite_Arms2.png", "images/KittySprite/Kitty_Sprite_Cami2.png"),
             "Kitty_Arms and K_DynamicTan[0] and K_DynamicTan[3] == 'white cami'", AlphaMask("images/KittySprite/Kitty_Sprite_Arms2.png", "images/KittySprite/Kitty_Sprite_WhiteCami2.png"),
             "Kitty_Arms and K_DynamicTan[0] and K_DynamicTan[3] == 'orange top'", AlphaMask("images/KittySprite/Kitty_Sprite_Arms2.png", "images/KittySprite/Kitty_Sprite_Orange2.png"),
@@ -305,6 +310,7 @@ image Kitty_Sprite:
             "True", "images/KittySprite/Kitty_Sprite_Chest_Bare.png",
             ),  
         (0,0), ConditionSwitch(                                                                     #body
+            "K_DynamicTan[0] and K_DynamicTan[3] == 'bikini top'", AlphaMask("images/KittySprite/Kitty_Sprite_Chest_Bare.png", "images/KittySprite/Kitty_Sprite_Bikini1.png"),
             "K_DynamicTan[0] and K_DynamicTan[3] == 'lace bra'", AlphaMask("images/KittySprite/Kitty_Sprite_Chest_Bare.png", "images/KittySprite/Kitty_Sprite_Bra_Lace.png"),
             "K_DynamicTan[0] and K_DynamicTan[3] == 'darker lace bra'", AlphaMask("images/KittySprite/Kitty_Sprite_Chest_Bare.png", "images/KittySprite/Kitty_Sprite_Bra_DarkerLace.png"),
             "K_DynamicTan[0] and K_DynamicTan[3] == 'sports bra'", AlphaMask("images/KittySprite/Kitty_Sprite_Chest_Bare.png", "images/KittySprite/Kitty_Sprite_Bra_Sport.png"),
