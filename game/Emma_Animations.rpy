@@ -2023,11 +2023,12 @@ label Emma_Sex_Launch(Line = "solo"):
     with dissolve
     return
     
+#MOD MARKER RESET
 label Emma_Sex_Reset:
-    if not renpy.showing("Emma_SexSprite"):
+    if not renpy.showing("Emma_SexSprite") and not renpy.showing("Emma_Doggy"):
         return
     $ Emma_Arms = 2     
-    hide Emma_SexSprite  
+    call mod_hide_Emma_SexSprite  
     call Emma_Hide 
     show Emma_Sprite at SpriteLoc(E_SpriteLoc) zorder EmmaLayer:
         alpha 1
@@ -3471,10 +3472,11 @@ label E_Pos_Reset(Pose = 0):
     $ Trigger = Pose
     return
     
+#MOD MARKER HIDE
 label Emma_Hide:
-        if renpy.showing("Emma_SexSprite"):
+        if renpy.showing("Emma_SexSprite") or renpy.showing("Emma_Doggy"):
             call Emma_Sex_Reset
-        hide Emma_SexSprite
+        call mod_hide_Emma_SexSprite
         hide Emma_HJ_Animation
         hide Emma_BJ_Animation
         hide Emma_TJ_Animation 

@@ -889,11 +889,16 @@ label E_Headpat:
     return
 # Slap Ass
 
+#MOD MARKER SLAP
 label E_Slap_Ass:
     call Shift_Focus("Emma")
     # fix add sound here?
     if renpy.showing("Emma_SexSprite"):
             show Emma_SexSprite #fix, test this
+            with vpunch
+#MOD Emma Doggy Slap
+    elif renpy.showing("Emma_Doggy"):
+            show Emma_Doggy #fix, test this
             with vpunch
     elif renpy.showing("Emma_BJ_Animation"):           #fix, make this animation work better when paused for this effect.
             show Emma_BJ_Animation
