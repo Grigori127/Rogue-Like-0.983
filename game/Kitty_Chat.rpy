@@ -3633,6 +3633,8 @@ label Kitty_Clothes:
     call KittyFace
     menu:
         ch_k "So[K_like]you wanted to talk about my clothes?"
+        "Let's talk about your modded clothes.":
+                    jump Kitty_Modded_Clothes_Menu
         "Let's talk about your outfits.":
                     jump Kitty_Clothes_Outfits        
         "Let's talk about your over shirts.":

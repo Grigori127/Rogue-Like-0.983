@@ -16,3 +16,4 @@ traceback.txt
 *.rpyb
 *.rpyc
 game/Kitty_Animations.rpyc
+game/saves/persistent

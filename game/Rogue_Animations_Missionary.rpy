@@ -60,7 +60,7 @@ image Rogue_Head:
             "True", "images/RogueSprite/Rogue_Hair_Evo.png",
             ),     
         (0,0), ConditionSwitch(
-            "'facial' in R_Spunk", "images/RogueSprite/Rogue_Spunk_Facial.png",
+            "'facial' in R_Spunk", "images/RogueSprite/Rogue_facial.png",
             "True", Null(),
             ),     
         )
