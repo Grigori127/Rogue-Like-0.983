@@ -924,7 +924,7 @@ image Kitty_Sex_Body:
 #            ), 
         (0,0), ConditionSwitch( 
             #if she's wearing legs that affects the chest (black blue pants). . .
-            "not K_Legs", Null(),
+            "not K_Legs or K_Upskirt", Null(),
             "'modded' in K_Legs", GetModdedString("images/KittySex/Kitty_Sex_Legs_Chest_", K_Legs, ".png"),
             "True", Null(),
             ),
