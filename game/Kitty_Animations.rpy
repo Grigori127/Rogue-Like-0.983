@@ -892,7 +892,8 @@ image Kitty_Sex_Legs_Static:
             "Kitty_Sex_Legs"
     pos (650,230)
 
-image Kitty_Sex_Body = LiveComposite(                                                                                
+image Kitty_Sex_Body:
+    LiveComposite(                                                                                
         #the torso/head used in the sex pose, referenced by Kitty_SexSprite
         (1120,840),
 #        (0,0), ConditionSwitch(                                                                                 #Hair underlayer, delete once this is working
@@ -921,12 +922,18 @@ image Kitty_Sex_Body = LiveComposite(
 #            "K_Chest == 'lace bra'", "images/KittySex/Kitty_Sex_Under_LaceBra.png",
 #            "True", Null(),            
 #            ), 
-        
+        (0,0), ConditionSwitch( 
+            #if she's wearing legs that affects the chest (black blue pants). . .
+            "not K_Legs", Null(),
+            "'modded' in K_Legs", GetModdedString("images/KittySex/Kitty_Sex_Legs_Chest_", K_Legs, ".png"),
+            "True", Null(),
+            ),
         (0,0), ConditionSwitch(                                                                         
             #bra layer           
             "not K_Chest", Null(),                  
             "not K_Uptop", ConditionSwitch( 
                     #if the top's down. . .
+                    "'modded' in K_Chest", GetModdedString("images/KittySex/Kitty_Sex_Chest_", K_Chest, ".png"),
                     "K_Chest == 'cami'", "images/KittySex/Kitty_Sex_Under_Cami.png",
                     "K_Chest == 'sports bra'", "images/KittySex/Kitty_Sex_Under_SportsBra.png",
                     "K_Chest == 'bra'", "images/KittySex/Kitty_Sex_Under_Bra.png",
@@ -975,6 +982,7 @@ image Kitty_Sex_Body = LiveComposite(
             "not K_Over", Null(),                  
             "not K_Uptop", ConditionSwitch( 
                     #if the top's down. . .
+                    "'modded' in K_Over", GetModdedString("images/KittySex/Kitty_Sex_Over_", K_Over, ".png"),
                     "K_Over == 'pink top'", "images/KittySex/Kitty_Sex_Over_PinkShirt.png",           
                     "K_Over == 'red shirt'", "images/KittySex/Kitty_Sex_Over_RedShirt.png",   
                     "K_Over == 'towel'", "images/KittySex/Kitty_Sex_Over_Towel.png",   
@@ -1041,6 +1049,9 @@ image Kitty_Sex_Legs:
 
         (0,0), ConditionSwitch(                                                                                 #Panties if up
             "K_PantiesDown", Null(),     
+            "not K_Panties", Null(),
+            "'modded' in K_Panties and K_Wet", GetModdedString("images/KittySex/Kitty_Sex_Panties_", K_Panties, "_Wet.png"),
+            "'modded' in K_Panties", GetModdedString("images/KittySex/Kitty_Sex_Panties_", K_Panties, ".png"),
             "K_Panties == 'green panties' and K_Wet", "images/KittySex/Kitty_Sex_Panties_Green_Wet.png",          
             "K_Panties == 'green panties'", "images/KittySex/Kitty_Sex_Panties_Green.png",    
             "K_Panties == 'lace panties' and K_Wet", "images/KittySex/Kitty_Sex_Panties_Lace_Wet.png",       
@@ -1052,6 +1063,9 @@ image Kitty_Sex_Legs:
         (0,0), ConditionSwitch(                                                                                 #Legs Layer
             "K_Legs == 'blue skirt'", "images/KittySex/Kitty_Sex_Skirt.png",   
             "K_Upskirt", Null(),                            
+            "not K_Legs", Null(),
+            "'modded' in K_Legs and K_Wet > 1", GetModdedString("images/KittySex/Kitty_Sex_Legs_", K_Legs, "_Wet.png"),
+            "'modded' in K_Legs", GetModdedString("images/KittySex/Kitty_Sex_Legs_", K_Legs, ".png"),
             "K_Legs == 'capris' and K_Wet > 1", "images/KittySex/Kitty_Sex_Pants_Blue_Wet.png",
             "K_Legs == 'capris'", "images/KittySex/Kitty_Sex_Pants_Blue.png",
             "K_Legs == 'black jeans' and K_Wet > 1", "images/KittySex/Kitty_Sex_Pants_Black_Wet.png",
@@ -1100,7 +1114,8 @@ image Kitty_Sex_Legs:
             ),
         )
     
-image Kitty_Sex_Feet = LiveComposite(                                                                                          
+image Kitty_Sex_Feet:
+    LiveComposite(                                                                                          
         #the lower legs used in the sex pose, referenced by Kitty_Sex_Legs
         (1120,840), 
         (0,0), "images/KittySex/Kitty_Sex_Feet.png",                                                         #Legs Base
@@ -1110,6 +1125,8 @@ image Kitty_Sex_Feet = LiveComposite(
             ),  
         (0,0), ConditionSwitch(                                                                                 #Legs Layer
             "K_Upskirt", Null(),                               
+            "not K_Legs", Null(),
+            "'modded' in K_Legs", GetModdedString("images/KittySex/Kitty_Sex_Feet_", K_Legs, ".png"),
             "K_Legs == 'capris'", "images/KittySex/Kitty_Sex_Feet_Blue.png",
             "K_Legs == 'black jeans'", "images/KittySex/Kitty_Sex_Feet_Black.png",
             "K_Legs == 'yoga pants'", "images/KittySex/Kitty_Sex_Feet_Yoga.png",
