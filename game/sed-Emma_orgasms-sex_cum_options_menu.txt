@@ -1,0 +1,3 @@
+        "Cum on her ass" if Trigger in ("sex","anal","hotdog") and renpy.showing("Emma_Doggy"):
+                jump E_SpunkBack
+        "Cum on her belly" if Trigger in ("sex","anal","hotdog","foot") and renpy.showing("Emma_SexSprite"):

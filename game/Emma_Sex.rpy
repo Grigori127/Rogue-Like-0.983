@@ -200,6 +200,23 @@ label Emma_SexMenu:
                                 call E_Sex_P           
                         "Fuck your ass.":                        
                                 call E_Sex_A    
+#MOD MARKER doggy position menu choices
+                        "Turn around, I've got something in mind. . . \[DoggyStyle\]":
+                                if P_Semen:
+                                    call E_Doggy_H   
+                                else:
+                                    "The spirit is apparently willing, but the flesh is spongy and bruised."
+                        "Fuck your pussy. \[DoggyStyle\]":    
+                                if P_Semen:                    
+                                    call E_Doggy_P  
+                                else:
+                                    "The spirit is apparently willing, but the flesh is spongy and bruised."          
+                        "Fuck your ass. \[DoggyStyle\]":     
+                                if P_Semen:                   
+                                    call E_Doggy_A    
+                                else:
+                                    "The spirit is apparently willing, but the flesh is spongy and bruised."
+
                         "How about some toys? [[Pussy]":                        
                             call E_Dildo_Pussy     
                         "How about some toys? [[Anal]":                        
