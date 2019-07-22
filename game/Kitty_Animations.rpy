@@ -15,7 +15,7 @@ image Kitty_Sprite:
             ), 
         (0,0), ConditionSwitch(                                                                        
             "not K_DynamicTan[3]", Null(),
-            "not Kitty_Arms and K_DynamicTan[0] and 'modded' in K_DynamicTan[3]", AlphaMask("images/KittySprite/Kitty_Sprite_Arms1.png", GetModdedString("images/KittySprite/Kitty_Sprite_Chest_", K_Chest, "1.png")),
+            "not Kitty_Arms and K_DynamicTan[0] and 'modded' in K_DynamicTan[3]", AlphaMask("images/KittySprite/Kitty_Sprite_Arms1.png", GetModdedString("images/KittySprite/Kitty_Sprite_Chest_", K_DynamicTan[3], "1.png")),
             "not Kitty_Arms and K_DynamicTan[0] and K_DynamicTan[3] == 'bikini top'", AlphaMask("images/KittySprite/Kitty_Sprite_Arms1.png", "images/KittySprite/Kitty_Sprite_Bikini1.png"),
             "not Kitty_Arms and K_DynamicTan[0] and K_DynamicTan[3] == 'lace bra'", AlphaMask("images/KittySprite/Kitty_Sprite_Arms1.png", "images/KittySprite/Kitty_Sprite_Bra_Lace.png"),
             "not Kitty_Arms and K_DynamicTan[0] and K_DynamicTan[3] == 'darker lace bra'", AlphaMask("images/KittySprite/Kitty_Sprite_Arms1.png", "images/KittySprite/Kitty_Sprite_Bra_DarkerLace.png"),
@@ -37,7 +37,7 @@ image Kitty_Sprite:
         
         (0,0), ConditionSwitch(   
             "not K_DynamicTan[1]", Null(),
-            "not Kitty_Arms and K_DynamicTan[0] and 'modded' in K_DynamicTan[1]", AlphaMask("images/KittySprite/Kitty_Sprite_Arms1.png", GetModdedString("images/KittySprite/Kitty_Sprite_Over_", K_Over, "1.png")),
+            "not Kitty_Arms and K_DynamicTan[0] and 'modded' in K_DynamicTan[1]", AlphaMask("images/KittySprite/Kitty_Sprite_Arms1.png", GetModdedString("images/KittySprite/Kitty_Sprite_Over_", K_DynamicTan[1], "1.png")),
             "not Kitty_Arms and K_DynamicTan[0] and K_DynamicTan[1] == 'dark top'", AlphaMask("images/KittySprite/Kitty_Sprite_Arms1.png", "images/KittySprite/Kitty_Sprite_Over_dark1.png"),
             "not Kitty_Arms and K_DynamicTan[0] and K_DynamicTan[1] == 'pink top'", AlphaMask("images/KittySprite/Kitty_Sprite_Arms1.png", "images/KittySprite/Kitty_Sprite_Over_Pink1.png"),
             "not Kitty_Arms and K_DynamicTan[0] and K_DynamicTan[1] == 'purple shirt'", AlphaMask("images/KittySprite/Kitty_Sprite_Arms1.png", "images/KittySprite/Kitty_Sprite_Over_CrewPurple1.png"),
@@ -65,7 +65,7 @@ image Kitty_Sprite:
             ),
         (0,0), ConditionSwitch(                                                                     #body
             "not K_DynamicTan[3]", Null(),
-            "K_DynamicTan[0] and Kitty_Arms and 'modded' in K_DynamicTan[3]", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare2.png", GetModdedString("images/KittySprite/Kitty_Sprite_Chest_", K_Chest, "2.png")),
+            "K_DynamicTan[0] and Kitty_Arms and 'modded' in K_DynamicTan[3]", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare2.png", GetModdedString("images/KittySprite/Kitty_Sprite_Chest_", K_DynamicTan[3], "2.png")),
             "K_DynamicTan[0] and Kitty_Arms and K_DynamicTan[3] == 'bikini top'", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare2.png", "images/KittySprite/Kitty_Sprite_Bikini2.png"),
             "K_DynamicTan[0] and Kitty_Arms and K_DynamicTan[3] == 'cami'", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare2.png", "images/KittySprite/Kitty_Sprite_Cami2.png"),
             "K_DynamicTan[0] and Kitty_Arms and K_DynamicTan[3] == 'white cami'", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare2.png", "images/KittySprite/Kitty_Sprite_WhiteCami2.png"),
@@ -74,7 +74,7 @@ image Kitty_Sprite:
             "K_DynamicTan[0] and Kitty_Arms and K_DynamicTan[3] == 'black top'", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare2.png", "images/KittySprite/Kitty_Sprite_Black2.png"),
             "K_DynamicTan[0] and Kitty_Arms and K_DynamicTan[3] == 'leather top'", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare2.png", "images/KittySprite/Kitty_Sprite_Leather2.png"),
             "K_DynamicTan[0] and Kitty_Arms and K_DynamicTan[3] == 'swimsuit3'", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare2.png", "images/KittySprite/Kitty_Sprite_Swimsuit3.png"),
-            "K_DynamicTan[0] and 'modded' in K_DynamicTan[3]", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare1.png", GetModdedString("images/KittySprite/Kitty_Sprite_Chest_", K_Chest, "2.png")),
+            "K_DynamicTan[0] and 'modded' in K_DynamicTan[3]", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare1.png", GetModdedString("images/KittySprite/Kitty_Sprite_Chest_", K_DynamicTan[3], "2.png")),
             "K_DynamicTan[0] and K_DynamicTan[3] == 'lace bra'", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare1.png", "images/KittySprite/Kitty_Sprite_Bra_Lace.png"),
             "K_DynamicTan[0] and K_DynamicTan[3] == 'darker lace bra'", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare1.png", "images/KittySprite/Kitty_Sprite_Bra_DarkerLace.png"),
             "K_DynamicTan[0] and K_DynamicTan[3] == 'sports bra'", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare1.png", "images/KittySprite/Kitty_Sprite_Bra_Sport.png"),
@@ -96,7 +96,7 @@ image Kitty_Sprite:
 
         (0,0), ConditionSwitch(                                                                     #body
             "not K_DynamicTan[4]", Null(),
-            "K_DynamicTan[0] and 'modded' in K_DynamicTan[4]", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare1.png", GetModdedString("images/KittySprite/Kitty_Sprite_Chest_", K_Panties, ".png")),
+            "K_DynamicTan[0] and 'modded' in K_DynamicTan[4]", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare1.png", GetModdedString("images/KittySprite/Kitty_Sprite_Chest_", K_DynamicTan[4], ".png")),
             "K_DynamicTan[0] and K_DynamicTan[4] == 'bikini bottoms'", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare1.png", "images/KittySprite/Kitty_Sprite_Panties_Bikini.png"),
             "K_DynamicTan[0] and K_DynamicTan[4] == 'green panties'", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare1.png", "images/KittySprite/Kitty_Sprite_Panties_Green.png"),
             "K_DynamicTan[0] and K_DynamicTan[4] == 'white panties'", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare1.png", "images/KittySprite/Kitty_Sprite_Panties_White.png"),
@@ -111,7 +111,7 @@ image Kitty_Sprite:
 
         (0,0), ConditionSwitch(                                                                     #body
             "not K_DynamicTan[2]", Null(),
-            "K_DynamicTan[0] and 'modded' in K_DynamicTan[2]", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare1.png", GetModdedString("images/KittySprite/Kitty_Sprite_Legs_", K_Legs, ".png")),
+            "K_DynamicTan[0] and 'modded' in K_DynamicTan[2]", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare1.png", GetModdedString("images/KittySprite/Kitty_Sprite_Legs_", K_DynamicTan[2], ".png")),
             "K_DynamicTan[0] and K_DynamicTan[2] == 'blue skirt'", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare1.png", "images/KittySprite/Kitty_Sprite_Skirt.png"),
             "K_DynamicTan[0] and K_DynamicTan[2] == 'capris'", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare1.png", "images/KittySprite/Kitty_Sprite_Pants_Blue.png"),
             "K_DynamicTan[0] and K_DynamicTan[2] == 'black jeans'", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare1.png", "images/KittySprite/Kitty_Sprite_Pants_Black.png"),
@@ -129,7 +129,7 @@ image Kitty_Sprite:
 
         (0,0), ConditionSwitch(   
             "not K_DynamicTan[1]", Null(),
-            "Kitty_Arms and K_DynamicTan[0] and 'modded' in K_DynamicTan[1]", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare2.png", GetModdedString("images/KittySprite/Kitty_Sprite_Over_", K_Over, "2.png")),
+            "Kitty_Arms and K_DynamicTan[0] and 'modded' in K_DynamicTan[1]", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare2.png", GetModdedString("images/KittySprite/Kitty_Sprite_Over_", K_DynamicTan[1], "2.png")),
             "Kitty_Arms and K_DynamicTan[0] and K_DynamicTan[1] == 'dark top'", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare2.png", "images/KittySprite/Kitty_Sprite_Over_dark2.png"),
             "Kitty_Arms and K_DynamicTan[0] and K_DynamicTan[1] == 'pink top'", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare2.png", "images/KittySprite/Kitty_Sprite_Over_Pink2.png"),
             "Kitty_Arms and K_DynamicTan[0] and K_DynamicTan[1] == 'purple shirt'", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare2.png", "images/KittySprite/Kitty_Sprite_Over_CrewPurple2.png"),
@@ -137,7 +137,7 @@ image Kitty_Sprite:
             "Kitty_Arms and K_DynamicTan[0] and K_DynamicTan[1] == 'violet shirt scarfless'", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare2.png", "images/KittySprite/Kitty_Sprite_Over_VioletShirt1_2.png"),
             "Kitty_Arms and K_DynamicTan[0] and K_DynamicTan[1] == 'violet shirt scarf'", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare2.png", "images/KittySprite/Kitty_Sprite_Over_VioletShirt2_2.png"),
             "Kitty_Arms and K_DynamicTan[0] and K_DynamicTan[1] == 'towel'", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare2.png", "images/KittySprite/Kitty_Sprite_Over_Towel2.png"),
-            "K_DynamicTan[0] and 'modded' in K_DynamicTan[1]", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare1.png", GetModdedString("images/KittySprite/Kitty_Sprite_Over_", K_Over, "1.png")),
+            "K_DynamicTan[0] and 'modded' in K_DynamicTan[1]", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare1.png", GetModdedString("images/KittySprite/Kitty_Sprite_Over_", K_DynamicTan[1], "1.png")),
             "K_DynamicTan[0] and K_DynamicTan[1] == 'dark top'", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare1.png", "images/KittySprite/Kitty_Sprite_Over_dark1.png"),
             "K_DynamicTan[0] and K_DynamicTan[1] == 'pink top'", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare1.png", "images/KittySprite/Kitty_Sprite_Over_Pink1.png"),
             "K_DynamicTan[0] and K_DynamicTan[1] == 'purple shirt'", AlphaMask("images/KittySprite/Kitty_Sprite_Body_Bare1.png", "images/KittySprite/Kitty_Sprite_Over_CrewPurple1.png"),
@@ -300,7 +300,7 @@ image Kitty_Sprite:
 
         (0,0), ConditionSwitch(                                                                         #Arms2               
             "not K_DynamicTan[3]", Null(),
-            "Kitty_Arms and K_DynamicTan[0] and 'modded' in K_DynamicTan[3]", AlphaMask("images/KittySprite/Kitty_Sprite_Arms2.png", GetModdedString("images/KittySprite/Kitty_Sprite_Chest_", K_Chest, "2.png")),
+            "Kitty_Arms and K_DynamicTan[0] and 'modded' in K_DynamicTan[3]", AlphaMask("images/KittySprite/Kitty_Sprite_Arms2.png", GetModdedString("images/KittySprite/Kitty_Sprite_Chest_", K_DynamicTan[3], "2.png")),
             "Kitty_Arms and K_DynamicTan[0] and K_DynamicTan[3] == 'bikini top'", AlphaMask("images/KittySprite/Kitty_Sprite_Arms2.png", "images/KittySprite/Kitty_Sprite_Bikini2.png"),
             "Kitty_Arms and K_DynamicTan[0] and K_DynamicTan[3] == 'cami'", AlphaMask("images/KittySprite/Kitty_Sprite_Arms2.png", "images/KittySprite/Kitty_Sprite_Cami2.png"),
             "Kitty_Arms and K_DynamicTan[0] and K_DynamicTan[3] == 'white cami'", AlphaMask("images/KittySprite/Kitty_Sprite_Arms2.png", "images/KittySprite/Kitty_Sprite_WhiteCami2.png"),
@@ -323,7 +323,7 @@ image Kitty_Sprite:
 
         (0,0), ConditionSwitch(   
             "not K_DynamicTan[1]", Null(),
-            "Kitty_Arms and K_DynamicTan[0] and 'modded' in K_DynamicTan[1]", AlphaMask("images/KittySprite/Kitty_Sprite_Arms2.png", GetModdedString("images/KittySprite/Kitty_Sprite_Over_", K_Over, "2.png")),
+            "Kitty_Arms and K_DynamicTan[0] and 'modded' in K_DynamicTan[1]", AlphaMask("images/KittySprite/Kitty_Sprite_Arms2.png", GetModdedString("images/KittySprite/Kitty_Sprite_Over_", K_DynamicTan[1], "2.png")),
             "Kitty_Arms and K_DynamicTan[0] and K_DynamicTan[1] == 'dark top'", AlphaMask("images/KittySprite/Kitty_Sprite_Arms2.png", "images/KittySprite/Kitty_Sprite_Over_dark2.png"),
             "Kitty_Arms and K_DynamicTan[0] and K_DynamicTan[1] == 'pink top'", AlphaMask("images/KittySprite/Kitty_Sprite_Arms2.png", "images/KittySprite/Kitty_Sprite_Over_Pink2.png"),
             "Kitty_Arms and K_DynamicTan[0] and K_DynamicTan[1] == 'purple shirt'", AlphaMask("images/KittySprite/Kitty_Sprite_Arms2.png", "images/KittySprite/Kitty_Sprite_Over_CrewPurple2.png"),
@@ -340,7 +340,7 @@ image Kitty_Sprite:
             ),  
         (0,0), ConditionSwitch(                                                                     #body
             "not K_DynamicTan[3]", Null(),
-            "K_DynamicTan[0] and 'modded' in K_DynamicTan[3]", AlphaMask("images/KittySprite/Kitty_Sprite_Chest_Bare.png", GetModdedString("images/KittySprite/Kitty_Sprite_Chest_", K_Chest, "1.png")),
+            "K_DynamicTan[0] and 'modded' in K_DynamicTan[3]", AlphaMask("images/KittySprite/Kitty_Sprite_Chest_Bare.png", GetModdedString("images/KittySprite/Kitty_Sprite_Chest_", K_DynamicTan[3], "1.png")),
             "K_DynamicTan[0] and K_DynamicTan[3] == 'bikini top'", AlphaMask("images/KittySprite/Kitty_Sprite_Chest_Bare.png", "images/KittySprite/Kitty_Sprite_Bikini1.png"),
             "K_DynamicTan[0] and K_DynamicTan[3] == 'lace bra'", AlphaMask("images/KittySprite/Kitty_Sprite_Chest_Bare.png", "images/KittySprite/Kitty_Sprite_Bra_Lace.png"),
             "K_DynamicTan[0] and K_DynamicTan[3] == 'darker lace bra'", AlphaMask("images/KittySprite/Kitty_Sprite_Chest_Bare.png", "images/KittySprite/Kitty_Sprite_Bra_DarkerLace.png"),
@@ -363,7 +363,7 @@ image Kitty_Sprite:
 
         (0,0), ConditionSwitch(   
             "not K_DynamicTan[1]", Null(),
-            "K_DynamicTan[0] and 'modded' in K_DynamicTan[1]", AlphaMask("images/KittySprite/Kitty_Sprite_Chest_Bare.png", GetModdedString("images/KittySprite/Kitty_Sprite_Over_", K_Over, "1.png")),
+            "K_DynamicTan[0] and 'modded' in K_DynamicTan[1]", AlphaMask("images/KittySprite/Kitty_Sprite_Chest_Bare.png", GetModdedString("images/KittySprite/Kitty_Sprite_Over_", K_DynamicTan[1], "1.png")),
             "K_DynamicTan[0] and K_DynamicTan[1] == 'dark top'", AlphaMask("images/KittySprite/Kitty_Sprite_Chest_Bare.png", "images/KittySprite/Kitty_Sprite_Over_dark1.png"),
             "K_DynamicTan[0] and K_DynamicTan[1] == 'pink top'", AlphaMask("images/KittySprite/Kitty_Sprite_Chest_Bare.png", "images/KittySprite/Kitty_Sprite_Over_Pink1.png"),
             "K_DynamicTan[0] and K_DynamicTan[1] == 'purple shirt'", AlphaMask("images/KittySprite/Kitty_Sprite_Chest_Bare.png", "images/KittySprite/Kitty_Sprite_Over_CrewPurple1.png"),
@@ -1035,7 +1035,9 @@ image Kitty_Sex_Legs:
         #the legs used in the sex pose, referenced by Kitty_SexSprite
         (1120,840), 
         (0,0), ConditionSwitch(                                                                                 #Legs Layer
+            "not K_Legs", Null(),   
             "K_Legs == 'blue skirt'", "images/KittySex/Kitty_Sex_Skirt_Back.png",   
+            "'modded' in K_Legs and 'skirt' in K_Legs", GetModdedString("images/KittySex/Kitty_Sex_Legs_", K_Legs, "_Back.png"),
             "True", Null(),                      
             ),  
         (0,0), "images/KittySex/Kitty_Sex_Legs.png",                                                         #Legs Base
@@ -1062,10 +1064,11 @@ image Kitty_Sex_Legs:
             ),  
         (0,0), ConditionSwitch(                                                                                 #Legs Layer
             "K_Legs == 'blue skirt'", "images/KittySex/Kitty_Sex_Skirt.png",   
-            "K_Upskirt", Null(),                            
             "not K_Legs", Null(),
-            "'modded' in K_Legs and K_Wet > 1", GetModdedString("images/KittySex/Kitty_Sex_Legs_", K_Legs, "_Wet.png"),
-            "'modded' in K_Legs", GetModdedString("images/KittySex/Kitty_Sex_Legs_", K_Legs, ".png"),
+            "not K_Upskirt and 'modded' in K_Legs and K_Wet > 1", GetModdedString("images/KittySex/Kitty_Sex_Legs_", K_Legs, "_Wet.png"),
+            "K_Upskirt and 'modded' in K_Legs and 'skirt' in K_Legs", GetModdedString("images/KittySex/Kitty_Sex_Legs_", K_Legs, ".png"),
+            "not K_Upskirt and'modded' in K_Legs", GetModdedString("images/KittySex/Kitty_Sex_Legs_", K_Legs, ".png"),
+            "K_Upskirt", Null(),                            
             "K_Legs == 'capris' and K_Wet > 1", "images/KittySex/Kitty_Sex_Pants_Blue_Wet.png",
             "K_Legs == 'capris'", "images/KittySex/Kitty_Sex_Pants_Blue.png",
             "K_Legs == 'black jeans' and K_Wet > 1", "images/KittySex/Kitty_Sex_Pants_Black_Wet.png",

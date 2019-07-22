@@ -1347,5 +1347,40 @@ init python:
             string = Null()
         return string
 
+    def GetModdedString2Kitty(first = "images/RogueSprite/Rogue_panties_", second = "3", third = ".png"):
+        second_ = int(second)
+        if K_DynamicTan[second_]:
+            if "modded" in K_DynamicTan[second_]:
+                string = first + K_DynamicTan[second_] + third
+                # if renpy.showing("Rogue"):
+                #     renpy.hide("Rogue")
+                #     renpy.show("Rogue")
+                # elif renpy.showing("Rogue_Doggy"):
+                #     renpy.show("Rogue_Doggy")
+                # elif renpy.showing("Rogue_SexSprite"):
+                #     renpy.show("Rogue_SexSprite")
+                # elif renpy.showing("Rogue_BJ_Animation"):
+                #     renpy.show("Rogue_BJ_Animation")
+                # elif renpy.showing("Rogue_HJ_Animation"):
+                #     renpy.show("Rogue_HJ_Animation")
+                # elif renpy.showing("Rogue_TJ_Animation"):
+                #     renpy.show("Rogue_TJ_Animation")
+                if not renpy.loadable(string):
+                    # if not string in SomethingWrongDesu:
+                    #     SomethingWrongDesu.append(string)
+                    #     f = open("SomethingWrongDesu.txt")
+                    #     f.write(string + "\n")
+                    #     f.close()
+                    #string2 = "something wrong loading " + string + ", warn the modders"
+                    #renpy.call_in_new_context(narrator(string2))
+                    #renpy.say(Character('???', color="#85bb65", image = "arrow", show_two_window=True), string2)
+                    #renpy.say(ch_u,"something wrong loading [string], warn the modders")
+                    string = Null()
+            else:
+                string = Null()
+        else:
+            string = Null()
+        return string
+
 
 #End Rogue Wardrobe

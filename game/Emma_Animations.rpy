@@ -2027,6 +2027,10 @@ label Emma_Sex_Launch(Line = "solo"):
 label Emma_Sex_Reset:
     if not renpy.showing("Emma_SexSprite") and not renpy.showing("Emma_Doggy"):
         return
+#MOD MARKER RESET
+label Emma_Sex_Reset:
+    if not renpy.showing("Emma_SexSprite") and not renpy.showing("Emma_Doggy"):
+        return
     $ Emma_Arms = 2     
     call mod_hide_Emma_SexSprite  
     call Emma_Hide 
@@ -3472,6 +3476,10 @@ label E_Pos_Reset(Pose = 0):
     $ Trigger = Pose
     return
     
+#MOD MARKER HIDE
+label Emma_Hide:
+        if renpy.showing("Emma_SexSprite") or renpy.showing("Emma_Doggy"):
+            call Emma_Sex_Reset
 #MOD MARKER HIDE
 label Emma_Hide:
         if renpy.showing("Emma_SexSprite") or renpy.showing("Emma_Doggy"):

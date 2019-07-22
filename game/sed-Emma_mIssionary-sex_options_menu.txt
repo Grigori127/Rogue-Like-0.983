@@ -1,0 +1,13 @@
+                        "Lean back, I've got something in mind. . . \[Missionary\]":
+                                    if P_Semen:
+                                        call E_Missionary_H
+                                    else:
+                                        "The spirit is apparently willing, but the flesh is spongy and bruised."
+                        "Fuck your pussy. \[Missionary\].":
+                                    if P_Semen:
+                                        call E_Missionary_P
+                                    else:
+                                        "The spirit is apparently willing, but the flesh is spongy and bruised."         
+                        "Fuck your ass. \[Missionary\]":
+                                    if P_Semen:
+                                        call E_Missionary_A

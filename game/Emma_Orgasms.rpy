@@ -78,6 +78,8 @@ label PE_Cumming:
 #MOD MARKER cum menu choices
         "Cum on her ass" if Trigger in ("sex","anal","hotdog") and renpy.showing("Emma_Doggy"):
                 jump E_SpunkBack
+        "Cum on her belly" if Trigger in ("sex","anal","hotdog","foot") and renpy.showing("Emma_Missionary"):
+                jump E_SpunkBellyMissionary
         "Cum on her belly" if Trigger in ("sex","anal","hotdog","foot") and renpy.showing("Emma_SexSprite"):
                 jump E_SpunkBelly
             
@@ -905,6 +907,59 @@ label E_TitSpunk:
 # Start Spunk back  / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / /
 ###ANON MOD CODE BLOCK START #####
 #placeholderline1 
+label E_SpunkBellyMissionary: 
+        if P_Cock != "foot":
+                call Emma_Missionary_Launch("hotdog")
+        $ Speed = 0
+        if E_Addict >= 60 and ApprovalCheck("Emma", 1000, "I", Bonus = ((E_Addict*10)- E_Obed))  and E_Swallow:
+                $ E_Eyes = "manic"
+                $ E_Blush = 1
+                call Emma_BJ_Launch("cum")
+                if Trigger == "sex":
+                    "You pull out of her pussy with a pop, and her eyes widen in surprise. She leaps at your cock and sucks it deep, draining your fluids hungrily."
+                elif Trigger == "anal":                
+                    "You pull out of her ass with a pop, and her eyes widen in surprise. She leaps at your cock and sucks it deep, draining your fluids hungrily."
+                $ E_Mouth = "lipbite"
+                $ E_Spunk.append("mouth")
+                "When she finishes, she licks her lips."
+                call EmmaFace("bemused")
+                $ E_Spunk.remove("mouth")
+                ch_k "Sorry, that's just[E_like]sooooo good."
+                call Statup("Emma", "Obed", 80, -5)
+                call Statup("Emma", "Inbt", 200, 10)
+                jump E_Swallowed
+        if P_Cock != "foot":
+            $ P_Cock = "out"
+        $ P_Spunk = "out"
+        $ E_Spunk.append("belly")
+        if Trigger == "sex":
+                "You pull out of her pussy with a pop and spray all over her belly."
+        elif Trigger == "anal":
+                "You pull out of her ass with a pop and spray all over her belly."
+        else:
+                "You pick up the pace and with a grunt you spray all over her belly."
+            
+                      
+        if E_Addict >= 60 and ApprovalCheck("Emma", 800, "I", Bonus = ((E_Addict*10)- E_Obed)) and E_Swallow: 
+                #if she's manic and has swallowed
+                $ E_Eyes = "manic"
+                $ E_Blush = 1        
+                "Emma's eyes widen with desire, and she quickly wipes a bit off with her hand, then licks her fingers clean."
+                call EmmaFace("manic", 1)
+                $ E_Spunk.append("mouth")
+                $ E_Mouth = "smile"
+                ch_k "Sorry, that's just[E_like]sooooo good."
+                $ E_Spunk.remove("mouth")
+                call Statup("Emma", "Inbt", 50, 3)
+                jump E_Swallowed
+              
+            
+        #else . . .
+        call EmmaFace("sexy", 1)
+        ch_k "Mmmm, all over the place. . ."
+#        call Emma_Sex_Reset
+        jump E_Orgasm_After
+###ANON MOD CODE MISSIONARY BLOCK STOP ######
 label E_SpunkBack: 
         if Trigger != "foot":
             call Emma_Doggy_Launch("hotdog")
