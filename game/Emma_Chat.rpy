@@ -4889,6 +4889,8 @@ label Emma_OutfitShame(Custom = 3, Check = 0, Count = 0, Tempshame = 50, Agree =
                 $ Count = 0
             elif E_Chest == "corset":  
                 $ Count = 15
+            elif IsOutfitModdedEmma("Chest"):
+                $ Count = Mod_Emma_OutfitShame("Chest")
             elif E_Chest == "sports bra":
                 $ Count = 15
             elif E_Chest == "bikini top":
@@ -4906,6 +4908,8 @@ label Emma_OutfitShame(Custom = 3, Check = 0, Count = 0, Tempshame = 50, Agree =
             #If she's wearing an overshirt
             if Custom == 20 and E_Uptop: 
                 $ Count = 0
+            elif IsOutfitModdedEmma("Over"):                                             
+                $ Count += Mod_Emma_OutfitShame("Over")                                             
             elif E_Over == "jacket":                                             
                 $ Count += 15
             elif E_Over == "towel":      
@@ -4952,6 +4956,8 @@ label Emma_OutfitShame(Custom = 3, Check = 0, Count = 0, Tempshame = 50, Agree =
                     else:
                             # if commando
                             $ Count = 25                
+                elif IsOutfitModdedEmma("Panties"):      #If wearing only sports panties
+                    $ Count = Mod_Emma_OutfitShame("Panties")      #If wearing only sports panties
                 elif E_Panties == "sports panties":      #If wearing only sports panties
                     $ Count = 20           
                 elif E_Panties == "bikini bottoms":      #If wearing only bikini bottoms

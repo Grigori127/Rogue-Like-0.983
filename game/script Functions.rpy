@@ -680,6 +680,8 @@ init python:
                             return 1
                         if E_Legs == "pants":
                             return 10                           
+                        elif IsOutfitModdedEmma("Legs"):
+                            return ModPantsNum("Emma")
                         elif E_Legs == "yoga pants":
                             return 10 
                         elif E_Legs == "skirt":
