@@ -17,7 +17,7 @@ label Rogue_Modded_Clothes_Menu:
         "Never mind, you look good like that. [[return]":            
                 jump Rogue_Clothes
             
-    jump Rogue_Clothes
+    jump Rogue_Modded_Clothes_Menu
     #End of Rogue Wardrobe Main Menu
 
     menu Rogue_Modded_Clothes_Over:                                                                                            # Overshirts    
@@ -1166,14 +1166,18 @@ init python:
                 elif Chr == "Emma":
                         # if E_Upskirt and E_Legs:
                         #     return 1
-                        if E_Legs == "pants":
-                            return 10                           
-                        elif E_Legs == "yoga pants":
+                        if E_Legs == "modded black pants":
                             return 10 
-                        elif E_Legs == "skirt":
-                            return 5   
+                        elif E_Legs == "modded NewX":
+                            return 6 
+                        elif E_Legs == "modded NewX black":
+                            return 6 
+                        elif E_Legs == "modded white sports shorts":
+                            return 6 
+                        elif E_Legs == "modded red sports shorts":
+                            return 6 
                         else:
-                            return 0
+                            return 0  
                 elif Chr == "Laura":
                         # if L_Upskirt and L_Legs:
                         #     return 1

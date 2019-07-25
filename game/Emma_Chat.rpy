@@ -3801,6 +3801,8 @@ label Emma_Clothes(Public=0,Bonus=0):
     call EmmaFace
     menu:
         ch_e "You wanted to discuss my clothing choices?"
+        "Let's talk about your modded clothes.":
+                    jump Emma_Modded_Clothes_Menu
         "Let's talk about your outfits.":
                     jump Emma_Clothes_Outfits        
         "Let's talk about your over shirts.":

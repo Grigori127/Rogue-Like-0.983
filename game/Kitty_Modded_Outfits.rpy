@@ -14,7 +14,7 @@ label Kitty_Modded_Clothes_Menu:
         "Never mind, you look good like that.":
                 jump Kitty_Clothes
             
-    jump Kitty_Clothes
+    jump Kitty_Modded_Clothes_Menu
     #End of Kitty Wardrobe Main Menu
         
 
