@@ -2987,6 +2987,7 @@ label EmmaOutfit(E_OutfitTemp = E_Outfit, Spunk = 0, Undressed = 0, Changed = 1)
                         "She throws on a towel."
                 elif Undressed:
                         "She throws her clothes back on."  
+        call Mod_Update_Emma_Image
         return
 #End Emma's Outfits
       

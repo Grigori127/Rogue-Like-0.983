@@ -59,10 +59,10 @@ image Emma_Sex_Missionary_Body = LiveComposite(
             "True", "images/EmmaSexMissionary/Emma_Sex_Body.png",             
             ), 
         (0,0), ConditionSwitch(                                                                                 #necklace
-            "E_Neck == 'black choker'", "images/EmmaSexMissionary/Emma_Sex_Choker_Black.png",
+            "E_Neck == 'modded black choker'", "images/EmmaSexMissionary/Emma_Sex_Choker_Black.png",
             "E_Neck == 'choker'", "images/EmmaSexMissionary/Emma_Sex_Choker_White.png",
-            "E_Neck == 'NewX'", "images/EmmaSexMissionary/Emma_Sex_New_NeckX_White.png",
-            "E_Neck == 'black NewX'", "images/EmmaSexMissionary/Emma_Sex_New_NeckX_Black.png",
+            "E_Neck == 'modded NewX'", "images/EmmaSexMissionary/Emma_Sex_New_NeckX_White.png",
+            "E_Neck == 'modded black NewX'", "images/EmmaSexMissionary/Emma_Sex_New_NeckX_Black.png",
             "True", Null(),
             ),             
         (350,-275), "Emma_Head_Sex",  #check positioning (400,-300)
@@ -74,10 +74,8 @@ image Emma_Sex_Missionary_Body = LiveComposite(
         (0,0), ConditionSwitch(                                                                                 #tanktop
             "not E_Chest", "images/EmmaSexMissionary/Emma_Sex_Tits_Bare.png",        
         #     "E_Chest == 'cami'", "images/EmmaSexMissionary/Emma_Sex_Under_Cami.png",
-        #     "E_Chest == 'sports bra'", "images/EmmaSexMissionary/Emma_Sex_Under_SportsBra.png",
         #     "E_Chest == 'bra'", "images/EmmaSexMissionary/Emma_Sex_Under_Bra.png",
-            "E_Chest == 'bikini'", "images/EmmaSexMissionary/Emma_Sex_BikiniTop_White.png",
-            "E_Chest == 'black corset'", "images/EmmaSexMissionary/Emma_Sex_Corset_Black.png",
+            "E_Chest == 'modded black corset'", "images/EmmaSexMissionary/Emma_Sex_Corset_Black.png",
             "E_Chest == 'corset'", "images/EmmaSexMissionary/Emma_Sex_Corset_White.png",
             "True", "images/EmmaSexMissionary/Emma_Sex_Tits_Bare.png",
             ), 
@@ -88,7 +86,7 @@ image Emma_Sex_Missionary_Body = LiveComposite(
         (0,0), ConditionSwitch(                                                                                 #Overshirt
             "not E_Over", Null(),
             "E_Over == 'jacket'", "images/EmmaSexMissionary/Emma_Sex_Jacket_White.png",           
-            "E_Over == 'black jacket'", "images/EmmaSexMissionary/Emma_Sex_Jacket_Black.png",           
+            "E_Over == 'modded black jacket'", "images/EmmaSexMissionary/Emma_Sex_Jacket_Black.png",           
             # "E_Over == 'red shirt'", "images/EmmaSexMissionary/Emma_Sex_Over_RedShirt.png",   
             # "E_Over == 'towel'", "images/EmmaSexMissionary/Emma_Sex_Over_Towel.png",       
             "True", Null(), 
@@ -278,8 +276,8 @@ image Emma_Sex_Missionary_Legs:
             ),                                                     #Legs Base
         (0,0), ConditionSwitch(                                                                                 #Panties back
             "E_LegsUp", Null(),  
-            "E_Hose == 'white thigh high'", "images/EmmaSexMissionary/Emma_Sex_Legs_ThighHighWhite.png",
-            "E_Hose == 'black thigh high'", "images/EmmaSexMissionary/Emma_Sex_Legs_ThighHighBlack.png",
+            "E_Hose == 'modded white thigh high'", "images/EmmaSexMissionary/Emma_Sex_Legs_ThighHighWhite.png",
+            "E_Hose == 'modded black thigh high'", "images/EmmaSexMissionary/Emma_Sex_Legs_ThighHighBlack.png",
             "True", Null(),                     
             ),
         (0,0), ConditionSwitch(                                                                                 #Wet look
@@ -293,9 +291,8 @@ image Emma_Sex_Missionary_Legs:
 
         (0,0), ConditionSwitch(                                                                                 #Panties if up
             "E_PantiesDown", Null(),     
-            "E_Panties == 'bikini'", "images/EmmaSexMissionary/Emma_Sex_Panty_BikiniBottom_White.png",          
             "E_Panties == 'white panties'", "images/EmmaSexMissionary/Emma_Sex_Panty_White.png",          
-            "E_Panties == 'black panties'", "images/EmmaSexMissionary/Emma_Sex_Panty_Black.png",    
+            "E_Panties == 'modded black panties'", "images/EmmaSexMissionary/Emma_Sex_Panty_Black.png",    
             "True", Null(),                     
             ),  
         # (0,0), ConditionSwitch(                                                                                 #Legs Layer
@@ -346,16 +343,16 @@ image Emma_Sex_Missionary_Feet = LiveComposite(
             "True", "images/EmmaSexMissionary/Emma_Sex_Feet.png",
             ),
         (0,0), ConditionSwitch(                                                                                 #Panties back
-            "E_LegsUp and E_Hose == 'white thigh high'", "images/EmmaSexMissionary/Emma_Sex_LegsUp_Feet_ThighHighWhite.png",
-            "E_LegsUp and E_Hose == 'black thigh high'", "images/EmmaSexMissionary/Emma_Sex_LegsUp_Feet_ThighHighBlack.png",
-            "E_Hose == 'white thigh high'", "images/EmmaSexMissionary/Emma_Sex_Feet_ThighHighWhite.png",
-            "E_Hose == 'black thigh high'", "images/EmmaSexMissionary/Emma_Sex_Feet_ThighHighBlack.png",
+            "E_LegsUp and E_Hose == 'modded white thigh high'", "images/EmmaSexMissionary/Emma_Sex_LegsUp_Feet_ThighHighWhite.png",
+            "E_LegsUp and E_Hose == 'modded black thigh high'", "images/EmmaSexMissionary/Emma_Sex_LegsUp_Feet_ThighHighBlack.png",
+            "E_Hose == 'modded white thigh high'", "images/EmmaSexMissionary/Emma_Sex_Feet_ThighHighWhite.png",
+            "E_Hose == 'modded black thigh high'", "images/EmmaSexMissionary/Emma_Sex_Feet_ThighHighBlack.png",
             "True", Null(),                     
             ),
         # (0,0), ConditionSwitch(                                                                                 #Panties back
         #     "not E_LegsUp", Null(),
-        #     "E_Hose == 'white thigh high'", "images/EmmaSexMissionary/Emma_Sex_LegsUp_Feet_ThighHighWhite.png",
-        #     "E_Hose == 'black thigh high'", "images/EmmaSexMissionary/Emma_Sex_LegsUp_Feet_ThighHighBlack.png",
+        #     "E_Hose == 'modded white thigh high'", "images/EmmaSexMissionary/Emma_Sex_LegsUp_Feet_ThighHighWhite.png",
+        #     "E_Hose == 'modded black thigh high'", "images/EmmaSexMissionary/Emma_Sex_LegsUp_Feet_ThighHighBlack.png",
         #     "True", Null(),                     
         #     ),
         (0,0), ConditionSwitch(                                                                                 #Wet look

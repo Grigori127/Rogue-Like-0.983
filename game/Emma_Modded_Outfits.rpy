@@ -9,8 +9,8 @@ label Emma_Modded_Clothes_Menu:
                     jump Emma_Modded_Clothes_Legs
         "Let's talk about your underwear.":
                     jump Emma_Modded_Clothes_Under
-        # "Let's talk about the other stuff.":
-        #             jump Emma_Modded_Clothes_Misc
+        "Let's talk about the other stuff.":
+                    jump Emma_Modded_Clothes_Misc
         "Never mind, you look good like that.":
                 jump Emma_Clothes
             
@@ -244,23 +244,23 @@ label Emma_Modded_Clothes_Menu:
 
         "You look great in those black pants." if E_Legs != "modded black pants":
             ch_e "I know."
-            call SetChestEmma("modded black pants")
+            call SetLegsEmma("modded black pants")
 
         "You look great in those white shorts." if E_Legs != "modded NewX":
             ch_e "I know."
-            call SetChestEmma("modded NewX")
+            call SetLegsEmma("modded NewX")
         
         "You look great in those black shorts." if E_Legs != "modded NewX black":
             ch_e "I know."
-            call SetChestEmma("modded NewX black")
+            call SetLegsEmma("modded NewX black")
 
         "You look great in those white sports shorts." if E_Legs != "modded white sports shorts":
             ch_e "I know."
-            call SetChestEmma("modded white sports shorts")
+            call SetLegsEmma("modded white sports shorts")
 
         "You look great in those red sports shorts." if E_Legs != "modded red sports shorts":
             ch_e "I know."
-            call SetChestEmma("modded red sports shorts")
+            call SetLegsEmma("modded red sports shorts")
                 
                    
         "Never mind":
@@ -361,13 +361,13 @@ label Emma_Modded_Clothes_Menu:
             else:                
                 ch_e "I don't think that would be appropriate. . ."  
 
-        "I like that bikini top you have." if E_Chest != "modded bikini":
-            if E_SeenChest or ApprovalCheck("Emma", 1000, TabM=(3-Public)):
-                ch_e "So do I."   
-                call SetChestEmma("modded bikini")
-                $ E_TitsUp = 1
-            else:                
-                ch_e "I don't think that would be appropriate. . ."  
+        # "I like that bikini top you have." if E_Chest != "modded bikini":
+        #     if E_SeenChest or ApprovalCheck("Emma", 1000, TabM=(3-Public)):
+        #         ch_e "So do I."   
+        #         call SetChestEmma("modded bikini")
+        #         $ E_TitsUp = 1
+        #     else:                
+        #         ch_e "I don't think that would be appropriate. . ."  
 
                                                                                                                             #Panties        
         "You could lose those panties. . ." if E_Panties:
@@ -437,12 +437,12 @@ label Emma_Modded_Clothes_Menu:
             else:                
                     ch_e "I really don't see how that's any of your concern."
 
-        "Why don't you wear that bikini panties?" if E_Panties and E_Panties != "modded bikini":
-            if ApprovalCheck("Emma", 1100, TabM=(4-Public)):
-                    ch_e "Ok."
-                    call SetPantiesEmma("modded bikini")
-            else:                
-                    ch_e "I really don't see how that's any of your concern."
+        # "Why don't you wear that bikini panties?" if E_Panties and E_Panties != "modded bikini":
+        #     if ApprovalCheck("Emma", 1100, TabM=(4-Public)):
+        #             ch_e "Ok."
+        #             call SetPantiesEmma("modded bikini")
+        #     else:                
+        #             ch_e "I really don't see how that's any of your concern."
                 
         "Why don't you wear the lace panties instead?" if "lace panties" in E_Inventory and E_Panties and E_Panties != "lace panties":
             if ApprovalCheck("Emma", 1300, TabM=(4-Public)):
@@ -504,7 +504,7 @@ label Emma_Modded_Clothes_Menu:
        
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<  
         
-    # menu Emma_Modded_Clothes_Misc:                     
+    menu Emma_Modded_Clothes_Misc:                     
     #     #Misc
     #     "Maybe lose the gloves." if E_Arms:
     #         $ E_Arms = 0
@@ -573,35 +573,35 @@ label Emma_Modded_Clothes_Menu:
     #             "Nevermind":
     #                 jump Emma_Modded_Clothes_Misc
 
-    #     "Neck options":
-    #         menu Emma_Modded_Clothes_Misc_Neck:
-    #             "Why don't you try on that white choker." if E_Neck != "choker":
-    #                 ch_e "Ok. . ."         
-    #                 $ E_Neck = "choker"
-    #                 jump Emma_Modded_Clothes_Misc_Neck
+        "Neck options":
+            menu Emma_Modded_Clothes_Misc_Neck:
+                "Why don't you try on that white choker." if E_Neck != "choker":
+                    ch_e "Ok. . ."         
+                    $ E_Neck = "choker"
+                    jump Emma_Modded_Clothes_Misc_Neck
         
-    #             "Why don't you try on that black choker." if E_Neck != "black choker":
-    #                 ch_e "Ok. . ."         
-    #                 $ E_Neck = "black choker"
-    #                 jump Emma_Modded_Clothes_Misc_Neck
+                "Why don't you try on that black choker." if E_Neck != "black choker":
+                    ch_e "Ok. . ."         
+                    call SetNeckEmma("modded black choker")
+                    jump Emma_Modded_Clothes_Misc_Neck
         
-    #             "Why don't you try on that NewX neck piece." if E_Neck != "modded NewX":
-    #                 ch_e "Ok. . ."         
-    #                 $ E_Neck = "modded NewX"
-    #                 jump Emma_Modded_Clothes_Misc_Neck
-    #             "Why don't you try on that black NewX neck piece." if E_Neck != "modded NewX black":
-    #                 ch_e "Ok. . ."         
-    #                 $ E_Neck = "modded NewX black"
-    #                 jump Emma_Modded_Clothes_Misc_Neck
-    #     #        "Why don't you try on that star necklace." if E_Neck != "star necklace":
-    #     #            ch_e "Ok. . ."         
-    #     #            $ E_Neck = "star necklace"
-    #             "Maybe go without a collar." if E_Neck:
-    #                 ch_e "Ok. . ."         
-    #                 $ E_Neck = 0
-    #                 jump Emma_Modded_Clothes_Misc_Neck
-    #             "Nevermind":
-    #                 jump Emma_Modded_Clothes_Misc
+                "Why don't you try on that NewX neck piece." if E_Neck != "modded NewX":
+                    ch_e "Ok. . ."         
+                    call SetNeckEmma("modded NewX")
+                    jump Emma_Modded_Clothes_Misc_Neck
+                "Why don't you try on that black NewX neck piece." if E_Neck != "modded NewX black":
+                    ch_e "Ok. . ."         
+                    call SetNeckEmma("modded NewX black")
+                    jump Emma_Modded_Clothes_Misc_Neck
+        #        "Why don't you try on that star necklace." if E_Neck != "star necklace":
+        #            ch_e "Ok. . ."         
+        #            $ E_Neck = "star necklace"
+                "Maybe go without a collar." if E_Neck:
+                    ch_e "Ok. . ."         
+                    $ E_Neck = 0
+                    jump Emma_Modded_Clothes_Misc_Neck
+                "Nevermind":
+                    jump Emma_Modded_Clothes_Misc
                         
     #     "You know, I like some nice hair down there. Maybe grow it out." if not E_Pubes and "pubes" in E_Todo:
     #         call EmmaFace("bemused", 1)
@@ -697,9 +697,9 @@ label Emma_Modded_Clothes_Menu:
 
 
             
-    #     "Never mind":
-    #         pass         
-    # jump Emma_Modded_Clothes_Menu
+        "Never mind":
+            pass         
+    jump Emma_Modded_Clothes_Menu
     # #End of Emma Misc Wardrobe
     
 return
@@ -730,6 +730,11 @@ label SetHoseEmma(Outfit = "modded fishnet"):
     call Mod_Update_Emma_Image
     return
 
+label SetNeckEmma(Outfit = "modded fishnet"):
+    $ E_Neck = Outfit
+    call Mod_Update_Emma_Image
+    return
+
 label Mod_Update_Emma_Image:
     if renpy.showing("Emma_Sprite"):
         show Emma_Sprite 
@@ -756,24 +761,37 @@ init python:
                     return 1
             else:
                 return 0
-        if Type == "Chest":
+        elif Type == "Chest":
             if E_Chest:
                 if "modded" in E_Chest:
                     return 1
             else:
                 return 0
-        if Type == "Legs":
+        elif Type == "Legs":
             if E_Legs:
                 if "modded" in E_Legs:
                     return 1
             else:
                 return 0
-        if Type == "Panties":
+        elif Type == "Panties":
             if E_Panties:
                 if "modded" in E_Panties:
                     return 1
             else:
                 return 0
+        elif Type == "Hose":
+            if E_Hose:
+                if "modded" in E_Hose:
+                    return 1
+            else:
+                return 0
+        elif Type == "Neck":
+            if E_Neck:
+                if "modded" in E_Neck:
+                    return 1
+            else:
+                return 0
+
         return 0
 
     def Mod_Emma_OutfitShame(Type = "Chest"):                                                                             #sets custom outfit    
@@ -795,8 +813,8 @@ init python:
                 return 15
             elif E_Chest == "modded NewX":  
                 return 10
-            elif E_Chest == "modded bikini":  
-                return 15
+            # elif E_Chest == "modded bikini":  
+            #     return 15
             elif E_Chest == "modded NewX black":  
                 return 10
             else:
@@ -830,8 +848,8 @@ init python:
                        
             if E_Panties == "modded black panties":      #If wearing only black panties
                 return 10
-            elif E_Panties == "modded bikini":      #If wearing only bikini
-                return 15
+            # elif E_Panties == "modded bikini":      #If wearing only bikini
+            #     return 15
             else:
                 return 0
 
