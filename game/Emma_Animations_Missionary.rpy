@@ -1201,7 +1201,13 @@ label Emma_Missionary_Launch(Line = "solo"):
         return     
     $ P_Sprite = 1
     $ Speed = 0
-    hide Emma_Sprite  
+    hide Emma_Sprite
+    if renpy.showing("Emma_BJ_Animation"):
+        hide Emma_BJ_Animation
+    if renpy.showing("Emma_HJ_Animation"):
+        hide Emma_HJ_Animation
+    if renpy.showing("Emma_TJ_Animation"):
+        hide Emma_TJ_Animation
     show Emma_Missionary zorder 150        
     with dissolve
     return
