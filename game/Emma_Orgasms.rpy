@@ -27,7 +27,7 @@ label PE_Cumming:
     $ D20 = renpy.random.randint(1, 20) 
     
 # intro lines    
-    if Trigger == "hand":
+    if Trigger == "hand" or Trigger == "foot":
             $ Line = "As she strokes, you're about ready to come. . ."
     elif Trigger == "blow":
             $ Line = "As she sucks at you, you start to feel about to come. . ."
@@ -105,7 +105,9 @@ label PE_Cumming:
             elif renpy.showing("Emma_HJ_Animation"):
                     call Emma_HJ_Reset                
             elif renpy.showing("Emma_TJ_Animation"):
-                    call Emma_TJ_Reset               
+                    call Emma_TJ_Reset                   
+            elif renpy.showing("Emma_FJ_Animation"):
+                    call Emma_FJ_Reset            
             elif renpy.showing("Emma_SexSprite"):
                     call Emma_Sex_Reset                    
             if ApprovalCheck("Emma", 500, "I", Bonus = ((E_Addict*10)- E_Obed)) and E_Addict > 50 and E_Swallow: #If addict + Inbt is > obedience + 50. . .
@@ -193,7 +195,7 @@ label E_No_Cum:
 
 
 label E_Warn_Her:
-        if "classcaught" in E_RecentActions and bg_current == "bg classroom" and E_SEXP <= 10:
+        if E_SEXP <= 10:
             #this skips this step if you haven't done much yet
             jump E_No_Cum
             
@@ -1070,6 +1072,8 @@ label E_SpunkBelly:
 label E_Handy_Finish:
     if renpy.showing("Emma_SexSprite"):
         call Emma_Sex_Reset
+    if renpy.showing("Emma_FJ_Animation"): 
+        jump E_Foot_Finish
     call Emma_HJ_Launch("cum")
     $ Speed = 2        
     $ E_Spunk.append("hand")  
@@ -1094,7 +1098,34 @@ label E_Handy_Finish:
             ch_e "I appreciate the warning." 
             jump E_Orgasm_After
 
-
+ 
+#Start Foot finish  / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / /
+label E_Foot_Finish:
+    if renpy.showing("Emma_SexSprite"):
+        call Emma_Sex_Reset
+    call Emma_FJ_Launch
+    $ Speed = 4        
+    $ E_Spunk.append("belly")  
+    if renpy.showing("Emma_FJ_Animation"):                                  
+            "She grins and speeds up her efforts, sliding her foot along your cock. You burst all over her belly." 
+    else:
+            "She grins and starts jerking you off with her foot, sliding her foot along your cock. You burst all over her belly." 
+    $ P_Spunk = 1  
+    $ Speed = 0
+    
+    if E_Addict > 80 or "hungry" in E_Traits:
+            $ E_Eyes = "manic"
+            $ E_Spunk.remove("belly")
+            $ E_Spunk.append("mouth")
+            $ E_Mouth = "smile"
+            "She wipes the cum into her mouth with a satisfied grin."
+            $ E_Spunk.remove("mouth")
+            ch_e "Hmmm. . ."
+    else:
+            call EmmaFace("bemused")
+            ch_e "I appreciate the warning." 
+            jump E_Orgasm_After
+            
 #Start Swallowed  / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / /
 label E_Swallowed: 
         $ E_Swallow += 1

@@ -1291,7 +1291,7 @@ label Emma_SexDialog(TempLine = 0, TempLust = 0, TempLust2 = 0):
                                         
                                         $ TempFocus += 20 if P_Focus < 40 else 5        
                                 
-                        elif E_Foot >= 3:                       #third through 5th time
+                        else:                       #third through 5th time
                                     if Speed <= 1:                      #slow
                                         $ Line = Line + renpy.random.choice(["She's begining to figure things out, her toes cause tingles as they caress the shaft", 
                                                 "She's still learning, but learning fast", 
@@ -1309,27 +1309,7 @@ label Emma_SexDialog(TempLine = 0, TempLust = 0, TempLust2 = 0):
                                                 "Her lessons are paying off, she's really becoming very talented at this",
                                                 "She quickly strokes your cock, with a very deft pressure"]) 
                                         
-                                        $ TempFocus += 15 if P_Focus < 60 else 7         
-                            
-                        else:                                   #First and second time
-                                if Speed <= 1:                      #slow
-                                    $ Line = Line + renpy.random.choice(["She makes up for her inexperience with determination, carefully stroking your cock", 
-                                            "She moves her feet up and down the shaft. She's a little rough at this, but at least she tries", 
-                                            "She strokes you gently. She isn't quite sure what to do with the balls",
-                                            "Her toes fumble with your shaft a bit",
-                                            "She nudges one of your balls too tightly, but stops when you wince",
-                                            "She has a firm grip, and she's not letting go. This may take a few tries"])     
-                                    
-                                    $ TempFocus += 10 if P_Focus > 60 else 5         
-                                else:                               #fast 
-                                    $ Line = Line + renpy.random.choice(["She really wasn't prepared for speeding up, and your cock often slips between her feet", 
-                                            "She rapidly moves her feet up and down the shaft. She's a little rough at this, but at least she tries", 
-                                            "She strokes you a bit too quickly, the friction is a bit uncomfortable",
-                                            "Her toes fumble with your shaft a bit",
-                                            "She nudges one of your balls too tightly, but stops when you wince",
-                                            "She has a firm grip, and she's not letting go. This train is out of control"])  
-                                    
-                                    $ TempFocus += 8 if P_Focus > 60 else 2         
+                                        $ TempFocus += 15 if P_Focus < 60 else 7     
                                 
                         $ TempLust += 2 if E_Lust < 60 else 0
                         $ TempLust += 3 if E_Foot > 2 else 0

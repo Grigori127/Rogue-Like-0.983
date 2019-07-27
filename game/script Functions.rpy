@@ -1432,9 +1432,15 @@ label GirlLikesGirl(ChrA = "Rogue", ChrB = "Kitty", Check=200, Modifier = 1, Aut
                         if "dating" in R_Traits or "Rogue" in P_Harem:
                             if "Laura" not in P_Harem and "poly Laura" not in R_Traits:
                                 $ Jealousy = 100
-                if Auto: #this is a quick return, 
-                        call Statup("Rogue", "Lust", 200, (int(Modifier/5)))
-                        return
+                if False:
+                    #test this, should fairly replace above system
+                    $ Likes = GirlLikeCheck(ChrA,ChrB) #ie R_LikeKitty
+                    if CheckWord(ChrA,"Traits","dating") or ChrA in P_Harem: 
+                            #if "dating" in R_Traits or "Rogue" in P_Harem:
+                            if ChrB not in P_Harem and not CheckWord(ChrA,"Traits","poly " + ChrB): 
+                                    #if "Kitty" not in P_Harem and "poly Kitty" not in R_Traits:
+                                    $ Jealousy = 100
+                                
         elif ChrA == "Kitty":                                             
                 #If the first girl is Kitty
                 if ChrB == "Rogue" and K_LikeRogue <= Check: 
@@ -1455,9 +1461,6 @@ label GirlLikesGirl(ChrA = "Rogue", ChrB = "Kitty", Check=200, Modifier = 1, Aut
                         if "dating" in K_Traits or "Kitty" in P_Harem:
                             if "Laura" not in P_Harem and "poly Laura" not in K_Traits:
                                 $ Jealousy = 100
-                if Auto: #this is a quick return, 
-                        call Statup("Kitty", "Lust", 200, (int(Modifier/5)))
-                        return
         elif ChrA == "Emma":                                             
                 #If the first girl is Emma
                 if ChrB == "Rogue" and E_LikeRogue <= Check:   
@@ -1478,9 +1481,6 @@ label GirlLikesGirl(ChrA = "Rogue", ChrB = "Kitty", Check=200, Modifier = 1, Aut
                         if "dating" in E_Traits or "Emma" in P_Harem:
                             if "Laura" not in P_Harem and "poly Laura" not in E_Traits:
                                 $ Jealousy = 100
-                if Auto: #this is a quick return, 
-                        call Statup("Emma", "Lust", 200, (int(Modifier/5)))
-                        return        
         elif ChrA == "Laura":                                             
                 #If the first girl is Laura
                 if ChrB == "Rogue" and L_LikeRogue <= Check:  
@@ -1501,244 +1501,91 @@ label GirlLikesGirl(ChrA = "Rogue", ChrB = "Kitty", Check=200, Modifier = 1, Aut
                         if "dating" in L_Traits or "Laura" in P_Harem:
                             if "Emma" not in P_Harem and "poly Emma" not in L_Traits:
                                 $ Jealousy = 100
-                if Auto: #this is a quick return, 
-                        call Statup("Laura", "Lust", 200, (int(Modifier/5)))
-                        return
         #end start-up, returns by now if on Auto
         
+        if Auto: #this is a quick return, 
+                call Statup(ChrA, "Lust", 200, (int(Modifier/5)))
+                return        
+                        
         #this is for more nuanced comparisons  
         if ChrA == "Rogue": 
                     #Establishes how jealous Rogue is likely to get
                     $ Jealousy += (R_Love - 600) if R_Love > 600 else 0              
-                        #How much her Love stat is over 600, +0-400                                        
+                            #How much her Love stat is over 600, +0-400                                        
                     $ Jealousy += R_SEXP if R_Inbt <= 500 else 0  
-                        #plus her SexP rating if she has low inhibitions, +0-200                      
+                            #plus her SexP rating if she has low inhibitions, +0-200                      
                     $ Jealousy -= (R_Obed - 250) if R_Obed > 250 else 0             
-                        #minus how much her Obed stat is over 250, -0-750                                                                                    
-                        # = result of up to 700 if high love, dating, and low obedience
-                    
-                    $ Jealousy = 0 if Jealousy < 1 else Jealousy                    
-                        #Balances it to no less than zero                    
-                    $ Modifier += 1 if not Jealousy and Likes >= 500 else 0   
-                        #+ modifier if she doesn't hate Kitty but has no jealousy left
-                              
-                    if Likes >= 900:          
-                                #If she really likes the girl, then she is turned on, likes both of you more. 
-                                $ Likes += Modifier
-                                call Statup("Rogue", "Love", 80, (int(Modifier/2)))
-                                call Statup("Rogue", "Lust", 200, (int(Modifier/5)))
-                                $ Ok = 2
-                    
-                    elif Likes >= 800:        
-                            #If she mostly likes the girl, and is not super jealous, she likes you both more. 
-                            if Jealousy <= 300:
-                                $ Likes += Modifier
-                                call Statup("Rogue", "Love", 80, (int(Modifier/2)))
-                                call Statup("Rogue", "Lust", 200, (int(Modifier/2)))
-                                $ Ok = 2
-                            else:
-                                $ Likes -= Modifier                        
-                                call Statup("Rogue", "Lust", 200, (int(Modifier/5)))
-                                $ Ok = 1
-                            
-                    elif Likes >= 600:        
-                            #If she's friends with the girl, only low jealousy is positive
-                            if Jealousy <= 100:
-                                $ Likes += Modifier                        
-                                call Statup("Rogue", "Love", 80, (int(Modifier/4)))                        
-                                call Statup("Rogue", "Lust", 200, (int(Modifier/2)))
-                                $ Ok = 2
-                            elif Jealousy <= 300:
-                                $ Likes -= Modifier
-                                call Statup("Rogue", "Lust", 200, (int(Modifier/2)))
-                                $ Ok = 1
-                            else:
-                                $ Likes -= (Modifier + (int(Jealousy/50)))
-                                call Statup("Rogue", "Love", 80, (-(int(Modifier)))) 
-                                call Statup("Rogue", "Lust", 200, (int(Modifier/5)))
-
-                    elif Likes >= 400:       
-                            #If she is neutral to the girl, it's all negative                 
-                            if Jealousy <= 100:
-                                $ Likes -= Modifier
-                                $ Ok = 1
-                            else:
-                                $ Likes -= (Modifier + (int(Jealousy/100)))
-                            call Statup("Rogue", "Lust", 200, (int(Modifier/10)))
-                        
-                    else:                           
-                            #If she hates the girl, it's all very negative
-                            $ Likes -= (Modifier + (int(Jealousy/50)))
-                            call Statup("Rogue", "Lust", 200, (int(Modifier/10))) 
-
-                    call Statup("Rogue", "Inbt", 60, (int(Modifier/10)))                                                                         
-                    #drops through to the final return
-        #end Rogue
-          
+                            #minus how much her Obed stat is over 250, -0-750                                                                                    
+                            # = result of up to 700 if high love, dating, and low obedience
         if ChrA == "Kitty": 
                     $ Jealousy += (K_Love - 600) if K_Love > 600 else 0                                     
                     $ Jealousy += K_SEXP if K_Inbt <= 500 else 0                      
-                    $ Jealousy -= (K_Obed - 250) if K_Obed > 250 else 0             
-                    
-                    $ Jealousy = 0 if Jealousy < 1 else Jealousy             
-                    $ Modifier += 1 if not Jealousy and Likes >= 500 else 0   
-                              
-                    if Likes >= 900:          
-                                $ Likes += Modifier
-                                call Statup("Kitty", "Love", 80, (int(Modifier/2)))
-                                call Statup("Kitty", "Lust", 200, (int(Modifier/5)))
-                                $ Ok = 2
-                    
-                    elif Likes >= 800:        
-                            if Jealousy <= 300:
-                                $ Likes += Modifier
-                                call Statup("Kitty", "Love", 80, (int(Modifier/2)))
-                                call Statup("Kitty", "Lust", 200, (int(Modifier/2)))
-                                $ Ok = 2
-                            else:
-                                $ Likes -= Modifier                        
-                                call Statup("Kitty", "Lust", 200, (int(Modifier/5)))
-                                $ Ok = 1
-                            
-                    elif Likes >= 600:        
-                            if Jealousy <= 100:
-                                $ Likes += Modifier                        
-                                call Statup("Kitty", "Love", 80, (int(Modifier/4)))                        
-                                call Statup("Kitty", "Lust", 200, (int(Modifier/2)))
-                                $ Ok = 2
-                            elif Jealousy <= 300:
-                                $ Likes -= Modifier
-                                call Statup("Kitty", "Lust", 200, (int(Modifier/2)))
-                                $ Ok = 1
-                            else:
-                                $ Likes -= (Modifier + (int(Jealousy/50)))
-                                call Statup("Kitty", "Love", 80, (-(int(Modifier)))) 
-                                call Statup("Kitty", "Lust", 200, (int(Modifier/5)))
-
-                    elif Likes >= 400:       
-                            if Jealousy <= 100:
-                                $ Likes -= Modifier
-                                $ Ok = 1
-                            else:
-                                $ Likes -= (Modifier + (int(Jealousy/100)))
-                            call Statup("Kitty", "Lust", 200, (int(Modifier/10)))
-                        
-                    else:                           
-                            $ Likes -= (Modifier + (int(Jealousy/50)))
-                            call Statup("Kitty", "Lust", 200, (int(Modifier/10))) 
-
-                    call Statup("Kitty", "Inbt", 60, (int(Modifier/10)))  
-        #end Kitty
-                      
+                    $ Jealousy -= (K_Obed - 250) if K_Obed > 250 else 0                           
         if ChrA == "Emma": 
                     $ Jealousy += (E_Love - 600) if E_Love > 600 else 0                                    
                     $ Jealousy += E_SEXP if E_Inbt <= 500 else 0                      
-                    $ Jealousy -= (E_Obed - 250) if E_Obed > 250 else 0                  
-                    
-                    $ Jealousy = 0 if Jealousy < 1 else Jealousy            
-                    $ Modifier += 1 if not Jealousy and Likes >= 500 else 0   
-                              
-                    if Likes >= 900:          
-                                $ Likes += Modifier
-                                call Statup("Emma", "Love", 80, (int(Modifier/2)))
-                                call Statup("Emma", "Lust", 200, (int(Modifier/5)))
-                                $ Ok = 2
-                    
-                    elif Likes >= 800:        
-                            if Jealousy <= 300:
-                                $ Likes += Modifier
-                                call Statup("Emma", "Love", 80, (int(Modifier/2)))
-                                call Statup("Emma", "Lust", 200, (int(Modifier/2)))
-                                $ Ok = 2
-                            else:
-                                $ Likes -= Modifier                        
-                                call Statup("Emma", "Lust", 200, (int(Modifier/5)))
-                                $ Ok = 1
-                            
-                    elif Likes >= 600:        
-                            if Jealousy <= 100:
-                                $ Likes += Modifier                        
-                                call Statup("Emma", "Love", 80, (int(Modifier/4)))                        
-                                call Statup("Emma", "Lust", 200, (int(Modifier/2)))
-                                $ Ok = 2
-                            elif Jealousy <= 300:
-                                $ Likes -= Modifier
-                                call Statup("Emma", "Lust", 200, (int(Modifier/2)))
-                                $ Ok = 1
-                            else:
-                                $ Likes -= (Modifier + (int(Jealousy/50)))
-                                call Statup("Emma", "Love", 80, (-(int(Modifier)))) 
-                                call Statup("Emma", "Lust", 200, (int(Modifier/5)))
-
-                    elif Likes >= 400:       
-                            if Jealousy <= 100:
-                                $ Likes -= Modifier
-                                $ Ok = 1
-                            else:
-                                $ Likes -= (Modifier + (int(Jealousy/100)))
-                            call Statup("Emma", "Lust", 200, (int(Modifier/10)))
-                        
-                    else:                           
-                            $ Likes -= (Modifier + (int(Jealousy/50)))
-                            call Statup("Emma", "Lust", 200, (int(Modifier/10))) 
-
-                    call Statup("Emma", "Inbt", 60, (int(Modifier/10)))                                                                         
-        #end Emma
-                      
+                    $ Jealousy -= (E_Obed - 250) if E_Obed > 250 else 0                       
         if ChrA == "Laura": 
                     $ Jealousy += (L_Love - 600) if L_Love > 600 else 0                                    
                     $ Jealousy += L_SEXP if L_Inbt <= 500 else 0                       
                     $ Jealousy -= (L_Obed - 250) if L_Obed > 250 else 0
                     
-                    $ Jealousy = 0 if Jealousy < 1 else Jealousy                    
-                    $ Modifier += 1 if not Jealousy and Likes >= 500 else 0   
-                              
-                    if Likes >= 900:          
-                                $ Likes += Modifier
-                                call Statup("Laura", "Love", 80, (int(Modifier/2)))
-                                call Statup("Laura", "Lust", 200, (int(Modifier/5)))
-                                $ Ok = 2
+        $ Jealousy = 0 if Jealousy < 1 else Jealousy                    
+            #Balances it to no less than zero                    
+        $ Modifier += 1 if not Jealousy and Likes >= 500 else 0   
+            #+ modifier if she doesn't hate Kitty but has no jealousy left
                     
-                    elif Likes >= 800:        
-                            if Jealousy <= 300:
-                                $ Likes += Modifier
-                                call Statup("Laura", "Love", 80, (int(Modifier/2)))
-                                call Statup("Laura", "Lust", 200, (int(Modifier/2)))
-                                $ Ok = 2
-                            else:
-                                $ Likes -= Modifier                        
-                                call Statup("Laura", "Lust", 200, (int(Modifier/5)))
-                                $ Ok = 1
-                            
-                    elif Likes >= 600:        
-                            if Jealousy <= 100:
-                                $ Likes += Modifier                        
-                                call Statup("Laura", "Love", 80, (int(Modifier/4)))                        
-                                call Statup("Laura", "Lust", 200, (int(Modifier/2)))
-                                $ Ok = 2
-                            elif Jealousy <= 300:
-                                $ Likes -= Modifier
-                                call Statup("Laura", "Lust", 200, (int(Modifier/2)))
-                                $ Ok = 1
-                            else:
-                                $ Likes -= (Modifier + (int(Jealousy/50)))
-                                call Statup("Laura", "Love", 80, (-(int(Modifier)))) 
-                                call Statup("Laura", "Lust", 200, (int(Modifier/5)))
+        if Likes >= 900:          
+                    #If she really likes the girl, then she is turned on, likes both of you more. 
+                    $ Likes += Modifier
+                    call Statup(ChrA, "Love", 80, (int(Modifier/2)))
+                    call Statup(ChrA, "Lust", 200, (int(Modifier/5)))
+                    $ Ok = 2
+        
+        elif Likes >= 800:        
+                #If she mostly likes the girl, and is not super jealous, she likes you both more. 
+                if Jealousy <= 300:
+                    $ Likes += Modifier
+                    call Statup(ChrA, "Love", 80, (int(Modifier/2)))
+                    call Statup(ChrA, "Lust", 200, (int(Modifier/2)))
+                    $ Ok = 2
+                else:
+                    $ Likes -= Modifier                        
+                    call Statup(ChrA, "Lust", 200, (int(Modifier/5)))
+                    $ Ok = 1
+                
+        elif Likes >= 600:        
+                #If she's friends with the girl, only low jealousy is positive
+                if Jealousy <= 100:
+                    $ Likes += Modifier                        
+                    call Statup(ChrA, "Love", 80, (int(Modifier/4)))                        
+                    call Statup(ChrA, "Lust", 200, (int(Modifier/2)))
+                    $ Ok = 2
+                elif Jealousy <= 300:
+                    $ Likes -= Modifier
+                    call Statup(ChrA, "Lust", 200, (int(Modifier/2)))
+                    $ Ok = 1
+                else:
+                    $ Likes -= (Modifier + (int(Jealousy/50)))
+                    call Statup(ChrA, "Love", 80, (-(int(Modifier)))) 
+                    call Statup(ChrA, "Lust", 200, (int(Modifier/5)))
 
-                    elif Likes >= 400:       
-                            if Jealousy <= 100:
-                                $ Likes -= Modifier
-                                $ Ok = 1
-                            else:
-                                $ Likes -= (Modifier + (int(Jealousy/100)))
-                            call Statup("Laura", "Lust", 200, (int(Modifier/10)))
-                        
-                    else:                           
-                            $ Likes -= (Modifier + (int(Jealousy/50)))
-                            call Statup("Laura", "Lust", 200, (int(Modifier/10))) 
+        elif Likes >= 400:       
+                #If she is neutral to the girl, it's all negative                 
+                if Jealousy <= 100:
+                    $ Likes -= Modifier
+                    $ Ok = 1
+                else:
+                    $ Likes -= (Modifier + (int(Jealousy/100)))
+                call Statup(ChrA, "Lust", 200, (int(Modifier/10)))            
+        else:                           
+                #If she hates the girl, it's all very negative
+                $ Likes -= (Modifier + (int(Jealousy/50)))
+                call Statup(ChrA, "Lust", 200, (int(Modifier/10))) 
 
-                    call Statup("Laura", "Inbt", 60, (int(Modifier/10)))                                                                         
-        #end Laura
+        call Statup(ChrA, "Inbt", 60, (int(Modifier/10)))                                                                         
+        #drops through to the final return                                                                     
+        #end Jealousy
         #end nuanced checks
         
         # restores "likes" to target character. 
@@ -1977,7 +1824,7 @@ label Faces(Character="All"):
     return
 
 
-label Activity_Check(Girl=0,Girl2=0,Silent=0,Removal=1,ClothesCheck=1,Mod=0,Approval=1,Tempshame=0):
+label Activity_Check(Girl=0,Girl2=0,Silent=0,Removal=1,ClothesCheck=1,Mod=0,Approval=1,Tempshame=0,TabooM=1):
         # This checks whether a girl is up for watching a given activity
         # Silent is whether it plays dialog or not, Removal is whether it auto-removes the girl on a fail,
         # ClothesCheck is whether it bothers checking clothing, 2 if skip first girl
@@ -1985,7 +1832,7 @@ label Activity_Check(Girl=0,Girl2=0,Silent=0,Removal=1,ClothesCheck=1,Mod=0,Appr
         # call Activity_Check("Rogue",0,1,0)
               
         if Girl == Girl2:
-            "Tell Oni that the Activity check failed after [Trigger]."
+            "Tell oni that the activity check failed after [Trigger]."
             
         #if they don't know you're there, they don't run
         if Girl == "Rogue" and "unseen" in R_RecentActions:
@@ -2000,6 +1847,7 @@ label Activity_Check(Girl=0,Girl2=0,Silent=0,Removal=1,ClothesCheck=1,Mod=0,Appr
         if Girl == "Rogue":
                 $ Mod += 200 if R_Forced else 0             #bonus if in the Forced state
                 $ Mod += (R_Lust*5) if R_Lust >= 50 else 0  #bonus if high lust (50 = +250, 75= +375, 90 = +450)
+                
         elif Girl == "Kitty":
                 $ Mod += 200 if K_Forced else 0
                 $ Mod += (K_Lust*5) if K_Lust >= 50 else 0
@@ -2019,9 +1867,6 @@ label Activity_Check(Girl=0,Girl2=0,Silent=0,Removal=1,ClothesCheck=1,Mod=0,Appr
                 if Girl in P_Harem and Girl2 in P_Harem: #bonus for if both in harem
                         $ Mod += 500
                     
-        
-                
-        
         if ClothesCheck and Girl2:
                 if Girl2 == "Rogue":
                         #sets her shame level to be accurate to current look
@@ -2056,7 +1901,14 @@ label Activity_Check(Girl=0,Girl2=0,Silent=0,Removal=1,ClothesCheck=1,Mod=0,Appr
                         pass
                 else:
                         $ Approval = 0
-                        
+        
+        
+        if CheckWord(Girl,"Traits","exhibitionist")or ApprovalCheck(Girl,900,"I"):
+                #this negates or reduces the taboo modifier if they are slutty
+                $ TabooM = 0 
+        elif ApprovalCheck(Girl,50,"X") or ApprovalCheck(Girl,800,"I"):
+                $ TabooM = .5
+                 
         if not Approval:
                     # If it fails the clothing check, skip the next part
                     pass
@@ -2065,42 +1917,42 @@ label Activity_Check(Girl=0,Girl2=0,Silent=0,Removal=1,ClothesCheck=1,Mod=0,Appr
         elif not Trigger:
                     pass
         elif Trigger == "lick ass":
-                    $ Approval = ApprovalCheck(Girl,1550,Bonus=Mod, TabM = 3)
+                    $ Approval = ApprovalCheck(Girl,1550,Bonus=Mod, TabM = (TabooM* 3 ))
         elif Trigger == "anal":
-                    $ Approval = ApprovalCheck(Girl,1550,Bonus=Mod, TabM = 3)
+                    $ Approval = ApprovalCheck(Girl,1550,Bonus=Mod, TabM = (TabooM* 3 ))
         elif Trigger == "sex":
-                    $ Approval = ApprovalCheck(Girl,1400,Bonus=Mod, TabM = 3)
+                    $ Approval = ApprovalCheck(Girl,1400,Bonus=Mod, TabM = (TabooM* 3 ))
         elif Trigger == "lick pussy":            
-                    $ Approval = ApprovalCheck(Girl,1250,Bonus=Mod, TabM = 2)
+                    $ Approval = ApprovalCheck(Girl,1250,Bonus=Mod, TabM = (TabooM* 2 ))
         elif Trigger2 == "jackin":            
-                    $ Approval = ApprovalCheck(Girl,1250,Bonus=Mod, TabM = 2)
+                    $ Approval = ApprovalCheck(Girl,1250,Bonus=Mod, TabM = (TabooM* 2 ))
         elif Trigger == "blow":            
-                    $ Approval = ApprovalCheck(Girl,1300,Bonus=Mod, TabM = 2)
+                    $ Approval = ApprovalCheck(Girl,1300,Bonus=Mod, TabM = (TabooM* 2 ))
         elif Trigger == "titjob":              
-                    $ Approval = ApprovalCheck(Girl,1200,Bonus=Mod, TabM = 3) 
+                    $ Approval = ApprovalCheck(Girl,1200,Bonus=Mod, TabM = (TabooM* 3 ))
         elif Trigger == "hotdog":
-                    $ Approval = ApprovalCheck(Girl,1000,Bonus=Mod, TabM = 3)                
+                    $ Approval = ApprovalCheck(Girl,1000,Bonus=Mod, TabM = (TabooM* 3 ))                
         elif Trigger == "hand" or Trigger3 == "hand":              
-                    $ Approval = ApprovalCheck(Girl,1100,Bonus=Mod, TabM = 2)
+                    $ Approval = ApprovalCheck(Girl,1100,Bonus=Mod, TabM = (TabooM* 2 ))
         elif Trigger == "foot":
-                    $ Approval = ApprovalCheck(Girl,1250,Bonus=Mod, TabM = 2)  
+                    $ Approval = ApprovalCheck(Girl,1250,Bonus=Mod, TabM = (TabooM* 2 ))  
         elif Trigger == "dildo anal":
-                    $ Approval = ApprovalCheck(Girl,1250,Bonus=Mod, TabM = 2)
+                    $ Approval = ApprovalCheck(Girl,1250,Bonus=Mod, TabM = (TabooM* 2 ))
         elif Trigger == "dildo pussy":
-                    $ Approval = ApprovalCheck(Girl,1250,Bonus=Mod, TabM = 2)
+                    $ Approval = ApprovalCheck(Girl,1250,Bonus=Mod, TabM = (TabooM* 2 ))
         elif Trigger == "insert ass":
-                    $ Approval = ApprovalCheck(Girl,1300,Bonus=Mod, TabM = 2)
+                    $ Approval = ApprovalCheck(Girl,1300,Bonus=Mod, TabM = (TabooM* 2 ))
         elif Trigger == "fondle pussy" or Trigger == "insert pussy":
-                    $ Approval = ApprovalCheck(Girl,1050,Bonus=Mod, TabM = 2)
+                    $ Approval = ApprovalCheck(Girl,1050,Bonus=Mod, TabM = (TabooM* 2 ))
         elif Trigger == "suck breasts":            
-                    $ Approval = ApprovalCheck(Girl,1050,Bonus=Mod, TabM = 3)
+                    $ Approval = ApprovalCheck(Girl,1050,Bonus=Mod, TabM = (TabooM* 3 ))
         elif Trigger == "fondle breasts":                        
-                    $ Approval = ApprovalCheck(Girl,950,Bonus=Mod, TabM = 2)
+                    $ Approval = ApprovalCheck(Girl,950,Bonus=Mod, TabM = (TabooM* 2 ))
         elif Trigger == "fondle ass":
-                    $ Approval = ApprovalCheck(Girl,850,Bonus=Mod, TabM = 1)
+                    $ Approval = ApprovalCheck(Girl,850,Bonus=Mod, TabM = (TabooM* 1 ))
                     
         elif Trigger == "masturbation": 
-                    $ Approval = ApprovalCheck(Girl,1200,Bonus=Mod, TabM = 2)
+                    $ Approval = ApprovalCheck(Girl,1200,Bonus=Mod, TabM = (TabooM* 2 ))
                     
         elif Trigger == "kiss you":
                     $ Approval = ApprovalCheck(Girl,500,Bonus=Mod, TabM = 0)                    
@@ -2108,7 +1960,7 @@ label Activity_Check(Girl=0,Girl2=0,Silent=0,Removal=1,ClothesCheck=1,Mod=0,Appr
                     $ Approval = ApprovalCheck(Girl,750,Bonus=Mod, TabM = 0)
                     
         elif Trigger == "lesbian": 
-                    $ Approval = ApprovalCheck(Girl,1350,Bonus=Mod, TabM = 2)                           
+                    $ Approval = ApprovalCheck(Girl,1350,Bonus=Mod, TabM = (TabooM* 2 ))                           
         
         #Threesomecheck
         if not Approval:
@@ -2117,29 +1969,29 @@ label Activity_Check(Girl=0,Girl2=0,Silent=0,Removal=1,ClothesCheck=1,Mod=0,Appr
         elif not Trigger4:
                     pass
         elif Trigger4 == "lick ass":
-                    $ Approval = ApprovalCheck(Girl,1750,Bonus=(Mod+200), TabM = 3)
+                    $ Approval = ApprovalCheck(Girl,1750,Bonus=(Mod+200), TabM = (TabooM* 3 ))
         elif Trigger4 == "lick pussy":            
-                    $ Approval = ApprovalCheck(Girl,1450,Bonus=(Mod+200), TabM = 2)
+                    $ Approval = ApprovalCheck(Girl,1450,Bonus=(Mod+200), TabM = (TabooM* 2 ))
         elif Trigger4 == "blow":            
-                    $ Approval = ApprovalCheck(Girl,1300,Bonus=(Mod+200), TabM = 2)           
+                    $ Approval = ApprovalCheck(Girl,1300,Bonus=(Mod+200), TabM = (TabooM* 2 ))           
         elif Trigger4 == "hand":              
-                    $ Approval = ApprovalCheck(Girl,1200,Bonus=(Mod+200), TabM = 2)
+                    $ Approval = ApprovalCheck(Girl,1200,Bonus=(Mod+200), TabM = (TabooM* 2 ))
         elif Trigger4 == "insert ass":
-                    $ Approval = ApprovalCheck(Girl,1500,Bonus=(Mod+200), TabM = 2)
+                    $ Approval = ApprovalCheck(Girl,1500,Bonus=(Mod+200), TabM = (TabooM* 2 ))
         elif Trigger4 == "fondle pussy":
-                    $ Approval = ApprovalCheck(Girl,1250,Bonus=(Mod+200), TabM = 2)
+                    $ Approval = ApprovalCheck(Girl,1250,Bonus=(Mod+200), TabM = (TabooM* 2 ))
         elif Trigger4 == "suck breasts":            
-                    $ Approval = ApprovalCheck(Girl,1250,Bonus=(Mod+200), TabM = 3)
+                    $ Approval = ApprovalCheck(Girl,1250,Bonus=(Mod+200), TabM = (TabooM* 3 ))
         elif Trigger4 == "fondle breasts":                        
-                    $ Approval = ApprovalCheck(Girl,1150,Bonus=(Mod+200), TabM = 2)                  
+                    $ Approval = ApprovalCheck(Girl,1150,Bonus=(Mod+200), TabM = (TabooM* 2 ))                  
         elif Trigger4 == "kiss girl":
                     $ Approval = ApprovalCheck(Girl,1050,Bonus=(Mod+200), TabM = 0)                 
         elif Trigger4 == "kiss both":
                     $ Approval = ApprovalCheck(Girl,1050,Bonus=(Mod+200), TabM = 0)  
         elif Trigger4 == "fondle ass":
-                    $ Approval = ApprovalCheck(Girl,1050,Bonus=(Mod+200), TabM = 1)                    
+                    $ Approval = ApprovalCheck(Girl,1050,Bonus=(Mod+200), TabM = (TabooM* 1 ))                    
         elif Trigger4 == "masturbation": 
-                    $ Approval = ApprovalCheck(Girl,1400,Bonus=(Mod+200), TabM = 2)                     
+                    $ Approval = ApprovalCheck(Girl,1400,Bonus=(Mod+200), TabM = (TabooM* 2 ))                   
         elif Trigger4 == "watch":
                     $ Approval = ApprovalCheck(Girl,1000,Bonus=(Mod+200), TabM = 0)                    
         elif Trigger4 == "kiss you":

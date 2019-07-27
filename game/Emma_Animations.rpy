@@ -7,7 +7,7 @@ image Emma_Sprite:
 #            "E_Hair == 'wet' or E_Water", "images/EmmaSprite/EmmaSprite_Head_HairBackWet.png",
 #            "True", Null(),        
 #            ),   
-(0,0), ConditionSwitch(                                                                         
+        (0,0), ConditionSwitch(                                                                         
             #cape layer       
             "E_Uptop or E_Over == 'jacket' or E_Over == 'modded black jacket' or (E_Chest != 'corset' and E_Chest != 'modded black corset')", Null(),  
             "Emma_Arms == 2 and E_Chest == 'modded black corset'", "images/EmmaSprite/EmmaSprite_Chest_modded black corset_cape2.png",              
@@ -104,6 +104,7 @@ image Emma_Sprite:
             ),               
         (0,0), ConditionSwitch(
             # stockings
+            "renpy.showing('Emma_FJ_Animation')", Null(),                    
             "IsOutfitModdedEmma('Hose')", GetModdedString("images/EmmaSprite/EmmaSprite_Hose_", E_Hose, ".png"),
             "E_Hose == 'stockings'", "images/EmmaSprite/EmmaSprite_Stockings.png",   
             "E_Hose == 'stockings and garterbelt'", "images/EmmaSprite/EmmaSprite_StockingsGarter.png",   
@@ -143,6 +144,7 @@ image Emma_Sprite:
             ),              
         (0,0), ConditionSwitch(
             # pantyhose
+            "renpy.showing('Emma_FJ_Animation')", Null(),  
             "E_Hose == 'pantyhose' and not E_PantiesDown", "images/EmmaSprite/EmmaSprite_Hose.png",   
             "True", Null(),        
             ),    
@@ -2051,10 +2053,6 @@ label Emma_Sex_Launch(Line = "solo"):
 label Emma_Sex_Reset:
     if not renpy.showing("Emma_SexSprite") and not renpy.showing("Emma_Doggy"):
         return
-#MOD MARKER RESET
-label Emma_Sex_Reset:
-    if not renpy.showing("Emma_SexSprite") and not renpy.showing("Emma_Doggy"):
-        return
     $ Emma_Arms = 2     
     call mod_hide_Emma_SexSprite  
     call Emma_Hide 
@@ -3390,7 +3388,518 @@ label Emma_HJ_Reset: # The sequence to the Rogue animations from handjob to defa
 # End Emma Handjob Animations / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / /
     
     
+
+            
+# Start Emma Footjob animations  / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / /   
+image Emma_FJ_Chair:
+    #footjob chair   
+    contains:        
+        ConditionSwitch(
+            #Foot    
+            "not renpy.showing('Emma_FJ_Animation')", Null(),
+            "True", "images/EmmaSprite/EmmaSprite_Chair.png" 
+            )   
+        anchor (0.6, 0.05)
+        zoom 0.75  
+        
+image Emma_FJ_Mask:
+    #core footjob animation   
+    contains:
+        "images/EmmaSprite/EmmaSprite_FJMask.png"    
+        anchor (0.6, 0.0)
+        zoom 0.75
+        pos (200,0)      
+        
+image Emma_FJ_Animation:
+    #core footjob animation   
+    contains:
+        ConditionSwitch(                                                                         
+            #Personal Wetness            
+            "not E_Wet", Null(),
+            "E_Legs == 'pants' and not E_Upskirt", Null(),   
+            "E_Panties and not E_PantiesDown and E_Wet <= 1", Null(),                   
+            "E_Wet == 1", AlphaMask("Wet_Drip","Emma_Drip_Mask"), #only plays if nothing is in the way
+            "True", AlphaMask("Wet_Drip2","Emma_Drip_Mask"), #only plays if nothing is in the way
+            )
+        pos (160,400)   
+    contains:    
+        ConditionSwitch(                                                                         
+            #Spunk nethers        
+            "'in' not in E_Spunk and 'anal' not in E_Spunk", Null(),
+            "E_Legs == 'pants' and not E_Upskirt", Null(),   
+            "True", ConditionSwitch( #Wet = 2+
+                    "E_Panties and E_PantiesDown", AlphaMask("Spunk_Drip","Emma_Drip_MaskP"), #"Wet_Drip2",# 
+                    "E_Legs == 'pants'", AlphaMask("Spunk_Drip","Emma_Drip_MaskP"),
+                    "True", AlphaMask("Spunk_Drip","Emma_Drip_Mask"), #only plays if nothing is in the way
+                    ),
+            )    
+        pos (160,400) 
+    contains:
+        #her basic body, masked to hide the legs
+        AlphaMask("Emma_Sprite", "Emma_FJ_Mask")
+#        zoom 1.1
+    contains:        
+        #her basic legs rightside
+        "images/EmmaSprite/EmmaSprite_FJRight.png"
+        zoom 0.75
+    contains:
+        #Hose
+        ConditionSwitch(    
+            "E_Hose == 'pantyhose' and not E_Upskirt", "images/EmmaSprite/EmmaSprite_FJRight_Pantyhose.png",
+            "E_Hose == 'stockings' or E_Hose == 'stockings and garterbelt'", "images/EmmaSprite/EmmaSprite_FJRight_Stocking.png",                 
+            "True", Null(),#Static
+            ) 
+        zoom 0.75        
+    contains:
+        ConditionSwitch(
+            #Personal Wetness            
+            "not E_Wet", Null(),
+            "E_Legs and E_Wet <= 1", Null(),
+            "E_Legs", "images/EmmaSprite/EmmaSprite_Wet.png",
+            "E_Wet == 1", "images/EmmaSprite/EmmaSprite_Wet.png",
+            "True", "images/EmmaSprite/EmmaSprite_Wet.png",       #E_Wet >1
+            ) 
+        zoom .75
+    contains:
+        #Garter
+        ConditionSwitch(    
+            "E_Hose == 'garterbelt' or E_Hose == 'stockings and garterbelt'", "images/EmmaSprite/EmmaSprite_FJRight_Garter.png",                 
+            "True", Null(),#Static
+            ) 
+        zoom 0.75
+    contains:
+        #her basic pants rightside
+        ConditionSwitch(
+            #pants    
+            "not E_Legs", Null(),
+            "E_Upskirt", ConditionSwitch(                   
+                        #if the skirt's up or pants down 
+                        "E_Legs == 'skirt'", "images/EmmaSprite/EmmaSprite_SkirtUp.png", 
+                        "True", Null(),
+                        ),                    
+            "True", ConditionSwitch(  
+                        "E_Legs == 'pants'", "images/EmmaSprite/EmmaSprite_FJRight_Pants.png",   
+                        "E_Legs == 'yoga pants'", "images/EmmaSprite/EmmaSprite_FJRight_Yoga.png",       
+                        "E_Legs == 'skirt'", "images/EmmaSprite/EmmaSprite_FJRight_Skirt.png", 
+                        "True", Null(),
+                        ),   
+            )  
+        zoom 0.75
+    contains:
+        #boots
+        ConditionSwitch(       
+            "E_Upskirt and E_Legs and E_Legs != 'skirt'", Null(),   
+            "E_Boots", "images/EmmaSprite/EmmaSprite_FJRight_Boot.png",       
+            "True", Null(),#Static
+            ) 
+        zoom 0.75        
+    contains:
+        ConditionSwitch(                                                               
+            # Emma's lower body
+#            "P_Cock != 'foot'", Null(),                                                             
+            # If neither
+            "Speed == 1", "Emma_FJ_Legs_1",#slow
+            "Speed == 4", "Emma_FJ_Legs_4",#cumming
+            "Speed >= 2", "Emma_FJ_Legs_2",#faster
+            "True", "Emma_FJ_Legs_0",#Static
+            ) 
+        pos (450,20) #(430,20)
+        zoom 0.7
+    anchor (0.6, 0.0)                
+    zoom .85  
+    subpixel True
+    block:
+        ease 1 yoffset -2
+        ease 1 yoffset 0
+        repeat
+#End core Footjob animation / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / /
+
+
+
+
+image Emma_FJ_Legs_0:
+    #Footjob speed 0 static
+    contains:
+        #her basic legs left thigh
+        ConditionSwitch(
+            #pants    
+            "E_Legs == 'pants' and not E_Upskirt", "images/EmmaSprite/EmmaSprite_FJLeftThigh_Yoga.png",   
+            "E_Legs == 'yoga pants' and not E_Upskirt", "images/EmmaSprite/EmmaSprite_FJLeftThigh_Yoga.png", 
+            "E_Hose == 'pantyhose' and not E_Upskirt", "images/EmmaSprite/EmmaSprite_FJLeftThigh_Pantyhose.png",
+            "E_Hose == 'stockings' or E_Hose == 'stockings and garterbelt'", "images/EmmaSprite/EmmaSprite_FJLeftThigh_Stocking.png",
+            "True", "images/EmmaSprite/EmmaSprite_FJLeftThigh.png", 
+            )    
+        subpixel True
+        transform_anchor True
+        anchor (.70,.63)
+        pos (290,630)
+        rotate 12
+        parallel:
+            ease 2.5 ypos 610
+            ease 2.5 ypos 630
+            repeat       
+        parallel:
+            ease 2.5 rotate 10
+            ease 2.5 rotate 12
+            repeat  
+    contains:
+        "Emma_FJ_Calf"
+        subpixel True
+        transform_anchor True
+        pos (340,510) #(360,450) 
+        rotate 20
+        parallel:
+            ease 2.5 ypos 490
+            ease 2.5 ypos 510
+            repeat       
+        parallel:
+            ease 2.5 rotate 15
+            ease 2.5 rotate 20
+            repeat  
+    contains:
+        #her basic legs left foot 
+        ConditionSwitch(
+            #Foot    
+            "E_Hose and E_Hose != 'garterbelt'", "images/EmmaSprite/EmmaSprite_FJFoot_Stocking.png",
+            "True", "images/EmmaSprite/EmmaSprite_FJFoot.png",
+            )    
+        transform_anchor True
+        anchor (.6,.8)
+        pos (200,680)
+        rotate 25 
+        parallel:
+            easeout 2 rotate -5
+            easein .5 rotate -10
+            easeout 2 rotate 20
+            easein .5 rotate 25
+            repeat
+    contains:
+        #Cock
+        "Zero_Emma_FootCock"   
+        transform_anchor True  
+        rotate 0
+        block:          
+            pause .5
+            easeout 1.5 rotate -5
+            easein .5 rotate -7
+            pause .5
+            easeout 1 rotate -3
+            easein 1 rotate 0
+            repeat
+    anchor (0.6, 0.0)    
+# End Emma Footjob Speed 0
+
+image Emma_FJ_Legs_1:
+    #Footjob speed 1 slow
+    contains:
+        #her basic legs left thigh
+        ConditionSwitch(
+            #pants    
+            "E_Legs == 'pants' and not E_Upskirt", "images/EmmaSprite/EmmaSprite_FJLeftThigh_Yoga.png",   
+            "E_Legs == 'yoga pants' and not E_Upskirt", "images/EmmaSprite/EmmaSprite_FJLeftThigh_Yoga.png", 
+            "E_Hose == 'pantyhose' and not E_Upskirt", "images/EmmaSprite/EmmaSprite_FJLeftThigh_Pantyhose.png",
+            "E_Hose == 'stockings' or E_Hose == 'stockings and garterbelt'", "images/EmmaSprite/EmmaSprite_FJLeftThigh_Stocking.png",
+            "True", "images/EmmaSprite/EmmaSprite_FJLeftThigh.png", 
+            )    
+        transform_anchor True
+        anchor (.70,.63)
+        pos (280,615)
+        rotate 10
+        parallel:
+            pause 1.3
+            ease 2.2 ypos 630
+            ease 1 ypos 615
+            repeat     
+        parallel:            
+            easein .5 rotate 12
+            pause 1
+            ease 1.5 rotate 18
+            pause .5
+            easeout 1 rotate 14
+            repeat   
+    contains:
+        "Emma_FJ_Calf"
+        transform_anchor True
+        pos (350,475) #(360,450) 
+        rotate 15  
+        parallel:
+            pause 1.5
+            ease 2 ypos 515 #525
+            ease 1 ypos 475
+            repeat         
+        parallel:
+            ease 1 rotate 8 #top 5-10-12-10
+            ease 1 rotate 18
+            ease 2 rotate 20
+            ease .5 rotate 18
+            repeat
+    contains:
+        #her basic legs left foot 
+        ConditionSwitch(
+            #Foot    
+            "E_Hose and E_Hose != 'garterbelt'", "images/EmmaSprite/EmmaSprite_FJFoot_Stocking.png",
+            "True", "images/EmmaSprite/EmmaSprite_FJFoot.png",
+            )    
+        transform_anchor True
+        anchor (.6,.8)
+        pos (200,680)
+        rotate 25 
+        parallel:
+            ease 1 xpos 240#(240,870)
+            ease 1 xpos 200
+            pause 2.5
+            repeat  
+        parallel:
+            pause 1.5
+            ease 2 ypos 730
+            ease 1 ypos 680#(240,870)
+            repeat 
+        parallel:
+            easein 1 rotate 0
+            easeout 1 rotate 25
+            easein 2 rotate 35
+            easeout .5 rotate 25
+            repeat
+    contains:
+        #Cock
+        "Zero_Emma_FootCock"   
+        transform_anchor True 
+        block:                
+            easein 1 rotate 0
+            ease 2.5 rotate -5
+            easeout 1 rotate 2
+            repeat
+    anchor (0.6, 0.0)    
+# End Emma Footjob Speed 1
+
+image Emma_FJ_Legs_2:
+    #Footjob speed 1 Fast
+    contains:
+        #her basic legs left thigh
+        ConditionSwitch(
+            #pants    
+            "E_Legs == 'pants' and not E_Upskirt", "images/EmmaSprite/EmmaSprite_FJLeftThigh_Yoga.png",   
+            "E_Legs == 'yoga pants' and not E_Upskirt", "images/EmmaSprite/EmmaSprite_FJLeftThigh_Yoga.png", 
+            "E_Hose == 'pantyhose' and not E_Upskirt", "images/EmmaSprite/EmmaSprite_FJLeftThigh_Pantyhose.png",
+            "E_Hose == 'stockings' or E_Hose == 'stockings and garterbelt'", "images/EmmaSprite/EmmaSprite_FJLeftThigh_Stocking.png",
+            "True", "images/EmmaSprite/EmmaSprite_FJLeftThigh.png", 
+            )    
+        transform_anchor True
+        anchor (.70,.63)
+        pos (290,610)
+        rotate 10
+        parallel:
+            ease.5 ypos 630 #bottom high = bottom 480
+            ease 1 ypos 610
+            repeat   
+        parallel:
+            ease .5 rotate 0
+            ease 1 rotate 10
+            repeat   
+    contains:
+        "Emma_FJ_Calf"
+        transform_anchor True
+        pos (380,450) #360,460  
+        rotate 15
+        parallel:
+            ease .5 pos (320,500) #bottom high = bottom 480
+            ease 1 pos (380,460)
+            repeat            
+        parallel:
+            ease .5 rotate -5
+            ease 1 rotate 15
+            repeat
+    contains:
+        #her basic legs left foot 
+        ConditionSwitch(
+            #Foot    
+            "E_Hose and E_Hose != 'garterbelt'", "images/EmmaSprite/EmmaSprite_FJFoot_Stocking.png",
+            "True", "images/EmmaSprite/EmmaSprite_FJFoot.png",
+            )    
+        transform_anchor True
+        anchor (.6,.8)
+        pos (240,670)
+        rotate 30
+        parallel:
+            ease .5 pos (240,870)
+            ease 1 pos (240,670)
+            repeat            
+        parallel:
+            ease .5 rotate 20
+            ease 1 rotate 30
+            repeat
+    contains:
+        #Cock
+        "Zero_Emma_FootCock"   
+        transform_anchor True   
+        block:
+            ease .5 rotate -8
+            ease 1 rotate 0
+            repeat
+    anchor (0.6, 0.0)    
+# End Emma Footjob Speed 2
     
+    
+image Emma_FJ_Legs_4:
+    #Footjob speed 4 Cumming
+    contains:
+        #her basic legs left thigh
+        ConditionSwitch(
+            #pants    
+            "E_Legs == 'pants' and not E_Upskirt", "images/EmmaSprite/EmmaSprite_FJLeftThigh_Yoga.png",   
+            "E_Legs == 'yoga pants' and not E_Upskirt", "images/EmmaSprite/EmmaSprite_FJLeftThigh_Yoga.png", 
+            "E_Hose == 'pantyhose' and not E_Upskirt", "images/EmmaSprite/EmmaSprite_FJLeftThigh_Pantyhose.png",
+            "E_Hose == 'stockings' or E_Hose == 'stockings and garterbelt'", "images/EmmaSprite/EmmaSprite_FJLeftThigh_Stocking.png",
+            "True", "images/EmmaSprite/EmmaSprite_FJLeftThigh.png", 
+            )    
+        transform_anchor True
+        anchor (.70,.63)
+        pos (290,610)
+        rotate 10  
+        parallel:
+            ease 1 rotate 0
+            ease 1.3 rotate 23
+            pause.5
+            repeat   
+    contains:
+        "Emma_FJ_Calf"
+        transform_anchor True
+        pos (380,450) #360,460  
+        rotate 15
+#        alpha 0.3
+        parallel:
+            ease 1 pos (320,480) #bottom high = bottom
+            ease 1.3 pos (380,450)
+            pause.5
+            repeat            
+        parallel:
+            ease 1 rotate 5
+            ease 1.3 rotate 15
+            pause.5
+            repeat
+    contains:
+        #her basic legs left foot 
+        ConditionSwitch(
+            #Foot    
+            "E_Hose and E_Hose != 'garterbelt'", "images/EmmaSprite/EmmaSprite_FJFoot_Stocking.png",
+            "True", "images/EmmaSprite/EmmaSprite_FJFoot.png",
+            )    
+        transform_anchor True
+        anchor (.6,.8)
+        pos (240,670)
+        rotate 40
+        parallel:
+            ease 1 pos (200,750) #(240,870)
+            ease 1.3 pos (220,670)
+            pause.5
+            repeat            
+        parallel:
+            ease 1 rotate 30
+            ease 1.3 rotate 40
+            pause.5
+            repeat
+
+    contains:
+        #Cock
+        "Zero_Emma_FootCock"   
+        transform_anchor True  
+        block:
+            pause .1
+            ease .9 rotate -8
+            ease 1.3 rotate 0
+            pause.5
+            repeat
+    anchor (0.6, 0.0)  
+# End Emma Footjob Speed 4
+
+    
+image Zero_Emma_FootCock:
+    #cock used in Emma's FJ animation
+    contains:
+        ConditionSwitch(  
+                "P_Sprite", "Blowcock", 
+                "True", Null(),
+                )          
+    pos (200,1000) 
+    zoom .9
+    anchor (-.4,0.7)
+        
+        
+image Emma_FJ_Calf:
+    #calf for footjob animation   
+    contains:        
+        ConditionSwitch(
+            #calf    
+            "E_Hose and E_Hose != 'garterbelt'", "images/EmmaSprite/EmmaSprite_FJLeftCalf_Stocking.png",
+            "True", "images/EmmaSprite/EmmaSprite_FJLeftCalf.png",
+            )            
+    contains:
+        #her basic legs left calf 
+        ConditionSwitch(
+            #pants    
+            "not E_Legs or E_Upskirt", Null(), 
+            "E_Legs == 'pants'", "images/EmmaSprite/EmmaSprite_FJLeftCalf_Pants.png",   
+            "E_Legs == 'yoga pants'", "images/EmmaSprite/EmmaSprite_FJLeftCalf_Yoga.png", 
+            "True", Null(),
+            )   
+    anchor (.31,.63)#.3.6
+    
+# End footjob animations / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / /
+
+label Emma_FJ_Launch(Line = 0):    # The sequence to launch the Emma footjob animations   
+    $ Trigger = "foot"
+    if renpy.showing("Emma_FJ_Animation"):
+        return
+    call Emma_Hide
+    show Emma_FJ_Chair zorder 10:
+        xpos 1580 
+        yoffset 170
+        alpha 1
+        ease .5 xpos 590
+    show Emma_FJ_Animation zorder 150:  
+        alpha 0
+        pos (950,200)  
+    show Emma_Sprite at SpriteLoc(E_SpriteLoc) zorder EmmaLayer:
+        alpha 1
+        ease 1 zoom .8 xpos 580 yoffset 150
+    pause 1
+
+    show Emma_FJ_Chair zorder 10:
+        alpha 1
+        xpos 590
+    show Emma_Sprite zorder EmmaLayer:
+        alpha 0
+    $ Speed = 0    
+    show Emma_FJ_Animation zorder 150:  
+        ease .5 alpha 1
+    pause 0.5
+    show Emma_FJ_Animation zorder 150: 
+        alpha 1        
+    $ P_Sprite = 1
+    return
+    
+label Emma_FJ_Reset: # The sequence to the Emma animations from Titfuck to default
+    if not renpy.showing("Emma_FJ_Animation"):
+        return
+    call Emma_Hide 
+    $ P_Sprite = 0
+    
+    show Emma_Sprite at SpriteLoc(E_SpriteLoc) zorder EmmaLayer:
+        zoom .8 xpos 580 yoffset 150 #offset (-100,50)      
+    show Emma_Sprite zorder EmmaLayer:
+        alpha 1
+        ease .5 zoom 1 xpos E_SpriteLoc yoffset 0 alpha 1  
+    pause .5
+    
+    hide Emma_FJ_Chair zorder 10
+    show Emma_Sprite at SpriteLoc(E_SpriteLoc) zorder EmmaLayer:
+        alpha 1
+        zoom 1 offset (0,0) xpos E_SpriteLoc 
+        
+    "Emma stands back up."
+    return
+
+# End Emma Footjob animations  / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / /       
 
 
 
@@ -3504,14 +4013,11 @@ label E_Pos_Reset(Pose = 0):
 label Emma_Hide:
         if renpy.showing("Emma_SexSprite") or renpy.showing("Emma_Doggy"):
             call Emma_Sex_Reset
-#MOD MARKER HIDE
-label Emma_Hide:
-        if renpy.showing("Emma_SexSprite") or renpy.showing("Emma_Doggy"):
-            call Emma_Sex_Reset
         call mod_hide_Emma_SexSprite
         hide Emma_HJ_Animation
         hide Emma_BJ_Animation
         hide Emma_TJ_Animation 
+        hide Emma_FJ_Animation 
         return
 
 # Interface items //////////////////////////////////////////////////////////////////////////////

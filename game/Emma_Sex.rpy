@@ -149,6 +149,8 @@ label Emma_SexMenu:
                             call E_Titjob         
                         "Could you suck my cock?":
                             call E_Blowjob 
+                        "Could use your feet?":
+                            call E_Footjob 
                         "Never mind [[something else]":
                             jump Emma_SMenu
                 elif not E_Action:
@@ -903,29 +905,15 @@ label E_Headpat:
     return
 # Slap Ass
 
-#MOD MARKER SLAP
 label E_Slap_Ass:
     call Shift_Focus("Emma")
     # fix add sound here?
     if renpy.showing("Emma_SexSprite"):
             show Emma_SexSprite #fix, test this
             with vpunch
-#MOD Emma Missionary Slap
     elif renpy.showing("Emma_Missionary"):
             show Emma_Missionary #fix, test this
             with vpunch
-#MOD MARKER SLAP
-label E_Slap_Ass:
-    call Shift_Focus("Emma")
-    # fix add sound here?
-    if renpy.showing("Emma_SexSprite"):
-            show Emma_SexSprite #fix, test this
-            with vpunch
-#MOD Emma Missionary Slap
-    elif renpy.showing("Emma_Missionary"):
-            show Emma_Missionary #fix, test this
-            with vpunch
-#MOD Emma Doggy Slap
     elif renpy.showing("Emma_Doggy"):
             show Emma_Doggy #fix, test this
             with vpunch

@@ -1480,8 +1480,6 @@ label EventCalls:
                         if bg_current == "bg rogue" or bg_current == "bg player" and R_Loc == bg_current:
                             call Rogue_Daddy
                             return
-                        else:
-                            call AskedMeet("Rogue","bemused")
                 elif "sex friend" not in R_Petnames and R_Inbt >= 500: # R_Event[9]  Fix this one
                         if bg_current == "bg rogue" or bg_current == "bg player" or "dating" in R_Traits:
                             jump Rogue_Sexfriend
@@ -1592,8 +1590,6 @@ label EventCalls:
                         if (bg_current == "bg emma" or bg_current == "bg player") and E_Loc == bg_current:
                             call Emma_Daddy
                             return 
-                        else:
-                            call AskedMeet("Emma","bemused")
                 elif "sex friend" not in E_Petnames and E_Inbt >= 500 and bg_current == "bg classroom" and Time_Count == 2: # E_Event[9]  Fix this one
                             call Emma_Sexfriend
                             return 

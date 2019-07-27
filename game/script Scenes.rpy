@@ -45,26 +45,10 @@ label Sleepover(Lead=0,Sleep=0,Room=0,Line = 0):
                     "Tell Oni you're in room [bg_current] somehow."
             
             if Room not in Party and bg_current != "bg player":
-                    # If the owner of the room isn't in the party
-                    if Sleep >= 5 and not Party: 
-                                #If you've slept in that room many times but she isn't home
-                                "She probably wouldn't mind you taking a quick nap. . ."
-                                call Wait
-                                call DrainWord(Room,"arriving")
-                                if bg_current == R_Loc:
-                                        ch_r "Morning, [R_Petname]. Sleep well?" 
-                                if bg_current == K_Loc:
-                                        ch_k "Well morning, sleepy head."
-                                if bg_current == E_Loc:
-                                        ch_e "Well look whos sleeping in my bed. . ."
-                                if bg_current == L_Loc:
-                                        ch_l "Ah, you're up."
-                                return
-                    else:
-                                #either another girl is around or she wouldn't want you sleeping there
-                                "She probably wouldn't appreciate you staying over, you head back to your own room."
-                                $ renpy.pop_call()
-                                jump Player_Room
+                    #either another girl is around or she wouldn't want you sleeping there
+                    "[Room] probably wouldn't appreciate you staying over, you head back to your own room."
+                    $ renpy.pop_call()
+                    jump Player_Room
                                 
             # the previous statemetn should cull out all situations where the owner isn't there
             if Room == "Player":
@@ -133,11 +117,17 @@ label Sleepover(Lead=0,Sleep=0,Room=0,Line = 0):
                                 ch_e "Yes, I really should be leaving, don't let me bother you two."                        
                                 call Remove_Girl("Emma")
                             if "sleeptime" not in E_History:
-                                $ E_History.append("sleeptime")
+                                $ E_History.append("sleeptime")                        
                     if not Party:
                         #if Emma leaves
                         jump Return_Player
-                            
+                        
+            if Room not in Party:
+                    #if the room's owner left you in her room. . .
+                    "[Room] probably wouldn't appreciate you staying over, you head back to your own room."
+                    $ renpy.pop_call()
+                    jump Player_Room
+                        
             call AnyFace(Party[0],"sexy",1)
             
             if Sleep >= 3 and ApprovalCheck(Party[0], 800):                                 
@@ -465,7 +455,13 @@ label Sleepover(Lead=0,Sleep=0,Room=0,Line = 0):
                 if Party:        
                     call CleartheRoom(Party[0],1,1) #removes any other girls around   
             
-            if Party:
+            
+            if Room not in Party:
+                    #if the room's owner left you in her room. . .
+                    "[Room] probably wouldn't appreciate you staying over, you head back to your own room."
+                    $ renpy.pop_call()
+                    jump Player_Room
+            elif Party:
                     jump Sleepover_Morning
             else:
                     #if nobody is around.
@@ -3146,6 +3142,17 @@ label Group_Strip(Girl=0,Tempmod = Tempmod,Tempmod0=0,Tempmod1=0):
     if not Adjacent:
             return
     
+    if E_Loc == bg_current and "Emma" not in Adjacent:
+            #If Emma is here, but does not agree to this,
+            if "classcaught" not in E_History:
+                if E_Loc == "bg emma":
+                        #if it's her room. . .
+                        ch_e "If the two of you would like to dance, please do it elsewhere."
+                        $ Adjacent = []
+                        return
+                else:
+                        ch_e "I should really be going." 
+                        call Remove_Girl("Emma")
     
     if Adjacent[0] == "Rogue": 
         if "stripping" in R_DailyActions and ApprovalCheck(Adjacent[0], 500, TabM = 3):
@@ -3329,6 +3336,17 @@ label Group_Strip(Girl=0,Tempmod = Tempmod,Tempmod0=0,Tempmod1=0):
                         jump Group_Strip_End
                 
     
+    if E_Loc == bg_current:
+            #If Emma is here, but does not agree to this,
+            if "classcaught" not in E_History or "three" not in E_History or (Taboo and "taboo" not in E_History):
+                if E_Loc == "bg emma":
+                        #if it's her room. . .
+                        ch_e "If the two of you would like to get indecent, please do it elsewhere."
+                        $ Adjacent = []
+                        return
+                else:
+                        ch_e "I should really be going." 
+                        call Remove_Girl("Emma")
     
 label Group_Stripping:    
     while Round >= 10 and Adjacent: 

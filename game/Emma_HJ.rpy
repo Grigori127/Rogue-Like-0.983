@@ -3080,7 +3080,7 @@ label E_Footjob:
     if Situation == "Emma":                                                                  #Emma auto-starts   
         if Approval > 2:                                                      # fix, add emma auto stuff here
             if Trigger2 == "jackin":
-                "Emma leans and starts rubbing your cock between her feet."
+                "Emma sits back and starts rubbing her foot along your cock."
             else:
                 "Emma gives you a mischevious smile, and starts to rub her foot along your cock."
             menu:
@@ -3119,7 +3119,7 @@ label E_Footjob:
     
     if not E_Foot and "no foot" not in E_RecentActions:        
         call EmmaFace("confused", 2)
-        ch_e "Huh, so you'd like me to touch your cock with my feet?"
+        ch_e "Mmm, so you're into feet then, [E_Petname]?"
         $ E_Blush = 1
             
     if not E_Foot and Approval:                                                 #First time dialog        
@@ -3131,49 +3131,49 @@ label E_Footjob:
             call EmmaFace("sexy",1)
             $ E_Brows = "sad"
             $ E_Mouth = "smile" 
-            ch_e "I guess it couldn't hurt. . ."            
+            ch_e "I suppose it couldn't hurt. . ."            
         elif E_Obed >= E_Inbt:
             call EmmaFace("normal",1)
-            ch_e "If you want, [E_Petname]. . ."            
+            ch_e "If you enjoy that, [E_Petname]. . ."            
         elif E_Addict >= 50:
             call EmmaFace("manic", 1)
-            ch_e "Okay. . ."  
+            ch_e "Very well. . ."  
         else: # Uninhibited 
             call EmmaFace("lipbite",1)    
-            ch_e "Sure. . ."    
+            ch_e "Very well. . ."    
             
     elif Approval:                                                                       #Second time+ dialog
         if E_Forced: 
             call EmmaFace("sad")
             call Statup("Emma", "Love", 70, -3, 1)
             call Statup("Emma", "Love", 20, -2, 1)
-            ch_e "That's all?" 
+            ch_e "That's it?" 
         elif not Taboo and "tabno" in E_DailyActions:        
-            ch_e "Um, I guess this is secluded enough. . ."    
+            ch_e "Um, I suppose this is secluded enough. . ."    
         elif "foot" in E_RecentActions:
             call EmmaFace("sexy", 1)
-            ch_e "I'm getting foot cramps. . ."
+            ch_e "You know, heels are nightmare on the arches. . ."
             jump E_FJ_Prep
         elif "foot" in E_DailyActions:
             call EmmaFace("sexy", 1)
-            $ Line = renpy.random.choice(["Another one?",   
-                "You're going to give me calluses.", 
+            $ Line = renpy.random.choice(["Another?",   
+                "I'd rather not get calluses.", 
                 "Didn't get enough earlier?",
-                "My feet are kinda sore from earlier.",
-                "My feet are kinda sore from earlier."]) 
+                "My feet are rather sore from earlier.",
+                "My feet are rather sore from earlier."]) 
             ch_e "[Line]"
         elif E_Foot < 3:        
             call EmmaFace("sexy", 1)
             $ E_Brows = "confused"
             $ E_Mouth = "kiss"
-            ch_e "Hmm, magic toes. . ."        
+            ch_e "Oh, very well. . ."        
         else:       
             call EmmaFace("sexy", 1)
             $ Emma_Arms = 2
-            $ Line = renpy.random.choice(["You want me to use my feet?",                 
-                "So you'd like another foot sesh?",                 
-                "A little. . . [she rubs her foot along your leg]?", 
-                "A little TLC?"]) 
+            $ Line = renpy.random.choice(["You'd like me to use my feet again?",                 
+                "So you'd like another footjob?",                 
+                "Mmmm, some. . . [she rubs her foot along your leg]?", 
+                "A little foot rub?"]) 
             ch_e "[Line]"
         $ Line = 0
             
@@ -3182,19 +3182,19 @@ label E_Footjob:
             call EmmaFace("sad")
             call Statup("Emma", "Obed", 90, 1)
             call Statup("Emma", "Inbt", 60, 1)
-            ch_e "Ok, fine." 
+            ch_e "Oh, fine." 
         elif "no foot" in E_DailyActions:               
-            ch_e "OK, geeze!"   
+            ch_e "Oh, very well."   
         else:
             call EmmaFace("sexy", 1)
             call Statup("Emma", "Love", 90, 1)
             call Statup("Emma", "Inbt", 50, 3) 
-            $ Line = renpy.random.choice(["Sure, I guess.",                 
-                "Ooooookay.",                 
-                "Cool, lemme see it.", 
-                "I guess I could. . .",
-                "Ok. . . [She gestures for you to come over].",
-                "Heh, ok, ok."]) 
+            $ Line = renpy.random.choice(["Sure, I suppose.",                 
+                "Fine.",                 
+                "Very well, bring it out.", 
+                "I suppose I could. . .",
+                "Fine. . . [She gestures for you to come over].",
+                "Hmm, ok."]) 
             ch_e "[Line]"
             $ Line = 0
         call Statup("Emma", "Obed", 20, 1)
@@ -3205,29 +3205,29 @@ label E_Footjob:
     else:                                                                               #She's not into it, but maybe. . .            
         call EmmaFace("angry")
         if "no foot" in E_RecentActions:  
-            ch_e "You don't[E_like]listen do you, [E_Petname]."
+            ch_e "Pay attention, [E_Petname]."
         elif Taboo and "tabno" in E_DailyActions and "no foot" in E_DailyActions: 
-            ch_e "I said not in public!"  
+            ch_e "I refuse to do this in public."  
         elif "no foot" in E_DailyActions:       
-            ch_e "I told you \"no,\" [E_Petname]."
+            ch_e "I said \"no,\" [E_Petname]."
         elif Taboo and "tabno" in E_DailyActions:  
-            ch_e "I said not in public!"     
+            ch_e "I told you, not in public!"     
         elif not E_Foot:
             call EmmaFace("bemused")
-            ch_e "I don't know, [E_Petname]. . ."
+            ch_e "I'm unsure, [E_Petname]. . ."
         else:
             call EmmaFace("bemused")
-            ch_e "Not now, ok?"
+            ch_e "Not now, [E_Petname]. . ."
         menu:
             extend ""
             "Sorry, never mind." if "no foot" in E_DailyActions:
                 call EmmaFace("bemused")
-                ch_e "Yeah."              
+                ch_e "Thank you."              
                 return
             "Maybe later?" if "no foot" not in E_DailyActions:
                 call EmmaFace("sexy")  
                 ch_e ". . ."
-                ch_e "Maybe."
+                ch_e "Perhaps."
                 call Statup("Emma", "Love", 80, 2)
                 call Statup("Emma", "Inbt", 70, 2)   
                 if Taboo:                    
@@ -3243,12 +3243,12 @@ label E_Footjob:
                     call Statup("Emma", "Obed", 50, 2)
                     call Statup("Emma", "Inbt", 70, 3) 
                     call Statup("Emma", "Inbt", 40, 2) 
-                    $ Line = renpy.random.choice(["Sure, I guess.",                 
-                            "Ooooookay.",                 
-                            "Cool, lemme see it.", 
-                            "I guess I could. . .",
-                            "Ok. . . [She gestures for you to come over].",
-                            "Heh, ok, ok."]) 
+                    $ Line = renpy.random.choice(["Sure, I suppose.",                 
+                            "Fine.",                 
+                            "Very well, bring it out.", 
+                            "I suppose I could. . .",
+                            "Fine. . . [She gestures for you to come over].",
+                            "Hmm, ok."]) 
                     ch_e "[Line]"
                     $ Line = 0                   
                     jump E_FJ_Prep
@@ -3261,7 +3261,7 @@ label E_Footjob:
                     call EmmaFace("sad")
                     call Statup("Emma", "Love", 70, -5, 1)
                     call Statup("Emma", "Love", 200, -2)                 
-                    ch_e "Ok, fine."  
+                    ch_e "Oh, very well."  
                     call Statup("Emma", "Obed", 50, 4)
                     call Statup("Emma", "Inbt", 80, 1) 
                     call Statup("Emma", "Inbt", 60, 3)  
@@ -3276,12 +3276,12 @@ label E_Footjob:
     $ Emma_Arms = 1 
     if "no foot" in E_DailyActions:
         call EmmaFace("angry", 1)
-        ch_e "I'm not telling you again."   
+        ch_e "I won't repeat myself."   
         $ E_RecentActions.append("angry")
         $ E_DailyActions.append("angry")   
     elif E_Forced:
         call EmmaFace("angry", 1)
-        ch_e "I don't even want to step on it."
+        ch_e "You really don't want my heels near your manhood."
         call Statup("Emma", "Lust", 200, 5)    
         if E_Love > 300:   
                 call Statup("Emma", "Love", 70, -2)
@@ -3291,15 +3291,15 @@ label E_Footjob:
     elif Taboo:                             # she refuses and this is too public a place for her
         call EmmaFace("angry", 1)          
         $ E_DailyActions.append("tabno") 
-        ch_e "Not here, not anywhere near here."
+        ch_e "This truly isn't an appropriate place for that."
         call Statup("Emma", "Lust", 200, 5)  
         call Statup("Emma", "Obed", 50, -3)   
     elif E_Foot:
         call EmmaFace("sad") 
-        ch_e "I'm not feeling it today. . ."       
+        ch_e "I'm not in the mood, [E_Petname]. . ."       
     else:
         call EmmaFace("normal", 1)
-        ch_e "I don't know about using my feet for. . . that."  
+        ch_e "I'm not in the mood for footplay today. . ."  
     $ E_RecentActions.append("no foot")                      
     $ E_DailyActions.append("no foot") 
     $ Tempmod = 0    
@@ -3347,7 +3347,7 @@ label E_FJ_Prep:
 label E_FJ_Cycle:    
     while Round >=0:  
         call Shift_Focus("Emma") 
-#        call Emma_Sex_Launch("foot")    
+        call Emma_FJ_Launch   
         call EmmaLust   
         
         if  P_Focus < 100:                                                   
@@ -3381,11 +3381,10 @@ label E_FJ_Cycle:
                                     
                         "Other options":
                                 menu:   
-                                    "I also want to fondle her breasts." if Trigger2 != "fondle breasts":
-                                            if E_Action and MultiAction:
-                                                $ Trigger2 = "fondle breasts"
-                                                "You start to fondle her breasts."
-                                                $ E_Action -= 1
+                                    "I also want to fondle her thighs." if Trigger2 != "fondle thighs":
+                                            if MultiAction:
+                                                $ Trigger2 = "fondle thighs"
+                                                "You start to fondle her thighs."
                                             else:
                                                 ch_e "Hmm, I think we've probably done enough for now. . ."  
                                          
@@ -3407,16 +3406,14 @@ label E_FJ_Cycle:
                                                                     else:
                                                                         ch_e "Hmm, I think we've probably done enough for now. . ."
                                                                         
-#                                                        "How about a titjob?":
-#                                                                    if E_Action and MultiAction:
-#                                                                        $ Situation = "shift"
-#                                                                        call E_FJ_After
-#                                                                        call E_Titjob
-#                                                                    else:
-#                                                                        ch_e "Hmm, I think we've probably done enough for now. . ."
+                                                        "How about a titjob?":
+                                                                    if E_Action and MultiAction:
+                                                                        $ Situation = "shift"
+                                                                        call E_FJ_After
+                                                                        call E_Titjob
+                                                                    else:
+                                                                        ch_e "Hmm, I think we've probably done enough for now. . ."
                                                                 
-                                                        
-                                                        
                                                         "Never Mind":
                                                                 jump E_FJ_Cycle
                                             else: 
@@ -3528,7 +3525,7 @@ label E_FJ_Cycle:
         if Cnt == 20:
                     $ E_Brows = "angry"        
                     menu:
-                        ch_e "Ouch, foot cramp, can we[E_like]take a break?"
+                        ch_e "Hmm, foot cramp, could we take a short break?"
                         "How about a BJ?" if E_Action and MultiAction:
                                 $ Situation = "shift"
                                 call E_FJ_After
@@ -3549,7 +3546,7 @@ label E_FJ_Cycle:
                                 call Emma_Sex_Reset
                                 $ Situation = "shift"
                                 jump E_FJ_After
-                        "No, get back down there.":
+                        "No, keep going.":
                                 if ApprovalCheck("Emma", 1200) or ApprovalCheck("Emma", 500, "O"):
                                     call Statup("Emma", "Love", 200, -5)
                                     call Statup("Emma", "Obed", 50, 3)                    
@@ -3558,7 +3555,7 @@ label E_FJ_Cycle:
                                 else:
                                     call EmmaFace("angry", 1)   
                                     "She scowls at you, drops you cock and pulls back."
-                                    ch_e "Hey, I've got better things to do if you're[E_like]going to be a dick about it."                                               
+                                    ch_e "I do have better things I could be doing."                                               
                                     call Statup("Emma", "Love", 50, -3, 1)
                                     call Statup("Emma", "Love", 80, -4, 1)
                                     call Statup("Emma", "Obed", 30, -1, 1)                    
@@ -3568,11 +3565,11 @@ label E_FJ_Cycle:
                                     jump E_FJ_After
         elif Cnt == 10 and E_SEXP <= 100 and not ApprovalCheck("Emma", 1200, "LO"):
                     $ E_Brows = "confused"
-                    ch_e "Can we be done with this now? I'm getting sore."         
+                    ch_e "Could we be done here, my feet are getting sore."         
         #End Count check
                    
         if Round == 10:
-            ch_e "You might want to wrap this up, it's getting late."   
+            ch_e "Ok, it's getting a bit lake here."   
         elif Round == 5:
             ch_e "Seriously, it'll be time to stop soon."      
     
@@ -3597,23 +3594,24 @@ label E_FJ_After:
             pass  
     elif E_Foot >= 10:
             call EmmaFace("smile", 1)
-            ch_e "I guess I've gotten pretty smooth at the \"Emmapedi.\""
+            ch_e "I'm glad that you enjoy my feet."
+            ch_e "They've been trained well over the years."
             $ Achievements.append("Emmapedi")
             $ E_SEXP += 5          
     elif E_Foot == 1:            
             $ E_SEXP += 10
             if E_Love >= 500:
                 $ E_Mouth = "smile"
-                ch_e "I could feel you down there. . ."
+                ch_e "Your cock was so warm . ."
             elif P_Focus <= 20:
                 $ E_Mouth = "sad"
-                ch_e "Did that work out for you?"
+                ch_e "Did you enjoy that?"
     elif E_Foot == 5:
-                ch_e "Let me know any time you need me to \"foot you up.\""                  
+                ch_e "I'm enjoying this experience."                  
      
     $ Tempmod = 0  
     if Situation == "shift":
-        ch_e "Ok, so what were you thinking?"
+        ch_e "Ok then, what were you thinking?"
     else:
         call Emma_Sex_Reset    
     call Checkout

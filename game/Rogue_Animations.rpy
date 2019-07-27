@@ -3098,6 +3098,8 @@ label AllReset(chr = "Rogue"):
             call Emma_BJ_Reset
         if renpy.showing("Emma_TJ_Animation"):   
             call Emma_TJ_Reset
+        if renpy.showing("Emma_FJ_Animation"):   
+            call Emma_FJ_Reset
         call Emma_Hide
         if E_Loc == bg_current:
             show Emma_Sprite at SpriteLoc(E_SpriteLoc,50) zorder EmmaLayer:
