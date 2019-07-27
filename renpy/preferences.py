@@ -104,6 +104,8 @@ Preference("video_image_fallback", False)
 
 Preference("skip_after_choices", False)
 
+Preference("background_choices", "modded1")
+
 # A map from channel name to the current volume (between 0 and 1).
 Preference("volumes", { } )
 

@@ -547,6 +547,18 @@ screen preferences():
                 style_group "pref"
                 has vbox
                 label _("There is no Audio")
+                
+            frame:
+                style_group "pref"
+                has vbox
+
+                label _("Background")
+                textbutton _("Modded") action Preference("background choices", "modded1")
+                textbutton _("Modded Laura") action Preference("background choices", "modded_laura")
+                # textbutton _("Modded Rogue") action Preference("background choices", "modded_rogue")
+                # textbutton _("Modded Kitty") action Preference("background choices", "modded_kitty")
+                textbutton _("Modded Emma") action Preference("background choices", "modded_emma")
+                textbutton _("Original") action Preference("background choices", "original")
 
 #                label _("Music Volume")
 #                bar value Preference("music volume")

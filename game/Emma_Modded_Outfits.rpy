@@ -11,6 +11,28 @@ label Emma_Modded_Clothes_Menu:
                     jump Emma_Modded_Clothes_Under
         "Let's talk about the other stuff.":
                     jump Emma_Modded_Clothes_Misc
+        "Save as main menu background clothes.":
+                "This option will save this Emma at the main menu background, are you sure?"
+                menu:
+                    "Yes":
+                        "do it"
+                        $ persistent.E_BG_Over = E_Over
+                        $ persistent.E_BG_Chest = E_Chest
+                        $ persistent.E_BG_Neck = E_Neck
+                        $ persistent.E_BG_Legs = E_Legs
+                        $ persistent.E_BG_Panties = E_Panties
+                        $ persistent.E_BG_Arms = E_Arms
+                        # $ persistent.E_BG_Gloves = E_Gloves
+                        # $ persistent.E_BG_Tan = E_Tan
+                        $ persistent.E_BG_Pierce = E_Pierce
+                        $ persistent.E_BG_Hair = E_Hair
+                        $ persistent.E_BG_HairColor = E_HairColor
+                        $ persistent.E_BG_Pubes = E_Pubes
+                        $ persistent.E_BG_Hose = E_Hose
+                        # $ persistent.E_BG_Boots = E_Boots
+
+                    "No":
+                        pass
         "Never mind, you look good like that.":
                 jump Emma_Clothes
             

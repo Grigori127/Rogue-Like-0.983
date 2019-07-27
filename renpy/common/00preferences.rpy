@@ -261,6 +261,16 @@ init -1500 python:
                 elif value == "toggle":
                     return ToggleField(_preferences, "skip_after_choices")
 
+            elif name == "background choices":
+
+                return SetField(_preferences, "background_choices", value)
+                # if value == "modded1":
+                #     return SetField(_preferences, "background_choices", "modded1")
+                # elif value == "modded2":
+                #     return SetField(_preferences, "background_choices", "modded2")
+                # elif value == "original":
+                #     return SetField(_preferences, "background_choices", "original")
+
             elif name == "auto-forward time":
 
                 if value is None:
