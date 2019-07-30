@@ -4092,7 +4092,7 @@ label Laura_Clothes:
             ch_l "Yeah, ok."
             $ L_Legs = "leather pants"
                 
-        "You look great in those mesh pants." if L_Legs != "mesh pants" and "mesh pants" in L_Inventory:
+        "You look great in those mesh pants." if L_Legs != "mesh pants":
             if ApprovalCheck("Laura", 1000, TabM=4):
                     ch_l "Yeah, ok."
                     $ L_Legs = "mesh pants"

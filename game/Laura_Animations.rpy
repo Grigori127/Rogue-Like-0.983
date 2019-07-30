@@ -916,6 +916,8 @@ image Laura_Sex_Legs:
             "L_Upskirt", Null(),
             "L_Legs == 'leather pants' and P_Cock == 'foot'", "images/LauraSex/Laura_Sex_Pants_Base_Foot.png", 
             "L_Legs == 'leather pants'", "images/LauraSex/Laura_Sex_Pants_Base_Up.png", 
+            "L_Legs == 'mesh pants' and P_Cock == 'foot'", "images/LauraSex/Laura_Sex_Pants_Mesh_Base_Foot.png", 
+            "L_Legs == 'mesh pants'", "images/LauraSex/Laura_Sex_Pants_Mesh_Base_Up.png", 
             "True", Null(),
             )
     contains:
@@ -961,7 +963,7 @@ image Laura_Sex_Foot:
             # legs
         ConditionSwitch(    
             "L_Upskirt", Null(),
-            "L_Legs == 'leather pants'", "images/LauraSex/Laura_Sex_Pants_Up.png", 
+            "L_Legs == 'leather pants' or L_Legs == 'mesh pants'", "images/LauraSex/Laura_Sex_Pants_Up.png", 
             "True", Null(),
             )     
         xoffset  -2 #this shouldn't be needed, but otherwise there's a gap between the knee and leg. 
@@ -982,7 +984,7 @@ image Laura_Footjob_Foot:
             # legs
         ConditionSwitch(    
             "L_Upskirt", Null(),
-            "L_Legs == 'leather pants'", "images/LauraSex/Laura_Sex_Pants_Foot.png", 
+            "L_Legs == 'leather pants' or L_Legs == 'mesh pants'", "images/LauraSex/Laura_Sex_Pants_Foot.png", 
             "True", Null(),
             )      
     transform_anchor True
