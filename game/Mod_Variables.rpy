@@ -53,6 +53,15 @@
     default L_Custom8 = [0,0,0,0,0,0,0,0,0,0,0]
     default L_Custom9 = [0,0,0,0,0,0,0,0,0,0,0]
 
+    default R_OutfitShame = [50,0,0,0,20,0,0,10,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    default K_OutfitShame = [50,0,0,0,20,0,0,10,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    default E_OutfitShame = [50,0,5,0,25,0,0,10,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    default L_OutfitShame = [50,0,5,0,25,0,0,10,0,0,0,0,0,0,0,0,0,0,0,0,0]
+
+    return
+
+label  mod_Save_Version:
+
     if len(R_OutfitShame) < 21:
         $ R_OutfitShame.append(0) #[15] 16
         $ R_OutfitShame.append(0)

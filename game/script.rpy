@@ -692,6 +692,7 @@ label start:
 # After loading, this runs ////////////////////////////////////////////////////////////////
 label after_load: 
 label VersionNumber: 
+    call mod_Save_Version
     $ SaveVersion = 0 if "SaveVersion" not in globals().keys() else SaveVersion    
     if SaveVersion == 975: #error correction, remove this eventually
         $ SaveVersion = 957  

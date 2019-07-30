@@ -1036,7 +1036,10 @@ init python:
                         if not renpy.loadable(string):
                                 string = Null()
                 else:
-                    if "modded" in K_DynamicTan[first_] or third == "Doggy":
+                    if "skirt" in K_DynamicTan[first_] and third == "Sex":
+                        string = "images/Kitty" + str(third) + "/KittyTan/Kitty_" + str(third) + "_Legs_tan skirts.png"
+
+                    elif "modded" in K_DynamicTan[first_] or third == "Doggy":
                         string = "images/Kitty" + str(third) + "/Kitty_" + str(third) + "_Legs_" + str(K_DynamicTan[first_]) + second
                         if not renpy.loadable(string):
                             # string = "images/Kitty" + str(third) + "/Kitty_" + str(third) + "_Legs_" + str(K_DynamicTan[first_]) + ".png"
