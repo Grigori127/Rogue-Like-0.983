@@ -3654,6 +3654,18 @@ label Kitty_Clothes:
                                 call Kitty_OutfitShame(5,1)
                     "Custom 3":
                                 call Kitty_OutfitShame(6,1)
+                    "Custom 4":
+                                call Kitty_OutfitShame(15,1)
+                    "Custom 5":
+                                call Kitty_OutfitShame(16,1)
+                    "Custom 6":
+                                call Kitty_OutfitShame(17,1)
+                    "Custom 7":
+                                call Kitty_OutfitShame(18,1)
+                    "Custom 8":
+                                call Kitty_OutfitShame(19,1)
+                    "Custom 9":
+                                call Kitty_OutfitShame(20,1)
                     "Gym Clothes":
                                 call Kitty_OutfitShame(7,1)
                     "Sleepwear":
@@ -3732,10 +3744,10 @@ label Kitty_Clothes:
                 "Let's try something else though.":
                     ch_k "K."            
                     
-        "Remember that outfit we put together? [[Set a custom outfit] (locked)" if not K_Custom[0] and not K_Custom2[0] and not K_Custom3[0]:
+        "Remember that outfit we put together? [[Set a custom outfit] (locked)" if not K_Custom[0] and not K_Custom2[0] and not K_Custom3[0] and not K_Custom4[0] and not K_Custom5[0] and not K_Custom6[0] and not K_Custom7[0] and not K_Custom8[0] and not K_Custom9[0]:
                         pass       
                         
-        "Remember that outfit we put together?" if K_Custom[0] or K_Custom2[0] or K_Custom3[0]: 
+        "Remember that outfit we put together?" if K_Custom[0] or K_Custom2[0] or K_Custom3[0] or K_Custom4[0] or K_Custom5[0] or K_Custom6[0] or K_Custom7[0] or K_Custom8[0] or K_Custom9[0]: 
             $ Cnt = 0
             while 1:
                 menu:                
@@ -3755,11 +3767,53 @@ label Kitty_Clothes:
                         call KittyOutfit("custom3")
                         $ Cnt = 6
                     
+                    "Throw on Custom 4 (locked)" if not K_Custom4[0]:
+                        pass
+                    "Throw on Custom 4" if K_Custom4[0]:
+                        call KittyOutfit("custom4")
+                        $ Cnt = 15
+                    "Throw on Custom 5 (locked)" if not K_Custom5[0]:
+                        pass
+                    "Throw on Custom 5" if K_Custom5[0]:
+                        call KittyOutfit("custom5")
+                        $ Cnt = 16
+                    "Throw on Custom 6 (locked)" if not K_Custom6[0]:
+                        pass
+                    "Throw on Custom 6" if K_Custom6[0]:
+                        call KittyOutfit("custom6")
+                        $ Cnt = 17
+                    "Throw on Custom 7 (locked)" if not K_Custom7[0]:
+                        pass
+                    "Throw on Custom 7" if K_Custom7[0]:
+                        call KittyOutfit("custom7")
+                        $ Cnt = 18
+                    "Throw on Custom 8 (locked)" if not K_Custom8[0]:
+                        pass
+                    "Throw on Custom 8" if K_Custom8[0]:
+                        call KittyOutfit("custom8")
+                        $ Cnt = 19
+                    "Throw on Custom 9 (locked)" if not K_Custom9[0]:
+                        pass
+                    "Throw on Custom 9" if K_Custom9[0]:
+                        call KittyOutfit("custom9")
+                        $ Cnt = 20
                     "You should wear this one in our rooms. (locked)" if not Cnt:
                         pass
                     "You should wear this one in our rooms." if Cnt:
                         if Cnt == 5:
                             $ K_Schedule[9] = "custom2"
+                        elif Cnt == 15:
+                            $ K_Schedule[9] = "custom4"
+                        elif Cnt == 16:
+                            $ K_Schedule[9] = "custom5"
+                        elif Cnt == 17:
+                            $ K_Schedule[9] = "custom6"
+                        elif Cnt == 18:
+                            $ K_Schedule[9] = "custom7"
+                        elif Cnt == 19:
+                            $ K_Schedule[9] = "custom8"
+                        elif Cnt == 20:
+                            $ K_Schedule[9] = "custom9"
                         elif Cnt == 6:
                             $ K_Schedule[9] = "custom3"
                         else:
@@ -3782,7 +3836,37 @@ label Kitty_Clothes:
                             "Custom 3 [[clear custom 3]" if K_Custom3[0]:
                                 ch_k "Ok, no problem."
                                 $ K_Custom3[0] = 0
-                            "Custom 3 [[clear custom 1] (locked)" if not K_Custom3[0]:
+                            "Custom 3 [[clear custom 3] (locked)" if not K_Custom3[0]:
+                                pass
+                            "Custom 4 [[clear custom 4]" if K_Custom4[0]:
+                                ch_k "Ok, no problem."
+                                $ K_Custom4[0] = 0
+                            "Custom 4 [[clear custom 4] (locked)" if not K_Custom4[0]:
+                                pass
+                            "Custom 5 [[clear custom 5]" if K_Custom5[0]:
+                                ch_k "Ok, no problem."
+                                $ K_Custom5[0] = 0
+                            "Custom 5 [[clear custom 5] (locked)" if not K_Custom5[0]:
+                                pass
+                            "Custom 6 [[clear custom 6]" if K_Custom6[0]:
+                                ch_k "Ok, no problem."
+                                $ K_Custom6[0] = 0
+                            "Custom 6 [[clear custom 6] (locked)" if not K_Custom6[0]:
+                                pass
+                            "Custom 7 [[clear custom 7]" if K_Custom7[0]:
+                                ch_k "Ok, no problem."
+                                $ K_Custom7[0] = 0
+                            "Custom 7 [[clear custom 7] (locked)" if not K_Custom7[0]:
+                                pass
+                            "Custom 8 [[clear custom 8]" if K_Custom8[0]:
+                                ch_k "Ok, no problem."
+                                $ K_Custom8[0] = 0
+                            "Custom 8 [[clear custom 8] (locked)" if not K_Custom8[0]:
+                                pass
+                            "Custom 9 [[clear custom 9]" if K_Custom9[0]:
+                                ch_k "Ok, no problem."
+                                $ K_Custom9[0] = 0
+                            "Custom 9 [[clear custom 9] (locked)" if not K_Custom9[0]:
                                 pass
                             "Never mind, [[back].":
                                 pass    
@@ -4582,7 +4666,7 @@ label Kitty_Clothes_ScheduleB(Count = 0):
                     $ Count = 1
                 "Your red shirt outfit.":
                     $ Count = 2
-                "That outfit we put together [[custom]" if K_Custom[0] or K_Custom2[0] or K_Custom3[0]:
+                "That outfit we put together [[custom]" if K_Custom[0] or K_Custom2[0] or K_Custom3[0] or K_Custom4[0] or K_Custom5[0] or K_Custom6[0] or K_Custom7[0] or K_Custom8[0] or K_Custom9[0]:
                             menu:
                                 ch_k "Like, which?"
                                 "The first one. (locked)" if not K_Custom[0]:
@@ -4606,6 +4690,54 @@ label Kitty_Clothes_ScheduleB(Count = 0):
                                 "The third one." if K_Custom3[0]:
                                     if K_Custom3[0] == 2 or Count == 99:
                                         $ Count = 6
+                                    else:
+                                        ch_k "I said I'm not[K_like]wearing that one out."
+                                        
+                                "The fourth one. (locked)" if not K_Custom4[0]:
+                                    pass
+                                "The fourth one." if K_Custom4[0]:
+                                    if K_Custom4[0] == 2 or Count == 99:
+                                        $ Count = 15
+                                    else:
+                                        ch_k "I said I'm not[K_like]wearing that one out."
+                                        
+                                "The fifth one. (locked)" if not K_Custom5[0]:
+                                    pass
+                                "The fifth one." if K_Custom5[0]:
+                                    if K_Custom5[0] == 2 or Count == 99:
+                                        $ Count = 16
+                                    else:
+                                        ch_k "I said I'm not[K_like]wearing that one out."
+                                        
+                                "The sixth one. (locked)" if not K_Custom6[0]:
+                                    pass
+                                "The sixth one." if K_Custom6[0]:
+                                    if K_Custom6[0] == 2 or Count == 99:
+                                        $ Count = 17
+                                    else:
+                                        ch_k "I said I'm not[K_like]wearing that one out."
+                                        
+                                "The seventh one. (locked)" if not K_Custom7[0]:
+                                    pass
+                                "The seventh one." if K_Custom7[0]:
+                                    if K_Custom7[0] == 2 or Count == 99:
+                                        $ Count = 18
+                                    else:
+                                        ch_k "I said I'm not[K_like]wearing that one out."
+                                        
+                                "The eighth one. (locked)" if not K_Custom8[0]:
+                                    pass
+                                "The eighth one." if K_Custom8[0]:
+                                    if K_Custom8[0] == 2 or Count == 99:
+                                        $ Count = 19
+                                    else:
+                                        ch_k "I said I'm not[K_like]wearing that one out."
+                                        
+                                "The ninth one. (locked)" if not K_Custom9[0]:
+                                    pass
+                                "The ninth one." if K_Custom9[0]:
+                                    if K_Custom9[0] == 2 or Count == 99:
+                                        $ Count = 20
                                     else:
                                         ch_k "I said I'm not[K_like]wearing that one out."
                                         
@@ -4640,6 +4772,18 @@ label K_AltClothes(Outfit=8):
                     $ K_Outfit = "pink outfit"
         elif K_Schedule[Outfit] == 2:
                     $ K_Outfit = "red outfit"
+        elif K_Schedule[Outfit] == 15:
+                    $ K_Outfit = "custom4"
+        elif K_Schedule[Outfit] == 16:
+                    $ K_Outfit = "custom5"
+        elif K_Schedule[Outfit] == 17:
+                    $ K_Outfit = "custom6"
+        elif K_Schedule[Outfit] == 18:
+                    $ K_Outfit = "custom7"
+        elif K_Schedule[Outfit] == 19:
+                    $ K_Outfit = "custom8"
+        elif K_Schedule[Outfit] == 20:
+                    $ K_Outfit = "custom9"
         elif K_Schedule[Outfit] == 3:
                     $ K_Outfit = "custom1"
         elif K_Schedule[Outfit] == 5:
@@ -4691,6 +4835,24 @@ label Kitty_Custom_Out(Custom = 3, Shame = 0, Agree = 1):
                         if Custom == 5 and K_Custom2[0] == 2:
                             $ K_Outfit = "custom2"                    
                             $ K_Shame = K_OutfitShame[5]
+                        elif Custom == 15 and K_Custom4[0] == 2:
+                                    $ K_Outfit = "custom4"
+                                    $ K_Shame = K_OutfitShame[Custom]
+                        elif Custom == 16 and K_Custom5[0] == 2:
+                                    $ K_Outfit = "custom5"
+                                    $ K_Shame = K_OutfitShame[Custom]
+                        elif Custom == 17 and K_Custom6[0] == 2:
+                                    $ K_Outfit = "custom6"
+                                    $ K_Shame = K_OutfitShame[Custom]
+                        elif Custom == 18 and K_Custom7[0] == 2:
+                                    $ K_Outfit = "custom7"
+                                    $ K_Shame = K_OutfitShame[Custom]
+                        elif Custom == 19 and K_Custom8[0] == 2:
+                                    $ K_Outfit = "custom8"
+                                    $ K_Shame = K_OutfitShame[Custom]
+                        elif Custom == 20 and K_Custom9[0] == 2:
+                                    $ K_Outfit = "custom9"
+                                    $ K_Shame = K_OutfitShame[Custom]
                         elif Custom == 6 and K_Custom3[0] == 2:
                             $ K_Outfit = "custom3"                    
                             $ K_Shame = K_OutfitShame[6]
@@ -4701,6 +4863,18 @@ label Kitty_Custom_Out(Custom = 3, Shame = 0, Agree = 1):
             
             if Custom == 5 and K_Custom2[0] == 2:
                         $ K_Outfit = "custom2"   
+            elif Custom == 15 and K_Custom4[0] == 2:
+                        $ K_Outfit = "custom4"
+            elif Custom == 16 and K_Custom5[0] == 2:
+                        $ K_Outfit = "custom5"
+            elif Custom == 17 and K_Custom6[0] == 2:
+                        $ K_Outfit = "custom6"
+            elif Custom == 18 and K_Custom7[0] == 2:
+                        $ K_Outfit = "custom7"
+            elif Custom == 19 and K_Custom8[0] == 2:
+                        $ K_Outfit = "custom8"
+            elif Custom == 20 and K_Custom9[0] == 2:
+                        $ K_Outfit = "custom9"
             elif Custom == 6 and K_Custom3[0] == 2:
                         $ K_Outfit = "custom3"   
             elif K_Custom[0] == 2: #if custom 1:
@@ -4939,6 +5113,73 @@ label Kitty_OutfitShame(Custom = 3, Check = 0, Count = 0, Tempshame = 50, Agree 
                             $ K_Custom2[9] = K_Hose
                             $ K_Custom2[0] = 2 if Agree else 1   
                             call Clothing_Schedule_Check("Kitty",5,1)          
+#MOD CUSTOM OUTFITS OUTFITSHAME
+                    elif Custom == 20:
+                            $ K_Custom9[1] = K_Arms  
+                            $ K_Custom9[2] = K_Legs 
+                            $ K_Custom9[3] = K_Over
+                            $ K_Custom9[4] = K_Neck 
+                            $ K_Custom9[5] = K_Chest 
+                            $ K_Custom9[6] = K_Panties
+                            $ K_Custom9[8] = K_Hair
+                            $ K_Custom9[9] = K_Hose
+                            $ K_Custom9[0] = 2 if Agree else 1
+                            call Clothing_Schedule_Check("Kitty",Custom,1)  
+                    elif Custom == 19:
+                            $ K_Custom8[1] = K_Arms  
+                            $ K_Custom8[2] = K_Legs 
+                            $ K_Custom8[3] = K_Over
+                            $ K_Custom8[4] = K_Neck 
+                            $ K_Custom8[5] = K_Chest 
+                            $ K_Custom8[6] = K_Panties
+                            $ K_Custom8[8] = K_Hair
+                            $ K_Custom8[9] = K_Hose
+                            $ K_Custom8[0] = 2 if Agree else 1
+                            call Clothing_Schedule_Check("Kitty",Custom,1)  
+                    elif Custom == 18:
+                            $ K_Custom7[1] = K_Arms  
+                            $ K_Custom7[2] = K_Legs 
+                            $ K_Custom7[3] = K_Over
+                            $ K_Custom7[4] = K_Neck 
+                            $ K_Custom7[5] = K_Chest 
+                            $ K_Custom7[6] = K_Panties
+                            $ K_Custom7[8] = K_Hair
+                            $ K_Custom7[9] = K_Hose
+                            $ K_Custom7[0] = 2 if Agree else 1
+                            call Clothing_Schedule_Check("Kitty",Custom,1)  
+                    elif Custom == 17:
+                            $ K_Custom6[1] = K_Arms  
+                            $ K_Custom6[2] = K_Legs 
+                            $ K_Custom6[3] = K_Over
+                            $ K_Custom6[4] = K_Neck 
+                            $ K_Custom6[5] = K_Chest 
+                            $ K_Custom6[6] = K_Panties
+                            $ K_Custom6[8] = K_Hair
+                            $ K_Custom6[9] = K_Hose
+                            $ K_Custom6[0] = 2 if Agree else 1
+                            call Clothing_Schedule_Check("Kitty",Custom,1)  
+                    elif Custom == 16:
+                            $ K_Custom5[1] = K_Arms  
+                            $ K_Custom5[2] = K_Legs 
+                            $ K_Custom5[3] = K_Over
+                            $ K_Custom5[4] = K_Neck 
+                            $ K_Custom5[5] = K_Chest 
+                            $ K_Custom5[6] = K_Panties
+                            $ K_Custom5[8] = K_Hair
+                            $ K_Custom5[9] = K_Hose
+                            $ K_Custom5[0] = 2 if Agree else 1
+                            call Clothing_Schedule_Check("Kitty",Custom,1)  
+                    elif Custom == 15:
+                            $ K_Custom4[1] = K_Arms  
+                            $ K_Custom4[2] = K_Legs 
+                            $ K_Custom4[3] = K_Over
+                            $ K_Custom4[4] = K_Neck 
+                            $ K_Custom4[5] = K_Chest 
+                            $ K_Custom4[6] = K_Panties
+                            $ K_Custom4[8] = K_Hair
+                            $ K_Custom4[9] = K_Hose
+                            $ K_Custom4[0] = 2 if Agree else 1
+                            call Clothing_Schedule_Check("Kitty",Custom,1)  
                     elif Custom == 6:
                             $ K_Custom3[1] = K_Arms  
                             $ K_Custom3[2] = K_Legs 

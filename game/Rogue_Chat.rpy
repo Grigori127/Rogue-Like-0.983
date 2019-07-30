@@ -4111,6 +4111,18 @@ label Rogue_Clothes:
                                 call Rogue_OutfitShame(5,1)
                     "Custom 3":
                                 call Rogue_OutfitShame(6,1)
+                    "Custom 4":
+                                call Rogue_OutfitShame(15,1)
+                    "Custom 5":
+                                call Rogue_OutfitShame(16,1)
+                    "Custom 6":
+                                call Rogue_OutfitShame(17,1)
+                    "Custom 7":
+                                call Rogue_OutfitShame(18,1)
+                    "Custom 8":
+                                call Rogue_OutfitShame(19,1)
+                    "Custom 9":
+                                call Rogue_OutfitShame(20,1)
                     "Gym Clothes":
                                 call Rogue_OutfitShame(7,1)                    
                     "Sleepwear":
@@ -4190,10 +4202,10 @@ label Rogue_Clothes:
                             "Let's try something else though.":
                                 ch_r "Ok."            
                     
-        "Remember that outfit we put together? [[Set a custom outfit] (locked)" if not R_Custom[0] and not R_Custom2[0] and not R_Custom3[0]:
+        "Remember that outfit we put together? [[Set a custom outfit] (locked)" if not R_Custom[0] and not R_Custom2[0] and not R_Custom3[0] and not R_Custom4[0] and not R_Custom5[0] and not R_Custom6[0] and not R_Custom7[0] and not R_Custom8[0] and not R_Custom9[0]:
                         pass       
                         
-        "Remember that outfit we put together?" if R_Custom[0] or R_Custom2[0] or R_Custom3[0]: 
+        "Remember that outfit we put together?" if R_Custom[0] or R_Custom2[0] or R_Custom3[0] or R_Custom4[0] or R_Custom5[0] or R_Custom6[0] or R_Custom7[0] or R_Custom8[0] or R_Custom9[0]: 
                         $ Cnt = 0
                         while 1:
                             menu:                
@@ -4213,11 +4225,53 @@ label Rogue_Clothes:
                                     call RogueOutfit("custom3")
                                     $ Cnt = 6
                                 
+                                "Throw on Custom 4 (locked)" if not R_Custom4[0]:
+                                    pass
+                                "Throw on Custom 4" if R_Custom4[0]:
+                                    call RogueOutfit("custom4")
+                                    $ Cnt = 15
+                                "Throw on Custom 5 (locked)" if not R_Custom5[0]:
+                                    pass
+                                "Throw on Custom 5" if R_Custom5[0]:
+                                    call RogueOutfit("custom5")
+                                    $ Cnt = 16
+                                "Throw on Custom 6 (locked)" if not R_Custom6[0]:
+                                    pass
+                                "Throw on Custom 6" if R_Custom6[0]:
+                                    call RogueOutfit("custom6")
+                                    $ Cnt = 17
+                                "Throw on Custom 7 (locked)" if not R_Custom7[0]:
+                                    pass
+                                "Throw on Custom 7" if R_Custom7[0]:
+                                    call RogueOutfit("custom7")
+                                    $ Cnt = 18
+                                "Throw on Custom 8 (locked)" if not R_Custom8[0]:
+                                    pass
+                                "Throw on Custom 8" if R_Custom8[0]:
+                                    call RogueOutfit("custom8")
+                                    $ Cnt = 19
+                                "Throw on Custom 9 (locked)" if not R_Custom9[0]:
+                                    pass
+                                "Throw on Custom 9" if R_Custom9[0]:
+                                    call RogueOutfit("custom9")
+                                    $ Cnt = 20
                                 "You should wear this one in our rooms. (locked)" if not Cnt:
                                     pass
                                 "You should wear this one in our rooms." if Cnt:
                                     if Cnt == 5:
                                         $ R_Schedule[9] = "custom2"
+                                    elif Cnt == 15:
+                                        $ R_Schedule[9] = "custom4"
+                                    elif Cnt == 16:
+                                        $ R_Schedule[9] = "custom5"
+                                    elif Cnt == 17:
+                                        $ R_Schedule[9] = "custom6"
+                                    elif Cnt == 18:
+                                        $ R_Schedule[9] = "custom7"
+                                    elif Cnt == 19:
+                                        $ R_Schedule[9] = "custom8"
+                                    elif Cnt == 20:
+                                        $ R_Schedule[9] = "custom9"
                                     elif Cnt == 6:
                                         $ R_Schedule[9] = "custom3"
                                     else:
@@ -4240,7 +4294,37 @@ label Rogue_Clothes:
                                         "Custom 3 [[clear custom 3]" if R_Custom3[0]:
                                             ch_r "Ok, no problem."
                                             $ R_Custom3[0] = 0
-                                        "Custom 3 [[clear custom 1] (locked)" if not R_Custom3[0]:
+                                        "Custom 3 [[clear custom 3] (locked)" if not R_Custom3[0]:
+                                            pass
+                                        "Custom 4 [[clear custom 4]" if R_Custom4[0]:
+                                            ch_r "Ok, no problem."
+                                            $ R_Custom4[0] = 0
+                                        "Custom 4 [[clear custom 4] (locked)" if not R_Custom4[0]:
+                                            pass
+                                        "Custom 5 [[clear custom 5]" if R_Custom5[0]:
+                                            ch_r "Ok, no problem."
+                                            $ R_Custom5[0] = 0
+                                        "Custom 5 [[clear custom 5] (locked)" if not R_Custom5[0]:
+                                            pass
+                                        "Custom 6 [[clear custom 6]" if R_Custom6[0]:
+                                            ch_r "Ok, no problem."
+                                            $ R_Custom6[0] = 0
+                                        "Custom 6 [[clear custom 6] (locked)" if not R_Custom6[0]:
+                                            pass
+                                        "Custom 7 [[clear custom 7]" if R_Custom7[0]:
+                                            ch_r "Ok, no problem."
+                                            $ R_Custom7[0] = 0
+                                        "Custom 7 [[clear custom 7] (locked)" if not R_Custom7[0]:
+                                            pass
+                                        "Custom 8 [[clear custom 8]" if R_Custom8[0]:
+                                            ch_r "Ok, no problem."
+                                            $ R_Custom8[0] = 0
+                                        "Custom 8 [[clear custom 8] (locked)" if not R_Custom8[0]:
+                                            pass
+                                        "Custom 9 [[clear custom 9]" if R_Custom9[0]:
+                                            ch_r "Ok, no problem."
+                                            $ R_Custom9[0] = 0
+                                        "Custom 9 [[clear custom 9] (locked)" if not R_Custom9[0]:
                                             pass
                                         "Never mind, [[back].":
                                             pass            
@@ -4988,7 +5072,7 @@ label Rogue_Clothes_ScheduleB(Count = 0):
                     $ Count = 1
                 "That pink outfit, with the jeans.":
                     $ Count = 2
-                "That outfit we put together [[custom]" if R_Custom[0] or R_Custom2[0] or R_Custom3[0]:
+                "That outfit we put together [[custom]" if R_Custom[0] or R_Custom2[0] or R_Custom3[0] or R_Custom4[0] or R_Custom5[0] or R_Custom6[0] or R_Custom7[0] or R_Custom8[0] or R_Custom9[0]:
                             menu:
                                 ch_r "Which one again?"
                                 "The first one. (locked)" if not R_Custom[0]:
@@ -5012,6 +5096,54 @@ label Rogue_Clothes_ScheduleB(Count = 0):
                                 "The third one." if R_Custom3[0]:
                                     if R_Custom3[0] == 2 or Count == 99:
                                         $ Count = 6
+                                    else:
+                                        ch_r "I told you I'm not wearing that outside, [R_Petname]."
+                                        
+                                "The fourth one. (locked)" if not R_Custom4[0]:
+                                    pass
+                                "The fourth one." if R_Custom4[0]:
+                                    if R_Custom4[0] == 2 or Count == 99:
+                                        $ Count = 15
+                                    else:
+                                        ch_r "I told you I'm not wearing that outside, [R_Petname]."
+                                        
+                                "The fifth one. (locked)" if not R_Custom5[0]:
+                                    pass
+                                "The fifth one." if R_Custom5[0]:
+                                    if R_Custom5[0] == 2 or Count == 99:
+                                        $ Count = 16
+                                    else:
+                                        ch_r "I told you I'm not wearing that outside, [R_Petname]."
+                                        
+                                "The sixth one. (locked)" if not R_Custom6[0]:
+                                    pass
+                                "The sixth one." if R_Custom6[0]:
+                                    if R_Custom6[0] == 2 or Count == 99:
+                                        $ Count = 17
+                                    else:
+                                        ch_r "I told you I'm not wearing that outside, [R_Petname]."
+                                        
+                                "The seventh one. (locked)" if not R_Custom7[0]:
+                                    pass
+                                "The seventh one." if R_Custom7[0]:
+                                    if R_Custom7[0] == 2 or Count == 99:
+                                        $ Count = 18
+                                    else:
+                                        ch_r "I told you I'm not wearing that outside, [R_Petname]."
+                                        
+                                "The eighth one. (locked)" if not R_Custom8[0]:
+                                    pass
+                                "The eighth one." if R_Custom8[0]:
+                                    if R_Custom8[0] == 2 or Count == 99:
+                                        $ Count = 19
+                                    else:
+                                        ch_r "I told you I'm not wearing that outside, [R_Petname]."
+                                        
+                                "The ninth one. (locked)" if not R_Custom9[0]:
+                                    pass
+                                "The ninth one." if R_Custom9[0]:
+                                    if R_Custom9[0] == 2 or Count == 99:
+                                        $ Count = 20
                                     else:
                                         ch_r "I told you I'm not wearing that outside, [R_Petname]."
                                         
@@ -5045,6 +5177,18 @@ label R_AltClothes(Outfit=8):
                     $ R_Outfit = "evo_green"
         elif R_Schedule[Outfit] == 2:
                     $ R_Outfit = "evo_pink"
+        elif R_Schedule[Outfit] == 15:
+                    $ R_Outfit = "custom4"
+        elif R_Schedule[Outfit] == 16:
+                    $ R_Outfit = "custom5"
+        elif R_Schedule[Outfit] == 17:
+                    $ R_Outfit = "custom6"
+        elif R_Schedule[Outfit] == 18:
+                    $ R_Outfit = "custom7"
+        elif R_Schedule[Outfit] == 19:
+                    $ R_Outfit = "custom8"
+        elif R_Schedule[Outfit] == 20:
+                    $ R_Outfit = "custom9"
         elif R_Schedule[Outfit] == 3:
                     $ R_Outfit = "custom1"
         elif R_Schedule[Outfit] == 5:
@@ -5096,6 +5240,24 @@ label Rogue_Custom_Out(Custom = 3, Shame = 0, Agree = 1):
                         if Custom == 5 and R_Custom2[0] == 2:
                             $ R_Outfit = "custom2"                    
                             $ R_Shame = R_OutfitShame[5]
+                        elif Custom == 15 and R_Custom4[0] == 2:
+                                    $ R_Outfit = "custom4"
+                                    $ R_Shame = R_OutfitShame[Custom]
+                        elif Custom == 16 and R_Custom5[0] == 2:
+                                    $ R_Outfit = "custom5"
+                                    $ R_Shame = R_OutfitShame[Custom]
+                        elif Custom == 17 and R_Custom6[0] == 2:
+                                    $ R_Outfit = "custom6"
+                                    $ R_Shame = R_OutfitShame[Custom]
+                        elif Custom == 18 and R_Custom7[0] == 2:
+                                    $ R_Outfit = "custom7"
+                                    $ R_Shame = R_OutfitShame[Custom]
+                        elif Custom == 19 and R_Custom8[0] == 2:
+                                    $ R_Outfit = "custom8"
+                                    $ R_Shame = R_OutfitShame[Custom]
+                        elif Custom == 20 and R_Custom9[0] == 2:
+                                    $ R_Outfit = "custom9"
+                                    $ R_Shame = R_OutfitShame[Custom]
                         elif Custom == 6 and R_Custom3[0] == 2:
                             $ R_Outfit = "custom3"                    
                             $ R_Shame = R_OutfitShame[6]
@@ -5106,6 +5268,18 @@ label Rogue_Custom_Out(Custom = 3, Shame = 0, Agree = 1):
             
             if Custom == 5 and R_Custom2[0] == 2:
                         $ R_Outfit = "custom2"   
+            elif Custom == 15 and R_Custom4[0] == 2:
+                        $ R_Outfit = "custom4"
+            elif Custom == 16 and R_Custom5[0] == 2:
+                        $ R_Outfit = "custom5"
+            elif Custom == 17 and R_Custom6[0] == 2:
+                        $ R_Outfit = "custom6"
+            elif Custom == 18 and R_Custom7[0] == 2:
+                        $ R_Outfit = "custom7"
+            elif Custom == 19 and R_Custom8[0] == 2:
+                        $ R_Outfit = "custom8"
+            elif Custom == 20 and R_Custom9[0] == 2:
+                        $ R_Outfit = "custom9"
             elif Custom == 6 and R_Custom3[0] == 2:
                         $ R_Outfit = "custom3"   
             elif R_Custom[0] == 2: #if custom 1:
@@ -5352,6 +5526,73 @@ label Rogue_OutfitShame(Custom = 3, Check = 0, Count = 0, Tempshame = 50, Agree 
                         $ R_Custom2[9] = R_Hose
                         $ R_Custom2[0] = 2 if Agree else 1   
                         call Clothing_Schedule_Check("Rogue",5,1) #checks to make sure it's still SFW     
+#MOD CUSTOM OUTFITS OUTFITSHAME
+                    elif Custom == 20:
+                        $ R_Custom9[1] = R_Arms  
+                        $ R_Custom9[2] = R_Legs 
+                        $ R_Custom9[3] = R_Over
+                        $ R_Custom9[4] = R_Neck
+                        $ R_Custom9[5] = R_Chest 
+                        $ R_Custom9[6] = R_Panties
+                        $ R_Custom9[8] = R_Hair
+                        $ R_Custom9[9] = R_Hose
+                        $ R_Custom9[0] = 2 if Agree else 1
+                        call Clothing_Schedule_Check("Rogue",Custom,1)   
+                    elif Custom == 19:
+                        $ R_Custom8[1] = R_Arms  
+                        $ R_Custom8[2] = R_Legs 
+                        $ R_Custom8[3] = R_Over
+                        $ R_Custom8[4] = R_Neck
+                        $ R_Custom8[5] = R_Chest 
+                        $ R_Custom8[6] = R_Panties
+                        $ R_Custom8[8] = R_Hair
+                        $ R_Custom8[9] = R_Hose
+                        $ R_Custom8[0] = 2 if Agree else 1
+                        call Clothing_Schedule_Check("Rogue",Custom,1)   
+                    elif Custom == 18:
+                        $ R_Custom7[1] = R_Arms  
+                        $ R_Custom7[2] = R_Legs 
+                        $ R_Custom7[3] = R_Over
+                        $ R_Custom7[4] = R_Neck
+                        $ R_Custom7[5] = R_Chest 
+                        $ R_Custom7[6] = R_Panties
+                        $ R_Custom7[8] = R_Hair
+                        $ R_Custom7[9] = R_Hose
+                        $ R_Custom7[0] = 2 if Agree else 1
+                        call Clothing_Schedule_Check("Rogue",Custom,1)   
+                    elif Custom == 17:
+                        $ R_Custom6[1] = R_Arms  
+                        $ R_Custom6[2] = R_Legs 
+                        $ R_Custom6[3] = R_Over
+                        $ R_Custom6[4] = R_Neck
+                        $ R_Custom6[5] = R_Chest 
+                        $ R_Custom6[6] = R_Panties
+                        $ R_Custom6[8] = R_Hair
+                        $ R_Custom6[9] = R_Hose
+                        $ R_Custom6[0] = 2 if Agree else 1
+                        call Clothing_Schedule_Check("Rogue",Custom,1)   
+                    elif Custom == 16:
+                        $ R_Custom5[1] = R_Arms  
+                        $ R_Custom5[2] = R_Legs 
+                        $ R_Custom5[3] = R_Over
+                        $ R_Custom5[4] = R_Neck
+                        $ R_Custom5[5] = R_Chest 
+                        $ R_Custom5[6] = R_Panties
+                        $ R_Custom5[8] = R_Hair
+                        $ R_Custom5[9] = R_Hose
+                        $ R_Custom5[0] = 2 if Agree else 1
+                        call Clothing_Schedule_Check("Rogue",Custom,1)   
+                    elif Custom == 15:
+                        $ R_Custom4[1] = R_Arms  
+                        $ R_Custom4[2] = R_Legs 
+                        $ R_Custom4[3] = R_Over
+                        $ R_Custom4[4] = R_Neck
+                        $ R_Custom4[5] = R_Chest 
+                        $ R_Custom4[6] = R_Panties
+                        $ R_Custom4[8] = R_Hair
+                        $ R_Custom4[9] = R_Hose
+                        $ R_Custom4[0] = 2 if Agree else 1
+                        call Clothing_Schedule_Check("Rogue",Custom,1)   
                     elif Custom == 6:
                         $ R_Custom3[1] = R_Arms  
                         $ R_Custom3[2] = R_Legs 

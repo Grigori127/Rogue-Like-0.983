@@ -7134,6 +7134,18 @@ label Clothing_Schedule_Check(Girl=0,Changed=0,Value=0,Count=0):
                             #if the Outfit is custom1, and the outfit is SFW, then leave it alone.
                             if R_Schedule[Count] == 3 and R_Custom[0] == 2:
                                     pass
+                            elif R_Schedule[Count] == 15 and R_Custom4[0] == 2:
+                                    pass
+                            elif R_Schedule[Count] == 16 and R_Custom5[0] == 2:
+                                    pass
+                            elif R_Schedule[Count] == 17 and R_Custom6[0] == 2:
+                                    pass
+                            elif R_Schedule[Count] == 18 and R_Custom7[0] == 2:
+                                    pass
+                            elif R_Schedule[Count] == 19 and R_Custom8[0] == 2:
+                                    pass
+                            elif R_Schedule[Count] == 20 and R_Custom9[0] == 2:
+                                    pass
                             elif R_Schedule[Count] == 5 and R_Custom2[0] == 2:
                                     pass
                             elif R_Schedule[Count] == 6 and R_Custom3[0] == 2:
@@ -7149,6 +7161,18 @@ label Clothing_Schedule_Check(Girl=0,Changed=0,Value=0,Count=0):
                     if K_Schedule[Count] == Changed:
                         if Value:
                             if K_Schedule[Count] == 3 and K_Custom[0] == 2:
+                                    pass
+                            elif K_Schedule[Count] == 15 and K_Custom4[0] == 2:
+                                    pass
+                            elif K_Schedule[Count] == 16 and K_Custom5[0] == 2:
+                                    pass
+                            elif K_Schedule[Count] == 17 and K_Custom6[0] == 2:
+                                    pass
+                            elif K_Schedule[Count] == 18 and K_Custom7[0] == 2:
+                                    pass
+                            elif K_Schedule[Count] == 19 and K_Custom8[0] == 2:
+                                    pass
+                            elif K_Schedule[Count] == 20 and K_Custom9[0] == 2:
                                     pass
                             elif K_Schedule[Count] == 5 and K_Custom2[0] == 2:
                                     pass

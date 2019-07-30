@@ -2080,6 +2080,138 @@ label RogueOutfit(R_OutfitTemp = R_Outfit, Spunk = 0, Undressed = 0, Changed = 1
                     $ R_Hair = R_Custom3[8] if R_Custom3[8] else "evo"
                     $ R_Hose = R_Custom3[9]        
                     $ R_Shame = R_OutfitShame[6]
+        elif R_OutfitTemp == "custom9":
+                    if not R_Legs and R_Custom9[2]:            
+                        $ Undressed = 1
+                    elif not R_Over and R_Custom9[3]:          
+                        $ Undressed = 1
+                    elif not R_Chest and R_Custom9[5]:          
+                        $ Undressed = 1
+                    elif not R_Panties and R_Custom9[6] and "pantyless" not in R_DailyActions:          
+                        $ Undressed = 1
+                    elif not R_Hose and R_Custom9[9]:          
+                        $ Undressed = 1
+                        
+                    $ R_Arms = R_Custom9[1]
+                    $ R_Legs = R_Custom9[2]
+                    $ R_Over = R_Custom9[3]
+                    $ R_Neck = R_Custom9[4] 
+                    $ R_Chest = R_Custom9[5]
+                    $ R_Panties = R_Custom9[6]
+            #        $ R_Pubes = R_Custom9[7]
+                    $ R_Hair = R_Custom9[8] if R_Custom9[8] else "evo"
+                    $ R_Hose = R_Custom9[9]        
+                    $ R_Shame = R_OutfitShame[20]
+        elif R_OutfitTemp == "custom8":
+                    if not R_Legs and R_Custom8[2]:            
+                        $ Undressed = 1
+                    elif not R_Over and R_Custom8[3]:          
+                        $ Undressed = 1
+                    elif not R_Chest and R_Custom8[5]:          
+                        $ Undressed = 1
+                    elif not R_Panties and R_Custom8[6] and "pantyless" not in R_DailyActions:          
+                        $ Undressed = 1
+                    elif not R_Hose and R_Custom8[9]:          
+                        $ Undressed = 1
+                        
+                    $ R_Arms = R_Custom8[1]
+                    $ R_Legs = R_Custom8[2]
+                    $ R_Over = R_Custom8[3]
+                    $ R_Neck = R_Custom8[4] 
+                    $ R_Chest = R_Custom8[5]
+                    $ R_Panties = R_Custom8[6]
+            #        $ R_Pubes = R_Custom8[7]
+                    $ R_Hair = R_Custom8[8] if R_Custom8[8] else "evo"
+                    $ R_Hose = R_Custom8[9]        
+                    $ R_Shame = R_OutfitShame[19]
+        elif R_OutfitTemp == "custom7":
+                    if not R_Legs and R_Custom7[2]:            
+                        $ Undressed = 1
+                    elif not R_Over and R_Custom7[3]:          
+                        $ Undressed = 1
+                    elif not R_Chest and R_Custom7[5]:          
+                        $ Undressed = 1
+                    elif not R_Panties and R_Custom7[6] and "pantyless" not in R_DailyActions:          
+                        $ Undressed = 1
+                    elif not R_Hose and R_Custom7[9]:          
+                        $ Undressed = 1
+                        
+                    $ R_Arms = R_Custom7[1]
+                    $ R_Legs = R_Custom7[2]
+                    $ R_Over = R_Custom7[3]
+                    $ R_Neck = R_Custom7[4] 
+                    $ R_Chest = R_Custom7[5]
+                    $ R_Panties = R_Custom7[6]
+            #        $ R_Pubes = R_Custom7[7]
+                    $ R_Hair = R_Custom7[8] if R_Custom7[8] else "evo"
+                    $ R_Hose = R_Custom7[9]        
+                    $ R_Shame = R_OutfitShame[18]
+        elif R_OutfitTemp == "custom6":
+                    if not R_Legs and R_Custom6[2]:            
+                        $ Undressed = 1
+                    elif not R_Over and R_Custom6[3]:          
+                        $ Undressed = 1
+                    elif not R_Chest and R_Custom6[5]:          
+                        $ Undressed = 1
+                    elif not R_Panties and R_Custom6[6] and "pantyless" not in R_DailyActions:          
+                        $ Undressed = 1
+                    elif not R_Hose and R_Custom6[9]:          
+                        $ Undressed = 1
+                        
+                    $ R_Arms = R_Custom6[1]
+                    $ R_Legs = R_Custom6[2]
+                    $ R_Over = R_Custom6[3]
+                    $ R_Neck = R_Custom6[4] 
+                    $ R_Chest = R_Custom6[5]
+                    $ R_Panties = R_Custom6[6]
+            #        $ R_Pubes = R_Custom6[7]
+                    $ R_Hair = R_Custom6[8] if R_Custom6[8] else "evo"
+                    $ R_Hose = R_Custom6[9]        
+                    $ R_Shame = R_OutfitShame[17]
+        elif R_OutfitTemp == "custom5":
+                    if not R_Legs and R_Custom5[2]:            
+                        $ Undressed = 1
+                    elif not R_Over and R_Custom5[3]:          
+                        $ Undressed = 1
+                    elif not R_Chest and R_Custom5[5]:          
+                        $ Undressed = 1
+                    elif not R_Panties and R_Custom5[6] and "pantyless" not in R_DailyActions:          
+                        $ Undressed = 1
+                    elif not R_Hose and R_Custom5[9]:          
+                        $ Undressed = 1
+                        
+                    $ R_Arms = R_Custom5[1]
+                    $ R_Legs = R_Custom5[2]
+                    $ R_Over = R_Custom5[3]
+                    $ R_Neck = R_Custom5[4] 
+                    $ R_Chest = R_Custom5[5]
+                    $ R_Panties = R_Custom5[6]
+            #        $ R_Pubes = R_Custom5[7]
+                    $ R_Hair = R_Custom5[8] if R_Custom5[8] else "evo"
+                    $ R_Hose = R_Custom5[9]        
+                    $ R_Shame = R_OutfitShame[16]
+        elif R_OutfitTemp == "custom4":
+                    if not R_Legs and R_Custom4[2]:            
+                        $ Undressed = 1
+                    elif not R_Over and R_Custom4[3]:          
+                        $ Undressed = 1
+                    elif not R_Chest and R_Custom4[5]:          
+                        $ Undressed = 1
+                    elif not R_Panties and R_Custom4[6] and "pantyless" not in R_DailyActions:          
+                        $ Undressed = 1
+                    elif not R_Hose and R_Custom4[9]:          
+                        $ Undressed = 1
+                        
+                    $ R_Arms = R_Custom4[1]
+                    $ R_Legs = R_Custom4[2]
+                    $ R_Over = R_Custom4[3]
+                    $ R_Neck = R_Custom4[4] 
+                    $ R_Chest = R_Custom4[5]
+                    $ R_Panties = R_Custom4[6]
+            #        $ R_Pubes = R_Custom4[7]
+                    $ R_Hair = R_Custom4[8] if R_Custom4[8] else "evo"
+                    $ R_Hose = R_Custom4[9]        
+                    $ R_Shame = R_OutfitShame[15]
         elif R_OutfitTemp == "temporary":
                     if not R_Legs and R_TempClothes[2]:            
                             $ Undressed = 1
@@ -2253,6 +2385,18 @@ label Rogue_Schedule(Clothes = 1, Location = 1, LocTemp = R_Loc):
                         $ R_OutfitDay = "custom1"
                 elif R_Schedule[Weekday] == 4:
                         $ R_OutfitDay = "gym"
+                elif R_Schedule[Weekday] == 15 and R_Custom4[0]:
+                        $ R_OutfitDay = "custom4"
+                elif R_Schedule[Weekday] == 16 and R_Custom5[0]:
+                        $ R_OutfitDay = "custom5"
+                elif R_Schedule[Weekday] == 17 and R_Custom6[0]:
+                        $ R_OutfitDay = "custom6"
+                elif R_Schedule[Weekday] == 18 and R_Custom7[0]:
+                        $ R_OutfitDay = "custom7"
+                elif R_Schedule[Weekday] == 19 and R_Custom8[0]:
+                        $ R_OutfitDay = "custom8"
+                elif R_Schedule[Weekday] == 20 and R_Custom9[0]:
+                        $ R_OutfitDay = "custom9"
                 elif R_Schedule[Weekday] == 5 and R_Custom2[0]:
                         $ R_OutfitDay = "custom2"
                 elif R_Schedule[Weekday] == 6 and R_Custom3[0]:
@@ -2261,6 +2405,12 @@ label Rogue_Schedule(Clothes = 1, Location = 1, LocTemp = R_Loc):
                         $ Options = ["evo_pink", "evo_green"]
                         $ Options.append("custom1") if R_Custom[0] == 2 else Options
                         $ Options.append("custom2") if R_Custom2[0] == 2 else Options
+                        $ Options.append("custom4") if R_Custom4[0] == 2 else Options
+                        $ Options.append("custom5") if R_Custom5[0] == 2 else Options
+                        $ Options.append("custom6") if R_Custom6[0] == 2 else Options
+                        $ Options.append("custom7") if R_Custom7[0] == 2 else Options
+                        $ Options.append("custom8") if R_Custom8[0] == 2 else Options
+                        $ Options.append("custom9") if R_Custom9[0] == 2 else Options
                         $ Options.append("custom3") if R_Custom3[0] == 2 else Options
                         $ renpy.random.shuffle(Options) 
                         $ R_OutfitDay = Options[0]
@@ -2473,6 +2623,132 @@ label KittyOutfit(K_OutfitTemp = K_Outfit, Spunk = 0, Undressed = 0, Changed = 1
                     $ K_Hose = K_Custom3[9]   
                     $ K_Hair = K_Custom3[8] if K_Custom3[8] else K_Hair
                     $ K_Shame = K_OutfitShame[6]
+        elif K_OutfitTemp == "custom9":
+                    if not K_Legs and K_Custom9[2]:            
+                            $ Undressed = 1
+                    elif not K_Over and K_Custom9[3]:          
+                            $ Undressed = 1
+                    elif not K_Chest and K_Custom9[5]:          
+                            $ Undressed = 1
+                    elif not K_Panties and K_Custom9[6] and "pantyless" not in K_DailyActions:         
+                            $ Undressed = 1
+                    elif not K_Hose and K_Custom9[9]:          
+                            $ Undressed = 1
+                        
+                    $ K_Arms = K_Custom9[1]
+                    $ K_Legs = K_Custom9[2]
+                    $ K_Over = K_Custom9[3]
+                    $ K_Neck = K_Custom9[4]
+                    $ K_Chest = K_Custom9[5]
+                    $ K_Panties = K_Custom9[6]    
+                    $ K_Hose = K_Custom9[9]   
+                    $ K_Hair = K_Custom9[8] if K_Custom9[8] else K_Hair
+                    $ K_Shame = K_OutfitShame[20]
+        elif K_OutfitTemp == "custom8":
+                    if not K_Legs and K_Custom8[2]:            
+                            $ Undressed = 1
+                    elif not K_Over and K_Custom8[3]:          
+                            $ Undressed = 1
+                    elif not K_Chest and K_Custom8[5]:          
+                            $ Undressed = 1
+                    elif not K_Panties and K_Custom8[6] and "pantyless" not in K_DailyActions:         
+                            $ Undressed = 1
+                    elif not K_Hose and K_Custom8[9]:          
+                            $ Undressed = 1
+                        
+                    $ K_Arms = K_Custom8[1]
+                    $ K_Legs = K_Custom8[2]
+                    $ K_Over = K_Custom8[3]
+                    $ K_Neck = K_Custom8[4]
+                    $ K_Chest = K_Custom8[5]
+                    $ K_Panties = K_Custom8[6]    
+                    $ K_Hose = K_Custom8[9]   
+                    $ K_Hair = K_Custom8[8] if K_Custom8[8] else K_Hair
+                    $ K_Shame = K_OutfitShame[19]
+        elif K_OutfitTemp == "custom7":
+                    if not K_Legs and K_Custom7[2]:            
+                            $ Undressed = 1
+                    elif not K_Over and K_Custom7[3]:          
+                            $ Undressed = 1
+                    elif not K_Chest and K_Custom7[5]:          
+                            $ Undressed = 1
+                    elif not K_Panties and K_Custom7[6] and "pantyless" not in K_DailyActions:         
+                            $ Undressed = 1
+                    elif not K_Hose and K_Custom7[9]:          
+                            $ Undressed = 1
+                        
+                    $ K_Arms = K_Custom7[1]
+                    $ K_Legs = K_Custom7[2]
+                    $ K_Over = K_Custom7[3]
+                    $ K_Neck = K_Custom7[4]
+                    $ K_Chest = K_Custom7[5]
+                    $ K_Panties = K_Custom7[6]    
+                    $ K_Hose = K_Custom7[9]   
+                    $ K_Hair = K_Custom7[8] if K_Custom7[8] else K_Hair
+                    $ K_Shame = K_OutfitShame[18]
+        elif K_OutfitTemp == "custom6":
+                    if not K_Legs and K_Custom6[2]:            
+                            $ Undressed = 1
+                    elif not K_Over and K_Custom6[3]:          
+                            $ Undressed = 1
+                    elif not K_Chest and K_Custom6[5]:          
+                            $ Undressed = 1
+                    elif not K_Panties and K_Custom6[6] and "pantyless" not in K_DailyActions:         
+                            $ Undressed = 1
+                    elif not K_Hose and K_Custom6[9]:          
+                            $ Undressed = 1
+                        
+                    $ K_Arms = K_Custom6[1]
+                    $ K_Legs = K_Custom6[2]
+                    $ K_Over = K_Custom6[3]
+                    $ K_Neck = K_Custom6[4]
+                    $ K_Chest = K_Custom6[5]
+                    $ K_Panties = K_Custom6[6]    
+                    $ K_Hose = K_Custom6[9]   
+                    $ K_Hair = K_Custom6[8] if K_Custom6[8] else K_Hair
+                    $ K_Shame = K_OutfitShame[17]
+        elif K_OutfitTemp == "custom5":
+                    if not K_Legs and K_Custom5[2]:            
+                            $ Undressed = 1
+                    elif not K_Over and K_Custom5[3]:          
+                            $ Undressed = 1
+                    elif not K_Chest and K_Custom5[5]:          
+                            $ Undressed = 1
+                    elif not K_Panties and K_Custom5[6] and "pantyless" not in K_DailyActions:         
+                            $ Undressed = 1
+                    elif not K_Hose and K_Custom5[9]:          
+                            $ Undressed = 1
+                        
+                    $ K_Arms = K_Custom5[1]
+                    $ K_Legs = K_Custom5[2]
+                    $ K_Over = K_Custom5[3]
+                    $ K_Neck = K_Custom5[4]
+                    $ K_Chest = K_Custom5[5]
+                    $ K_Panties = K_Custom5[6]    
+                    $ K_Hose = K_Custom5[9]   
+                    $ K_Hair = K_Custom5[8] if K_Custom5[8] else K_Hair
+                    $ K_Shame = K_OutfitShame[16]
+        elif K_OutfitTemp == "custom4":
+                    if not K_Legs and K_Custom4[2]:            
+                            $ Undressed = 1
+                    elif not K_Over and K_Custom4[3]:          
+                            $ Undressed = 1
+                    elif not K_Chest and K_Custom4[5]:          
+                            $ Undressed = 1
+                    elif not K_Panties and K_Custom4[6] and "pantyless" not in K_DailyActions:         
+                            $ Undressed = 1
+                    elif not K_Hose and K_Custom4[9]:          
+                            $ Undressed = 1
+                        
+                    $ K_Arms = K_Custom4[1]
+                    $ K_Legs = K_Custom4[2]
+                    $ K_Over = K_Custom4[3]
+                    $ K_Neck = K_Custom4[4]
+                    $ K_Chest = K_Custom4[5]
+                    $ K_Panties = K_Custom4[6]    
+                    $ K_Hose = K_Custom4[9]   
+                    $ K_Hair = K_Custom4[8] if K_Custom4[8] else K_Hair
+                    $ K_Shame = K_OutfitShame[15]
         elif K_OutfitTemp == "temporary":
                     if not K_Legs and K_TempClothes[2]:            
                             $ Undressed = 1
@@ -2633,6 +2909,18 @@ label Kitty_Schedule(Clothes = 1, Location = 1, LocTemp = K_Loc):
                         $ K_OutfitDay = "custom1"
                 elif K_Schedule[Weekday] == 4: #Fri
                         $ K_OutfitDay = "gym"
+                elif K_Schedule[Weekday] == 15 and K_Custom4[0]: #Sat
+                        $ K_OutfitDay = "custom4" #Sat
+                elif K_Schedule[Weekday] == 16 and K_Custom5[0]: #Sat
+                        $ K_OutfitDay = "custom5" #Sat
+                elif K_Schedule[Weekday] == 17 and K_Custom6[0]: #Sat
+                        $ K_OutfitDay = "custom6" #Sat
+                elif K_Schedule[Weekday] == 18 and K_Custom7[0]: #Sat
+                        $ K_OutfitDay = "custom7" #Sat
+                elif K_Schedule[Weekday] == 19 and K_Custom8[0]: #Sat
+                        $ K_OutfitDay = "custom8" #Sat
+                elif K_Schedule[Weekday] == 20 and K_Custom9[0]: #Sat
+                        $ K_OutfitDay = "custom9" #Sat
                 elif K_Schedule[Weekday] == 5 and K_Custom2[0]: #Sat
                         $ K_OutfitDay = "custom2"
                 elif K_Schedule[Weekday] == 6 and K_Custom3[0]: #Sun
@@ -2641,6 +2929,12 @@ label Kitty_Schedule(Clothes = 1, Location = 1, LocTemp = K_Loc):
                         $ Options = ["pink outfit", "red outfit"]
                         $ Options.append("custom1") if K_Custom[0] == 2 else Options
                         $ Options.append("custom2") if K_Custom2[0] == 2 else Options
+                        $ Options.append("custom4") if K_Custom4[0] == 2 else Options
+                        $ Options.append("custom5") if K_Custom5[0] == 2 else Options
+                        $ Options.append("custom6") if K_Custom6[0] == 2 else Options
+                        $ Options.append("custom7") if K_Custom7[0] == 2 else Options
+                        $ Options.append("custom8") if K_Custom8[0] == 2 else Options
+                        $ Options.append("custom9") if K_Custom9[0] == 2 else Options
                         $ Options.append("custom3") if K_Custom3[0] == 2 else Options
                         $ renpy.random.shuffle(Options) 
                         $ K_OutfitDay = Options[0]
