@@ -164,7 +164,6 @@ init -1:
     default P_Cock = "out"
     default P_Spunk = 0
     default P_Wet = 0
-    call mod_default_Variables
 #Rogue Stats   
     default R_Loc = "bg rogue"
     default R_Love = 500
@@ -667,6 +666,7 @@ init -1:
     default L_Date = 0 
     default L_Forced = 0                                        #This is a toggle for if she's being coerced
     default L_ForcedCount = 0                                   #This is a counter for each time she's been coerced lately    
+    call mod_default_Variables
 #Xavier Sprite Variables    
     default X_Brows = "happy"
     default X_Mouth = "happy"
