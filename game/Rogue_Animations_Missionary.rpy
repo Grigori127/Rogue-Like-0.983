@@ -268,10 +268,10 @@ image Rogue_Sex_Legs:
             "R_Legs == 'modded SR7 skirtshort'", "images/RogueSex/Rogue_Sex_SR7_Skirt_Short.png",
             "True", Null(),                      
             ),   
-        (0,0), ConditionSwitch(                                                                                 #Over Layer
-            "R_Over == 'towel'", "images/RogueSex/Rogue_Sex_Towel_Legs.png",
-            "True", Null(),                    
-            ),   
+        # (0,0), ConditionSwitch(                                                                                 #Over Layer
+        #     "R_Over == 'towel'", "images/RogueSex/Rogue_Sex_Towel_Legs.png",
+        #     "True", Null(),                    
+        #     ),   
         (0,0),ConditionSwitch(                                                                                  #Outside Spunk
             "'belly' in R_Spunk", "images/RogueSex/Rogue_Sex_Spunk_Pelvis.png",   
             "True", Null(),  

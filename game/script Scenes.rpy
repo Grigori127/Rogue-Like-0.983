@@ -47,6 +47,7 @@ label Sleepover(Lead=0,Sleep=0,Room=0,Line = 0):
             if Room not in Party and bg_current != "bg player":
                     #either another girl is around or she wouldn't want you sleeping there
                     "[Room] probably wouldn't appreciate you staying over, you head back to your own room."
+                    call Remove_Girl("All")
                     $ renpy.pop_call()
                     jump Player_Room
                                 
@@ -122,9 +123,10 @@ label Sleepover(Lead=0,Sleep=0,Room=0,Line = 0):
                         #if Emma leaves
                         jump Return_Player
                         
-            if Room not in Party:
+            if Room not in Party and bg_current != "bg player":
                     #if the room's owner left you in her room. . .
                     "[Room] probably wouldn't appreciate you staying over, you head back to your own room."
+                    call Remove_Girl("All")
                     $ renpy.pop_call()
                     jump Player_Room
                         
@@ -456,9 +458,10 @@ label Sleepover(Lead=0,Sleep=0,Room=0,Line = 0):
                     call CleartheRoom(Party[0],1,1) #removes any other girls around   
             
             
-            if Room not in Party:
+            if Room not in Party and bg_current != "bg player":
                     #if the room's owner left you in her room. . .
                     "[Room] probably wouldn't appreciate you staying over, you head back to your own room."
+                    call Remove_Girl("All")
                     $ renpy.pop_call()
                     jump Player_Room
             elif Party:
@@ -3336,7 +3339,7 @@ label Group_Strip(Girl=0,Tempmod = Tempmod,Tempmod0=0,Tempmod1=0):
                         jump Group_Strip_End
                 
     
-    if E_Loc == bg_current:
+    if E_Loc == bg_current and len(Adjacent) >= 2:
             #If Emma is here, but does not agree to this,
             if "classcaught" not in E_History or "three" not in E_History or (Taboo and "taboo" not in E_History):
                 if E_Loc == "bg emma":
