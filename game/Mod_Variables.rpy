@@ -101,25 +101,25 @@ label  mod_Save_Version:
 # screen Kitty_Sprite():
         # tag Kitty_Sprite
         
-        # use Kitty_Sprite2 zoom 0.75 
+        # use Kitty_Sprite zoom 0.75 
 transform Transform_Kitty_BJ:
     ease 1 offset (150,80) 
 
 screen Kitty_Test(SpriteLoc = K_SpriteLoc, zoom_ = 0.75, type = 0):
-    tag Kitty_Sprite
+    tag Kitty_Sprite_Screen
     if type:
         frame:
             style "empty"
             at Transform_Kitty_BJ
-            use Kitty_Sprite2(SpriteLoc = SpriteLoc, zoom_ = zoom_)
+            use Kitty_Sprite(SpriteLoc = SpriteLoc, zoom_ = zoom_)
     else:
         frame:
             style "empty"
-            use Kitty_Sprite2(SpriteLoc = SpriteLoc, zoom_ = zoom_)
+            use Kitty_Sprite(SpriteLoc = SpriteLoc, zoom_ = zoom_)
 
 
-screen Kitty_Sprite2(SpriteLoc = K_SpriteLoc, zoom_ = 0.75, type = 0):
-    tag Kitty_Sprite
+screen Kitty_Sprite(SpriteLoc = K_SpriteLoc, zoom_ = 0.75, type = 0):
+    tag Kitty_Sprite_Screen
     $ KittyLayer_ = -10
     if KittyLayer == 100:
         $ KittyLayer_ = -25

@@ -3630,20 +3630,35 @@ label Kitty_AboutLaura:
     
 ## Kitty's Clothes ///////////////////
 label Kitty_Clothes:    
+    if renpy.get_screen("Kitty_Sprite"):
+        show Kitty_Sprite at SpriteLoc(K_SpriteLoc+36) zorder KittyLayer
+        hide screen Kitty_Sprite
     call KittyFace
     menu:
         ch_k "So[K_like]you wanted to talk about my clothes?"
         "Let's talk about your modded clothes.":
+                    show screen Kitty_Sprite
+                    hide Kitty_Sprite
                     jump Kitty_Modded_Clothes_Menu
         "Let's talk about your outfits.":
+                    show screen Kitty_Sprite
+                    hide Kitty_Sprite
                     jump Kitty_Clothes_Outfits        
         "Let's talk about your over shirts.":
+                    show screen Kitty_Sprite
+                    hide Kitty_Sprite
                     jump Kitty_Clothes_Over        
         "Let's talk about your legwear.":
+                    show screen Kitty_Sprite
+                    hide Kitty_Sprite
                     jump Kitty_Clothes_Legs
         "Let's talk about your underwear.":
+                    show screen Kitty_Sprite
+                    hide Kitty_Sprite
                     jump Kitty_Clothes_Under
         "Let's talk about the other stuff.":
+                    show screen Kitty_Sprite
+                    hide Kitty_Sprite
                     jump Kitty_Clothes_Misc
         "That looks really good on you, you should remember that one. [[Set Custom]":
                 menu:
@@ -3715,7 +3730,10 @@ label Kitty_Clothes:
                 $ K_TempClothes[0] = 1 
                 $ K_Outfit = "temporary"
                 $ K_OutfitDay = "temporary"        
-                $ K_Chat[1] += 1                
+                $ K_Chat[1] += 1    
+                if renpy.get_screen("Kitty_Sprite"):
+                    show Kitty_Sprite at SpriteLoc(K_SpriteLoc) zorder KittyLayer
+                    hide screen Kitty_Sprite            
                 return
             
     jump Kitty_Clothes

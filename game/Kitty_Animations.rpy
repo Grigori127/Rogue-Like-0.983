@@ -2072,8 +2072,21 @@ image Kitty_BJ_Backdrop:
             "K_Over == 'red shirt'", "images/KittyBJFace/Kitty_BJ_Over_RedUnder.png",
             "True", Null(),
             ),  
-        (0,0),"images/KittyBJFace/Kitty_BJ_Body.png",                                                   
+        (0,0), ConditionSwitch(                                                                         
             #body
+            "K_DynamicTan[0]", "images/KittyBJFace/Kitty_BJ_T3Body.png",
+            "True", "images/KittyBJFace/Kitty_BJ_Body.png", 
+            ),
+        (0,0), ConditionSwitch(                                                                         
+            #chest tan body
+            "not K_DynamicTan[3] or not K_DynamicTan[0]", Null(),
+            "True", AlphaMask("images/KittyBJFace/Kitty_BJ_Body.png", GetModdedStringTanKitty("3", ".png", "BJFace")),
+            ), 
+        (0,0), ConditionSwitch(                                                                         
+            #over tan body
+            "not K_DynamicTan[1] or not K_DynamicTan[0]", Null(),
+            "True", AlphaMask("images/KittyBJFace/Kitty_BJ_Body.png", GetModdedStringTanKitty("1", ".png", "BJFace")),
+            ),     
         (0,0), ConditionSwitch(                                                                         
             #necklace
             "K_Neck == 'gold necklace'", "images/KittyBJFace/Kitty_BJ_Neck_Gold.png",
@@ -2095,6 +2108,7 @@ image Kitty_BJ_Backdrop:
         (0,0), ConditionSwitch(                                                                        
             #Bra
             "not K_Chest", Null(),
+            "'modded' in K_Chest", GetModdedString("images/KittyBJFace/Kitty_BJFace_", K_Chest, ".png"),
             "K_Chest == 'lace bra'", "images/KittyBJFace/Kitty_BJ_Bra_Lace.png",
             "K_Chest == 'sports bra'", "images/KittyBJFace/Kitty_BJ_Bra_Sport.png",
             "K_Chest == 'bra'", "images/KittyBJFace/Kitty_BJ_Bra.png",
@@ -2105,6 +2119,7 @@ image Kitty_BJ_Backdrop:
         (0,0), ConditionSwitch(                                                                         
             #Shirt
             "not K_Over", Null(),
+            "'modded' in K_Over", GetModdedString("images/KittyBJFace/Kitty_BJFace_", K_Over, ".png"),
             "K_Over == 'pink top'", "images/KittyBJFace/Kitty_BJ_Over_PinkShirt.png",
             "K_Over == 'red shirt'", "images/KittyBJFace/Kitty_BJ_Over_RedShirt.png",
             "K_Over == 'towel'", "images/KittyBJFace/Kitty_BJ_Over_Towel.png",
@@ -2149,45 +2164,58 @@ image Kitty_BJ_Head:                                                            
                     # If the animation isn't sucking, or if not in BJ pose                    
                     "K_Water", ConditionSwitch( 
                             # If she's wet
+                            "K_Blush and K_DynamicTan[0]", "images/KittyBJFace/Kitty_BJ_TFaceClosed_Wet_Blush.png",             
                             "K_Blush", "images/KittyBJFace/Kitty_BJ_FaceClosed_Wet_Blush.png",             
+                            "True and K_DynamicTan[0]", "images/KittyBJFace/Kitty_BJ_TFaceClosed_Wet.png", 
                             "True", "images/KittyBJFace/Kitty_BJ_FaceClosed_Wet.png", 
                             ),  
+                    "K_Blush and K_DynamicTan[0]", "images/KittyBJFace/Kitty_BJ_TFaceClosed_Blush.png",              
                     "K_Blush", "images/KittyBJFace/Kitty_BJ_FaceClosed_Blush.png",              
-                    "True", "images/KittyBJFace/Kitty_BJ_FaceClosed.png"
+                    "True and K_DynamicTan[0]", "images/KittyBJFace/Kitty_BJ_TFaceClosed.png",
+                    "True", "images/KittyBJFace/Kitty_BJ_FaceClosed.png",
                     ), 
             #if it is in the open, sucking position
             "K_Water", ConditionSwitch( 
                     # If she's wet
+                    "K_Blush and K_DynamicTan[0]", "images/KittyBJFace/Kitty_BJ_TFaceOpen_Wet_Blush.png",              
                     "K_Blush", "images/KittyBJFace/Kitty_BJ_FaceOpen_Wet_Blush.png",              
+                    "True and K_DynamicTan[0]", "images/KittyBJFace/Kitty_BJ_TFaceOpen_Wet.png", 
                     "True", "images/KittyBJFace/Kitty_BJ_FaceOpen_Wet.png", 
                     ),  
+            "K_Blush and K_DynamicTan[0]", "images/KittyBJFace/Kitty_BJ_TFaceOpen_Blush.png",             
             "K_Blush", "images/KittyBJFace/Kitty_BJ_FaceOpen_Blush.png",             
-            "True",  "images/KittyBJFace/Kitty_BJ_FaceOpen.png"
+            "True and K_DynamicTan[0]",  "images/KittyBJFace/Kitty_BJ_TFaceOpen.png",
+            "True",  "images/KittyBJFace/Kitty_BJ_FaceOpen.png",
             ),    
         (0,0), ConditionSwitch(                                                                         
             #Mouth
             "Speed and renpy.showing('Kitty_BJ_Animation')", ConditionSwitch( 
-                    # If in sucking position
-                    "Speed == 1", "images/KittyBJFace/Kitty_BJ_Mouth_Tongue.png",  #licking
-                    "(Speed == 2 or Speed == 5)", Null(),                          #heading
-                    "Speed == 3", "images/KittyBJFace/Kitty_BJ_Mouth_Sucking.png", #sucking
-                    "Speed == 4", "images/KittyBJFace/Kitty_BJ_Mouth_Sucking.png", #deepthroat     
-                    "Speed == 6", "images/KittyBJFace/Kitty_BJ_Mouth_Sucking.png", #cumming      
-                    "True", "images/KittyBJFace/Kitty_BJ_Mouth_Sucking.png", #cumming     
-                    ),  
+                  "Speed == 1", "images/KittyBJFace/Kitty_BJ_Mouth_Tongue.png",  #licking
+                  "(Speed == 2 or Speed == 5)", Null(),                          #heading
+                  "Speed == 3", "images/KittyBJFace/Kitty_BJ_Mouth_Sucking.png", #sucking
+                  "Speed == 4", "images/KittyBJFace/Kitty_BJ_Mouth_Sucking.png", #deepthroat     
+                  "Speed == 6", "images/KittyBJFace/Kitty_BJ_Mouth_Sucking.png", #cumming        
+                  "True", "images/KittyBJFace/Kitty_BJ_Mouth_Sucking.png", #cumming     
+                  ), 
             "Speed == 3 and renpy.showing('Kitty_TJ_Animation')", "images/KittyBJFace/Kitty_BJ_Mouth_Tongue.png",                        
             "Speed >= 5 and renpy.showing('Kitty_TJ_Animation')", "images/KittyBJFace/Kitty_BJ_Mouth_Kiss.png",
+            "K_Mouth == 'normal' and K_DynamicTan[0]", "images/KittyBJFace/Kitty_BJ_TMouth_Smile.png",
             "K_Mouth == 'normal'", "images/KittyBJFace/Kitty_BJ_Mouth_Smile.png",
+            "K_Mouth == 'lipbite' and K_DynamicTan[0]", "images/KittyBJFace/Kitty_BJ_TMouth_Lipbite.png",
             "K_Mouth == 'lipbite'", "images/KittyBJFace/Kitty_BJ_Mouth_Lipbite.png",
             "K_Mouth == 'sucking'", "images/KittyBJFace/Kitty_BJ_Mouth_Sucking.png",            
+            "K_Mouth == 'kiss' and K_DynamicTan[0]", "images/KittyBJFace/Kitty_BJ_TMouth_Kiss.png",
             "K_Mouth == 'kiss'", "images/KittyBJFace/Kitty_BJ_Mouth_Kiss.png",
+            "K_Mouth == 'sad' and K_DynamicTan[0]", "images/KittyBJFace/Kitty_BJ_TMouth_Sad.png",
             "K_Mouth == 'sad'", "images/KittyBJFace/Kitty_BJ_Mouth_Sad.png",
-            "K_Mouth == 'smile'", "images/KittyBJFace/Kitty_BJ_Mouth_Smile.png",            
+            "K_Mouth == 'smile' and K_DynamicTan[0]", "images/KittyBJFace/Kitty_BJ_TMouth_Smile.png",
+            "K_Mouth == 'smile'", "images/KittyBJFace/Kitty_BJ_Mouth_Smile.png",
+            "K_Mouth == 'grimace' and K_DynamicTan[0]", "images/KittyBJFace/Kitty_BJ_TMouth_Smile.png",
             "K_Mouth == 'grimace'", "images/KittyBJFace/Kitty_BJ_Mouth_Smile.png",
             "K_Mouth == 'surprised'", "images/KittyBJFace/Kitty_BJ_Mouth_Surprised.png",          
             "K_Mouth == 'tongue'", "images/KittyBJFace/Kitty_BJ_Mouth_Tongue.png",    
             "True", "images/KittyBJFace/Kitty_BJ_Mouth_Smile.png",
-            ),       
+            ),        
         (428,605), ConditionSwitch(   
             # Heading Mouth
 #            "Speed == 2 and Trigger == 'blow'", At("Kitty_BJ_MouthHeading", Kitty_BJ_MouthAnim()),  #heading 
@@ -2220,10 +2248,15 @@ image Kitty_BJ_Head:                                                            
             ),       
         (0,0), ConditionSwitch(                                                                         
             #Brows
+            "K_Brows == 'normal' and K_DynamicTan[0]", "images/KittyBJFace/Kitty_BJ_TBrows_Normal.png",
             "K_Brows == 'normal'", "images/KittyBJFace/Kitty_BJ_Brows_Normal.png",
+            "K_Brows == 'angry' and K_DynamicTan[0]", "images/KittyBJFace/Kitty_BJ_TBrows_Angry.png",
             "K_Brows == 'angry'", "images/KittyBJFace/Kitty_BJ_Brows_Angry.png",
+            "K_Brows == 'sad' and K_DynamicTan[0]", "images/KittyBJFace/Kitty_BJ_TBrows_Sad.png",
             "K_Brows == 'sad'", "images/KittyBJFace/Kitty_BJ_Brows_Sad.png",
+            "K_Brows == 'surprised' and K_DynamicTan[0]", "images/KittyBJFace/Kitty_BJ_TBrows_Surprised.png",
             "K_Brows == 'surprised'", "images/KittyBJFace/Kitty_BJ_Brows_Surprised.png",        
+            "K_Brows == 'confused' and K_DynamicTan[0]", "images/KittyBJFace/Kitty_BJ_TBrows_Confused.png",
             "K_Brows == 'confused'", "images/KittyBJFace/Kitty_BJ_Brows_Confused.png",
             "True", "images/KittyBJFace/Kitty_BJ_Brows_Normal.png",
             ),
@@ -3391,13 +3424,19 @@ label Kitty_TJ_Reset: # The sequence to the Kitty animations from Titfuck to def
 #    pos (200,400)#(200,400)
         
 image Kitty_Hand_Under:
-    "images/KittySprite/handkitty2.png"
+    ConditionSwitch(
+        "K_Tan", "images/KittySprite/Thandkitty2.png",
+        "True", "images/KittySprite/handkitty2.png",
+        ),
     anchor (0.5,0.5)
     pos (0,0)
     
     
 image Kitty_Hand_Over:
-    "images/KittySprite/handkitty1.png"    
+    ConditionSwitch(
+        "K_Tan", "images/KittySprite/Thandkitty1.png",
+        "True", "images/KittySprite/handkitty1.png",
+        ), 
     anchor (0.5,0.5)
     pos (0,0)
 
