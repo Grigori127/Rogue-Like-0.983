@@ -15,7 +15,7 @@ image Rogue:
             #back of hair
             "renpy.showing('Rogue_BJ_Animation') or renpy.showing('BJ_NewTest') or renpy.showing('Rogue_TJ_Animation')", Null(),
             "R_Hair == 'evo' and R_Water", Null(),
-            "R_Hair == 'evo'", "images/RogueSprite/Rogue_hair" + GetHairColor(R_HairColor) + "_evo_back.png",
+            # "R_Hair == 'evo'", "images/RogueSprite/Rogue_hair" + GetHairColor(R_HairColor) + "_evo_back.png",
             "True", Null(),
             ),  
         (0,0), ConditionSwitch(                                                                         
