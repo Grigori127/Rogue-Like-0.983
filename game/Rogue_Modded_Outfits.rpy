@@ -11,8 +11,8 @@ label Rogue_Modded_Clothes_Menu:
                 jump Rogue_Modded_Clothes_Under
         # "Let's talk about your bodysuits.":
         #         jump Rogue_Modded_Clothes_BodySuits
-        # "Let's talk about the other stuff.":
-        #         jump Rogue_Modded_Clothes_Misc
+        "Let's talk about the other stuff.":
+                jump Rogue_Modded_Clothes_Misc
         "Save as main menu background clothes.":
                 "This option will save this Rogue at the main menu background, are you sure?"
                 menu:
@@ -930,40 +930,40 @@ label Rogue_Modded_Clothes_Menu:
 
             
     menu Rogue_Modded_Clothes_Misc:   
-        "Put on that headband of yours." if R_Headband != "classic headband":
-                        $ R_Headband = "classic headband"
-        "Take off that headband." if R_Headband:
-                        $ R_Headband = 0
+        # "Put on that headband of yours." if R_Headband != "classic headband":
+        #                 $ R_Headband = "classic headband"
+        # "Take off that headband." if R_Headband:
+        #                 $ R_Headband = 0
 
-        "Put on that utility belt." if R_Accessory != "classic belt":
-                        $ R_Accessory = "classic belt"
-        "Take off that [R_Accessory]." if R_Accessory:
-                        $ R_Accessory = 0
-                                                                                                                                         #Misc
-        "Throw the gloves on." if R_Arms != "gloved":
-                        $ R_Arms = "gloved"
-        "Throw the yellow gloves on." if R_Arms != "classic gloves":
-                        $ R_Arms = "classic gloves"
-        "Take a little risk, no gloves." if R_Arms:
-                        $ R_Arms = 0
+        # "Put on that utility belt." if R_Accessory != "classic belt":
+        #                 $ R_Accessory = "classic belt"
+        # "Take off that [R_Accessory]." if R_Accessory:
+        #                 $ R_Accessory = 0
+        #                                                                                                                                  #Misc
+        # "Throw the gloves on." if R_Arms != "gloved":
+        #                 $ R_Arms = "gloved"
+        # "Throw the yellow gloves on." if R_Arms != "classic gloves":
+        #                 $ R_Arms = "classic gloves"
+        # "Take a little risk, no gloves." if R_Arms:
+        #                 $ R_Arms = 0
                         
-        "I like that spiked collar." if R_Neck != "spiked collar":
-                        $ R_Neck = "spiked collar"
-        "You could lose that spiked collar." if R_Neck == "spiked collar":
-                        $ R_Neck = 0
+        # "I like that spiked collar." if R_Neck != "spiked collar":
+        #                 $ R_Neck = "spiked collar"
+        # "You could lose that spiked collar." if R_Neck == "spiked collar":
+        #                 $ R_Neck = 0
 
-        "I like those glasses." if not R_Glasses:
-                        $ R_Glasses = "glasses"
-        "You could lose those glasses." if R_Glasses:
-                        $ R_Glasses = 0
+        # "I like those glasses." if not R_Glasses:
+        #                 $ R_Glasses = "glasses"
+        # "You could lose those glasses." if R_Glasses:
+        #                 $ R_Glasses = 0
 
-        "Wear those black boots." if R_Boots != "boots":
-                        $ R_Boots = "boots"
-        "Wear those boots from the classic uniform" if R_Boots != "classic boots":
-                        $ R_Boots = "classic boots"
+        # "Wear those black boots." if R_Boots != "boots":
+        #                 $ R_Boots = "boots"
+        # "Wear those boots from the classic uniform" if R_Boots != "classic boots":
+        #                 $ R_Boots = "classic boots"
 
-        "You could lose those boots." if R_Boots:
-                        $ R_Boots = 0
+        # "You could lose those boots." if R_Boots:
+        #                 $ R_Boots = 0
 
         "Dye your hair.":
             if ApprovalCheck("Rogue", 800):
@@ -972,54 +972,33 @@ label Rogue_Modded_Clothes_Menu:
                 menu:
                     "Black" if R_HairColor != "black":
                         ch_r "Like this?"
-                        $ R_HairColor = "black"
+                        call SetHairColorRogue("black")
 
                     "Black with white streak" if R_HairColor != "blackwhite":
                         ch_r "Like this?"
-                        $ R_HairColor = "blackwhite"
+                        call SetHairColorRogue("blackwhite")
 
                     "Blonde" if R_HairColor != "blonde":
                         ch_r "Like this?"
-                        $ R_HairColor = "blonde"
+                        call SetHairColorRogue("blonde")
 
                     "Blonde with white streak" if R_HairColor != "blondewhite":
                         ch_r "Like this?"
-                        $ R_HairColor = "blondewhite"
+                        call SetHairColorRogue("blondewhite")
 
                 #ch_r "You think so?"
                 #"She rummages in her bag and grabs some gel, running it through her hair."
             else:
                 ch_r "It's too high maintenance."
 
-        "Change the color of you hair back." if R_HairColor and R_HairColor != "nope":
+        "Change the color of you hair back." if R_HairColor:
             if ApprovalCheck("Rogue", 800):
                 ch_r "You think so?"
                 #"She rummages in her bag and grabs some gel, running it through her hair."
                 ch_r "Like this?"
-                $ R_HairColor = "nope"
+                call SetHairColorRogue("")
             else:
                 ch_r "It's too high maintenance."
-
-        "You're too pale, get a tan (full tan)" if R_Tan != 'tan':
-            if ApprovalCheck("Rogue", 900):
-                ch_r "Like this?"
-                $ R_Tan = "tan"
-            else:
-                ch_r "Yeah, how about no."
-
-        "You're too pale, get a tan (tan lines)" if R_Tan != 'tan1':
-            if ApprovalCheck("Rogue", 900):
-                ch_r "Like this?"
-                $ R_Tan = "tan1"
-            else:
-                ch_r "Yeah, how about no."
-
-        "I prefer your pale skin" if R_Tan != 0:
-            if ApprovalCheck("Rogue", 600):
-                ch_r "Like this?"
-                $ R_Tan = 0
-            else:
-                ch_r "Yeah, I know that."
 
         "You know, I like some nice hair down there. Maybe grow it out." if not R_Pubes and "pubes" in R_Todo:
                         call RogueFace("bemused", 1)
@@ -1141,6 +1120,11 @@ label SetPantiesRogue(Outfit = "modded black large panties"):
 
 label SetHoseRogue(Outfit = "modded fishnet"):
     $ R_Hose = Outfit
+    call Mod_Update_Rogue_Image
+    return
+
+label SetHairColorRogue(Outfit = ""):
+    $ R_HairColor = Outfit
     call Mod_Update_Rogue_Image
     return
 

@@ -53,11 +53,11 @@ image Rogue_Head:
             ),      
         (0,0), "Rogue Blink",
         (0,0), ConditionSwitch(
-            "R_Water", "images/RogueSprite/Rogue_Hair_Wet.png",
-            "R_Hair == 'evo'", "images/RogueSprite/Rogue_Hair_Evo.png",
-            "R_Hair == 'long'", "images/RogueSprite/Rogue_Hair_Long.png",
-            "R_Hair == 'wet'", "images/RogueSprite/Rogue_Hair_Wet.png",
-            "True", "images/RogueSprite/Rogue_Hair_Evo.png",
+            "R_Water", "images/RogueSprite/Rogue_Hair" + GetHairColor(R_HairColor) + "_Wet.png",
+            "R_Hair == 'evo'", "images/RogueSprite/Rogue_Hair" + GetHairColor(R_HairColor) + "_Evo.png",
+            "R_Hair == 'long'", "images/RogueSprite/Rogue_Hair" + GetHairColor(R_HairColor) + "_Long.png",
+            "R_Hair == 'wet'", "images/RogueSprite/Rogue_Hair" + GetHairColor(R_HairColor) + "_Wet.png",
+            "True", "images/RogueSprite/Rogue_Hair" + GetHairColor(R_HairColor) + "_Evo.png",
             ),     
         (0,0), ConditionSwitch(
             "'facial' in R_Spunk", "images/RogueSprite/Rogue_facial.png",
@@ -68,8 +68,8 @@ image Rogue_HairBack:
     LiveComposite(
         (416,610),    
         (0,0), ConditionSwitch(
-            "R_Water or R_Hair == 'evo'", "images/RogueSprite/Rogue_hair_wet.png",
-            "R_Hair == 'evo'", "images/RogueSprite/Rogue_hair_evo.png",
+            "R_Water or R_Hair == 'evo'", "images/RogueSprite/Rogue_hair" + GetHairColor(R_HairColor) + "_wet.png",
+            "R_Hair == 'evo'", "images/RogueSprite/Rogue_hair" + GetHairColor(R_HairColor) + "_evo.png",
             "True", Null(),
             ),    
         )
