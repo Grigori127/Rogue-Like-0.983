@@ -1,4 +1,4 @@
-# Copyright 2004-2017 Tom Rothamel <pytom@bishoujo.us>
+# Copyright 2004-2018 Tom Rothamel <pytom@bishoujo.us>
 #
 # Permission is hereby granted, free of charge, to any person
 # obtaining a copy of this software and associated documentation files
@@ -145,6 +145,15 @@ Preference("desktop_rollback_side", "disable")
 
 # Should OpenGL do npot?
 Preference("gl_npot", True)
+
+# Should we try to save power by limiting how often we draw frames?
+Preference("gl_powersave", "auto", (basestring, bool))
+
+# The target framerate, used to set the swap interval.
+Preference("gl_framerate", None, (int, type(None)))
+
+# Do we allow tearing?
+Preference("gl_tearing", False)
 
 
 class Preferences(renpy.object.Object):

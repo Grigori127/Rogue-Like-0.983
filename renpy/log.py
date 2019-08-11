@@ -1,4 +1,4 @@
-# Copyright 2004-2017 Tom Rothamel <pytom@bishoujo.us>
+# Copyright 2004-2018 Tom Rothamel <pytom@bishoujo.us>
 #
 # Permission is hereby granted, free of charge, to any person
 # obtaining a copy of this software and associated documentation files
@@ -93,12 +93,13 @@ class LogFile(object):
 
         try:
             base = os.environ.get("RENPY_LOG_BASE", renpy.config.logdir or renpy.config.basedir)
+
+            if base is None:
+                return False
+
             fn = os.path.join(base, self.name + ".txt")
 
             altfn = os.path.join(tempfile.gettempdir(), "renpy-" + self.name + ".txt")
-
-            if renpy.android:
-                print("Logging to", fn)
 
             if self.append:
                 mode = "a"
@@ -180,6 +181,32 @@ def open(name, append=False, developer=False, flush=False):  # @ReservedAssignme
 
     return rv
 
+################################################################################
+# Timed event log.
+
+
+class TimeLog(list):
+    """
+    This represents a log that is limited to the last `duration` seconds.
+    """
+
+    def __init__(self, duration):
+        self.duration = duration
+
+    def append(self, v):
+        now = time.time()
+
+        list.append(self, (now, v))
+        self.prune(now)
+
+    def prune(self, now=None):
+
+        if now is None:
+            now = time.time()
+
+        while self[0][0] < (now - self.duration):
+            self.pop(0)
+
 
 ################################################################################
 # Stdout / Stderr Redirection
@@ -191,7 +218,13 @@ class StdioRedirector(object):
         self.log = open("log", developer=False, append=False)
 
     def write(self, s):
-        self.real_file.write(s)
+
+        if isinstance(s, unicode):
+            es = s.encode("utf-8")
+        else:
+            es = s
+
+        self.real_file.write(es)
         self.real_file.flush()
 
         if renpy.ios:
@@ -230,24 +263,28 @@ class StdioRedirector(object):
         pass
 
 
-class StdoutRedirector(StdioRedirector):
-    real_file = real_stdout
+if not "RENPY_NO_REDIRECT_STDIO" in os.environ:
 
-    def get_callbacks(self):
-        return renpy.config.stdout_callbacks
+    class StdoutRedirector(StdioRedirector):
+        real_file = real_stdout
 
+        def get_callbacks(self):
+            return renpy.config.stdout_callbacks
 
-sys.stdout = sys_stdout = StdoutRedirector()
+    sys.stdout = sys_stdout = StdoutRedirector()
 
+    class StderrRedirector(StdioRedirector):
+        real_file = real_stderr
 
-class StderrRedirector(StdioRedirector):
-    real_file = real_stderr
+        def get_callbacks(self):
+            return renpy.config.stderr_callbacks
 
-    def get_callbacks(self):
-        return renpy.config.stderr_callbacks
+    sys.stderr = sys_stderr = StderrRedirector()
 
+else:
 
-sys.stderr = sys_stderr = StderrRedirector()
+    sys_stdout = sys.stdout
+    sys_stderr = sys.stderr
 
 
 def post_init():

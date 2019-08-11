@@ -1,4 +1,4 @@
-﻿# Copyright 2004-2017 Tom Rothamel <pytom@bishoujo.us>
+﻿# Copyright 2004-2018 Tom Rothamel <pytom@bishoujo.us>
 #
 # Permission is hereby granted, free of charge, to any person
 # obtaining a copy of this software and associated documentation files
@@ -445,13 +445,20 @@ init python:
 
 screen _image_location_picker(image_files):
 
+    default filter = ""
+
     frame:
         style_group ""
 
         has side "t c b":
             spacing gui._scale(10)
 
-        label _(u"Image Location Picker")
+        vbox:
+            label _(u"Image Location Picker")
+
+            hbox:
+                text _("Type to filter: ")
+                input value ScreenVariableInputValue("filter")
 
         viewport:
             xfill True
@@ -461,7 +468,7 @@ screen _image_location_picker(image_files):
 
             has vbox
 
-            for fn in image_files:
+            for fn in [ i for i in image_files if filter.lower() in i.lower() ]:
 
                 textbutton "[fn!q]":
                     action Return(fn)
@@ -482,12 +489,19 @@ label _image_location_picker:
 
     python hide:
 
-        image_files = [
-            fn
-            for dir, fn in renpy.loader.listdirfiles()
-            if fn.lower().endswith(".jpg") or fn.lower().endswith(".png")
-            if not fn[0] == "_"
-            ]
+        extensions = [ ".jpg", ".jpeg", ".png", ".webp" ]
+
+        image_files = [ ]
+
+        for fn in renpy.list_files():
+            if fn[0] == "_":
+                continue
+
+            lfn = fn.lower()
+
+            for i in extensions:
+                if fn.endswith(i):
+                    image_files.append(fn)
 
         image_files.sort()
 

@@ -1,4 +1,4 @@
-﻿# Copyright 2004-2017 Tom Rothamel <pytom@bishoujo.us>
+﻿# Copyright 2004-2018 Tom Rothamel <pytom@bishoujo.us>
 #
 # Permission is hereby granted, free of charge, to any person
 # obtaining a copy of this software and associated documentation files
@@ -56,16 +56,20 @@ init -1500:
         frame:
             style_group ""
 
-            has side "t c b":
+            has side "c b":
                 spacing gui._scale(10)
                 xfill True
                 yfill True
 
-            label _("Graphics Acceleration")
-
             fixed:
 
                 vbox:
+
+                    xmaximum 0.48
+
+                    label _("Renderer")
+
+                    null height 10
 
                     textbutton _("Automatically Choose"):
                         action _SetRenderer("auto")
@@ -119,21 +123,78 @@ init -1500:
                         action ui.invokesinnewcontext(_gamepad.calibrate)
                         xfill True
 
+                vbox:
+
+                    xmaximum 0.48
+                    xpos 0.5
+
+                    label _("Powersave")
+
                     null height 10
 
-                    text _("Changes will take effect the next time this program is run.") substitute True
+                    textbutton _("Enable"):
+                        action Preference("gl powersave", True)
+                        style_suffix "radio_button"
 
-            hbox:
-                spacing gui._scale(25)
+                    textbutton _("Auto"):
+                        action Preference("gl powersave", "auto")
+                        style_suffix "radio_button"
 
-                textbutton _(u"Quit"):
-                    action Quit(confirm=False)
-                    yalign 1.0
+                    textbutton _("Disable"):
+                        action Preference("gl powersave", False)
+                        style_suffix "radio_button"
 
-                if not renpy.display.interface.safe_mode:
-                    textbutton _("Return"):
-                        action Return(0)
+                    null height 10
+
+                    label _("Framerate")
+
+                    null height 10
+
+                    textbutton _("Screen"):
+                        action Preference("gl framerate", None)
+                        style_suffix "radio_button"
+
+                    textbutton _("60"):
+                        action Preference("gl framerate", 60)
+                        style_suffix "radio_button"
+
+                    textbutton _("30"):
+                        action Preference("gl framerate", 30)
+                        style_suffix "radio_button"
+
+                    null height 10
+
+                    label _("Tearing")
+
+                    null height 10
+
+                    textbutton _("Enable"):
+                        action Preference("gl tearing", True)
+                        style_suffix "radio_button"
+
+                    textbutton _("Disable"):
+                        action Preference("gl tearing", False)
+                        style_suffix "radio_button"
+
+                    null height 10
+
+            vbox:
+
+                text _("Changes will take effect the next time this program is run.") substitute True
+
+                null height 10
+
+                hbox:
+                    spacing gui._scale(25)
+
+                    textbutton _(u"Quit"):
+                        action Quit(confirm=False)
                         yalign 1.0
+
+                    if not renpy.display.interface.safe_mode:
+                        textbutton _("Return"):
+                            action Return(0)
+                            yalign 1.0
 
 
     # This is displayed when a display performance problem occurs.
@@ -305,7 +366,15 @@ init -1500 python:
 
         import os
 
-        if not _preferences.performance_test and "RENPY_PERFORMANCE_TEST" not in os.environ:
+        performance_test = os.environ.get("RENPY_PERFORMANCE_TEST", None)
+
+        if performance_test is not None:
+            performance_test = int(performance_test)
+
+        if performance_test == 0:
+            return
+
+        if not _preferences.performance_test and not performance_test:
             return
 
         # Don't bother on android or ios - there's nothing the user can do.

@@ -1,4 +1,4 @@
-# Copyright 2004-2017 Tom Rothamel <pytom@bishoujo.us>
+# Copyright 2004-2018 Tom Rothamel <pytom@bishoujo.us>
 #
 # Permission is hereby granted, free of charge, to any person
 # obtaining a copy of this software and associated documentation files
@@ -41,6 +41,8 @@ class Line(object):
     """
 
     def __init__(self, filename, number, start):
+
+        filename = filename.replace("\\", "/")
 
         # The full path to the file with the line in it.
         self.filename = filename
@@ -88,6 +90,8 @@ def get_line_text(filename, linenumber):
     the line does not exist.
     """
 
+    filename = filename.replace("\\", "/")
+
     ensure_loaded(filename)
 
     if (filename, linenumber) in lines:
@@ -109,6 +113,8 @@ def adjust_line_locations(filename, linenumber, char_offset, line_offset):
     `line_offset`
         The number of line in the file to offset the code by.
     """
+
+    filename = filename.replace("\\", "/")
 
     ensure_loaded(filename)
 
@@ -139,6 +145,8 @@ def insert_line_before(code, filename, linenumber):
     indentation as that line.
     """
 
+    filename = filename.replace("\\", "/")
+
     if renpy.config.clear_lines:
         raise Exception("config.clear_lines must be False for script editing to work.")
 
@@ -152,8 +160,13 @@ def insert_line_before(code, filename, linenumber):
     if not code:
         indent = ''
 
+    if old_line.text.endswith("\r\n") or not old_line.text.endswith("\n"):
+        line_ending = "\r\n"
+    else:
+        line_ending = "\n"
+
     raw_code = indent + code
-    code = indent + code + "\r\n"
+    code = indent + code + line_ending
 
     new_line = Line(old_line.filename, old_line.number, old_line.start)
     new_line.text = raw_code
@@ -183,6 +196,8 @@ def remove_line(filename, linenumber):
     Removes `linenumber` from `filename`. The line must exist and correspond
     to a logical line.
     """
+
+    filename = filename.replace("\\", "/")
 
     if renpy.config.clear_lines:
         raise Exception("config.clear_lines must be False for script editing to work.")
@@ -214,6 +229,8 @@ def get_full_text(filename, linenumber):
     any comment or delimiter characters that exist.
     """
 
+    filename = filename.replace("\\", "/")
+
     ensure_loaded(filename)
 
     if (filename, linenumber) not in lines:
@@ -227,6 +244,8 @@ def nodes_on_line(filename, linenumber):
     Returns a list of nodes that are found on the given line.
     """
 
+    ensure_loaded(filename)
+
     rv = [ ]
 
     for i in renpy.game.script.all_stmts:
@@ -234,6 +253,24 @@ def nodes_on_line(filename, linenumber):
             rv.append(i)
 
     return rv
+
+
+def nodes_on_line_at_or_after(filename, linenumber):
+    """
+    Returns a list of nodes that are found at or after the given line.
+    """
+
+    ensure_loaded(filename)
+
+    lines = [ i.linenumber
+              for i in renpy.game.script.all_stmts
+              if (i.filename == filename)
+              if (i.linenumber >= linenumber) ]
+
+    if not lines:
+        return [ ]
+
+    return nodes_on_line(filename, min(lines))
 
 
 def first_and_last_nodes(nodes):
@@ -290,11 +327,11 @@ def adjust_ast_linenumbers(filename, linenumber, offset):
 
 def add_to_ast_before(code, filename, linenumber):
     """
-    Adds `code`, which must be a textual line of Ren'Py code, to the AST
-    immediately before `statement`, which should be an AST node.
+    Adds `code`, which must be a textual line of Ren'Py code,
+    before the given filename and line number.
     """
 
-    nodes = nodes_on_line(filename, linenumber)
+    nodes = nodes_on_line_at_or_after(filename, linenumber)
     old, _ = first_and_last_nodes(nodes)
 
     adjust_ast_linenumbers(old.filename, linenumber, 1)

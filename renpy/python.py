@@ -1,4 +1,4 @@
-# Copyright 2004-2017 Tom Rothamel <pytom@bishoujo.us>
+# Copyright 2004-2018 Tom Rothamel <pytom@bishoujo.us>
 #
 # Permission is hereby granted, free of charge, to any person
 # obtaining a copy of this software and associated documentation files
@@ -83,6 +83,11 @@ def get_store_module(name):
     return sys.modules[name]
 
 
+from renpy.pydict import DictItems, find_changes
+
+EMPTY_DICT = { }
+
+
 class StoreDict(dict):
     """
     This class represents the dictionary of a store module. It logs
@@ -96,7 +101,7 @@ class StoreDict(dict):
 
         # The value of this dictionary at the start of the current
         # rollback period (when begin() was last called).
-        self.old = { }
+        self.old = DictItems(self)
 
         # The set of variables in this StoreDict that changed since the
         # end of the init phase.
@@ -107,16 +112,16 @@ class StoreDict(dict):
         Called to reset this to its initial conditions.
         """
 
-        self.old = { }
         self.ever_been_changed = set()
         self.clear()
+        self.old = DictItems(self)
 
     def begin(self):
         """
         Called to mark the start of a rollback period.
         """
 
-        self.old = dict(self)
+        self.old = DictItems(self)
 
     def get_changes(self):
         """
@@ -127,18 +132,12 @@ class StoreDict(dict):
         As a side-effect, updates self.ever_been_changed.
         """
 
-        rv = { }
+        new = DictItems(self)
+        rv = find_changes(self.old, new, deleted)
+        self.old = new
 
-        for k in self:
-            if k not in self.old:
-                rv[k] = deleted
-
-        for k, v in self.old.iteritems():
-
-            new_v = self.get(k, deleted)
-
-            if new_v is not v:
-                rv[k] = v
+        if rv is None:
+            return EMPTY_DICT
 
         for k in rv:
             self.ever_been_changed.add(k)
@@ -217,10 +216,16 @@ class StoreBackup():
         # The contents of ever_been_changed for each store.
         self.ever_been_changed = { }
 
-        for k, v in store_dicts.iteritems():
-            self.store[k] = dict(v)
-            self.old[k] = dict(v.old)
-            self.ever_been_changed[k] = set(v.ever_been_changed)
+        for k in store_dicts:
+            self.backup_one(k)
+
+    def backup_one(self, name):
+
+        d = store_dicts[name]
+
+        self.store[name] = dict(d)
+        self.old[name] = d.old.as_dict()
+        self.ever_been_changed[name] = set(d.ever_been_changed)
 
     def restore_one(self, name):
         sd = store_dicts[name]
@@ -228,8 +233,7 @@ class StoreBackup():
         sd.clear()
         sd.update(self.store[name])
 
-        sd.old.clear()
-        sd.old.update(self.old[name])
+        sd.old = DictItems(self.old[name])
 
         sd.ever_been_changed.clear()
         sd.ever_been_changed.update(self.ever_been_changed[name])
@@ -252,8 +256,8 @@ def make_clean_stores():
 
     for _k, v in store_dicts.iteritems():
 
-        v.old.clear()
         v.ever_been_changed.clear()
+        v.begin()
 
     clean_store_backup = StoreBackup()
 
@@ -530,7 +534,11 @@ new_compile_flags = (  old_compile_flags
                        )
 
 
-def py_compile(source, mode, filename='<none>', lineno=1, ast_node=False):
+# A cache for the results of py_compile.
+py_compile_cache = { }
+
+
+def py_compile(source, mode, filename='<none>', lineno=1, ast_node=False, cache=True):
     """
     Compiles the given source code using the supplied codegenerator.
     Lists, List Comprehensions, and Dictionaries are wrapped when
@@ -556,12 +564,30 @@ def py_compile(source, mode, filename='<none>', lineno=1, ast_node=False):
         that would be used.
     """
 
+    if ast_node:
+        cache = False
+
     if isinstance(source, ast.Module):
         return compile(source, filename, mode)
 
     if isinstance(source, renpy.ast.PyExpr):
         filename = source.filename
         lineno = source.linenumber
+
+    if cache:
+        key = (lineno, filename, unicode(source), mode, renpy.script.MAGIC)
+
+        rv = py_compile_cache.get(key, None)
+        if rv is not None:
+            return rv
+
+        bytecode = renpy.game.script.bytecode_oldcache.get(key, None)
+        if bytecode is not None:
+
+            renpy.game.script.bytecode_newcache[key] = bytecode
+            rv = marshal.loads(bytecode)
+            py_compile_cache[key] = rv
+            return rv
 
     source = unicode(source)
     source = source.replace("\r", "")
@@ -587,7 +613,14 @@ def py_compile(source, mode, filename='<none>', lineno=1, ast_node=False):
         if ast_node:
             return tree.body
 
-        return compile(tree, filename, mode, flags, 1)
+        rv = compile(tree, filename, mode, flags, 1)
+
+        if cache:
+            py_compile_cache[key] = rv
+            renpy.game.script.bytecode_newcache[key] = marshal.dumps(rv)
+            renpy.game.script.bytecode_dirty = True
+
+        return rv
 
     except SyntaxError, e:
 
@@ -598,13 +631,13 @@ def py_compile(source, mode, filename='<none>', lineno=1, ast_node=False):
 
 
 def py_compile_exec_bytecode(source, **kwargs):
-    code = py_compile(source, 'exec', **kwargs)
+    code = py_compile(source, 'exec', cache=False, **kwargs)
     return marshal.dumps(code)
 
 
 def py_compile_eval_bytecode(source, **kwargs):
     source = source.strip()
-    code = py_compile(source, 'eval', **kwargs)
+    code = py_compile(source, 'eval', cache=False, **kwargs)
     return marshal.dumps(code)
 
 
@@ -690,10 +723,10 @@ class CompressedList(object):
             old_end += 1
 
         # Now that we have this, we can put together the object.
-        self.pre = old[0:old_start]
+        self.pre = list.__getslice__(old, 0, old_start)
         self.start = new_start
         self.end = new_end
-        self.post = old[old_end:]
+        self.post = list.__getslice__(old, old_end, len_old)
 
     def decompress(self, new):
         return self.pre + new[self.start:self.end] + self.post
@@ -1045,6 +1078,7 @@ class Rollback(renpy.object.Object):
         super(Rollback, self).__init__()
 
         self.context = renpy.game.context().rollback_copy()
+
         self.objects = [ ]
         self.purged = False
         self.random = [ ]
@@ -1128,8 +1162,7 @@ class Rollback(renpy.object.Object):
                 reached(rb, reachable, wait)
             else:
                 if renpy.config.debug:
-                    print(("Removing unreachable:", o))
-
+                    print("Removing unreachable:", o, file=renpy.log.real_stdout)
                     pass
 
         self.objects = new_objects
@@ -1220,6 +1253,10 @@ class RollbackLog(renpy.object.Object):
         # on load.
         self.retain_after_load_flag = False
 
+        # Has there been an interaction since the last time this log was
+        # reset?
+        self.did_interaction = True
+
     def after_setstate(self):
         self.mutated = { }
         self.rolled_forward = False
@@ -1246,7 +1283,7 @@ class RollbackLog(renpy.object.Object):
 
                 self.rollback_limit = nrbl
 
-    def begin(self):
+    def begin(self, force=False):
         """
         Called before a node begins executing, to indicate that the
         state needs to be saved for rollbacking.
@@ -1259,11 +1296,18 @@ class RollbackLog(renpy.object.Object):
         if not context.rollback:
             return
 
-        # If the transient scene list is not empty, then we do
-        # not begin a new rollback, as the TSL will be purged
-        # after a rollback is complete.
-        if not context.scene_lists.transient_is_empty():
+        # We only begin a checkpoint if the previous statement reached a checkpoint,
+        # or an interaction took place. (Or we're forced.)
+        if (not force) and (self.current and not self.current.checkpoint) and (not self.did_interaction):
             return
+
+        self.did_interaction = False
+
+        if self.current is not None:
+            self.complete()
+        else:
+            for sd in store_dicts.itervalues():
+                sd.begin()
 
         # If the log is too long, prune it.
         if len(self.log) > renpy.config.rollback_length:
@@ -1293,10 +1337,6 @@ class RollbackLog(renpy.object.Object):
         mutate_flag = True
 
         self.rolled_forward = False
-
-        # Reset the point that changes are relative to.
-        for sd in store_dicts.itervalues():
-            sd.begin()
 
     def complete(self):
         """
@@ -1450,7 +1490,7 @@ class RollbackLog(renpy.object.Object):
                 if (self.current.context.current == fwd_name
                         and data == fwd_data
                         and (keep_rollback or self.rolled_forward)
-                        ):
+                    ):
                     self.forward.pop(0)
                 else:
                     self.forward = [ ]
@@ -1791,6 +1831,7 @@ def py_eval_bytecode(bytecode, globals=None, locals=None):  # @ReservedAssignmen
 def py_eval(code, globals=None, locals=None):  # @ReservedAssignment
     if isinstance(code, basestring):
         code = py_compile(code, 'eval')
+
     return py_eval_bytecode(code, globals, locals)
 
 
@@ -1841,7 +1882,22 @@ def method_pickle(method):
 def method_unpickle(obj, name):
     return getattr(obj, name)
 
+# Code for pickling modules.
+
+
+def module_pickle(module):
+    if renpy.config.developer:
+        raise Exception("Could not pickle {!r}.".format(module))
+
+    return module_unpickle, (module.__name__,)
+
+
+def module_unpickle(name):
+    return __import__(name)
+
 
 import copy_reg
 import types
-copy_reg.pickle(types.MethodType, method_pickle, method_unpickle)
+
+copy_reg.pickle(types.MethodType, method_pickle)
+copy_reg.pickle(types.ModuleType, module_pickle)
