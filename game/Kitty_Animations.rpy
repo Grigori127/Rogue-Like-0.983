@@ -623,11 +623,11 @@ image Kitty_Head:
             ),     
         (0,0), "Kitty Blink",
         (0,0), ConditionSwitch(
-            "K_Water", "images/KittySprite/Kitty_Sprite_Hair_Wet.png",
-            "K_Hair == 'evo'", "images/KittySprite/Kitty_Sprite_Hair_Evo.png",
-            "K_Hair == 'long'", "images/KittySprite/Kitty_Sprite_Hair_Long.png",
-            "K_Hair == 'wet'", "images/KittySprite/Kitty_Sprite_Hair_Wet.png",
-            "True", "images/KittySprite/Kitty_Sprite_Hair_Evo.png",
+            "K_Water", "images/KittySprite/Kitty_Sprite_Hair" + GetHairColor(K_HairColor) + "_Wet.png",
+            "K_Hair == 'evo'", "images/KittySprite/Kitty_Sprite_Hair" + GetHairColor(K_HairColor) + "_Evo.png",
+            "K_Hair == 'long'", "images/KittySprite/Kitty_Sprite_Hair" + GetHairColor(K_HairColor) + "_Long.png",
+            "K_Hair == 'wet'", "images/KittySprite/Kitty_Sprite_Hair" + GetHairColor(K_HairColor) + "_Wet.png",
+            "True", "images/KittySprite/Kitty_Sprite_Hair" + GetHairColor(K_HairColor) + "_Evo.png",
             ),     
         (0,0), ConditionSwitch(
             "K_Water", "images/KittySprite/Kitty_Sprite_Wet_Head.png",
@@ -647,8 +647,8 @@ image Kitty_HairBack:
     LiveComposite(
         (416,610),    
         (0,0), ConditionSwitch(
-            "K_Water or K_Hair == 'wet'", "images/KittySprite/Kitty_Sprite_Hair_Wet_Back.png",
-            "K_Hair == 'long'", "images/KittySprite/Kitty_Sprite_Hair_Long_Back.png",
+            "K_Water or K_Hair == 'wet'", "images/KittySprite/Kitty_Sprite_Hair" + GetHairColor(K_HairColor) + "_Wet_Back.png",
+            "K_Hair == 'long'", "images/KittySprite/Kitty_Sprite_Hair" + GetHairColor(K_HairColor) + "_Long_Back.png",
             "True", Null(),
             ),    
         )
@@ -2044,8 +2044,8 @@ image Kitty_BJ_Animation:#BJ_NewTest:                                           
 image Kitty_BJ_HairBack:
     #Hair underlay
     ConditionSwitch(                                                                            
-            "K_Water and K_Hair == 'evo'", "images/KittyBJFace/Kitty_BJ_HairBackWet.png",
-            "K_Hair == 'long'", "images/KittyBJFace/Kitty_BJ_HairBackWet.png",            
+            "K_Water and K_Hair == 'evo'", "images/KittyBJFace/Kitty_BJ_Hair" + GetHairColor(K_HairColor) + "BackWet.png",
+            "K_Hair == 'long'", "images/KittyBJFace/Kitty_BJ_Hair" + GetHairColor(K_HairColor) + "BackWet.png",            
             "True", Null(),
             ),
     zoom 1.4
@@ -2139,7 +2139,7 @@ image Kitty_BJ_Head:                                                            
         (858,928), 
         (0,0), ConditionSwitch(                                                                 
             #Hair back
-            "K_Water or K_Hair == 'wet'", "images/KittyBJFace/Kitty_BJ_HairBackWet.png", #AlphaMask("images/KittyBJFace/Kitty_BJ_HairBackWet.png", "Kitty_BJ_Backdrop"),
+            "K_Water or K_Hair == 'wet'", "images/KittyBJFace/Kitty_BJ_Hair" + GetHairColor(K_HairColor) + "BackWet.png", #AlphaMask("images/KittyBJFace/Kitty_BJ_HairBackWet.png", "Kitty_BJ_Backdrop"),
             "True", Null(),
             ),   
 #        (0,0), ConditionSwitch(       #Legacy, the bellow version should do the same role                                                          
@@ -2269,9 +2269,9 @@ image Kitty_BJ_Head:                                                            
             ),
         (0,0), ConditionSwitch(                                                                 
             #Hair overlay
-            "K_Water or K_Hair == 'wet'", "images/KittyBJFace/Kitty_BJ_Hair_Wet.png",
-            "K_Hair == 'long'", "images/KittyBJFace/Kitty_BJ_Hair_Long.png",
-            "K_Hair == 'evo'", "images/KittyBJFace/Kitty_BJ_Hair_Evo.png",
+            "K_Water or K_Hair == 'wet'", "images/KittyBJFace/Kitty_BJ_Hair" + GetHairColor(K_HairColor) + "_Wet.png",
+            "K_Hair == 'long'", "images/KittyBJFace/Kitty_BJ_Hair" + GetHairColor(K_HairColor) + "_Long.png",
+            "K_Hair == 'evo'", "images/KittyBJFace/Kitty_BJ_Hair" + GetHairColor(K_HairColor) + "_Evo.png",
             "True", Null(),
             ),
         (0,0), ConditionSwitch(                                                                 

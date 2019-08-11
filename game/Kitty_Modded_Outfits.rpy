@@ -9,8 +9,8 @@ label Kitty_Modded_Clothes_Menu:
                     jump Kitty_Modded_Clothes_Legs
         "Let's talk about your underwear.":
                     jump Kitty_Modded_Clothes_Under
-        # "Let's talk about the other stuff.":
-        #             jump Kitty_Modded_Clothes_Misc
+        "Let's talk about the other stuff.":
+                    jump Kitty_Modded_Clothes_Misc
         "Save as main menu background clothes.":
                 "This option will save this Kitty at the main menu background, are you sure?"
                 menu:
@@ -535,266 +535,181 @@ label Kitty_Modded_Clothes_Menu:
        
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<  
         
-    # menu Kitty_Modded_Clothes_Misc:
-    #     "Let's talk about your hair":
-    #         menu Kitty_Modded_Clothes_Misc_Hair:                                                                                                                    #Misc
+    menu Kitty_Modded_Clothes_Misc:
+        "Let's talk about your hair":
+            menu Kitty_Modded_Clothes_Misc_Hair:                                                                                                                    #Misc
         
-    #             "You look good with your hair up." if K_Hair != "evo":
-    #                 if ApprovalCheck("Kitty", 600):
-    #                     ch_k "Like this?"
-    #                     $ K_Hair = "evo"
-    #                 else:
-    #                     ch_k "Yeah, I know that."
-    #                 jump Kitty_Modded_Clothes_Misc_Hair
+                "You look good with your hair up." if K_Hair != "evo":
+                    if ApprovalCheck("Kitty", 600):
+                        ch_k "Like this?"
+                        $ K_Hair = "evo"
+                    else:
+                        ch_k "Yeah, I know that."
+                    jump Kitty_Modded_Clothes_Misc_Hair
 
-    #             "Maybe let your hair down." if K_Hair != "long":
-    #                 if ApprovalCheck("Kitty", 600):
-    #                     ch_k "You think?"
-    #                     $ K_Hair = "long"
-    #                 else:
-    #                     ch_k "I[K_like]kinda prefer to keep it up."
-    #                 jump Kitty_Modded_Clothes_Misc_Hair
+                "Maybe let your hair down." if K_Hair != "long":
+                    if ApprovalCheck("Kitty", 600):
+                        ch_k "You think?"
+                        $ K_Hair = "long"
+                    else:
+                        ch_k "I[K_like]kinda prefer to keep it up."
+                    jump Kitty_Modded_Clothes_Misc_Hair
 
-    #             "You should go for that wet look with your hair." if K_Hair != "wet":
-    #                 if ApprovalCheck("Kitty", 800):
-    #                     ch_k "You think so?"
-    #                     "She rummages in her bag and grabs some gel, running it through her hair."
-    #                     ch_k "Like this?"
-    #                     $ K_Hair = "wet"
-    #                 else:
-    #                     ch_k "It's too high maintenance."
-    #                 jump Kitty_Modded_Clothes_Misc_Hair
+                "You should go for that wet look with your hair." if K_Hair != "wet":
+                    if ApprovalCheck("Kitty", 800):
+                        ch_k "You think so?"
+                        "She rummages in her bag and grabs some gel, running it through her hair."
+                        ch_k "Like this?"
+                        $ K_Hair = "wet"
+                    else:
+                        ch_k "It's too high maintenance."
+                    jump Kitty_Modded_Clothes_Misc_Hair
 
-    #             "Dye your hair black." if K_HairColor != "black":
-    #                 if ApprovalCheck("Kitty", 800):
-    #                     ch_k "You think so?"
-    #                     #"She rummages in her bag and grabs some gel, running it through her hair."
-    #                     ch_k "Like this?"
-    #                     $ K_HairColor = "black"
-    #                 else:
-    #                     ch_k "It's too high maintenance."
-    #                 jump Kitty_Modded_Clothes_Misc_Hair
+                "Dye your hair black." if K_HairColor != "black":
+                    if ApprovalCheck("Kitty", 800):
+                        ch_k "You think so?"
+                        #"She rummages in her bag and grabs some gel, running it through her hair."
+                        ch_k "Like this?"
+                        call SetHairColorKitty("black")
+                    else:
+                        ch_k "It's too high maintenance."
+                    jump Kitty_Modded_Clothes_Misc_Hair
 
-    #             "Dye your hair blonde." if K_HairColor != "blonde":
-    #                 if ApprovalCheck("Kitty", 800):
-    #                     ch_k "You think so?"
-    #                     #"She rummages in her bag and grabs some gel, running it through her hair."
-    #                     ch_k "Like this?"
-    #                     $ K_HairColor = "blonde"
-    #                 else:
-    #                     ch_k "It's too high maintenance."
-    #                 jump Kitty_Modded_Clothes_Misc_Hair
+                "Dye your hair blonde." if K_HairColor != "blonde":
+                    if ApprovalCheck("Kitty", 800):
+                        ch_k "You think so?"
+                        #"She rummages in her bag and grabs some gel, running it through her hair."
+                        ch_k "Like this?"
+                        call SetHairColorKitty("blonde")
+                    else:
+                        ch_k "It's too high maintenance."
+                    jump Kitty_Modded_Clothes_Misc_Hair
 
-    #             "Dye your hair red." if K_HairColor != "red":
-    #                 if ApprovalCheck("Kitty", 800):
-    #                     ch_k "You think so?"
-    #                     #"She rummages in her bag and grabs some gel, running it through her hair."
-    #                     ch_k "Like this?"
-    #                     $ K_HairColor = "red"
-    #                 else:
-    #                     ch_k "It's too high maintenance."
-    #                 jump Kitty_Modded_Clothes_Misc_Hair
+                "Dye your hair red." if K_HairColor != "red":
+                    if ApprovalCheck("Kitty", 800):
+                        ch_k "You think so?"
+                        #"She rummages in her bag and grabs some gel, running it through her hair."
+                        ch_k "Like this?"
+                        call SetHairColorKitty("red")
+                    else:
+                        ch_k "It's too high maintenance."
+                    jump Kitty_Modded_Clothes_Misc_Hair
 
-    #             "Change the color of you hair back." if K_HairColor == "black" or K_HairColor == "blonde" or K_HairColor == "red":    
-    #                 if ApprovalCheck("Kitty", 800):
-    #                     ch_k "You think so?"
-    #                     #"She rummages in her bag and grabs some gel, running it through her hair."
-    #                     ch_k "Like this?"
-    #                     $ K_HairColor = 0
-    #                 else:
-    #                     ch_k "It's too high maintenance."
-    #                 jump Kitty_Modded_Clothes_Misc_Hair
+                "Change the color of you hair back." if K_HairColor == "black" or K_HairColor == "blonde" or K_HairColor == "red":    
+                    if ApprovalCheck("Kitty", 800):
+                        ch_k "You think so?"
+                        #"She rummages in her bag and grabs some gel, running it through her hair."
+                        ch_k "Like this?"
+                        call SetHairColorKitty("")
+                    else:
+                        ch_k "It's too high maintenance."
+                    jump Kitty_Modded_Clothes_Misc_Hair
 
-    #             "Go back":
-    #                 jump Kitty_Modded_Clothes_Misc
+                "Go back":
+                    jump Kitty_Modded_Clothes_Misc
 
-    #     "Let's talk about your headband":
-    #         menu Kitty_Modded_Clothes_Misc_Headband:                                                                                                                    #Misc
+        "You know, I like some nice hair down there. Maybe grow it out." if not K_Pubes and "pubes" in K_Todo:
+            call KittyFace("bemused", 1) 
+            ch_k "[[snort] You've got to give it some time!"
+        "You know, I like some nice hair down there. Maybe grow it out." if not K_Pubes and "pubes" not in K_Todo:
+            call KittyFace("bemused", 1) 
+            $ Approval = ApprovalCheck("Kitty", 1150, TabM=0)
+            if ApprovalCheck("Kitty", 850, "L", TabM=0) or (Approval and K_Love > 2 * K_Obed):               
+                ch_k "I guess I could. . ."
+            elif ApprovalCheck("Kitty", 500, "I", TabM=0) or (Approval and K_Inbt > K_Obed):
+                ch_k "You want a furry kitty to pet?"
+            elif ApprovalCheck("Kitty", 400, "O", TabM=0) or Approval:
+                ch_k "If you want me to. . ."
+            else: 
+                call KittyFace("surprised") 
+                $ K_Brows = "angry"
+                ch_k "Not that it's any of your business, [K_Petname]."
+                jump Kitty_Modded_Clothes_Menu
+            $ K_Todo.append("pubes")
+            $ K_PubeC = 6
         
-    #             "You look good with the black kitty headband." if K_Headband != "black":
-    #                 if ApprovalCheck("Kitty", 600):
-    #                     ch_k "Like this?"
-    #                     $ K_Headband = "black"
-    #                 else:
-    #                     ch_k "Yeah, I know that."
-    #                 jump Kitty_Modded_Clothes_Misc_Headband
-
-    #             "You look good with  the pink kitty headband." if K_Headband != "pink":
-    #                 if ApprovalCheck("Kitty", 600):
-    #                     ch_k "Like this?"
-    #                     $ K_Headband = "pink"
-    #                 else:
-    #                     ch_k "Yeah, I know that."
-    #                 jump Kitty_Modded_Clothes_Misc_Headband
-
-    #             "You look good without the headband." if K_Headband == "black" or K_Headband == "pink":
-    #                 if ApprovalCheck("Kitty", 600):
-    #                     ch_k "Like this?"
-    #                     $ K_Headband = 0
-    #                 else:
-    #                     ch_k "Yeah, I know that."
-    #                 jump Kitty_Modded_Clothes_Misc_Headband
-
-    #             "Go back":
-    #                 jump Kitty_Modded_Clothes_Misc
-
-    #     "Let's talk about your tan":
-    #         menu Kitty_Modded_Clothes_Misc_Tan:
-
-    #             "I like the first tan style" if K_Tan != 'tan':
-    #                 if ApprovalCheck("Kitty", 600):
-    #                     ch_k "Like this?"
-    #                     $ K_Tan = "tan"
-    #                     $ K_DynamicTan[0] = 0
-    #                 else:
-    #                     ch_k "Yeah, I know that."
-    #                 jump Kitty_Modded_Clothes_Misc_Tan
-    
-    #             "I like the second tan style" if K_Tan != 'tan2':
-    #                 if ApprovalCheck("Kitty", 600):
-    #                     ch_k "Like this?"
-    #                     $ K_Tan = "tan2"
-    #                     $ K_DynamicTan[0] = 0
-    #                 else:
-    #                     ch_k "Yeah, I know that."
-    #                 jump Kitty_Modded_Clothes_Misc_Tan
-
-    #             "I like the third tan style" if K_Tan != 'tan3':
-    #                 if ApprovalCheck("Kitty", 600):
-    #                     ch_k "Like this?"
-    #                     $ K_Tan = "tan3"
-    #                     $ K_DynamicTan[0] = 0
-    #                 else:
-    #                     ch_k "Yeah, I know that."
-    #                 jump Kitty_Modded_Clothes_Misc_Tan
-
-    #             "I like the fourth special tan style":
-    #                 if ApprovalCheck("Kitty", 600):
-    #                     "This tan style will tan her according to her clothes, you won't be able to see it unless you remove her clothes after it"
-    #                     ch_k "Like this?"
-    #                     $ K_Tan = "tan3"
-    #                     $ K_DynamicTan[0] = 1
-    #                     $ K_DynamicTan[2] = K_Legs
-    #                     $ K_DynamicTan[3] = K_Chest
-    #                     $ K_DynamicTan[4] = K_Panties
-    #                 else:
-    #                     ch_k "Yeah, I know that."
-    #                 jump Kitty_Modded_Clothes_Misc_Tan
-        
-    #             "I prefer without the tan" if K_Tan != 0:
-    #                 if ApprovalCheck("Kitty", 600):
-    #                     ch_k "Like this?"
-    #                     $ K_Tan = 0
-    #                     $ K_DynamicTan[0] = 0
-    #                 else:
-    #                     ch_k "Yeah, I know that."
-    #                 jump Kitty_Modded_Clothes_Misc_Tan
-    
-    #             "Never mind":
-    #                 jump Kitty_Modded_Clothes_Misc
-        
-    #     "You know, I like some nice hair down there. Maybe grow it out." if not K_Pubes and "pubes" in K_Todo:
-    #         call KittyFace("bemused", 1) 
-    #         ch_k "[[snort] You've got to give it some time!"
-    #     "You know, I like some nice hair down there. Maybe grow it out." if not K_Pubes and "pubes" not in K_Todo:
-    #         call KittyFace("bemused", 1) 
-    #         $ Approval = ApprovalCheck("Kitty", 1150, TabM=0)
-    #         if ApprovalCheck("Kitty", 850, "L", TabM=0) or (Approval and K_Love > 2 * K_Obed):               
-    #             ch_k "I guess I could. . ."
-    #         elif ApprovalCheck("Kitty", 500, "I", TabM=0) or (Approval and K_Inbt > K_Obed):
-    #             ch_k "You want a furry kitty to pet?"
-    #         elif ApprovalCheck("Kitty", 400, "O", TabM=0) or Approval:
-    #             ch_k "If you want me to. . ."
-    #         else: 
-    #             call KittyFace("surprised") 
-    #             $ K_Brows = "angry"
-    #             ch_k "Not that it's any of your business, [K_Petname]."
-    #             jump Kitty_Modded_Clothes_Menu
-    #         $ K_Todo.append("pubes")
-    #         $ K_PubeC = 6
-        
-    #     "I like it waxed clean down there." if K_Pubes == 1:
-    #         call KittyFace("bemused", 1) 
-    #         if "shave" in K_Todo:
-    #             ch_k "I know, I know. I'll take care of it later."
-    #         else:
-    #             $ Approval = ApprovalCheck("Kitty", 1150, TabM=0)
+        "I like it waxed clean down there." if K_Pubes == 1:
+            call KittyFace("bemused", 1) 
+            if "shave" in K_Todo:
+                ch_k "I know, I know. I'll take care of it later."
+            else:
+                $ Approval = ApprovalCheck("Kitty", 1150, TabM=0)
                 
-    #             if ApprovalCheck("Kitty", 850, "L", TabM=0) or (Approval and K_Love > 2 * K_Obed):               
-    #                 ch_k "I guess I could tidy up a bit. . ."
-    #             elif ApprovalCheck("Kitty", 500, "I", TabM=0) or (Approval and K_Inbt > K_Obed):
-    #                 ch_k "I'll keep it smooth."
-    #             elif ApprovalCheck("Kitty", 400, "O", TabM=0) or Approval:
-    #                 ch_k "I'll get it done."
-    #             else: 
-    #                 call KittyFace("surprised") 
-    #                 $ K_Brows = "angry"
-    #                 ch_k "Not that it's any of your business, [K_Petname]."
-    #                 jump Kitty_Modded_Clothes_Menu
-    #             $ K_Todo.append("shave")        
-    #     "Piercings. [[See what she looks like without them first] (locked)" if not K_SeenPussy and not K_SeenChest:
-    #         pass
+                if ApprovalCheck("Kitty", 850, "L", TabM=0) or (Approval and K_Love > 2 * K_Obed):               
+                    ch_k "I guess I could tidy up a bit. . ."
+                elif ApprovalCheck("Kitty", 500, "I", TabM=0) or (Approval and K_Inbt > K_Obed):
+                    ch_k "I'll keep it smooth."
+                elif ApprovalCheck("Kitty", 400, "O", TabM=0) or Approval:
+                    ch_k "I'll get it done."
+                else: 
+                    call KittyFace("surprised") 
+                    $ K_Brows = "angry"
+                    ch_k "Not that it's any of your business, [K_Petname]."
+                    jump Kitty_Modded_Clothes_Menu
+                $ K_Todo.append("shave")        
+        "Piercings. [[See what she looks like without them first] (locked)" if not K_SeenPussy and not K_SeenChest:
+            pass
             
-    #     "You know, you'd look really nice with some ring body piercings." if K_Pierce != "ring" and (K_SeenPussy or K_SeenChest) and "ring" not in K_Todo:
-    #         call KittyFace("bemused", 1) 
-    #         $ Approval = ApprovalCheck("Kitty", 1350, TabM=0)
-    #         if ApprovalCheck("Kitty", 900, "L", TabM=0) or (Approval and K_Love > 2* K_Obed):   
-    #             ch_k "If you think they'd look good on me. . ."
-    #         elif ApprovalCheck("Kitty", 600, "I", TabM=0) or (Approval and K_Inbt > K_Obed):
-    #             ch_k "I think they'd look great too!"
-    #         elif ApprovalCheck("Kitty", 500, "O", TabM=0) or Approval:
-    #             ch_k "K, I'll take care of it."
-    #         else: 
-    #             call KittyFace("surprised") 
-    #             $ K_Brows = "angry"
-    #             ch_k "Not that it's any of your business, [K_Petname]."
-    #             jump Kitty_Modded_Clothes_Menu            
-    #         $ K_Todo.append("ring")
+        "You know, you'd look really nice with some ring body piercings." if K_Pierce != "ring" and (K_SeenPussy or K_SeenChest) and "ring" not in K_Todo:
+            call KittyFace("bemused", 1) 
+            $ Approval = ApprovalCheck("Kitty", 1350, TabM=0)
+            if ApprovalCheck("Kitty", 900, "L", TabM=0) or (Approval and K_Love > 2* K_Obed):   
+                ch_k "If you think they'd look good on me. . ."
+            elif ApprovalCheck("Kitty", 600, "I", TabM=0) or (Approval and K_Inbt > K_Obed):
+                ch_k "I think they'd look great too!"
+            elif ApprovalCheck("Kitty", 500, "O", TabM=0) or Approval:
+                ch_k "K, I'll take care of it."
+            else: 
+                call KittyFace("surprised") 
+                $ K_Brows = "angry"
+                ch_k "Not that it's any of your business, [K_Petname]."
+                jump Kitty_Modded_Clothes_Menu            
+            $ K_Todo.append("ring")
         
-    #     "You know, you'd look really nice with some barbell body piercings." if K_Pierce != "barbell" and (K_SeenPussy or K_SeenChest)and "barbell" not in K_Todo:
-    #         call KittyFace("bemused", 1) 
-    #         $ Approval = ApprovalCheck("Kitty", 1350, TabM=0)
-    #         if ApprovalCheck("Kitty", 900, "L", TabM=0) or (Approval and K_Love > 2 * K_Obed): 
-    #             ch_k "If you think they'd look good on me. . ."
-    #         elif ApprovalCheck("Kitty", 600, "I", TabM=0) or (Approval and K_Inbt > K_Obed):
-    #             ch_k "I think they'd look great too!"
-    #         elif ApprovalCheck("Kitty", 500, "O", TabM=0) or Approval:
-    #             ch_k "K, I'll take care of it."
-    #         else: 
-    #             call KittyFace("surprised") 
-    #             $ K_Brows = "angry"
-    #             ch_k "Not that it's any of your business, [K_Petname]."
-    #             jump Kitty_Modded_Clothes_Menu                
-    #         $ K_Todo.append("barbell")
-    #         $ K_Pierce = "barbell"
+        "You know, you'd look really nice with some barbell body piercings." if K_Pierce != "barbell" and (K_SeenPussy or K_SeenChest)and "barbell" not in K_Todo:
+            call KittyFace("bemused", 1) 
+            $ Approval = ApprovalCheck("Kitty", 1350, TabM=0)
+            if ApprovalCheck("Kitty", 900, "L", TabM=0) or (Approval and K_Love > 2 * K_Obed): 
+                ch_k "If you think they'd look good on me. . ."
+            elif ApprovalCheck("Kitty", 600, "I", TabM=0) or (Approval and K_Inbt > K_Obed):
+                ch_k "I think they'd look great too!"
+            elif ApprovalCheck("Kitty", 500, "O", TabM=0) or Approval:
+                ch_k "K, I'll take care of it."
+            else: 
+                call KittyFace("surprised") 
+                $ K_Brows = "angry"
+                ch_k "Not that it's any of your business, [K_Petname]."
+                jump Kitty_Modded_Clothes_Menu                
+            $ K_Todo.append("barbell")
+            $ K_Pierce = "barbell"
             
-    #     "You know, you'd look better without those piercings." if K_Pierce:
-    #         call KittyFace("bemused", 1) 
-    #         $ Approval = ApprovalCheck("Kitty", 1350, TabM=0)
-    #         if ApprovalCheck("Kitty", 950, "L", TabM=0) or (Approval and K_Love > K_Obed):   
-    #             ch_k "I guess if they're getting in the way . ."
-    #         elif ApprovalCheck("Kitty", 700, "I", TabM=0) or (Approval and K_Inbt > K_Obed):
-    #             ch_k "They were getting a little annoying."
-    #         elif ApprovalCheck("Kitty", 600, "O", TabM=0) or Approval:
-    #             ch_k "I'll take them out then."
-    #         else: 
-    #             call KittyFace("surprised") 
-    #             $ K_Brows = "angry"
-    #             ch_k "Well {i}I{/i} kinda like'em."
-    #             jump Kitty_Modded_Clothes            
-    #         $ K_Pierce = 0 
-    #     "Why don't you try on that gold necklace." if K_Neck != "gold necklace":
-    #         ch_k "Ok. . ."         
-    #         $ K_Neck = "gold necklace"
-    #     "Why don't you try on that star necklace." if K_Neck != "star necklace":
-    #         ch_k "Ok. . ."         
-    #         $ K_Neck = "star necklace"
+        "You know, you'd look better without those piercings." if K_Pierce:
+            call KittyFace("bemused", 1) 
+            $ Approval = ApprovalCheck("Kitty", 1350, TabM=0)
+            if ApprovalCheck("Kitty", 950, "L", TabM=0) or (Approval and K_Love > K_Obed):   
+                ch_k "I guess if they're getting in the way . ."
+            elif ApprovalCheck("Kitty", 700, "I", TabM=0) or (Approval and K_Inbt > K_Obed):
+                ch_k "They were getting a little annoying."
+            elif ApprovalCheck("Kitty", 600, "O", TabM=0) or Approval:
+                ch_k "I'll take them out then."
+            else: 
+                call KittyFace("surprised") 
+                $ K_Brows = "angry"
+                ch_k "Well {i}I{/i} kinda like'em."
+                jump Kitty_Modded_Clothes            
+            $ K_Pierce = 0 
+        "Why don't you try on that gold necklace." if K_Neck != "gold necklace":
+            ch_k "Ok. . ."         
+            $ K_Neck = "gold necklace"
+        "Why don't you try on that star necklace." if K_Neck != "star necklace":
+            ch_k "Ok. . ."         
+            $ K_Neck = "star necklace"
     #     "Why don't you try on that scarf." if K_Neck != "scarf":
     #         ch_k "Ok. . ."         
     #         $ K_Neck = "scarf"
-    #     "Maybe go without a necklace." if K_Neck and K_Neck != "scarf":
-    #         ch_k "Ok. . ."         
-    #         $ K_Neck = 0
+        "Maybe go without a necklace." if K_Neck and K_Neck != "scarf":
+            ch_k "Ok. . ."         
+            $ K_Neck = 0
     #     "Maybe go without the scarf." if (K_Neck and K_Neck == "scarf"):
     #         ch_k "Ok. . ."         
     #         $ K_Neck = 0
@@ -806,10 +721,10 @@ label Kitty_Modded_Clothes_Menu:
     #         ch_k "Ok. . ."         
     #         $ K_Gloves = 0
             
-    #     "Never mind":
-    #         pass         
-    # jump Kitty_Modded_Clothes
-    # #End of Kitty Misc Wardrobe
+        "Never mind":
+            pass         
+    jump Kitty_Modded_Clothes_Menu
+    #End of Kitty Misc Wardrobe
     
 return
 #End Kitty Wardrobe
@@ -836,6 +751,11 @@ label SetPantiesKitty(Outfit = "modded black large panties"):
 
 label SetHoseKitty(Outfit = "modded fishnet"):
     $ K_Hose = Outfit
+    call Mod_Update_Kitty_Image
+    return
+
+label SetHairColorKitty(Outfit = ""):
+    $ K_HairColor = Outfit
     call Mod_Update_Kitty_Image
     return
 
@@ -1055,6 +975,12 @@ init python:
         else:
             string = Null()
         return string
+
+    def GetHairColor(HairColor = 0):
+        if HairColor == 0:
+            return ""
+        else:
+            return HairColor
 
 
 #End Rogue Wardrobe

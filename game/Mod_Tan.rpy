@@ -12,4 +12,17 @@
         hide blackscreen onlayer black
         ch_k "I look amazing, don't I"
 
+    elif Girl == "Rogue":
+        ch_r "Let's get tanned"
+        #R_DynamicTan = [0,0,0,0,0,0,0,0]  #controller, over, legs, chest, panties, gloves? choker?, extra
+        $ R_DynamicTan[0] = time #in days
+        $ R_DynamicTan[1] = R_Over
+        $ R_DynamicTan[2] = R_Legs
+        $ R_DynamicTan[3] = R_Chest
+        $ R_DynamicTan[4] = R_Panties
+        call Wait(0,0)
+        "Rogue sunbathes for a while"
+        hide blackscreen onlayer black
+        ch_r "I look amazing, don't I"
+
     return

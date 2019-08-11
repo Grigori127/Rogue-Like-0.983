@@ -2,12 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/Kitty_Chat.rpy", line 3634: expected 'simple_expression' not found.
-    show Kitty_Sprite at zorder KittyLayer
-                         ^
-
-File "game/Kitty_Chat.rpy", line 3735: expected 'simple_expression' not found.
-    show Kitty_Sprite at zorder KittyLayer
-                         ^
+File "game/Mod_Variables.rpy", line 1176: invalid syntax
+        im.matrix.desaturate() * im.matrix.tint(0.9, 0.9, 1.0))
+          ^
 
 Ren'Py Version: Ren'Py 6.99.13.2919

@@ -1415,5 +1415,89 @@ init python:
             string = Null()
         return string
 
+    def GetModdedStringTanRogue(first = "3", second = ".png", third = "Sprite"):
+        first_ = int(first)
+        # if third == "Sprite":
+        #     third_ = ""
+        # else:
+        #     third_ = third
+        if R_DynamicTan[first_]:
+            if first_ == 3: #chest
+                if "modded" in R_DynamicTan[first_] or third == "Sex":
+                    string = "images/Rogue" + str(third) + "/Rogue_" + str(third) + "_Chest_" + str(R_DynamicTan[first_]) + second
+                    if not renpy.loadable(string):
+                        string = "images/Rogue" + str(third) + "/Rogue_" + str(third) + "_Chest_" + str(R_DynamicTan[first_]) + ".png"
+                        if not renpy.loadable(string):
+                            string = Null()
+                
+                else:
+                    string = "images/Rogue" + str(third) + "/RogueTan/Rogue_" + str(third) + "_Chest_tan " + str(R_DynamicTan[first_]) + second
+                    if not renpy.loadable(string):
+                        string = "images/Rogue" + str(third) + "/Rogue_" + str(third) + "_Chest_" + str(R_DynamicTan[first_]) + ".png"
+                        if not renpy.loadable(string):
+                            string = Null()
+
+            elif first_ == 1: #over
+                if "modded" in R_DynamicTan[first_] or third == "Sex":
+                    string = "images/Rogue" + str(third) + "/Rogue_" + str(third) + "_Over_" + str(R_DynamicTan[first_]) + second
+                    if not renpy.loadable(string):
+                        string = "images/Rogue" + str(third) + "/Rogue_" + str(third) + "_Over_" + str(R_DynamicTan[first_]) + ".png"
+                        if not renpy.loadable(string):
+                            string = Null()
+                
+                else:
+                    string = "images/Rogue" + str(third) + "/RogueTan/Rogue_" + str(third) + "_Over_tan " + str(R_DynamicTan[first_]) + second
+                    if not renpy.loadable(string):
+                        string = "images/Rogue" + str(third) + "/Rogue_" + str(third) + "_Over_" + str(R_DynamicTan[first_]) + ".png"
+                        if not renpy.loadable(string):
+                            string = Null()
+
+            elif first_ == 4: #panties
+                if "modded" in R_DynamicTan[first_] or third == "Sex":
+                    string = "images/Rogue" + str(third) + "/Rogue_" + str(third) + "_Panties_" + str(R_DynamicTan[first_]) + second
+                    if not renpy.loadable(string):
+                        # string = "images/Rogue" + str(third) + "/Rogue_" + str(third) + "_Panties_" + str(R_DynamicTan[first_]) + ".png"
+                        # if not renpy.loadable(string):
+                            string = Null()
+                
+                else:
+                    string = "images/Rogue" + str(third) + "/RogueTan/Rogue_" + str(third) + "_Panties_tan " + str(R_DynamicTan[first_]) + second
+                    if not renpy.loadable(string):
+                        # string = "images/Rogue" + str(third) + "/Rogue_" + str(third) + "_Panties_" + str(R_DynamicTan[first_]) + ".png"
+                        # if not renpy.loadable(string):
+                            string = Null()
+
+            elif first_ == 2: #legs
+                if third == "SexFeet":
+                    if "modded" in R_DynamicTan[first_] or third == "Sex":
+                        string = "images/RogueSex/Rogue_Sex_Feet_" + str(R_DynamicTan[first_]) + second
+                        if not renpy.loadable(string):
+                                string = Null()
+                    
+                    else:
+                        string = "images/RogueSex/RogueTan/Rogue_Sex_Feet_tan " + str(R_DynamicTan[first_]) + second
+                        if not renpy.loadable(string):
+                                string = Null()
+                else:
+                    if "skirt" in R_DynamicTan[first_] and third == "Sex":
+                        string = "images/Rogue" + str(third) + "/RogueTan/Rogue_" + str(third) + "_Legs_tan skirts.png"
+
+                    elif "modded" in R_DynamicTan[first_] or third == "Sex":
+                        string = "images/Rogue" + str(third) + "/Rogue_" + str(third) + "_Legs_" + str(R_DynamicTan[first_]) + second
+                        if not renpy.loadable(string):
+                            # string = "images/Rogue" + str(third) + "/Rogue_" + str(third) + "_Legs_" + str(R_DynamicTan[first_]) + ".png"
+                            # if not renpy.loadable(string):
+                                string = Null()
+                    
+                    else:
+                        string = "images/Rogue" + str(third) + "/RogueTan/Rogue_" + str(third) + "_Legs_tan " + str(R_DynamicTan[first_]) + second
+                        if not renpy.loadable(string):
+                            # string = "images/Rogue" + str(third) + "/Rogue_" + str(third) + "_Legs_" + str(R_DynamicTan[first_]) + ".png"
+                            # if not renpy.loadable(string):
+                                string = Null()
+        else:
+            string = Null()
+        return string
+
 
 #End Rogue Wardrobe

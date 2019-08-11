@@ -8,7 +8,7 @@
     default R_Accessory = 0
     default R_DynamicTan = [0,0,0,0,0,0,0,0]  #controller, over, legs, chest, panties, gloves? choker?, extra
     default K_Tan = 0
-    default K_HairColor = 0
+    default K_HairColor = ""
     default K_DynamicTan = [0,0,0,0,0,0,0,0]  #controller, over, legs, chest, panties, gloves? choker?, extra
     default K_Gloves = 0
     default K_Blindfold = 0
@@ -57,6 +57,7 @@
     # default K_OutfitShame = [50,0,0,0,20,0,0,10,0,0,0,0,0,0,0,0,0,0,0,0,0]
     # default E_OutfitShame = [50,0,5,0,25,0,0,10,0,0,0,0,0,0,0,0,0,0,0,0,0]
     # default L_OutfitShame = [50,0,5,0,25,0,0,10,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    default K_tempimage = 0
 
     default KittyLayer_ = -10
     default Test_Desu = "alpha.png"
@@ -1170,3 +1171,7 @@ screen Rogue():
             "True", Null(),             
             ) zoom zoom_
 
+image testdesu = im.MatrixColor(
+    "images/KittyBJFace/Kitty_BJ_HairBlonde_Evo.png",
+    im.matrix.tint(0.9, 0.9, 1.0)
+    )
