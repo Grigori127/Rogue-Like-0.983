@@ -595,11 +595,25 @@ label Kitty_Modded_Clothes_Menu:
                         ch_k "It's too high maintenance."
                     jump Kitty_Modded_Clothes_Misc_Hair
 
+                "Let me select the color.":
+                    if ApprovalCheck("Kitty", 800):
+                        ch_k "You think so?"
+                        #"She rummages in her bag and grabs some gel, running it through her hair."
+                        # ch_k "Like this?"
+                        "WARNING: This is gonna apply to all of her hair colors, to reset it either put all values into 255 or select option Change the color of you hair back."
+                        call Kitty_Recolor_Hair
+                    else:
+                        ch_k "It's too high maintenance."
+                    jump Kitty_Modded_Clothes_Misc_Hair
+
                 "Change the color of you hair back." if K_HairColor == "black" or K_HairColor == "blonde" or K_HairColor == "red":    
                     if ApprovalCheck("Kitty", 800):
                         ch_k "You think so?"
                         #"She rummages in her bag and grabs some gel, running it through her hair."
                         ch_k "Like this?"
+                        $ K_HairCustomColor.red = 255
+                        $ K_HairCustomColor.green = 255
+                        $ K_HairCustomColor.blue = 255
                         call SetHairColorKitty("")
                     else:
                         ch_k "It's too high maintenance."

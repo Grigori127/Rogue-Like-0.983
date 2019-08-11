@@ -1,14 +1,45 @@
-﻿label  mod_default_Variables:
+﻿init python:
+    class SetColor(object):
+        def __init__(self):
+            self.red = 255
+            self.green = 255
+            self.blue = 255
+            self.tempred = 255
+            self.tempgreen = 255
+            self.tempblue = 255
+        
+        def set_color(self):
+            return self.red, self.green, self.blue, 0
+            
+        def screen_loop(self):
+            renpy.show_screen("recolor_screen")
+            self.tempred = self.red
+            self.tempgreen = self.green
+            self.tempblue = self.blue
+            while True:
+                result = ui.interact()
+                
+                if result[0] == "apply":
+                    self.red = self.tempred
+                    self.green = self.tempgreen
+                    self.blue = self.tempblue
+                    
+                if result[0] == "quit":
+                    renpy.hide_screen("recolor_screen")
+                    return
+
+label  mod_default_Variables:
     default CheatsEnabled = 1
     default R_Tan = 0
     default R_BodySuit = 0
-    default R_HairColor = 0
+    default R_HairColor = ""
     default R_Plugged = 0
     default R_BodySuitOff = 0
     default R_Accessory = 0
     default R_DynamicTan = [0,0,0,0,0,0,0,0]  #controller, over, legs, chest, panties, gloves? choker?, extra
     default K_Tan = 0
     default K_HairColor = ""
+    default K_HairTint = 0
     default K_DynamicTan = [0,0,0,0,0,0,0,0]  #controller, over, legs, chest, panties, gloves? choker?, extra
     default K_Gloves = 0
     default K_Blindfold = 0
@@ -96,6 +127,8 @@ label  mod_Save_Version:
         $ L_OutfitShame.append(0)
         $ L_OutfitShame.append(0)
         $ L_OutfitShame.append(0)
+    
+    default K_HairCustomColor = SetColor()
 
     return
 
@@ -1171,7 +1204,47 @@ screen Rogue():
             "True", Null(),             
             ) zoom zoom_
 
-image testdesu = im.MatrixColor(
-    "images/KittyBJFace/Kitty_BJ_HairBlonde_Evo.png",
-    im.matrix.tint(0.9, 0.9, 1.0)
-    )
+# image testdesu = im.MatrixColor(
+#     "images/KittyBJFace/Kitty_BJ_Hair_Evo.png",
+#     # im.matrix.desaturate()
+#     im.matrix.tint(1, 0.16, 0.39)
+#     )
+
+# image testdesss = im.MatrixColor("images/bg.png",im.matrix.tint(.75,.75,1.0))
+
+label Kitty_Recolor_Hair:
+
+                    
+    $ K_HairCustomColor.screen_loop()
+    call Mod_Update_Kitty_Image
+
+    return
+
+
+screen recolor_screen:
+
+    add(im.MatrixColor("images/KittyBJFace/Kitty_BJ_Hair" + GetHairColor(K_HairColor) + "_Evo.png",im.matrix.tint(float(K_HairCustomColor.tempred)/255.0, float(K_HairCustomColor.tempgreen)/255.0, float(K_HairCustomColor.tempblue)/255.0))) align(0.5, 0.1)
+        
+    text ("{size=-5}RGB Values: Red: %s, Green: %s, Blue: %s !!!"%(K_HairCustomColor.tempred, K_HairCustomColor.tempgreen, K_HairCustomColor.tempblue)) align(0.5, 0.6)    
+        
+    vbox align(0.5, 0.7):
+        bar:
+            xalign 0.5
+            value FieldValue(K_HairCustomColor, 'tempred', 255, max_is_zero=False, style='scrollbar', offset=0, step=1)
+            xmaximum 255
+            
+        bar:
+            xalign 0.5
+            value FieldValue(K_HairCustomColor, 'tempgreen', 255, max_is_zero=False, style='scrollbar', offset=0, step=1)
+            xmaximum 255
+            
+        bar:
+            xalign 0.5
+            value FieldValue(K_HairCustomColor, 'tempblue', 255, max_is_zero=False, style='scrollbar', offset=0, step=1)
+            xmaximum 255
+    
+    textbutton "Apply" align(0.45, 0.95):
+        action Return(['apply'])
+    textbutton "Quit" align(0.55, 0.95):
+        action Return(['quit'])
+        # action Hide("recolor_screen")

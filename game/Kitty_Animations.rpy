@@ -623,11 +623,11 @@ image Kitty_Head:
             ),     
         (0,0), "Kitty Blink",
         (0,0), ConditionSwitch(
-            "K_Water", "images/KittySprite/Kitty_Sprite_Hair" + GetHairColor(K_HairColor) + "_Wet.png",
-            "K_Hair == 'evo'", "images/KittySprite/Kitty_Sprite_Hair" + GetHairColor(K_HairColor) + "_Evo.png",
-            "K_Hair == 'long'", "images/KittySprite/Kitty_Sprite_Hair" + GetHairColor(K_HairColor) + "_Long.png",
-            "K_Hair == 'wet'", "images/KittySprite/Kitty_Sprite_Hair" + GetHairColor(K_HairColor) + "_Wet.png",
-            "True", "images/KittySprite/Kitty_Sprite_Hair" + GetHairColor(K_HairColor) + "_Evo.png",
+            "K_Water", im.MatrixColor("images/KittySprite/Kitty_Sprite_Hair" + GetHairColor(K_HairColor) + "_Wet.png",im.matrix.tint(float(K_HairCustomColor.red)/255.0, float(K_HairCustomColor.green)/255.0, float(K_HairCustomColor.blue)/255.0)),
+            "K_Hair == 'evo'", im.MatrixColor("images/KittySprite/Kitty_Sprite_Hair" + GetHairColor(K_HairColor) + "_Evo.png",im.matrix.tint(float(K_HairCustomColor.red)/255.0, float(K_HairCustomColor.green)/255.0, float(K_HairCustomColor.blue)/255.0)),
+            "K_Hair == 'long'", im.MatrixColor("images/KittySprite/Kitty_Sprite_Hair" + GetHairColor(K_HairColor) + "_Long.png",im.matrix.tint(float(K_HairCustomColor.red)/255.0, float(K_HairCustomColor.green)/255.0, float(K_HairCustomColor.blue)/255.0)),
+            "K_Hair == 'wet'", im.MatrixColor("images/KittySprite/Kitty_Sprite_Hair" + GetHairColor(K_HairColor) + "_Wet.png",im.matrix.tint(float(K_HairCustomColor.red)/255.0, float(K_HairCustomColor.green)/255.0, float(K_HairCustomColor.blue)/255.0)),
+            "True", im.MatrixColor("images/KittySprite/Kitty_Sprite_Hair" + GetHairColor(K_HairColor) + "_Evo.png",im.matrix.tint(float(K_HairCustomColor.red)/255.0, float(K_HairCustomColor.green)/255.0, float(K_HairCustomColor.blue)/255.0)),
             ),     
         (0,0), ConditionSwitch(
             "K_Water", "images/KittySprite/Kitty_Sprite_Wet_Head.png",
@@ -647,8 +647,8 @@ image Kitty_HairBack:
     LiveComposite(
         (416,610),    
         (0,0), ConditionSwitch(
-            "K_Water or K_Hair == 'wet'", "images/KittySprite/Kitty_Sprite_Hair" + GetHairColor(K_HairColor) + "_Wet_Back.png",
-            "K_Hair == 'long'", "images/KittySprite/Kitty_Sprite_Hair" + GetHairColor(K_HairColor) + "_Long_Back.png",
+            "K_Water or K_Hair == 'wet'", im.MatrixColor("images/KittySprite/Kitty_Sprite_Hair" + GetHairColor(K_HairColor) + "_Wet_Back.png",im.matrix.tint(float(K_HairCustomColor.red)/255.0, float(K_HairCustomColor.green)/255.0, float(K_HairCustomColor.blue)/255.0)),
+            "K_Hair == 'long'", im.MatrixColor("images/KittySprite/Kitty_Sprite_Hair" + GetHairColor(K_HairColor) + "_Long_Back.png",im.matrix.tint(float(K_HairCustomColor.red)/255.0, float(K_HairCustomColor.green)/255.0, float(K_HairCustomColor.blue)/255.0)),
             "True", Null(),
             ),    
         )
@@ -2044,8 +2044,8 @@ image Kitty_BJ_Animation:#BJ_NewTest:                                           
 image Kitty_BJ_HairBack:
     #Hair underlay
     ConditionSwitch(                                                                            
-            "K_Water and K_Hair == 'evo'", "images/KittyBJFace/Kitty_BJ_Hair" + GetHairColor(K_HairColor) + "BackWet.png",
-            "K_Hair == 'long'", "images/KittyBJFace/Kitty_BJ_Hair" + GetHairColor(K_HairColor) + "BackWet.png",            
+            "K_Water and K_Hair == 'evo'", im.MatrixColor("images/KittyBJFace/Kitty_BJ_Hair" + GetHairColor(K_HairColor) + "BackWet.png",im.matrix.tint(float(K_HairCustomColor.red)/255.0, float(K_HairCustomColor.green)/255.0, float(K_HairCustomColor.blue)/255.0)),
+            "K_Hair == 'long'", im.MatrixColor("images/KittyBJFace/Kitty_BJ_Hair" + GetHairColor(K_HairColor) + "BackWet.png",im.matrix.tint(float(K_HairCustomColor.red)/255.0, float(K_HairCustomColor.green)/255.0, float(K_HairCustomColor.blue)/255.0)),
             "True", Null(),
             ),
     zoom 1.4
@@ -2139,7 +2139,7 @@ image Kitty_BJ_Head:                                                            
         (858,928), 
         (0,0), ConditionSwitch(                                                                 
             #Hair back
-            "K_Water or K_Hair == 'wet'", "images/KittyBJFace/Kitty_BJ_Hair" + GetHairColor(K_HairColor) + "BackWet.png", #AlphaMask("images/KittyBJFace/Kitty_BJ_HairBackWet.png", "Kitty_BJ_Backdrop"),
+            "K_Water or K_Hair == 'wet'", im.MatrixColor("images/KittyBJFace/Kitty_BJ_Hair" + GetHairColor(K_HairColor) + "BackWet.png",im.matrix.tint(float(K_HairCustomColor.red)/255.0, float(K_HairCustomColor.green)/255.0, float(K_HairCustomColor.blue)/255.0)), #AlphaMask("images/KittyBJFace/Kitty_BJ_HairBackWet.png", "Kitty_BJ_Backdrop"),
             "True", Null(),
             ),   
 #        (0,0), ConditionSwitch(       #Legacy, the bellow version should do the same role                                                          
@@ -2269,9 +2269,9 @@ image Kitty_BJ_Head:                                                            
             ),
         (0,0), ConditionSwitch(                                                                 
             #Hair overlay
-            "K_Water or K_Hair == 'wet'", "images/KittyBJFace/Kitty_BJ_Hair" + GetHairColor(K_HairColor) + "_Wet.png",
-            "K_Hair == 'long'", "images/KittyBJFace/Kitty_BJ_Hair" + GetHairColor(K_HairColor) + "_Long.png",
-            "K_Hair == 'evo'", "images/KittyBJFace/Kitty_BJ_Hair" + GetHairColor(K_HairColor) + "_Evo.png",
+            "K_Water or K_Hair == 'wet'", im.MatrixColor("images/KittyBJFace/Kitty_BJ_Hair" + GetHairColor(K_HairColor) + "_Wet.png",im.matrix.tint(float(K_HairCustomColor.red)/255.0, float(K_HairCustomColor.green)/255.0, float(K_HairCustomColor.blue)/255.0)),
+            "K_Hair == 'long'", im.MatrixColor("images/KittyBJFace/Kitty_BJ_Hair" + GetHairColor(K_HairColor) + "_Long.png",im.matrix.tint(float(K_HairCustomColor.red)/255.0, float(K_HairCustomColor.green)/255.0, float(K_HairCustomColor.blue)/255.0)),
+            "K_Hair == 'evo'", im.MatrixColor("images/KittyBJFace/Kitty_BJ_Hair" + GetHairColor(K_HairColor) + "_Evo.png",im.matrix.tint(float(K_HairCustomColor.red)/255.0, float(K_HairCustomColor.green)/255.0, float(K_HairCustomColor.blue)/255.0)),
             "True", Null(),
             ),
         (0,0), ConditionSwitch(                                                                 
