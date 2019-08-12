@@ -3162,6 +3162,138 @@ label EmmaOutfit(E_OutfitTemp = E_Outfit, Spunk = 0, Undressed = 0, Changed = 1)
                     $ E_Hair = E_Custom3[8] if E_Custom3[8] else E_Hair  
                     $ E_Hose = E_Custom3[9]                         
                     $ E_Shame = E_OutfitShame[6]
+        elif E_OutfitTemp == "custom9":
+                    if not E_Legs and E_Custom9[2]:            
+                            $ Undressed = 1
+                    elif not E_Over and E_Custom9[3]:          
+                            $ Undressed = 1
+                    elif not E_Chest and E_Custom9[5]:          
+                            $ Undressed = 1
+                    elif not E_Panties and E_Custom9[6] and "pantyless" not in E_DailyActions:         
+                            $ Undressed = 1
+                    elif not E_Hose and E_Custom9[9]:          
+                            $ Undressed = 1
+                        
+                    $ E_Arms = E_Custom9[1]
+                    $ E_Legs = E_Custom9[2]
+                    $ E_Over = E_Custom9[3]
+                    $ E_Neck = E_Custom9[4]
+                    $ E_Chest = E_Custom9[5]
+                    $ E_Panties = E_Custom9[6] 
+                    $ E_Boots = E_Custom9[7]  
+                    $ E_Hair = E_Custom9[8] if E_Custom9[8] else E_Hair  
+                    $ E_Hose = E_Custom9[9]                         
+                    $ E_Shame = E_OutfitShame[20]
+        elif E_OutfitTemp == "custom8":
+                    if not E_Legs and E_Custom8[2]:            
+                            $ Undressed = 1
+                    elif not E_Over and E_Custom8[3]:          
+                            $ Undressed = 1
+                    elif not E_Chest and E_Custom8[5]:          
+                            $ Undressed = 1
+                    elif not E_Panties and E_Custom8[6] and "pantyless" not in E_DailyActions:         
+                            $ Undressed = 1
+                    elif not E_Hose and E_Custom8[9]:          
+                            $ Undressed = 1
+                        
+                    $ E_Arms = E_Custom8[1]
+                    $ E_Legs = E_Custom8[2]
+                    $ E_Over = E_Custom8[3]
+                    $ E_Neck = E_Custom8[4]
+                    $ E_Chest = E_Custom8[5]
+                    $ E_Panties = E_Custom8[6] 
+                    $ E_Boots = E_Custom8[7]  
+                    $ E_Hair = E_Custom8[8] if E_Custom8[8] else E_Hair  
+                    $ E_Hose = E_Custom8[9]                         
+                    $ E_Shame = E_OutfitShame[19]
+        elif E_OutfitTemp == "custom7":
+                    if not E_Legs and E_Custom7[2]:            
+                            $ Undressed = 1
+                    elif not E_Over and E_Custom7[3]:          
+                            $ Undressed = 1
+                    elif not E_Chest and E_Custom7[5]:          
+                            $ Undressed = 1
+                    elif not E_Panties and E_Custom7[6] and "pantyless" not in E_DailyActions:         
+                            $ Undressed = 1
+                    elif not E_Hose and E_Custom7[9]:          
+                            $ Undressed = 1
+                        
+                    $ E_Arms = E_Custom7[1]
+                    $ E_Legs = E_Custom7[2]
+                    $ E_Over = E_Custom7[3]
+                    $ E_Neck = E_Custom7[4]
+                    $ E_Chest = E_Custom7[5]
+                    $ E_Panties = E_Custom7[6] 
+                    $ E_Boots = E_Custom7[7]  
+                    $ E_Hair = E_Custom7[8] if E_Custom7[8] else E_Hair  
+                    $ E_Hose = E_Custom7[9]                         
+                    $ E_Shame = E_OutfitShame[18]
+        elif E_OutfitTemp == "custom6":
+                    if not E_Legs and E_Custom6[2]:            
+                            $ Undressed = 1
+                    elif not E_Over and E_Custom6[3]:          
+                            $ Undressed = 1
+                    elif not E_Chest and E_Custom6[5]:          
+                            $ Undressed = 1
+                    elif not E_Panties and E_Custom6[6] and "pantyless" not in E_DailyActions:         
+                            $ Undressed = 1
+                    elif not E_Hose and E_Custom6[9]:          
+                            $ Undressed = 1
+                        
+                    $ E_Arms = E_Custom6[1]
+                    $ E_Legs = E_Custom6[2]
+                    $ E_Over = E_Custom6[3]
+                    $ E_Neck = E_Custom6[4]
+                    $ E_Chest = E_Custom6[5]
+                    $ E_Panties = E_Custom6[6] 
+                    $ E_Boots = E_Custom6[7]  
+                    $ E_Hair = E_Custom6[8] if E_Custom6[8] else E_Hair  
+                    $ E_Hose = E_Custom6[9]                         
+                    $ E_Shame = E_OutfitShame[17]
+        elif E_OutfitTemp == "custom5":
+                    if not E_Legs and E_Custom5[2]:            
+                            $ Undressed = 1
+                    elif not E_Over and E_Custom5[3]:          
+                            $ Undressed = 1
+                    elif not E_Chest and E_Custom5[5]:          
+                            $ Undressed = 1
+                    elif not E_Panties and E_Custom5[6] and "pantyless" not in E_DailyActions:         
+                            $ Undressed = 1
+                    elif not E_Hose and E_Custom5[9]:          
+                            $ Undressed = 1
+                        
+                    $ E_Arms = E_Custom5[1]
+                    $ E_Legs = E_Custom5[2]
+                    $ E_Over = E_Custom5[3]
+                    $ E_Neck = E_Custom5[4]
+                    $ E_Chest = E_Custom5[5]
+                    $ E_Panties = E_Custom5[6] 
+                    $ E_Boots = E_Custom5[7]  
+                    $ E_Hair = E_Custom5[8] if E_Custom5[8] else E_Hair  
+                    $ E_Hose = E_Custom5[9]                         
+                    $ E_Shame = E_OutfitShame[16]
+        elif E_OutfitTemp == "custom4":
+                    if not E_Legs and E_Custom4[2]:            
+                            $ Undressed = 1
+                    elif not E_Over and E_Custom4[3]:          
+                            $ Undressed = 1
+                    elif not E_Chest and E_Custom4[5]:          
+                            $ Undressed = 1
+                    elif not E_Panties and E_Custom4[6] and "pantyless" not in E_DailyActions:         
+                            $ Undressed = 1
+                    elif not E_Hose and E_Custom4[9]:          
+                            $ Undressed = 1
+                        
+                    $ E_Arms = E_Custom4[1]
+                    $ E_Legs = E_Custom4[2]
+                    $ E_Over = E_Custom4[3]
+                    $ E_Neck = E_Custom4[4]
+                    $ E_Chest = E_Custom4[5]
+                    $ E_Panties = E_Custom4[6] 
+                    $ E_Boots = E_Custom4[7]  
+                    $ E_Hair = E_Custom4[8] if E_Custom4[8] else E_Hair  
+                    $ E_Hose = E_Custom4[9]                         
+                    $ E_Shame = E_OutfitShame[15]
         elif E_OutfitTemp == "temporary":
                     if not E_Legs and E_TempClothes[2]:            
                             $ Undressed = 1
@@ -3305,6 +3437,18 @@ label Emma_Schedule(Clothes = 1, Location = 1, LocTemp = E_Loc):
                         $ E_OutfitDay = "custom1"
                 elif E_Schedule[Weekday] == 4:
                         $ E_OutfitDay = "gym"
+                elif E_Schedule[Weekday] == 15 and E_Custom4[0]:
+                        $ E_OutfitDay = "custom4"
+                elif E_Schedule[Weekday] == 16 and E_Custom5[0]:
+                        $ E_OutfitDay = "custom5"
+                elif E_Schedule[Weekday] == 17 and E_Custom6[0]:
+                        $ E_OutfitDay = "custom6"
+                elif E_Schedule[Weekday] == 18 and E_Custom7[0]:
+                        $ E_OutfitDay = "custom7"
+                elif E_Schedule[Weekday] == 19 and E_Custom8[0]:
+                        $ E_OutfitDay = "custom8"
+                elif E_Schedule[Weekday] == 20 and E_Custom9[0]:
+                        $ E_OutfitDay = "custom9"
                 elif E_Schedule[Weekday] == 5 and E_Custom2[0]:
                         $ E_OutfitDay = "custom2"
                 elif E_Schedule[Weekday] == 6 and E_Custom3[0]: 
@@ -3314,6 +3458,12 @@ label Emma_Schedule(Clothes = 1, Location = 1, LocTemp = E_Loc):
                         $ Options.append("costume") if ApprovalCheck("Emma", 1000) else Options
                         $ Options.append("custom1") if E_Custom[0] == 2 else Options
                         $ Options.append("custom2") if E_Custom2[0] == 2 else Options
+                        $ Options.append("custom4") if E_Custom4[0] == 2 else Options
+                        $ Options.append("custom5") if E_Custom5[0] == 2 else Options
+                        $ Options.append("custom6") if E_Custom6[0] == 2 else Options
+                        $ Options.append("custom7") if E_Custom7[0] == 2 else Options
+                        $ Options.append("custom8") if E_Custom8[0] == 2 else Options
+                        $ Options.append("custom9") if E_Custom9[0] == 2 else Options
                         $ Options.append("custom3") if E_Custom3[0] == 2 else Options
                         $ renpy.random.shuffle(Options) 
                         $ E_OutfitDay = Options[0]
@@ -3539,6 +3689,138 @@ label LauraOutfit(L_OutfitTemp = L_Outfit, Spunk = 0, Undressed = 0, Changed = 1
                     $ L_Hair = L_Custom3[8] if L_Custom3[8] else L_Hair  
                     $ L_Hose = L_Custom3[9]                         
                     $ L_Shame = L_OutfitShame[6]
+        elif L_OutfitTemp == "custom9":
+                    if not L_Legs and L_Custom9[2]:            
+                            $ Undressed = 1
+                    elif not L_Over and L_Custom9[3]:          
+                            $ Undressed = 1
+                    elif not L_Chest and L_Custom9[5]:          
+                            $ Undressed = 1
+                    elif not L_Panties and L_Custom9[6] and "pantyless" not in L_DailyActions:         
+                            $ Undressed = 1
+                    elif not L_Hose and L_Custom9[9]:          
+                            $ Undressed = 1
+                        
+                    $ L_Arms = L_Custom9[1]
+                    $ L_Legs = L_Custom9[2]
+                    $ L_Over = L_Custom9[3]
+                    $ L_Neck = L_Custom9[4]
+                    $ L_Chest = L_Custom9[5]
+                    $ L_Panties = L_Custom9[6] 
+                    $ L_Boots = L_Custom9[7]  
+                    $ L_Hair = L_Custom9[8] if L_Custom9[8] else L_Hair  
+                    $ L_Hose = L_Custom9[9]                         
+                    $ L_Shame = L_OutfitShame[20]
+        elif L_OutfitTemp == "custom8":
+                    if not L_Legs and L_Custom8[2]:            
+                            $ Undressed = 1
+                    elif not L_Over and L_Custom8[3]:          
+                            $ Undressed = 1
+                    elif not L_Chest and L_Custom8[5]:          
+                            $ Undressed = 1
+                    elif not L_Panties and L_Custom8[6] and "pantyless" not in L_DailyActions:         
+                            $ Undressed = 1
+                    elif not L_Hose and L_Custom8[9]:          
+                            $ Undressed = 1
+                        
+                    $ L_Arms = L_Custom8[1]
+                    $ L_Legs = L_Custom8[2]
+                    $ L_Over = L_Custom8[3]
+                    $ L_Neck = L_Custom8[4]
+                    $ L_Chest = L_Custom8[5]
+                    $ L_Panties = L_Custom8[6] 
+                    $ L_Boots = L_Custom8[7]  
+                    $ L_Hair = L_Custom8[8] if L_Custom8[8] else L_Hair  
+                    $ L_Hose = L_Custom8[9]                         
+                    $ L_Shame = L_OutfitShame[19]
+        elif L_OutfitTemp == "custom7":
+                    if not L_Legs and L_Custom7[2]:            
+                            $ Undressed = 1
+                    elif not L_Over and L_Custom7[3]:          
+                            $ Undressed = 1
+                    elif not L_Chest and L_Custom7[5]:          
+                            $ Undressed = 1
+                    elif not L_Panties and L_Custom7[6] and "pantyless" not in L_DailyActions:         
+                            $ Undressed = 1
+                    elif not L_Hose and L_Custom7[9]:          
+                            $ Undressed = 1
+                        
+                    $ L_Arms = L_Custom7[1]
+                    $ L_Legs = L_Custom7[2]
+                    $ L_Over = L_Custom7[3]
+                    $ L_Neck = L_Custom7[4]
+                    $ L_Chest = L_Custom7[5]
+                    $ L_Panties = L_Custom7[6] 
+                    $ L_Boots = L_Custom7[7]  
+                    $ L_Hair = L_Custom7[8] if L_Custom7[8] else L_Hair  
+                    $ L_Hose = L_Custom7[9]                         
+                    $ L_Shame = L_OutfitShame[18]
+        elif L_OutfitTemp == "custom6":
+                    if not L_Legs and L_Custom6[2]:            
+                            $ Undressed = 1
+                    elif not L_Over and L_Custom6[3]:          
+                            $ Undressed = 1
+                    elif not L_Chest and L_Custom6[5]:          
+                            $ Undressed = 1
+                    elif not L_Panties and L_Custom6[6] and "pantyless" not in L_DailyActions:         
+                            $ Undressed = 1
+                    elif not L_Hose and L_Custom6[9]:          
+                            $ Undressed = 1
+                        
+                    $ L_Arms = L_Custom6[1]
+                    $ L_Legs = L_Custom6[2]
+                    $ L_Over = L_Custom6[3]
+                    $ L_Neck = L_Custom6[4]
+                    $ L_Chest = L_Custom6[5]
+                    $ L_Panties = L_Custom6[6] 
+                    $ L_Boots = L_Custom6[7]  
+                    $ L_Hair = L_Custom6[8] if L_Custom6[8] else L_Hair  
+                    $ L_Hose = L_Custom6[9]                         
+                    $ L_Shame = L_OutfitShame[17]
+        elif L_OutfitTemp == "custom5":
+                    if not L_Legs and L_Custom5[2]:            
+                            $ Undressed = 1
+                    elif not L_Over and L_Custom5[3]:          
+                            $ Undressed = 1
+                    elif not L_Chest and L_Custom5[5]:          
+                            $ Undressed = 1
+                    elif not L_Panties and L_Custom5[6] and "pantyless" not in L_DailyActions:         
+                            $ Undressed = 1
+                    elif not L_Hose and L_Custom5[9]:          
+                            $ Undressed = 1
+                        
+                    $ L_Arms = L_Custom5[1]
+                    $ L_Legs = L_Custom5[2]
+                    $ L_Over = L_Custom5[3]
+                    $ L_Neck = L_Custom5[4]
+                    $ L_Chest = L_Custom5[5]
+                    $ L_Panties = L_Custom5[6] 
+                    $ L_Boots = L_Custom5[7]  
+                    $ L_Hair = L_Custom5[8] if L_Custom5[8] else L_Hair  
+                    $ L_Hose = L_Custom5[9]                         
+                    $ L_Shame = L_OutfitShame[16]
+        elif L_OutfitTemp == "custom4":
+                    if not L_Legs and L_Custom4[2]:            
+                            $ Undressed = 1
+                    elif not L_Over and L_Custom4[3]:          
+                            $ Undressed = 1
+                    elif not L_Chest and L_Custom4[5]:          
+                            $ Undressed = 1
+                    elif not L_Panties and L_Custom4[6] and "pantyless" not in L_DailyActions:         
+                            $ Undressed = 1
+                    elif not L_Hose and L_Custom4[9]:          
+                            $ Undressed = 1
+                        
+                    $ L_Arms = L_Custom4[1]
+                    $ L_Legs = L_Custom4[2]
+                    $ L_Over = L_Custom4[3]
+                    $ L_Neck = L_Custom4[4]
+                    $ L_Chest = L_Custom4[5]
+                    $ L_Panties = L_Custom4[6] 
+                    $ L_Boots = L_Custom4[7]  
+                    $ L_Hair = L_Custom4[8] if L_Custom4[8] else L_Hair  
+                    $ L_Hose = L_Custom4[9]                         
+                    $ L_Shame = L_OutfitShame[15]
         elif L_OutfitTemp == "temporary":
                     if not L_Legs and L_TempClothes[2]:            
                             $ Undressed = 1
@@ -3682,6 +3964,18 @@ label Laura_Schedule(Clothes = 1, Location = 1, LocTemp = L_Loc):
                         $ L_OutfitDay = "custom1"
                 elif L_Schedule[Weekday] == 4:
                         $ L_OutfitDay = "gym"
+                elif L_Schedule[Weekday] == 15 and L_Custom4[0]:
+                        $ L_OutfitDay = "custom4"
+                elif L_Schedule[Weekday] == 16 and L_Custom5[0]:
+                        $ L_OutfitDay = "custom5"
+                elif L_Schedule[Weekday] == 17 and L_Custom6[0]:
+                        $ L_OutfitDay = "custom6"
+                elif L_Schedule[Weekday] == 18 and L_Custom7[0]:
+                        $ L_OutfitDay = "custom7"
+                elif L_Schedule[Weekday] == 19 and L_Custom8[0]:
+                        $ L_OutfitDay = "custom8"
+                elif L_Schedule[Weekday] == 20 and L_Custom9[0]:
+                        $ L_OutfitDay = "custom9"
                 elif L_Schedule[Weekday] == 5 and L_Custom2[0]:
                         $ L_OutfitDay = "custom2"
                 elif L_Schedule[Weekday] == 6 and L_Custom3[0]: 
@@ -3691,6 +3985,12 @@ label Laura_Schedule(Clothes = 1, Location = 1, LocTemp = L_Loc):
                         $ Options.append("streets") if ApprovalCheck("Laura", 500, "I") else Options
                         $ Options.append("custom1") if L_Custom[0] == 2 else Options
                         $ Options.append("custom2") if L_Custom2[0] == 2 else Options
+                        $ Options.append("custom4") if L_Custom4[0] == 2 else Options
+                        $ Options.append("custom5") if L_Custom5[0] == 2 else Options
+                        $ Options.append("custom6") if L_Custom6[0] == 2 else Options
+                        $ Options.append("custom7") if L_Custom7[0] == 2 else Options
+                        $ Options.append("custom8") if L_Custom8[0] == 2 else Options
+                        $ Options.append("custom9") if L_Custom9[0] == 2 else Options
                         $ Options.append("custom3") if L_Custom3[0] == 2 else Options
                         $ renpy.random.shuffle(Options) 
                         $ L_OutfitDay = Options[0]

@@ -7189,6 +7189,18 @@ label Clothing_Schedule_Check(Girl=0,Changed=0,Value=0,Count=0):
                         if Value:
                             if E_Schedule[Count] == 3 and E_Custom[0] == 2:
                                     pass
+                            elif E_Schedule[Count] == 15 and E_Custom4[0] == 2:
+                                    pass
+                            elif E_Schedule[Count] == 16 and E_Custom5[0] == 2:
+                                    pass
+                            elif E_Schedule[Count] == 17 and E_Custom6[0] == 2:
+                                    pass
+                            elif E_Schedule[Count] == 18 and E_Custom7[0] == 2:
+                                    pass
+                            elif E_Schedule[Count] == 19 and E_Custom8[0] == 2:
+                                    pass
+                            elif E_Schedule[Count] == 20 and E_Custom9[0] == 2:
+                                    pass
                             elif E_Schedule[Count] == 5 and E_Custom2[0] == 2:
                                     pass
                             elif E_Schedule[Count] == 6 and E_Custom3[0] == 2:
@@ -7203,6 +7215,18 @@ label Clothing_Schedule_Check(Girl=0,Changed=0,Value=0,Count=0):
                     if L_Schedule[Count] == Changed:
                         if Value:
                             if L_Schedule[Count] == 3 and L_Custom[0] == 2:
+                                    pass
+                            elif L_Schedule[Count] == 15 and L_Custom4[0] == 2:
+                                    pass
+                            elif L_Schedule[Count] == 16 and L_Custom5[0] == 2:
+                                    pass
+                            elif L_Schedule[Count] == 17 and L_Custom6[0] == 2:
+                                    pass
+                            elif L_Schedule[Count] == 18 and L_Custom7[0] == 2:
+                                    pass
+                            elif L_Schedule[Count] == 19 and L_Custom8[0] == 2:
+                                    pass
+                            elif L_Schedule[Count] == 20 and L_Custom9[0] == 2:
                                     pass
                             elif L_Schedule[Count] == 5 and L_Custom2[0] == 2:
                                     pass

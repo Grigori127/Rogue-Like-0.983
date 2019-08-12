@@ -264,6 +264,12 @@ label Laura_Date_Prep:
         $ Options = ["mission", "streets"]
         $ Options.append("custom1") if L_Custom[0] == 2 else Options
         $ Options.append("custom2") if L_Custom2[0] == 2 else Options
+        $ Options.append("custom4") if L_Custom4[0] == 2 else Options
+        $ Options.append("custom5") if L_Custom5[0] == 2 else Options
+        $ Options.append("custom6") if L_Custom6[0] == 2 else Options
+        $ Options.append("custom7") if L_Custom7[0] == 2 else Options
+        $ Options.append("custom8") if L_Custom8[0] == 2 else Options
+        $ Options.append("custom9") if L_Custom9[0] == 2 else Options
         $ Options.append("custom3") if L_Custom3[0] == 2 else Options
         $ renpy.random.shuffle(Options) 
         $ L_Outfit = Options[0]

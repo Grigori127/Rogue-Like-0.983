@@ -3822,6 +3822,18 @@ label Emma_Clothes(Public=0,Bonus=0):
                                 call Emma_OutfitShame(5,1)
                     "Custom 3":
                                 call Emma_OutfitShame(6,1)
+                    "Custom 4":
+                                call Emma_OutfitShame(15,1)
+                    "Custom 5":
+                                call Emma_OutfitShame(16,1)
+                    "Custom 6":
+                                call Emma_OutfitShame(17,1)
+                    "Custom 7":
+                                call Emma_OutfitShame(18,1)
+                    "Custom 8":
+                                call Emma_OutfitShame(19,1)
+                    "Custom 9":
+                                call Emma_OutfitShame(20,1)
                     "Gym Clothes":
                                 call Emma_OutfitShame(7,1)
                     "Sleepwear":
@@ -3897,10 +3909,10 @@ label Emma_Clothes(Public=0,Bonus=0):
                 "Let's try something else though.":
                     ch_e "Very well."            
                     
-        "Remember that outfit we put together? [[Set a custom outfit] (locked)" if not E_Custom[0] and not E_Custom2[0] and not E_Custom3[0]:
+        "Remember that outfit we put together? [[Set a custom outfit] (locked)" if not E_Custom[0] and not E_Custom2[0] and not E_Custom3[0] and not E_Custom4[0] and not E_Custom5[0] and not E_Custom6[0] and not E_Custom7[0] and not E_Custom8[0] and not E_Custom9[0]:
                         pass       
                         
-        "Remember that outfit we put together?" if E_Custom[0] or E_Custom2[0] or E_Custom3[0]: 
+        "Remember that outfit we put together?" if E_Custom[0] or E_Custom2[0] or E_Custom3[0] or E_Custom4[0] or E_Custom5[0] or E_Custom6[0] or E_Custom7[0] or E_Custom8[0] or E_Custom9[0]: 
             $ Cnt = 0
             while 1:
                 menu:                
@@ -3923,11 +3935,59 @@ label Emma_Clothes(Public=0,Bonus=0):
                         call EmmaOutfit
                         $ Cnt = 6
                     
+                    "Throw on Custom 4 (locked)" if not E_Custom4[0]:
+                        pass
+                    "Throw on Custom 4" if E_Custom4[0]:
+                        $ E_Outfit = "custom4"
+                        call EmmaOutfit
+                        $ Cnt = 15
+                    "Throw on Custom 5 (locked)" if not E_Custom5[0]:
+                        pass
+                    "Throw on Custom 5" if E_Custom5[0]:
+                        $ E_Outfit = "custom5"
+                        call EmmaOutfit
+                        $ Cnt = 16
+                    "Throw on Custom 6 (locked)" if not E_Custom6[0]:
+                        pass
+                    "Throw on Custom 6" if E_Custom6[0]:
+                        $ E_Outfit = "custom6"
+                        call EmmaOutfit
+                        $ Cnt = 17
+                    "Throw on Custom 7 (locked)" if not E_Custom7[0]:
+                        pass
+                    "Throw on Custom 7" if E_Custom7[0]:
+                        $ E_Outfit = "custom7"
+                        call EmmaOutfit
+                        $ Cnt = 18
+                    "Throw on Custom 8 (locked)" if not E_Custom8[0]:
+                        pass
+                    "Throw on Custom 8" if E_Custom8[0]:
+                        $ E_Outfit = "custom8"
+                        call EmmaOutfit
+                        $ Cnt = 19
+                    "Throw on Custom 9 (locked)" if not E_Custom9[0]:
+                        pass
+                    "Throw on Custom 9" if E_Custom9[0]:
+                        $ E_Outfit = "custom9"
+                        call EmmaOutfit
+                        $ Cnt = 20
                     "You should wear this one in our rooms. (locked)" if not Cnt:
                         pass
                     "You should wear this one in our rooms." if Cnt:
                         if Cnt == 5:
                             $ E_Schedule[9] = "custom2"
+                        elif Cnt == 15:
+                            $ E_Schedule[9] = "custom4"
+                        elif Cnt == 16:
+                            $ E_Schedule[9] = "custom5"
+                        elif Cnt == 17:
+                            $ E_Schedule[9] = "custom6"
+                        elif Cnt == 18:
+                            $ E_Schedule[9] = "custom7"
+                        elif Cnt == 19:
+                            $ E_Schedule[9] = "custom8"
+                        elif Cnt == 20:
+                            $ E_Schedule[9] = "custom9"
                         elif Cnt == 6:
                             $ E_Schedule[9] = "custom3"
                         else:
@@ -3950,7 +4010,37 @@ label Emma_Clothes(Public=0,Bonus=0):
                             "Custom 3 [[clear custom 3]" if E_Custom3[0]:
                                 ch_e "Very well."
                                 $ E_Custom3[0] = 0
-                            "Custom 3 [[clear custom 1] (locked)" if not E_Custom3[0]:
+                            "Custom 3 [[clear custom 3] (locked)" if not E_Custom3[0]:
+                                pass
+                            "Custom 4 [[clear custom 4]" if E_Custom4[0]:
+                                ch_e "Very well."
+                                $ E_Custom4[0] = 0
+                            "Custom 4 [[clear custom 4] (locked)" if not E_Custom4[0]:
+                                pass
+                            "Custom 5 [[clear custom 5]" if E_Custom5[0]:
+                                ch_e "Very well."
+                                $ E_Custom5[0] = 0
+                            "Custom 5 [[clear custom 5] (locked)" if not E_Custom5[0]:
+                                pass
+                            "Custom 6 [[clear custom 6]" if E_Custom6[0]:
+                                ch_e "Very well."
+                                $ E_Custom6[0] = 0
+                            "Custom 6 [[clear custom 6] (locked)" if not E_Custom6[0]:
+                                pass
+                            "Custom 7 [[clear custom 7]" if E_Custom7[0]:
+                                ch_e "Very well."
+                                $ E_Custom7[0] = 0
+                            "Custom 7 [[clear custom 7] (locked)" if not E_Custom7[0]:
+                                pass
+                            "Custom 8 [[clear custom 8]" if E_Custom8[0]:
+                                ch_e "Very well."
+                                $ E_Custom8[0] = 0
+                            "Custom 8 [[clear custom 8] (locked)" if not E_Custom8[0]:
+                                pass
+                            "Custom 9 [[clear custom 9]" if E_Custom9[0]:
+                                ch_e "Very well."
+                                $ E_Custom9[0] = 0
+                            "Custom 9 [[clear custom 9] (locked)" if not E_Custom9[0]:
                                 pass
                             "Never mind, [[back].":
                                 pass    
@@ -4713,7 +4803,7 @@ label Emma_Clothes_ScheduleB(Count = 0):
                     $ Count = 1
                 "Your superhero outfit.":
                     $ Count = 2
-                "That outfit we put together [[custom]" if E_Custom[0] or E_Custom2[0] or E_Custom3[0]:
+                "That outfit we put together [[custom]" if E_Custom[0] or E_Custom2[0] or E_Custom3[0] or E_Custom4[0] or E_Custom5[0] or E_Custom6[0] or E_Custom7[0] or E_Custom8[0] or E_Custom9[0]:
                             menu:
                                 ch_e "Which were you thinking?"
                                 "The first one. (locked)" if not E_Custom[0]:
@@ -4737,6 +4827,54 @@ label Emma_Clothes_ScheduleB(Count = 0):
                                 "The third one." if E_Custom3[0]:
                                     if E_Custom3[0] == 2 or Count == 99:
                                         $ Count = 6
+                                    else:
+                                        ch_e "I said I'm not wearing that one in public."
+                                        
+                                "The fourth one. (locked)" if not E_Custom4[0]:
+                                    pass
+                                "The fourth one." if E_Custom4[0]:
+                                    if E_Custom4[0] == 2 or Count == 99:
+                                        $ Count = 15
+                                    else:
+                                        ch_e "I said I'm not wearing that one in public."
+                                        
+                                "The fifth one. (locked)" if not E_Custom5[0]:
+                                    pass
+                                "The fifth one." if E_Custom5[0]:
+                                    if E_Custom5[0] == 2 or Count == 99:
+                                        $ Count = 16
+                                    else:
+                                        ch_e "I said I'm not wearing that one in public."
+                                        
+                                "The sixth one. (locked)" if not E_Custom6[0]:
+                                    pass
+                                "The sixth one." if E_Custom6[0]:
+                                    if E_Custom6[0] == 2 or Count == 99:
+                                        $ Count = 17
+                                    else:
+                                        ch_e "I said I'm not wearing that one in public."
+                                        
+                                "The seventh one. (locked)" if not E_Custom7[0]:
+                                    pass
+                                "The seventh one." if E_Custom7[0]:
+                                    if E_Custom7[0] == 2 or Count == 99:
+                                        $ Count = 18
+                                    else:
+                                        ch_e "I said I'm not wearing that one in public."
+                                        
+                                "The eighth one. (locked)" if not E_Custom8[0]:
+                                    pass
+                                "The eighth one." if E_Custom8[0]:
+                                    if E_Custom8[0] == 2 or Count == 99:
+                                        $ Count = 19
+                                    else:
+                                        ch_e "I said I'm not wearing that one in public."
+                                        
+                                "The ninth one. (locked)" if not E_Custom9[0]:
+                                    pass
+                                "The ninth one." if E_Custom9[0]:
+                                    if E_Custom9[0] == 2 or Count == 99:
+                                        $ Count = 20
                                     else:
                                         ch_e "I said I'm not wearing that one in public."
                                         
@@ -4775,6 +4913,18 @@ label E_AltClothes(Outfit=8):
                     $ E_Outfit = "teacher"
         elif E_Schedule[Outfit] == 2:
                     $ E_Outfit = "costume"
+        elif E_Schedule[Outfit] == 15:
+                    $ E_Outfit = "custom4"
+        elif E_Schedule[Outfit] == 16:
+                    $ E_Outfit = "custom5"
+        elif E_Schedule[Outfit] == 17:
+                    $ E_Outfit = "custom6"
+        elif E_Schedule[Outfit] == 18:
+                    $ E_Outfit = "custom7"
+        elif E_Schedule[Outfit] == 19:
+                    $ E_Outfit = "custom8"
+        elif E_Schedule[Outfit] == 20:
+                    $ E_Outfit = "custom9"
         elif E_Schedule[Outfit] == 3:
                     $ E_Outfit = "custom1"
         elif E_Schedule[Outfit] == 5:
@@ -4827,6 +4977,24 @@ label Emma_Custom_Out(Custom = 3, Shame = 0, Agree = 1):
                         if Custom == 5 and E_Custom2[0] == 2:
                             $ E_Outfit = "custom2"                    
                             $ E_Shame = E_OutfitShame[5]
+                        elif Custom == 15 and E_Custom4[0] == 2:
+                                    $ E_Outfit = "custom4"
+                                    $ E_Shame = E_OutfitShame[Custom]
+                        elif Custom == 16 and E_Custom5[0] == 2:
+                                    $ E_Outfit = "custom5"
+                                    $ E_Shame = E_OutfitShame[Custom]
+                        elif Custom == 17 and E_Custom6[0] == 2:
+                                    $ E_Outfit = "custom6"
+                                    $ E_Shame = E_OutfitShame[Custom]
+                        elif Custom == 18 and E_Custom7[0] == 2:
+                                    $ E_Outfit = "custom7"
+                                    $ E_Shame = E_OutfitShame[Custom]
+                        elif Custom == 19 and E_Custom8[0] == 2:
+                                    $ E_Outfit = "custom8"
+                                    $ E_Shame = E_OutfitShame[Custom]
+                        elif Custom == 20 and E_Custom9[0] == 2:
+                                    $ E_Outfit = "custom9"
+                                    $ E_Shame = E_OutfitShame[Custom]
                         elif Custom == 6 and E_Custom3[0] == 2:
                             $ E_Outfit = "custom3"                    
                             $ E_Shame = E_OutfitShame[6]
@@ -4837,6 +5005,18 @@ label Emma_Custom_Out(Custom = 3, Shame = 0, Agree = 1):
             
             if Custom == 5 and E_Custom2[0] == 2:
                         $ E_Outfit = "custom2"   
+            elif Custom == 15 and E_Custom4[0] == 2:
+                        $ E_Outfit = "custom4"
+            elif Custom == 16 and E_Custom5[0] == 2:
+                        $ E_Outfit = "custom5"
+            elif Custom == 17 and E_Custom6[0] == 2:
+                        $ E_Outfit = "custom6"
+            elif Custom == 18 and E_Custom7[0] == 2:
+                        $ E_Outfit = "custom7"
+            elif Custom == 19 and E_Custom8[0] == 2:
+                        $ E_Outfit = "custom8"
+            elif Custom == 20 and E_Custom9[0] == 2:
+                        $ E_Outfit = "custom9"
             elif Custom == 6 and E_Custom3[0] == 2:
                         $ E_Outfit = "custom3"   
             elif E_Custom[0] == 2: #if custom 1:
@@ -5082,6 +5262,79 @@ label Emma_OutfitShame(Custom = 3, Check = 0, Count = 0, Tempshame = 50, Agree =
                             $ E_Custom2[9] = E_Hose
                             $ E_Custom2[0] = 2 if Agree else 1
                             call Clothing_Schedule_Check("Emma",5,1) 
+#MOD CUSTOM OUTFITS OUTFITSHAME
+                    elif Custom == 20:
+                            $ E_Custom9[1] = E_Arms  
+                            $ E_Custom9[2] = E_Legs 
+                            $ E_Custom9[3] = E_Over
+                            $ E_Custom9[4] = E_Neck 
+                            $ E_Custom9[5] = E_Chest 
+                            $ E_Custom9[6] = E_Panties
+                            $ E_Custom9[7] = E_Boots
+                            $ E_Custom9[8] = E_Hair
+                            $ E_Custom9[9] = E_Hose
+                            $ E_Custom9[0] = 2 if Agree else 1
+                            call Clothing_Schedule_Check("Emma",Custom,1) 
+                    elif Custom == 19:
+                            $ E_Custom8[1] = E_Arms  
+                            $ E_Custom8[2] = E_Legs 
+                            $ E_Custom8[3] = E_Over
+                            $ E_Custom8[4] = E_Neck 
+                            $ E_Custom8[5] = E_Chest 
+                            $ E_Custom8[6] = E_Panties
+                            $ E_Custom8[7] = E_Boots
+                            $ E_Custom8[8] = E_Hair
+                            $ E_Custom8[9] = E_Hose
+                            $ E_Custom8[0] = 2 if Agree else 1
+                            call Clothing_Schedule_Check("Emma",Custom,1) 
+                    elif Custom == 18:
+                            $ E_Custom7[1] = E_Arms  
+                            $ E_Custom7[2] = E_Legs 
+                            $ E_Custom7[3] = E_Over
+                            $ E_Custom7[4] = E_Neck 
+                            $ E_Custom7[5] = E_Chest 
+                            $ E_Custom7[6] = E_Panties
+                            $ E_Custom7[7] = E_Boots
+                            $ E_Custom7[8] = E_Hair
+                            $ E_Custom7[9] = E_Hose
+                            $ E_Custom7[0] = 2 if Agree else 1
+                            call Clothing_Schedule_Check("Emma",Custom,1) 
+                    elif Custom == 17:
+                            $ E_Custom6[1] = E_Arms  
+                            $ E_Custom6[2] = E_Legs 
+                            $ E_Custom6[3] = E_Over
+                            $ E_Custom6[4] = E_Neck 
+                            $ E_Custom6[5] = E_Chest 
+                            $ E_Custom6[6] = E_Panties
+                            $ E_Custom6[7] = E_Boots
+                            $ E_Custom6[8] = E_Hair
+                            $ E_Custom6[9] = E_Hose
+                            $ E_Custom6[0] = 2 if Agree else 1
+                            call Clothing_Schedule_Check("Emma",Custom,1) 
+                    elif Custom == 16:
+                            $ E_Custom5[1] = E_Arms  
+                            $ E_Custom5[2] = E_Legs 
+                            $ E_Custom5[3] = E_Over
+                            $ E_Custom5[4] = E_Neck 
+                            $ E_Custom5[5] = E_Chest 
+                            $ E_Custom5[6] = E_Panties
+                            $ E_Custom5[7] = E_Boots
+                            $ E_Custom5[8] = E_Hair
+                            $ E_Custom5[9] = E_Hose
+                            $ E_Custom5[0] = 2 if Agree else 1
+                            call Clothing_Schedule_Check("Emma",Custom,1) 
+                    elif Custom == 15:
+                            $ E_Custom4[1] = E_Arms  
+                            $ E_Custom4[2] = E_Legs 
+                            $ E_Custom4[3] = E_Over
+                            $ E_Custom4[4] = E_Neck 
+                            $ E_Custom4[5] = E_Chest 
+                            $ E_Custom4[6] = E_Panties
+                            $ E_Custom4[7] = E_Boots
+                            $ E_Custom4[8] = E_Hair
+                            $ E_Custom4[9] = E_Hose
+                            $ E_Custom4[0] = 2 if Agree else 1
+                            call Clothing_Schedule_Check("Emma",Custom,1) 
                     elif Custom == 6:
                             $ E_Custom3[1] = E_Arms  
                             $ E_Custom3[2] = E_Legs 
