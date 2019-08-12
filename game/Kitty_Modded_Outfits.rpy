@@ -601,7 +601,7 @@ label Kitty_Modded_Clothes_Menu:
                         #"She rummages in her bag and grabs some gel, running it through her hair."
                         # ch_k "Like this?"
                         "WARNING: This is gonna apply to all of her hair colors, to reset it either put all values into 255 or select option Change the color of you hair back."
-                        call Kitty_Recolor_Hair
+                        call Recolor_Hair("Kitty")
                     else:
                         ch_k "It's too high maintenance."
                     jump Kitty_Modded_Clothes_Misc_Hair

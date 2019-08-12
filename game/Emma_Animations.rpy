@@ -22,9 +22,16 @@ image Emma_Sprite:
             ), 
         (0,0), ConditionSwitch(
             #hair back 
-            "not E_Hair", Null(),
+            "not E_Hair or E_HairColor", Null(),
             "E_Hair == 'wet' or E_Water", "images/EmmaSprite/EmmaSprite_HairbackWet.png",
             "E_Hair", "images/EmmaSprite/EmmaSprite_Hairback.png",   
+            "True", Null(),        
+            ), 
+        (0,0), ConditionSwitch(
+            #hair back 
+            "not E_Hair or not E_HairColor", Null(),
+            "E_Hair == 'wet' or E_Water", im.MatrixColor("images/EmmaSprite/EmmaSprite_HairWhitebackWet.png",im.matrix.tint(float(E_HairCustomColor.red)/255.0, float(E_HairCustomColor.green)/255.0, float(E_HairCustomColor.blue)/255.0)),
+            "E_Hair", im.MatrixColor("images/EmmaSprite/EmmaSprite_HairWhiteback.png",im.matrix.tint(float(E_HairCustomColor.red)/255.0, float(E_HairCustomColor.green)/255.0, float(E_HairCustomColor.blue)/255.0)),
             "True", Null(),        
             ),     
         (0,0), ConditionSwitch(
@@ -561,7 +568,10 @@ image Emma_Sprite:
     zoom .75                
 
 image TempHairBack:
-    "images/EmmaSprite/EmmaSprite_Head_HairBackWet.png"         
+    (0,0), ConditionSwitch(             
+        "not E_HairColor", "images/EmmaSprite/EmmaSprite_Head_HairBackWet.png",             
+        "True", im.MatrixColor("images/EmmaSprite/EmmaSprite_Head_HairWhiteBackWet.png",im.matrix.tint(float(E_HairCustomColor.red)/255.0, float(E_HairCustomColor.green)/255.0, float(E_HairCustomColor.blue)/255.0)),             
+        ),  
     anchor (0.6, 0.0)                
     zoom .5                   
     
@@ -718,9 +728,15 @@ image EmmaSprite_Head:
             "True", Null(),
             ),  
         (0,0), ConditionSwitch(                                                                         #Hair
-            "not E_Hair", Null(),
+            "not E_Hair or E_HairColor", Null(),
             "E_Hair == 'wet' or E_Water", "images/EmmaSprite/EmmaSprite_Head_HairWet.png",
             "E_Hair", "images/EmmaSprite/EmmaSprite_Head_Hair.png",
+            "True", Null(),
+            ),  
+        (0,0), ConditionSwitch(                                                                         #Hair
+            "not E_Hair or not E_HairColor", Null(),
+            "E_Hair == 'wet' or E_Water", im.MatrixColor("images/EmmaSprite/EmmaSprite_Head_HairWhiteWet.png",im.matrix.tint(float(E_HairCustomColor.red)/255.0, float(E_HairCustomColor.green)/255.0, float(E_HairCustomColor.blue)/255.0)),
+            "E_Hair", im.MatrixColor("images/EmmaSprite/EmmaSprite_Head_HairWhite.png",im.matrix.tint(float(E_HairCustomColor.red)/255.0, float(E_HairCustomColor.green)/255.0, float(E_HairCustomColor.blue)/255.0)),
             "True", Null(),
             ),        
         (0,0), ConditionSwitch(                                                                         #Hair Water
@@ -2691,7 +2707,8 @@ image Emma_BJ_HairBack:
     #Hair underlay
     ConditionSwitch(                                 
             "E_Water or E_Hair == 'wet'", Null(),
-            "True", "images/EmmaBJFace/Emma_BJ_Hair_Wave_Back.png", 
+            "E_HairColor", im.MatrixColor("images/EmmaBJFace/Emma_BJ_HairWhite_Wave_Back.png",im.matrix.tint(float(E_HairCustomColor.red)/255.0, float(E_HairCustomColor.green)/255.0, float(E_HairCustomColor.blue)/255.0)),
+            "True", "images/EmmaBJFace/Emma_BJ_Hair_Wave_Back.png",
             ),
     zoom 1.4
     anchor (0.5, 0.5)
@@ -2720,7 +2737,9 @@ image Emma_BJ_Head:                                                             
         (858,928), 
          (0,0), ConditionSwitch(                                                                 
             #Hair behind face above body
+            "E_HairColor and E_Water or E_Hair == 'wet'", im.MatrixColor("images/EmmaBJFace/Emma_BJ_HairWhite_Wet_Mid.png",im.matrix.tint(float(E_HairCustomColor.red)/255.0, float(E_HairCustomColor.green)/255.0, float(E_HairCustomColor.blue)/255.0)),
             "E_Water or E_Hair == 'wet'", "images/EmmaBJFace/Emma_BJ_Hair_Wet_Mid.png",
+            "E_HairColor", im.MatrixColor("images/EmmaBJFace/Emma_BJ_HairWhite_Wave_Mid.png",im.matrix.tint(float(E_HairCustomColor.red)/255.0, float(E_HairCustomColor.green)/255.0, float(E_HairCustomColor.blue)/255.0)),
             "True", "images/EmmaBJFace/Emma_BJ_Hair_Wave_Mid.png",
             ),
         (0,0), ConditionSwitch(
@@ -2810,7 +2829,9 @@ image Emma_BJ_Head:                                                             
             ),
         (0,0), ConditionSwitch(                                                                 
             #Hair overlay
+            "E_HairColor and E_Water or E_Hair == 'wet'", im.MatrixColor("images/EmmaBJFace/Emma_BJ_HairWhite_Wet_Top.png",im.matrix.tint(float(E_HairCustomColor.red)/255.0, float(E_HairCustomColor.green)/255.0, float(E_HairCustomColor.blue)/255.0)),
             "E_Water or E_Hair == 'wet'", "images/EmmaBJFace/Emma_BJ_Hair_Wet_Top.png",
+            "E_HairColor", im.MatrixColor("images/EmmaBJFace/Emma_BJ_HairWhite_Wave_Top.png",im.matrix.tint(float(E_HairCustomColor.red)/255.0, float(E_HairCustomColor.green)/255.0, float(E_HairCustomColor.blue)/255.0)),
             "True", "images/EmmaBJFace/Emma_BJ_Hair_Wave_Top.png",
             ),
 #        (0,0), ConditionSwitch(                                                                 

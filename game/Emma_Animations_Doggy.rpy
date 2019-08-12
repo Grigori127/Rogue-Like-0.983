@@ -29,10 +29,12 @@ image Emma_Doggy:
     align (0.6,0.0)
     
             
-image Emma_Doggy_Body = LiveComposite(                                                                                         #Upper body
+image Emma_Doggy_Body:
+    LiveComposite(                                                                                         #Upper body
         (420,750),
         (0,0), ConditionSwitch(                                                                                 #Hair underlayer
             #"E_Water", Null(), 
+            "E_HairColor", im.MatrixColor("images/EmmaDoggy/Emma_Doggy_HairWhiteBack.png",im.matrix.tint(float(E_HairCustomColor.red)/255.0, float(E_HairCustomColor.green)/255.0, float(E_HairCustomColor.blue)/255.0)),
             "True", "images/EmmaDoggy/Emma_Doggy_HairBack.png",
             ),   
         #(0,0), ConditionSwitch(                                                                                 #Mouth
@@ -153,6 +155,7 @@ image Emma_Doggy_Body = LiveComposite(                                          
             # "E_HairColor == 'black' and E_Hair == 'evo'", "images/EmmaDoggy/Emma_Doggy_Hair_Ponytail_Black.png",
             # "E_Hair == 'long'", "images/EmmaDoggy/Emma_Doggy_Hair.png",
             # "E_Hair == 'evo'", "images/EmmaDoggy/Emma_Doggy_Hair_Ponytail.png",
+            "E_HairColor", im.MatrixColor("images/EmmaDoggy/Emma_Doggy_HairWhiteFront.png",im.matrix.tint(float(E_HairCustomColor.red)/255.0, float(E_HairCustomColor.green)/255.0, float(E_HairCustomColor.blue)/255.0)),
             "True", "images/EmmaDoggy/Emma_Doggy_HairFront.png",
             ),                    
         (0,0), ConditionSwitch(                                                                                 #face spunk

@@ -1043,12 +1043,38 @@ screen R_Status_screen:
         # Money and level
         xminimum 75
         xpos 500    
+        ypos -5   
         background None
         has vbox
         hbox:            
             text "Money: $[P_Cash]" size 12
         hbox:
             text "Level: [P_Lvl]" size 12 
+        if Ch_Focus == 'Emma':
+            hbox:
+                text "Actions Left: [E_Action]" size 12
+            hbox:
+                text "Forced: [E_ForcedCount]" size 12
+        elif Ch_Focus == 'Kitty':
+            hbox:
+                text "Actions Left: [K_Action]" size 12
+            hbox:
+                text "Forced: [K_ForcedCount]" size 12
+        elif Ch_Focus == 'Rogue':
+            hbox:
+                text "Actions Left: [R_Action]" size 12
+            hbox:
+                text "Forced: [R_ForcedCount]" size 12
+        # elif Ch_Focus == 'Mystique':
+        #     hbox:
+        #         text "Actions Left: [newgirl[Mystique].Action]" size 12
+        #     hbox:
+        #         text "Forced: [newgirl[Mystique].ForcedCount]" size 12
+        elif Ch_Focus == 'Laura':
+            hbox:
+                text "Actions Left: [L_Action]" size 12
+            hbox:
+                text "Forced: [L_ForcedCount]" size 12
         # this block is the name tag
         window:         
             pos (90,-40)#(-15,-8)

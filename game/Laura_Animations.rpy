@@ -446,7 +446,9 @@ image Laura_Sprite_HairBack:
             "not L_Hair", Null(),
             "renpy.showing('Laura_BJ_Animation')", Null(), 
 #            "renpy.showing('Laura_SexSprite')", "images/LauraSex/Laura_Sprite_Hair_Long_UnderSex.png",
+            "L_HairColor and L_Hair == 'wet' or L_Water", im.MatrixColor("images/LauraSprite/Laura_Sprite_HairWhite_Wet_Under.png",im.matrix.tint(float(L_HairCustomColor.red)/255.0, float(L_HairCustomColor.green)/255.0, float(L_HairCustomColor.blue)/255.0)),
             "L_Hair == 'wet' or L_Water", "images/LauraSprite/Laura_Sprite_Hair_Wet_Under.png",
+            "L_HairColor and L_Hair", im.MatrixColor("images/LauraSprite/Laura_Sprite_HairWhite_Long_Under.png",im.matrix.tint(float(L_HairCustomColor.red)/255.0, float(L_HairCustomColor.green)/255.0, float(L_HairCustomColor.blue)/255.0)),
             "L_Hair", "images/LauraSprite/Laura_Sprite_Hair_Long_Under.png",   
             "True", Null(),        
             ),   
@@ -459,6 +461,7 @@ image Laura_Sprite_Head:
         (806,806),      
         (0,0), ConditionSwitch(
                 # hair behind face
+                "L_HairColor and renpy.showing('Laura_SexSprite')", im.MatrixColor("images/LauraSex/Laura_Sprite_HairWhite_Long_UnderSex.png",im.matrix.tint(float(L_HairCustomColor.red)/255.0, float(L_HairCustomColor.green)/255.0, float(L_HairCustomColor.blue)/255.0)),
                 "renpy.showing('Laura_SexSprite')", "images/LauraSex/Laura_Sprite_Hair_Long_UnderSex.png", 
                 "True", Null(),                        
                 ),         
@@ -528,6 +531,7 @@ image Laura_Sprite_Head:
             "L_Over == 'jacket'", Null(),            
             "renpy.showing('Laura_Sex_Animation')", Null(),     
             "L_Hair == 'wet' or L_Water", Null(),
+            "L_HairColor and L_Hair", im.MatrixColor("images/LauraSprite/Laura_Sprite_HairWhite_Long_Mid.png",im.matrix.tint(float(L_HairCustomColor.red)/255.0, float(L_HairCustomColor.green)/255.0, float(L_HairCustomColor.blue)/255.0)),
             "L_Hair", "images/LauraSprite/Laura_Sprite_Hair_Long_Mid.png",
             "True", Null(),
             ),           
@@ -538,10 +542,18 @@ image Laura_Sprite_Head:
 #            ),  
         (0,0), ConditionSwitch(                                                                         
             #Hair over
-            "not L_Hair", Null(),
+            "not L_Hair or L_HairColor", Null(),
             "renpy.showing('Laura_SexSprite')", "images/LauraSex/Laura_Sprite_Hair_Long_OverSex.png",
             "L_Hair == 'wet' or L_Water", "images/LauraSprite/Laura_Sprite_Hair_Wet_Over.png",
             "L_Hair", "images/LauraSprite/Laura_Sprite_Hair_Long_Over.png",
+            "True", Null(),
+            ),  
+        (0,0), ConditionSwitch(                                                                         
+            #Hair over
+            "not L_Hair or not L_HairColor", Null(),
+            "renpy.showing('Laura_SexSprite')", im.MatrixColor("images/LauraSex/Laura_Sprite_HairWhite_Long_OverSex.png",im.matrix.tint(float(L_HairCustomColor.red)/255.0, float(L_HairCustomColor.green)/255.0, float(L_HairCustomColor.blue)/255.0)),
+            "L_Hair == 'wet' or L_Water", im.MatrixColor("images/LauraSprite/Laura_Sprite_HairWhite_Wet_Over.png",im.matrix.tint(float(L_HairCustomColor.red)/255.0, float(L_HairCustomColor.green)/255.0, float(L_HairCustomColor.blue)/255.0)),
+            "L_Hair", im.MatrixColor("images/LauraSprite/Laura_Sprite_HairWhite_Long_Over.png",im.matrix.tint(float(L_HairCustomColor.red)/255.0, float(L_HairCustomColor.green)/255.0, float(L_HairCustomColor.blue)/255.0)),
             "True", Null(),
             ),    
         (0,0), ConditionSwitch(
@@ -2154,7 +2166,9 @@ image Laura_Sprite_BJ_HairBack:
     ConditionSwitch(                                                                         
             #Hair over
             "not L_Hair", Null(),
+            "L_HairColor and L_Hair == 'wet' or L_Water", im.MatrixColor("images/LauraSprite/Laura_Sprite_HairWhite_Wet_Under.png",im.matrix.tint(float(L_HairCustomColor.red)/255.0, float(L_HairCustomColor.green)/255.0, float(L_HairCustomColor.blue)/255.0)),
             "L_Hair == 'wet' or L_Water", "images/LauraSprite/Laura_Sprite_Hair_Wet_Under.png",
+            "L_HairColor and L_Hair", im.MatrixColor("images/LauraSprite/Laura_Sprite_HairWhite_Long_Under.png",im.matrix.tint(float(L_HairCustomColor.red)/255.0, float(L_HairCustomColor.green)/255.0, float(L_HairCustomColor.blue)/255.0)),
             "L_Hair", "images/LauraSprite/Laura_Sprite_Hair_Long_Under.png",
             "True", Null(),
             )        
@@ -2238,6 +2252,7 @@ image Laura_Sprite_BJ_Head:
             #Hair mid
             "L_Over == 'jacket'", Null(),
             "L_Hair == 'wet' or L_Water", Null(),
+            "L_HairColor and L_Hair", im.MatrixColor("images/LauraSprite/Laura_Sprite_HairWhite_Long_Mid.png",im.matrix.tint(float(L_HairCustomColor.red)/255.0, float(L_HairCustomColor.green)/255.0, float(L_HairCustomColor.blue)/255.0)),
             "L_Hair", "images/LauraSprite/Laura_Sprite_Hair_Long_Mid.png",
             "True", Null(),
             ),       
@@ -2248,9 +2263,16 @@ image Laura_Sprite_BJ_Head:
 #            ),
         (0,0), ConditionSwitch(                                                                         
             #Hair over
-            "not L_Hair", Null(),
+            "not L_Hair or L_HairColor", Null(),
             "L_Hair == 'wet' or L_Water", "images/LauraSprite/Laura_Sprite_Hair_Wet_Over.png",
             "L_Hair", "images/LauraSprite/Laura_Sprite_Hair_Long_Over.png",
+            "True", Null(),
+            ),  
+        (0,0), ConditionSwitch(                                                                         
+            #Hair over
+            "not L_Hair or not L_HairColor", Null(),
+            "L_Hair == 'wet' or L_Water", im.MatrixColor("images/LauraSprite/Laura_Sprite_HairWhite_Wet_Over.png",im.matrix.tint(float(L_HairCustomColor.red)/255.0, float(L_HairCustomColor.green)/255.0, float(L_HairCustomColor.blue)/255.0)),
+            "L_Hair", im.MatrixColor("images/LauraSprite/Laura_Sprite_HairWhite_Long_Over.png",im.matrix.tint(float(L_HairCustomColor.red)/255.0, float(L_HairCustomColor.green)/255.0, float(L_HairCustomColor.blue)/255.0)),
             "True", Null(),
             ),        
         (0,0), ConditionSwitch(

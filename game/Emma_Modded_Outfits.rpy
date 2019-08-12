@@ -538,62 +538,66 @@ label Emma_Modded_Clothes_Menu:
     #         $ E_Arms = "black gloves"
     #         ch_e "Ok."     
 
-    #     "Hair options":
+        "Hair options":
 
-    #         menu Emma_Modded_Clothes_Misc_Hair:
+            menu Emma_Modded_Clothes_Misc_Hair:
 
-    #             "You look good with your hair flowing." if E_Hair != "wave":
-    #                 if ApprovalCheck("Emma", 600):
-    #                     ch_e "Like this?"
-    #                     $ E_Hair = "wave"
-    #                 else:
-    #                     ch_e "Yes, I do."
-    #                 jump Emma_Modded_Clothes_Misc_Hair
+                "You look good with your hair flowing." if E_Hair != "wave":
+                    if ApprovalCheck("Emma", 600):
+                        ch_e "Like this?"
+                        $ E_Hair = "wave"
+                    else:
+                        ch_e "Yes, I do."
+                    jump Emma_Modded_Clothes_Misc_Hair
                         
-    #             "Maybe keep your hair straight." if E_Hair != "wet":
-    #                 if ApprovalCheck("Emma", 600):
-    #                     ch_e "You think?"
-    #                     $ E_Hair = "wet"
-    #                 else:
-    #                     ch_e "I tend to prefer it a bit more loose."
-    #                 jump Emma_Modded_Clothes_Misc_Hair
+                "Maybe keep your hair straight." if E_Hair != "wet":
+                    if ApprovalCheck("Emma", 600):
+                        ch_e "You think?"
+                        $ E_Hair = "wet"
+                    else:
+                        ch_e "I tend to prefer it a bit more loose."
+                    jump Emma_Modded_Clothes_Misc_Hair
         
-    #             "Maybe dye your hair black." if E_HairColor != "black":
-    #                 if ApprovalCheck("Emma", 600):
-    #                     ch_e "You think?"
-    #                     $ E_HairColor = "black"
-    #                 else:
-    #                     ch_e "I tend to prefer it the way it is."
-    #                 jump Emma_Modded_Clothes_Misc_Hair
+                # "Maybe dye your hair black." if E_HairColor != "black":
+                #     if ApprovalCheck("Emma", 600):
+                #         ch_e "You think?"
+                #         $ E_HairColor = "black"
+                #     else:
+                #         ch_e "I tend to prefer it the way it is."
+                #     jump Emma_Modded_Clothes_Misc_Hair
 
-    #             "Maybe dye your hair red." if E_HairColor != "red":
-    #                 if ApprovalCheck("Emma", 600):
-    #                     ch_e "You think?"
-    #                     $ E_HairColor = "red"
-    #                 else:
-    #                     ch_e "I tend to prefer it the way it is."
-    #                 jump Emma_Modded_Clothes_Misc_Hair
+                # "Maybe dye your hair red." if E_HairColor != "red":
+                #     if ApprovalCheck("Emma", 600):
+                #         ch_e "You think?"
+                #         $ E_HairColor = "red"
+                #     else:
+                #         ch_e "I tend to prefer it the way it is."
+                #     jump Emma_Modded_Clothes_Misc_Hair
 
 
-    #             "Maybe dye your hair white." if E_HairColor != "white":
-    #                 if ApprovalCheck("Emma", 600):
-    #                     ch_e "You think?"
-    #                     $ E_HairColor = "white"
-    #                 else:
-    #                     ch_e "I tend to prefer it the way it is."
-    #                 jump Emma_Modded_Clothes_Misc_Hair
+                "Maybe dye your hair.":
+                    if ApprovalCheck("Emma", 600):
+                        ch_e "You think?"
+                        call Recolor_Hair("Emma")
+                        call SetHairColorEmma("custom")
+                    else:
+                        ch_e "I tend to prefer it the way it is."
+                    jump Emma_Modded_Clothes_Misc_Hair
 
         
-    #             "Maybe dye your hair back to blonde." if E_HairColor and E_HairColor != "blonde":
-    #                 if ApprovalCheck("Emma", 600):
-    #                     ch_e "You think?"
-    #                     $ E_HairColor = "blonde"
-    #                 else:
-    #                     ch_e "I tend to prefer it the way it is."
-    #                 jump Emma_Modded_Clothes_Misc_Hair
+                "Maybe dye your hair back to blonde." if E_HairColor:
+                    if ApprovalCheck("Emma", 600):
+                        ch_e "You think?"
+                        # $ E_HairCustomColor.red = 255
+                        # $ E_HairCustomColor.green = 255
+                        # $ E_HairCustomColor.blue = 255
+                        call SetHairColorEmma("")
+                    else:
+                        ch_e "I tend to prefer it the way it is."
+                    jump Emma_Modded_Clothes_Misc_Hair
 
-    #             "Nevermind":
-    #                 jump Emma_Modded_Clothes_Misc
+                "Nevermind":
+                    jump Emma_Modded_Clothes_Misc
 
         "Neck options":
             menu Emma_Modded_Clothes_Misc_Neck:
@@ -754,6 +758,11 @@ label SetHoseEmma(Outfit = "modded fishnet"):
 
 label SetNeckEmma(Outfit = "modded fishnet"):
     $ E_Neck = Outfit
+    call Mod_Update_Emma_Image
+    return
+
+label SetHairColorEmma(Outfit = ""):
+    $ E_HairColor = Outfit
     call Mod_Update_Emma_Image
     return
 

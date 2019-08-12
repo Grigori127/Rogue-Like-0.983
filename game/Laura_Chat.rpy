@@ -3711,6 +3711,8 @@ label Laura_Clothes:
     call LauraFace
     menu:
         ch_l "what about my clothes?"
+        "Let's talk about your hair color.":
+                    jump Laura_Modded_Clothes_Misc_Hair
         "Let's talk about your outfits.":
                     jump Laura_Clothes_Outfits        
         "Let's talk about your over shirts.":
