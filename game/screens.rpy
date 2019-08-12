@@ -299,7 +299,6 @@ screen nvl(dialogue, items=None):
 # http://www.renpy.org/doc/html/screen_special.html#main-menu
 
 screen main_menu():
-
     # This ensures that any other menu screen is replaced.
     tag menu
 
@@ -321,6 +320,16 @@ screen main_menu():
         textbutton _("Disclaimer") action Show("Disclaimer_screen") #ui.callsinnewcontext("Disclaimer_screen_label")        
         textbutton _("Patreon") action OpenURL("http://www.patreon.com/OniArtist")       
         textbutton _("Quit") action Quit(confirm=False)
+    
+    frame:
+        # style_group "mm"
+        xalign .02
+        yalign .98
+        imagebutton:
+            auto "images/icon_discord_%s.png"
+            action OpenURL("https://discord.gg/TuF8YVX")
+            focus_mask True
+
 
 init -2:
 
