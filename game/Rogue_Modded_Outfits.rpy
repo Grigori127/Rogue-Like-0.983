@@ -1364,6 +1364,15 @@ init python:
             string = Null()
         return string
 
+    def GetOutfitString(first = "images/RogueSprite/Rogue_panties_", second = "test", third = ".png"):
+        if second:
+            string = first + second + third
+            if not renpy.loadable(string):
+                string = Null()
+        else:
+            string = Null()
+        return string
+
     def GetModdedString2Kitty(first = "images/RogueSprite/Rogue_panties_", second = "3", third = ".png"):
         second_ = int(second)
         if K_DynamicTan[second_]:

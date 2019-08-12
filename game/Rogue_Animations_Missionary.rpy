@@ -172,11 +172,15 @@ image Rogue_Sex_Body:
             "R_Pierce == 'ring'", "images/RogueSex/Rogue_Sex_Body_Tits_Ring.png",   
             "True", Null(),             
             ), 
-        
+        (0,0), ConditionSwitch(        
+            "not R_Hose", Null(),     
+            "True", GetOutfitString("images/RogueSex/Rogue_Sex_Hose_", R_Hose, ".png"),
+            ), 
         (0,0), ConditionSwitch(                                                                                 #tanktop
             "not R_Chest", Null(),        
-            "R_Chest == 'modded SR7 tank short'", "images/RogueSex/Rogue_Sex_SR7_Tank_Short.png",
-            "R_Chest == 'bra'", "images/RogueSex/Rogue_Sex_Under_Bra.png",
+            "True", GetOutfitString("images/RogueSex/Rogue_Sex_Chest_", R_Chest, ".png"),
+            # "R_Chest == 'modded SR7 tank short'", "images/RogueSex/Rogue_Sex_SR7_Tank_Short.png",
+            # "R_Chest == 'bra'", "images/RogueSex/Rogue_Sex_Under_Bra.png",
             "True", Null(),            
             ), 
         # (0,0), ConditionSwitch(
@@ -195,11 +199,12 @@ image Rogue_Sex_Body:
             ), 
         (0,0), ConditionSwitch(                                                                                 #Overshirt
             "not R_Over", Null(),
+            "True", GetOutfitString("images/RogueSex/Rogue_Sex_Over_", R_Over, ".png"),
             # "R_Over == 'armbinder'", "images/RogueSex/RogueSexArmbinderOvershirt.png",
-            "R_Over == 'modded classic jacket'", "images/RogueSex/Rogue_Sex_Over_XJacket.png",           
-            "R_Over == 'modded SR7 mesh top'", "images/RogueSex/Rogue_Sex_Over_SR7_Mesh_Top.png",           
-            "R_Over == 'modded blue dress'", "images/RogueSex/Rogue_Sex_Bluedress.png",           
-            "R_Over == 'modded red dress'", "images/RogueSex/Rogue_Sex_Reddress.png",           
+            # "R_Over == 'modded classic jacket'", "images/RogueSex/Rogue_Sex_Over_XJacket.png",           
+            # "R_Over == 'modded SR7 mesh top'", "images/RogueSex/Rogue_Sex_Over_SR7_Mesh_Top.png",           
+            # "R_Over == 'modded blue dress'", "images/RogueSex/Rogue_Sex_Bluedress.png",           
+            # "R_Over == 'modded red dress'", "images/RogueSex/Rogue_Sex_Reddress.png",           
             "True", Null(), 
             ),  
         (140,-240), "Rogue_Head_Sex",  #check positioning (400,-300)
@@ -254,19 +259,17 @@ image Rogue_Sex_Legs:
         (0,0), "Rogue_Sex_Pussy",                                                                         #Pussy Composite
 
         (0,0), ConditionSwitch(                                                                                 #Panties if up
-            "R_PantiesDown", Null(),     
-            "R_Panties == 'black panties' and R_Wet", "images/RogueSex/Rogue_Sex_Panties_Wet.png",
-            "R_Panties == 'black panties'", "images/RogueSex/Rogue_Sex_Panties.png",
-            "True", Null(),                     
+            "R_PantiesDown or not R_Panties", Null(),     
+            "R_Wet", GetOutfitString("images/RogueSex/Rogue_Sex_Panties_", R_Panties, "_Wet.png"),
+            "True", GetOutfitString("images/RogueSex/Rogue_Sex_Panties_", R_Panties, ".png"),
             ),  
         (0,0), ConditionSwitch(        
-            "R_Hose == 'modded SR7 hose'", "images/RogueSex/Rogue_Sex_SR7_Hose_Legs.png",
-            "True", Null(),                      
+            "not R_Hose", Null(),     
+            "True", GetOutfitString("images/RogueSex/Rogue_Sex_Hose_", R_Hose, "_Legs.png"),
             ), 
         (0,0), ConditionSwitch(                                                                                 #Legs Layer
-            #"R_Legs == 'blue skirt'", "images/RogueSex/Rogue_Sex_Skirt.png",   
-            "R_Legs == 'modded SR7 skirtshort'", "images/RogueSex/Rogue_Sex_SR7_Skirt_Short.png",
-            "True", Null(),                      
+            "not R_Legs", Null(),     
+            "True", GetOutfitString("images/RogueSex/Rogue_Sex_Legs_", R_Legs, ".png"),
             ),   
         # (0,0), ConditionSwitch(                                                                                 #Over Layer
         #     "R_Over == 'towel'", "images/RogueSex/Rogue_Sex_Towel_Legs.png",
@@ -295,7 +298,8 @@ image Rogue_Sex_Legs:
             ),
         )
     
-image Rogue_Sex_Feet = LiveComposite(                                                                                          
+image Rogue_Sex_Feet:
+    LiveComposite(                                                                                          
         #the lower legs used in the sex pose, referenced by Rogue_Sex_Legs
         (1120,840), 
         (0,0), ConditionSwitch(
@@ -303,9 +307,9 @@ image Rogue_Sex_Feet = LiveComposite(
             "True", "images/RogueSex/Rogue_Sex_Feet.png",
             ),                                                         #Legs Base
         (0,0), ConditionSwitch(
-            "R_Hose == 'modded SR7 hose'", "images/RogueSex/Rogue_Sex_SR7_Hose_Feet.png",  
-            "True", Null(),
-            ),
+            "not R_Hose", Null(),     
+            "True", GetOutfitString("images/RogueSex/Rogue_Sex_Hose_", R_Hose, "_Feet.png"),
+            ), 
         (0,0), ConditionSwitch(                                                                                 #Wet look
             "R_Water", "images/RogueSex/Rogue_Sex_Water_Feet.png",   
             "True", Null(),              

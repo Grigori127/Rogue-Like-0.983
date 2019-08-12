@@ -387,6 +387,10 @@ image Rogue:
             "not R_Chest", Null(),             
             "R_Uptop", ConditionSwitch( 
                     #if the top's down. . .
+                    "'modded' in R_Chest and 'crop top' in R_Chest", ConditionSwitch(
+                        "Rogue_Arms == 1", GetModdedString("images/RogueSprite/Rogue_Sprite_chest_", R_Chest, "1_Up.png"),
+                        "True", GetModdedString("images/RogueSprite/Rogue_Sprite_chest_", R_Chest, "2_Up.png"),
+                        ),
                     "R_Chest == 'tank'", "images/RogueSprite/Rogue_chest_tank_Up.png",
                     "R_Chest == 'buttoned tank'", "images/RogueSprite/Rogue_chest_tank2_Up.png",            
                     "R_Chest == 'bra'", "images/RogueSprite/Rogue_chest_bra_Up.png",                         
