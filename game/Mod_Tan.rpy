@@ -7,6 +7,7 @@
         $ K_DynamicTan[2] = K_Legs
         $ K_DynamicTan[3] = K_Chest
         $ K_DynamicTan[4] = K_Panties
+        $ K_DynamicTan[5] = K_Hose
         call Wait(0,0)
         "Kitty sunbathes for a while"
         hide blackscreen onlayer black
@@ -20,6 +21,7 @@
         $ R_DynamicTan[2] = R_Legs
         $ R_DynamicTan[3] = R_Chest
         $ R_DynamicTan[4] = R_Panties
+        $ R_DynamicTan[5] = R_Hose
         call Wait(0,0)
         "Rogue sunbathes for a while"
         hide blackscreen onlayer black

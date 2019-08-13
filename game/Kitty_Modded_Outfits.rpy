@@ -924,7 +924,7 @@ init python:
                 else:
                     string = "images/Kitty" + str(third) + "/KittyTan/Kitty_" + str(third) + "_Chest_tan " + str(K_DynamicTan[first_]) + second
                     if not renpy.loadable(string):
-                        string = "images/Kitty" + str(third) + "/Kitty_" + str(third) + "_Chest_" + str(K_DynamicTan[first_]) + ".png"
+                        string = "images/Kitty" + str(third) + "KittyTan/Kitty_" + str(third) + "_Chest_tan " + str(K_DynamicTan[first_]) + ".png"
                         if not renpy.loadable(string):
                             string = Null()
 
@@ -939,7 +939,7 @@ init python:
                 else:
                     string = "images/Kitty" + str(third) + "/KittyTan/Kitty_" + str(third) + "_Over_tan " + str(K_DynamicTan[first_]) + second
                     if not renpy.loadable(string):
-                        string = "images/Kitty" + str(third) + "/Kitty_" + str(third) + "_Over_" + str(K_DynamicTan[first_]) + ".png"
+                        string = "images/Kitty" + str(third) + "KittyTan/Kitty_" + str(third) + "_Over_tan " + str(K_DynamicTan[first_]) + ".png"
                         if not renpy.loadable(string):
                             string = Null()
 

@@ -2,8 +2,7 @@
 errors listed below, and try again.
 
 
-File "game/Mod_Variables.rpy", line 1176: invalid syntax
-        im.matrix.desaturate() * im.matrix.tint(0.9, 0.9, 1.0))
-          ^
+File "game/Rogue_Animations.rpy", line 953: is not terminated with a newline. (Check strings and parenthesis.)
+        LiveComposite(                                                                                         
 
-Ren'Py Version: Ren'Py 6.99.13.2919
+Ren'Py Version: Ren'Py 6.99.14.3135
