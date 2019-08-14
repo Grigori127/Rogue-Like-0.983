@@ -35,6 +35,7 @@ label  mod_default_Variables:
     default R_Tan = 0
     default R_BodySuit = 0
     default R_HairColor = ""
+    default R_HairTint = 0
     default R_Plugged = 0
     default R_BodySuitOff = 0
     default R_Accessory = 0
@@ -100,6 +101,7 @@ label  mod_default_Variables:
     default K_HairCustomColor = SetColor("Kitty","Hair")
     default E_HairCustomColor = SetColor("Emma","Hair")
     default L_HairCustomColor = SetColor("Laura","Hair")
+    default R_HairCustomColor = SetColor("Rogue","Hair")
 
     return
 
@@ -1234,6 +1236,9 @@ label Recolor_Hair(Girl = "Kitty"):
     elif Girl == "Laura":
         $ L_HairCustomColor.screen_loop()
         call Mod_Update_Laura_Image
+    elif Girl == "Rogue":
+        $ R_HairCustomColor.screen_loop()
+        call Mod_Update_Rogue_Image
     return
 
 
@@ -1312,6 +1317,34 @@ screen recolor_screen_Laura_Hair:
         bar:
             xalign 0.5
             value FieldValue(L_HairCustomColor, 'tempblue', 255, max_is_zero=False, style='scrollbar', offset=0, step=1)
+            xmaximum 255
+    
+    textbutton "Apply" align(0.45, 0.95):
+        action Return(['apply'])
+    textbutton "Quit" align(0.55, 0.95):
+        action Return(['quit'])
+
+
+screen recolor_screen_Rogue_Hair:
+
+    add(im.MatrixColor("images/RogueBJFace/Rogue_bj_hairWhite_back.png",im.matrix.tint(float(R_HairCustomColor.tempred)/255.0, float(R_HairCustomColor.tempgreen)/255.0, float(R_HairCustomColor.tempblue)/255.0))) align(0.5, 0.1)
+        
+    text ("{size=-5}RGB Values: Red: %s, Green: %s, Blue: %s !!!"%(R_HairCustomColor.tempred, R_HairCustomColor.tempgreen, R_HairCustomColor.tempblue)) align(0.5, 0.6)    
+        
+    vbox align(0.5, 0.7):
+        bar:
+            xalign 0.5
+            value FieldValue(R_HairCustomColor, 'tempred', 255, max_is_zero=False, style='scrollbar', offset=0, step=1)
+            xmaximum 255
+            
+        bar:
+            xalign 0.5
+            value FieldValue(R_HairCustomColor, 'tempgreen', 255, max_is_zero=False, style='scrollbar', offset=0, step=1)
+            xmaximum 255
+            
+        bar:
+            xalign 0.5
+            value FieldValue(R_HairCustomColor, 'tempblue', 255, max_is_zero=False, style='scrollbar', offset=0, step=1)
             xmaximum 255
     
     textbutton "Apply" align(0.45, 0.95):

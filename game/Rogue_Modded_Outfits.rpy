@@ -986,6 +986,11 @@ label Rogue_Modded_Clothes_Menu:
                         ch_r "Like this?"
                         call SetHairColorRogue("blondewhite")
 
+                    "Let me select the color.":
+                        ch_k "You think so?"
+                        call Recolor_Hair("Rogue")
+                        call SetHairColorRogue("custom")
+
                 #ch_r "You think so?"
                 #"She rummages in her bag and grabs some gel, running it through her hair."
             else:
