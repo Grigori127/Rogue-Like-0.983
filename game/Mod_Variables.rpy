@@ -102,6 +102,15 @@ label  mod_default_Variables:
     default E_HairCustomColor = SetColor("Emma","Hair")
     default L_HairCustomColor = SetColor("Laura","Hair")
     default R_HairCustomColor = SetColor("Rogue","Hair")
+    default newgirl = {"Mystique" : Girlnew("Mystique"),    #The LikeOtherGirl attribute should be set for each new girl
+                       # "Laura" : Girlnew("Laura")
+                        }
+    default ModdedGirls = ["Mystique"] #List with all modded girls
+    default GwenStage = 0
+    default P_Hands = 0
+
+
+    define ch_m = Character('[newgirl[Mystique].GirlName]', color="#646dbb", image = "arrow", show_two_window=True)
 
     return
 

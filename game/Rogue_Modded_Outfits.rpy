@@ -1207,8 +1207,61 @@ init python:
                             return 2        
                         else:
                             return 0
+
+                elif Chr in ModdedGirls:
+                        if newgirl[Chr].Legs == "pants":
+                            return 10
+                        if newgirl[Chr].Legs == "workout pants":
+                            return 10
+                        elif newgirl[Chr].Legs == "skirt":
+                            return 3
+                        elif newgirl[Chr].Legs == "black skirt":
+                            return 3
+                        elif newgirl[Chr].Legs == "split skirt":
+                            return 3
+                        else:
+                            return 0
                             
                 #if it falls though. . .
+                return 0 
+
+    def ModHoseNum(Chr = "Rogue"): 
+            #This function determines how seethrough her hose is, 5 for "visible," 10 for "solid"
+                # if Chr == "Rogue":
+                #             if R_Hose == "stockings":
+                #                 return 1
+                #             elif R_Hose == "pantyhose":
+                #                 return 6
+                #             elif R_Hose == "tights":
+                #                 return 10
+                #             elif R_Hose == "ripped pantyhose":
+                #                 return 5
+                #             elif R_Hose == "ripped tights":
+                #                 return 5
+                #             elif R_Hose == "fishnet":
+                #                 return 1
+                #             elif R_Hose == "SR7 hose":
+                #                 return 1
+                #             else:
+                #                 return 0
+                                
+                # elif Chr == "Kitty":
+                #             if K_Hose == "stockings":
+                #                 return 1
+                #             else:
+                #                 return 0
+                # elif Chr == "Emma":
+                #             if E_Hose == "stockings":
+                #                 return 1
+                #             else:
+                #                 return 0
+                if Chr in ModdedGirls:
+                            if newgirl[Chr].Hose == "stockings":
+                                return 1
+                            else:
+                                return 0
+                                
+                #if it falls though. . .        
                 return 0 
 
     def IsOutfitModdedRogue(Type = "Over"):

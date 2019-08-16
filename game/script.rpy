@@ -1296,7 +1296,7 @@ label EventCalls:
                             jump Campus_Entry
                         "No":
                             "Suit yourself. . ."
-        
+        call Mod_EventCalls
         if Day < 5 or Round < 10:
                     return
                     

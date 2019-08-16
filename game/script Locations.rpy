@@ -54,6 +54,9 @@ label Worldmap:
         "The showers":
                     $ renpy.pop_call() 
                     jump Shower_Room_Entry    
+        "Brotherhood" if "met" in newgirl["Mystique"].History and not IsGirlInParty(): 
+                    $ renpy.pop_call() 
+                    jump Brotherhood_Entry
         "The pool": 
                     $ renpy.pop_call() 
                     jump Pool_Entry           
@@ -648,6 +651,8 @@ label Campus:
                     jump Danger_Room_Entry
         "Go to the showers" if TravelMode: 
                     jump Shower_Room_Entry   
+        "Go to Brotherhood" if TravelMode and "met" in newgirl["Mystique"].History and not IsGirlInParty(): 
+                    jump Brotherhood_Entry
         "Go to the pool" if TravelMode: 
                     jump Pool_Entry         
         "Xavier's Study" if TravelMode: 
